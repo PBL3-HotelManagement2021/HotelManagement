@@ -17,19 +17,7 @@ namespace HotelManagement.BBL.Implement
                    );
         private Mapper mapper;
 
-        private static RoomTypeBLL _Instance;
-        public static RoomTypeBLL Instance
-        {
-            get
-            {
-                if (_Instance == null)
-                {
-                    _Instance = new RoomTypeBLL();
-                }
-                return _Instance;
-            }
-            private set { }
-        }
+       
         public RoomTypeBLL()
         {
             _roomTypeDAL = new RoomtypeDAL();
@@ -92,7 +80,6 @@ namespace HotelManagement.BBL.Implement
                 {
                     ImgStorage imgStorage = new ImgStorage();
                     if (kvp.Key > 0) imgStorage.IdImgsto = kvp.Key;
-
                     imgStorage.ImgstoIdrootyp = roomTypeVM.IdRoomtype;
                     imgStorage.ImgstoUrl = kvp.Value;
                     roomType.ImgStorages.Add(imgStorage);
