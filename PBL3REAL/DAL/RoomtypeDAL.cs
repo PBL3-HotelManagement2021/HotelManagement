@@ -23,7 +23,7 @@ namespace HotelManagement.DAL.Implement
 
         public List<RoomType> getAll()
         {
-            var result = _appDbContext.RoomTypes.Include(x => x.ImgStorages).ToList();
+            var result = _appDbContext.RoomTypes.ToList();
             return result;
         }
 

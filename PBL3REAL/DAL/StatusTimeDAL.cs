@@ -25,7 +25,12 @@ namespace HotelManagement.DAL.Impl
             }
 
         }
+       
 
+        public List<StatusTime> findByIdRoom(int idroom)
+        {
+            return _appDbContext.StatusTimes.Where(x => x.StatimIdroom == idroom).AsNoTracking().ToList();
+        }
         public void delete(List<int> listdel)
         {
             List<StatusTime>list = new List<StatusTime>();

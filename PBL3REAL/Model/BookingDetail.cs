@@ -23,6 +23,10 @@ namespace PBL3REAL.Model
         [Column("boodet_idroom")]
         public int BoodetIdroom { get; set; }
 
+        [Column("boodet_note")]
+        [StringLength(200)]
+        public string BooDetNote { get; set; }
+
         [ForeignKey(nameof(BoodetIdbook))]
         [InverseProperty(nameof(Booking.BookingDetails))]
         public virtual Booking BoodetIdbookNavigation { get; set; }

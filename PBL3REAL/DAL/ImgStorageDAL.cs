@@ -1,7 +1,9 @@
 ﻿
+using Microsoft.EntityFrameworkCore;
 using PBL3REAL.Model;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace HotelManagement.DAL.Implement
@@ -14,11 +16,36 @@ namespace HotelManagement.DAL.Implement
             _appDbContext = new AppDbContext();
 
         }
-        public void delete(int id)
+        public void delete(List<int> listdel)
         {
-            ImgStorage imgStorage = _appDbContext.ImgStorages.Find(id);
-            _appDbContext.ImgStorages.Remove(imgStorage);
+            List<ImgStorage> list = new List<ImgStorage>();
+            foreach(int id in listdel)
+            {
+                ImgStorage imgStorage = _appDbContext.ImgStorages.Find(id);
+                _appDbContext.Entry(imgStorage).State = EntityState.Detached;
+                if (imgStorage != null) list.Add(imgStorage);
+            }
+            
+            _appDbContext.ImgStorages.RemoveRange(list);
             _appDbContext.SaveChanges();
+        }
+        public void add(List<ImgStorage> listadd)
+        {
+            try
+            {
+                _appDbContext.ImgStorages.AddRange(listadd);
+                _appDbContext.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+
+        public List<ImgStorage> findByIDRoomtype(int id)
+        {
+            List< ImgStorage> result = _appDbContext.ImgStorages.Where(x => x.ImgstoIdrootyp ==id).ToList();
+            return result;
         }
     }
 }

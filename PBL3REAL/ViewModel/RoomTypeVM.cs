@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PBL3REAL.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -8,7 +9,7 @@ namespace HotelManagement.ViewModel
     {
         public RoomTypeVM()
         {
-            /*      ListImgURL = new List<string>();*/
+            ListImg = new List<ImageVM>();
             MapImgUrl = new Dictionary<int, string>();
         }
         public int IdRoomtype { get; set; }
@@ -18,6 +19,6 @@ namespace HotelManagement.ViewModel
         public int RotyCapacity { get; set; }
 
         public IDictionary<int, string> MapImgUrl { get; set; }
-        /*   public List<string>ListImgURL { get; set;}*/
+        public List<ImageVM> ListImg { get; set; }
     }
 }

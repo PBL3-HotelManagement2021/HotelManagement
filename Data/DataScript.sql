@@ -38,12 +38,13 @@ INSERT INTO HotelManagementREAL.dbo.auth(  auth_idrole, auth_idmenu, auth_permis
 INSERT INTO HotelManagementREAL.dbo.auth( auth_idrole, auth_idmenu, auth_permission, auth_activeflag, auth_createdate, auth_updatedate ) VALUES (  1, 3, 1, 1, '2021-04-18', '2021-04-18');
 INSERT INTO HotelManagementREAL.dbo.auth(  auth_idrole, auth_idmenu, auth_permission, auth_activeflag, auth_createdate, auth_updatedate ) VALUES (  1, 4, 1, 1, '2021-04-18', '2021-04-18');
 INSERT INTO HotelManagementREAL.dbo.auth(  auth_idrole, auth_idmenu, auth_permission, auth_activeflag, auth_createdate, auth_updatedate ) VALUES (  1, 5, 1, 1, '2021-04-18', '2021-04-18');
-INSERT INTO HotelManagementREAL.dbo.room( id_room, room_name, room_description, room_idroomtype ) VALUES ( 2, 'A101', null, 2);
-INSERT INTO HotelManagementREAL.dbo.room( id_room, room_name, room_description, room_idroomtype ) VALUES ( 3, 'A102', null, 5);
-INSERT INTO HotelManagementREAL.dbo.room( id_room, room_name, room_description, room_idroomtype ) VALUES ( 4, 'A103', null, 4);
-INSERT INTO HotelManagementREAL.dbo.room( id_room, room_name, room_description, room_idroomtype ) VALUES ( 5, 'A104', null, 1);
-INSERT INTO HotelManagementREAL.dbo.room( id_room, room_name, room_description, room_idroomtype ) VALUES ( 6, 'A105', null, 2);
-INSERT INTO HotelManagementREAL.dbo.room( id_room, room_name, room_description, room_idroomtype ) VALUES ( 7, 'A106', null, 1);
+
+INSERT INTO HotelManagementREAL.dbo.room(  room_name, room_description, room_idroomtype ) VALUES (  'A101', null, 2);
+INSERT INTO HotelManagementREAL.dbo.room(  room_name, room_description, room_idroomtype ) VALUES (  'A102', null, 5);
+INSERT INTO HotelManagementREAL.dbo.room( room_name, room_description, room_idroomtype ) VALUES ( 'A103', null, 4);
+INSERT INTO HotelManagementREAL.dbo.room (room_name, room_description, room_idroomtype ) VALUES ( 'A104', null, 1);
+INSERT INTO HotelManagementREAL.dbo.room(  room_name, room_description, room_idroomtype ) VALUES ( 'A105', null, 2);
+INSERT INTO HotelManagementREAL.dbo.room( room_name, room_description, room_idroomtype ) VALUES ( 'A106', null, 1);
 
 
 insert into HotelManagementREAL.dbo.status(sta_name , sta_description) values ('Maintained','Room is maintained for better service');

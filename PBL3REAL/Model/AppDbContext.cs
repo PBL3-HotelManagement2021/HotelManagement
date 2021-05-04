@@ -89,6 +89,7 @@ namespace PBL3REAL.Model
 
             modelBuilder.Entity<BookingDetail>(entity =>
             {
+                entity.Property(e => e.BooDetNote).IsUnicode(false);
                 entity.HasKey(e => e.IdBoodet)
                     .HasName("Pk_appointment_detail_id_appdet");
 

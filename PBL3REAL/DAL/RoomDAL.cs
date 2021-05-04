@@ -1,4 +1,5 @@
 ﻿
+using HotelManagement.Extention;
 using Microsoft.EntityFrameworkCore;
 using PBL3REAL.Model;
 using System;
@@ -27,14 +28,10 @@ namespace HotelManagement.DAL.Implement
                 bool tracking = _appDbContext.ChangeTracker.Entries<Room>().Any(x => x.Entity.IdRoom == room.IdRoom);
                 if (tracking) throw new InvalidOperationException("Error while updating room");
                 else
-                {
-                    //    _appDbContext.transaction = (Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerTransaction)_appDbContext.Database.BeginTransaction();
-                    //     _appDbContext.transaction.CreateSavepoint("Before update StatusTime");
-                    //     _appDbContext.Entry(room.StatusTimes).State = EntityState.Detached;
+                {        
                     _appDbContext.Rooms.Update(room);
                     _appDbContext.SaveChanges();
                     _appDbContext.Entry(room).State = EntityState.Detached;
-                    //    _appDbContext.transaction.Commit();
                 }
             }
             catch (Exception e)
@@ -42,18 +39,31 @@ namespace HotelManagement.DAL.Implement
                 throw;
             }
         }
-        public void delete(List<int> listdel)
+
+        public void add(Room room)
         {
-            List<Room> listRoom = new List<Room>();
-            foreach (int i in listdel)
+            try {
+                _appDbContext.Rooms.Add(room);
+                _appDbContext.SaveChanges();
+                _appDbContext.Entry(room).State = EntityState.Detached;            
+        }
+            catch (Exception e)
             {
-                Room room = _appDbContext.Rooms.Find(i);
-                if (room != null) listRoom.Add(room);
+                throw;
             }
+}
+        public void delete(int id)
+        {
+       
             try
             {
-                _appDbContext.Rooms.RemoveRange(listRoom);
-                _appDbContext.SaveChanges();
+                Room room = _appDbContext.Rooms.Find(id);
+                if (room != null)
+                {
+                    _appDbContext.Rooms.Remove(room);
+                    _appDbContext.SaveChanges();
+                }
+               
             }
             catch (Exception e)
             {
@@ -62,19 +72,45 @@ namespace HotelManagement.DAL.Implement
         }
         public Room findbyid(int id)
         {
-            return _appDbContext.Rooms.Find(id);
+            var result = _appDbContext.Rooms.Where(x =>x.IdRoom ==id).Include(x => x.RoomIdroomtypeNavigation)
+                                           .Include(x => x.StatusTimes)
+                                           .ThenInclude(y => y.StatimIdstatusNavigation)
+                                           .AsNoTracking()
+                                           .SingleOrDefault();
+            return result;
         }
 
-        public List<Room> getall(int start, int length, string orderby)
+        public List<Room> getall(int start, int length, int idroomtype , string name)
         {
+            var predicate = PredicateBuilder.True<Room>();
 
-            var result = _appDbContext.Rooms.Include(x => x.RoomIdroomtypeNavigation)
-                                            .Include(x => x.StatusTimes)
-                                            .ThenInclude(y => y.StatimIdstatusNavigation)
+            if (idroomtype!=0) predicate = predicate.And(x => x.RoomIdroomtype == idroomtype);
+
+            if (!string.IsNullOrEmpty(name)) predicate = predicate.And(x => x.RoomName.Contains(name));
+
+    
+
+            var result = _appDbContext.Rooms.Where(predicate).Include(x => x.RoomIdroomtypeNavigation)
                                             .Skip(start).Take(length)
                                             .AsNoTracking()
                                             .ToList();
             return result;
+        }
+
+        public int getnextid()
+        {
+            int id;
+            using (var command = _appDbContext.Database.GetDbConnection().CreateCommand())
+            {
+                command.CommandText = "SELECT IDENT_CURRENT('room')+1";
+                _appDbContext.Database.OpenConnection();
+                using (var result = command.ExecuteReader())
+                {
+                    result.Read();
+                    id = Decimal.ToInt32((decimal)result[0]);
+                }
+            }
+            return id;
         }
 
     }
