@@ -115,7 +115,7 @@ namespace PBL3REAL.View
 
         private void btnroty_add_Click(object sender, EventArgs e)
         {
-            Form f = new Form_Detail_Room_Categorycs(0);
+            Form f = new Form_Detail_Room_Category(0);
             f.Show();
         }
 
@@ -129,8 +129,8 @@ namespace PBL3REAL.View
                 }
                 else
                 {
-                    int idRoomType = Int32.Parse(r[0].Cells["IdRoom"].Value.ToString());
-                    Form f = new Form_Detail_Room_Categorycs(idRoomType);
+                    int idRoomType = Int32.Parse(r[0].Cells["IdRoomtype"].Value.ToString());
+                    Form f = new Form_Detail_Room_Category(idRoomType);
                     f.Show();
                
             }

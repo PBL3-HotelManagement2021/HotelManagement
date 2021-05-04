@@ -4,13 +4,16 @@
     <Compile Update="View\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="View\Form_Booking.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="View\Form_Details_Invoice.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="View\Form_Detail_Room.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="View\Form_Detail_Room_Categorycs.cs">
+    <Compile Update="View\Form_Detail_Room_Category.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="View\Form_Home_Admin.cs">

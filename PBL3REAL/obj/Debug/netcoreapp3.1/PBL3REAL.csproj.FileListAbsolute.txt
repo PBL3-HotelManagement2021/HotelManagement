@@ -56,8 +56,9 @@ D:\C#\DO_AN\PBL3REAL\PBL3REAL\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstanda
 D:\C#\DO_AN\PBL3REAL\PBL3REAL\obj\Debug\netcoreapp3.1\PBL3REAL.csproj.CopyComplete
 D:\C#\DO_AN\PBL3REAL\PBL3REAL\obj\Debug\netcoreapp3.1\PBL3REAL.View.Form_Details_Invoice.resources
 D:\C#\DO_AN\PBL3REAL\PBL3REAL\obj\Debug\netcoreapp3.1\HotelManagement.View.Form_Detail_Room.resources
-D:\C#\DO_AN\PBL3REAL\PBL3REAL\obj\Debug\netcoreapp3.1\HotelManagement.View.Form_Detail_Room_Categorycs.resources
 D:\C#\DO_AN\PBL3REAL\PBL3REAL\obj\Debug\netcoreapp3.1\PBL3REAL.View.Form_Home_Admin.resources
 D:\C#\DO_AN\PBL3REAL\PBL3REAL\obj\Debug\netcoreapp3.1\PBL3REAL.View.Form_Login.resources
 D:\C#\DO_AN\PBL3REAL\PBL3REAL\obj\Debug\netcoreapp3.1\PBL3REAL.View.UserControl_Accountant_Admin.resources
 D:\C#\DO_AN\PBL3REAL\PBL3REAL\obj\Debug\netcoreapp3.1\PBL3REAL.View.UserControl_Receptionist_Admin.resources
+D:\C#\DO_AN\PBL3REAL\PBL3REAL\obj\Debug\netcoreapp3.1\PBL3REAL.View.Form_Booking.resources
+D:\C#\DO_AN\PBL3REAL\PBL3REAL\obj\Debug\netcoreapp3.1\PBL3REAL.View.Form_Detail_Room_Category.resources
