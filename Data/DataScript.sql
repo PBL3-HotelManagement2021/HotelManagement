@@ -51,6 +51,9 @@ insert into HotelManagementREAL.dbo.status(sta_name , sta_description) values ('
 insert into HotelManagementREAL.dbo.status(sta_name , sta_description) values ('Bookes','This room is being booked');
 insert into HotelManagementREAL.dbo.status(sta_name , sta_description) values ('Occupied','Guests have already taken this room');
 
+insert into client (cli_name,cli_gmail,cli_phone) values('Cuong','cuongit2k1@gmail.com','0912345678');
+insert into client (cli_name,cli_gmail,cli_phone) values('Toan','Toanit2k1@gmail.com','1234567890');
+insert into client (cli_name,cli_gmail,cli_phone) values('Nhat','Nhatit2k1@gmail.com','0987654321');
 
 insert into HotelManagementREAL.dbo.status_time(statim_fromdate,statim_todate,statim_idroom,statim_idstatus) values ('03/15/2021','03/08/2021',1,1);
 insert into HotelManagementREAL.dbo.status_time(statim_fromdate,statim_todate,statim_idroom,statim_idstatus) values ('03/01/2021','02/21/2021',2,2);

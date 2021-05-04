@@ -44,6 +44,7 @@ namespace HotelManagement.DAL.Implement
         {
             try {
                 _appDbContext.Rooms.Add(room);
+                /*_appDbContext.Entry(room.StatusTimes).State = EntityState.Detached;*/
                 _appDbContext.SaveChanges();
                 _appDbContext.Entry(room).State = EntityState.Detached;            
         }
@@ -52,17 +53,21 @@ namespace HotelManagement.DAL.Implement
                 throw;
             }
 }
-        public void delete(int id)
+        public void delete(List<int> listdel)
         {
-       
+            List<Room> list = new List<Room>();
             try
             {
-                Room room = _appDbContext.Rooms.Find(id);
-                if (room != null)
+                foreach(int id in listdel)
                 {
-                    _appDbContext.Rooms.Remove(room);
-                    _appDbContext.SaveChanges();
+                    Room room = _appDbContext.Rooms.Find(id);
+                    if (room != null) list.Add(room);
                 }
+               
+             
+                    _appDbContext.Rooms.RemoveRange(list);
+                    _appDbContext.SaveChanges();
+                
                
             }
             catch (Exception e)

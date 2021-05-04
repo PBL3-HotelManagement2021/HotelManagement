@@ -25,9 +25,10 @@ namespace HotelManagement.View
             this.idRoom = idRoom;
             _roomBLL = new RoomBLL();
             _roomTypeBLL = new RoomTypeBLL();
-            if (idRoom != 0) loadData();
             comboboxRoomType();
             comboboxStatus();
+            if (idRoom != 0) loadData();
+            else roomDetailVM = new RoomDetailVM();
             listdel = new List<int>();
         }
 
@@ -67,7 +68,7 @@ namespace HotelManagement.View
             for (int i = 0; i < comboBox1.Items.Count; i++)
             {
                 CbbItem cbbItem = (CbbItem)comboBox1.Items[i];
-                if (cbbItem.text.Equals(roomDetailVM.RoTyName))
+                if (cbbItem.text == roomDetailVM.RoTyName )
                 {
                     comboBox1.SelectedIndex = i;
                     break;
@@ -107,7 +108,16 @@ namespace HotelManagement.View
             roomDetailVM.RoomName = textBox1.Text;
             roomDetailVM.RoomDescription = textBox2.Text;
             roomDetailVM.IdRoomType = ((CbbItem)comboBox1.SelectedItem).Value;
-            _roomBLL.editRoom(roomDetailVM,listdel);
+            if (idRoom != 0)
+            {
+               
+                _roomBLL.editRoom(roomDetailVM, listdel);
+            }
+            else
+            {
+                _roomBLL.addRoom(roomDetailVM);
+            }
+           
             this.Dispose();
         }
 
@@ -126,6 +136,11 @@ namespace HotelManagement.View
                 }    
             }
             addDataGridView();
+        }
+
+        private void btncancel_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

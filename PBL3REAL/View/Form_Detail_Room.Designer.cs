@@ -48,7 +48,7 @@ namespace HotelManagement.View
             this.label7 = new System.Windows.Forms.Label();
             this.btnadd = new System.Windows.Forms.Button();
             this.btnOke = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btncancel = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
@@ -281,21 +281,22 @@ namespace HotelManagement.View
             this.btnOke.UseVisualStyleBackColor = true;
             this.btnOke.Click += new System.EventHandler(this.btnOke_Click);
             // 
-            // button2
+            // btncancel
             // 
-            this.button2.Location = new System.Drawing.Point(612, 405);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btncancel.Location = new System.Drawing.Point(612, 405);
+            this.btncancel.Name = "btncancel";
+            this.btncancel.Size = new System.Drawing.Size(75, 23);
+            this.btncancel.TabIndex = 10;
+            this.btncancel.Text = "CANCEL";
+            this.btncancel.UseVisualStyleBackColor = true;
+            this.btncancel.Click += new System.EventHandler(this.btncancel_Click);
             // 
             // Form_Detail_Room
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(993, 455);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btncancel);
             this.Controls.Add(this.btnOke);
             this.Controls.Add(this.btnadd);
             this.Controls.Add(this.tableLayoutPanel2);
@@ -337,6 +338,6 @@ namespace HotelManagement.View
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnadd;
         private System.Windows.Forms.Button btnOke;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btncancel;
     }
 }

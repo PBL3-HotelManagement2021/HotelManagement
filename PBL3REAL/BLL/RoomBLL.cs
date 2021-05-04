@@ -62,14 +62,14 @@ namespace HotelManagement.BLL.Implement
             }
         }*/
 
-        public void addRoom(RoomDetailVM roomVM)
+        public void addRoom(RoomDetailVM roomDetailVM)
         {
             int idRoom = _roomDAL.getnextid();
             Room room = new Room();
-            mapper.Map(roomVM, room);
-            room.RoomIdroomtype = roomVM.MapRoomtype.First().Key;
+            mapper.Map(roomDetailVM, room);
+            room.RoomIdroomtype = roomDetailVM.IdRoomType;
             List<StatusTime> listadd = new List<StatusTime>();
-            foreach (StatusTimeVM statusTimeVM in roomVM.ListStatusTime)
+            foreach (StatusTimeVM statusTimeVM in roomDetailVM.ListStatusTime)
             {
                 StatusTime statusTime = new StatusTime();
                 mapper.Map(statusTimeVM, statusTime);
@@ -79,7 +79,7 @@ namespace HotelManagement.BLL.Implement
             }
             try
             {
-                _roomDAL.add(room);
+                    _roomDAL.add(room);
                 _statusTimeDAL.add(listadd);
             }
             catch (Exception e)
@@ -88,7 +88,7 @@ namespace HotelManagement.BLL.Implement
             }
         }
 
-        public void deleteRoom(int id)
+        public void deleteRoom(List<int>listdel)
         {
           /*  List<int> listdel = new List<int>();
             foreach(StatusTime statusTime in _statusTimeDAL.findByIdRoom(id))
@@ -99,11 +99,11 @@ namespace HotelManagement.BLL.Implement
            */
             try
             {
-                _roomDAL.delete(id);
+                _roomDAL.delete(listdel);
 
             }catch(Exception e)
             {
-               
+                throw;
             }
 
         }
@@ -112,7 +112,7 @@ namespace HotelManagement.BLL.Implement
         {
             Room room = new Room();
             mapper.Map(roomVM, room);
-            room.RoomIdroomtype = roomVM.MapRoomtype.First().Key;
+            room.RoomIdroomtype = roomVM.IdRoomType;
             List<StatusTime> listadd = new List<StatusTime>();
             foreach (StatusTimeVM statusTimeVM in roomVM.ListStatusTime)
             {
@@ -187,7 +187,7 @@ namespace HotelManagement.BLL.Implement
             string rotyname = room.RoomIdroomtypeNavigation.RotyName;
             roomDetailVM.RoTyName = rotyname;
             roomDetailVM.IdRoomType = id;
-            roomDetailVM.MapRoomtype.Add(id, rotyname);
+           /* roomDetailVM.MapRoomtype.Add(id, rotyname);*/
             roomDetailVM.RotyCurrentprice = room.RoomIdroomtypeNavigation.RotyCurrentprice;
             foreach (StatusTime statusTime in room.StatusTimes)
             {

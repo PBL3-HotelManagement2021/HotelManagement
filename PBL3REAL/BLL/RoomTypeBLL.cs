@@ -42,7 +42,7 @@ namespace HotelManagement.BBL.Implement
 
        
 
-        public void addRoomType1(RoomTypeVM roomTypeVM)
+        /*public void addRoomType1(RoomTypeVM roomTypeVM)
         {
             int idRoomType = _roomTypeDAL.getnextid();
             RoomType roomType = new RoomType();
@@ -57,7 +57,7 @@ namespace HotelManagement.BBL.Implement
             }
             roomType.ImgStorages = imgstolist;
             _roomTypeDAL.addRoomtype(roomType);
-        }
+        }*/
 
         public void addRoomType(RoomTypeVM roomTypeVM)
         {

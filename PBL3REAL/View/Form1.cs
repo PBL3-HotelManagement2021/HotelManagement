@@ -44,7 +44,7 @@ namespace PBL3REAL
                 RotyCurrentprice = 2000000,
                 RoomDescription = "ko co"
             };
-            roomDetailVM.MapRoomtype.Add(1, "single room");
+           /* roomDetailVM.MapRoomtype.Add(1, "single room");*/
             StatusTimeVM statusTimeVM1 = new StatusTimeVM
             {
                 StatimFromdate = DateTime.Now,
@@ -74,11 +74,11 @@ namespace PBL3REAL
             string json = JsonConvert.SerializeObject(roomDetailVM, Formatting.Indented);
             richTextBox1.Text = json;
         }
-        public void deleteRoom()
+     /*   public void deleteRoom()
         {
             int id = 7;
             roomBLL.deleteRoom(id);
-        }
+        }*/
         public void updateRoom()
         {
             RoomDetailVM roomDetailVM = roomBLL.findByID(1);

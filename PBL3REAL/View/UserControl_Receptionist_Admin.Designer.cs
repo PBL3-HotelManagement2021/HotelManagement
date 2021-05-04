@@ -39,18 +39,19 @@ namespace PBL3REAL.View
             this.btnedit = new System.Windows.Forms.Button();
             this.btndelete = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbRoom2 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.cbRoom1 = new System.Windows.Forms.ComboBox();
+            this.searchRoom = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btnroty_show = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnroty_add = new System.Windows.Forms.Button();
+            this.btnroty_edit = new System.Windows.Forms.Button();
+            this.btnroty_del = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -188,18 +189,19 @@ namespace PBL3REAL.View
             this.btndelete.Text = "Xóa phòng đã chọn";
             this.btndelete.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btndelete.UseVisualStyleBackColor = true;
+            this.btndelete.Click += new System.EventHandler(this.btndelete_Click);
             // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43.47826F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.52174F));
-            this.tableLayoutPanel2.Controls.Add(this.comboBox1, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.cbRoom2, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.label3, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.label4, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.label1, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.comboBox3, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.textBox1, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.cbRoom1, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.searchRoom, 1, 2);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 16);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -210,18 +212,18 @@ namespace PBL3REAL.View
             this.tableLayoutPanel2.Size = new System.Drawing.Size(326, 110);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
-            // comboBox1
+            // cbRoom2
             // 
-            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.comboBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(144, 38);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(179, 29);
-            this.comboBox1.TabIndex = 5;
+            this.cbRoom2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.cbRoom2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbRoom2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbRoom2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbRoom2.FormattingEnabled = true;
+            this.cbRoom2.Location = new System.Drawing.Point(144, 38);
+            this.cbRoom2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbRoom2.Name = "cbRoom2";
+            this.cbRoom2.Size = new System.Drawing.Size(179, 29);
+            this.cbRoom2.TabIndex = 5;
             // 
             // label3
             // 
@@ -249,32 +251,33 @@ namespace PBL3REAL.View
             this.label1.TabIndex = 2;
             this.label1.Text = "Sắp xếp theo";
             // 
-            // comboBox3
+            // cbRoom1
             // 
-            this.comboBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.comboBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(144, 2);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(179, 29);
-            this.comboBox3.TabIndex = 4;
+            this.cbRoom1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.cbRoom1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbRoom1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbRoom1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbRoom1.FormattingEnabled = true;
+            this.cbRoom1.Location = new System.Drawing.Point(144, 2);
+            this.cbRoom1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbRoom1.Name = "cbRoom1";
+            this.cbRoom1.Size = new System.Drawing.Size(179, 29);
+            this.cbRoom1.TabIndex = 4;
             // 
-            // textBox1
+            // searchRoom
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.Location = new System.Drawing.Point(144, 74);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(179, 22);
-            this.textBox1.TabIndex = 6;
+            this.searchRoom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.searchRoom.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.searchRoom.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.searchRoom.Location = new System.Drawing.Point(144, 74);
+            this.searchRoom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.searchRoom.Name = "searchRoom";
+            this.searchRoom.Size = new System.Drawing.Size(179, 22);
+            this.searchRoom.TabIndex = 6;
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.btnroty_show);
             this.tabPage3.Controls.Add(this.dataGridView2);
             this.tabPage3.Controls.Add(this.flowLayoutPanel2);
             this.tabPage3.Controls.Add(this.tableLayoutPanel3);
@@ -287,70 +290,82 @@ namespace PBL3REAL.View
             this.tabPage3.Text = "Quản lí danh sách loại phòng";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // btnroty_show
+            // 
+            this.btnroty_show.Location = new System.Drawing.Point(179, 122);
+            this.btnroty_show.Name = "btnroty_show";
+            this.btnroty_show.Size = new System.Drawing.Size(75, 36);
+            this.btnroty_show.TabIndex = 7;
+            this.btnroty_show.Text = "button1";
+            this.btnroty_show.UseVisualStyleBackColor = true;
+            this.btnroty_show.Click += new System.EventHandler(this.btnroty_show_Click);
+            // 
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView2.Location = new System.Drawing.Point(0, 122);
+            this.dataGridView2.Location = new System.Drawing.Point(0, 170);
             this.dataGridView2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.RowTemplate.Height = 29;
-            this.dataGridView2.Size = new System.Drawing.Size(730, 501);
+            this.dataGridView2.Size = new System.Drawing.Size(730, 453);
             this.dataGridView2.TabIndex = 6;
             // 
             // flowLayoutPanel2
             // 
-            this.flowLayoutPanel2.Controls.Add(this.button4);
-            this.flowLayoutPanel2.Controls.Add(this.button5);
-            this.flowLayoutPanel2.Controls.Add(this.button6);
+            this.flowLayoutPanel2.Controls.Add(this.btnroty_add);
+            this.flowLayoutPanel2.Controls.Add(this.btnroty_edit);
+            this.flowLayoutPanel2.Controls.Add(this.btnroty_del);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(381, 8);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(346, 110);
             this.flowLayoutPanel2.TabIndex = 5;
             // 
-            // button4
+            // btnroty_add
             // 
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button4.Location = new System.Drawing.Point(3, 2);
-            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(108, 110);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Thêm loại phòng mới";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnroty_add.FlatAppearance.BorderSize = 0;
+            this.btnroty_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnroty_add.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnroty_add.Location = new System.Drawing.Point(3, 2);
+            this.btnroty_add.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnroty_add.Name = "btnroty_add";
+            this.btnroty_add.Size = new System.Drawing.Size(108, 110);
+            this.btnroty_add.TabIndex = 3;
+            this.btnroty_add.Text = "Thêm loại phòng mới";
+            this.btnroty_add.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnroty_add.UseVisualStyleBackColor = true;
+            this.btnroty_add.Click += new System.EventHandler(this.btnroty_add_Click);
             // 
-            // button5
+            // btnroty_edit
             // 
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button5.Location = new System.Drawing.Point(117, 2);
-            this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(108, 110);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "Chỉnh sửa thông tin loại phòng";
-            this.button5.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnroty_edit.FlatAppearance.BorderSize = 0;
+            this.btnroty_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnroty_edit.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnroty_edit.Location = new System.Drawing.Point(117, 2);
+            this.btnroty_edit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnroty_edit.Name = "btnroty_edit";
+            this.btnroty_edit.Size = new System.Drawing.Size(108, 110);
+            this.btnroty_edit.TabIndex = 4;
+            this.btnroty_edit.Text = "Chỉnh sửa thông tin loại phòng";
+            this.btnroty_edit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnroty_edit.UseVisualStyleBackColor = true;
+            this.btnroty_edit.Click += new System.EventHandler(this.btnroty_edit_Click);
             // 
-            // button6
+            // btnroty_del
             // 
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button6.Location = new System.Drawing.Point(231, 2);
-            this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(108, 110);
-            this.button6.TabIndex = 5;
-            this.button6.Text = "Xóa loại phòng đã chọn";
-            this.button6.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnroty_del.FlatAppearance.BorderSize = 0;
+            this.btnroty_del.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnroty_del.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnroty_del.Location = new System.Drawing.Point(231, 2);
+            this.btnroty_del.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnroty_del.Name = "btnroty_del";
+            this.btnroty_del.Size = new System.Drawing.Size(108, 110);
+            this.btnroty_del.TabIndex = 5;
+            this.btnroty_del.Text = "Xóa loại phòng đã chọn";
+            this.btnroty_del.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnroty_del.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel3
             // 
@@ -483,17 +498,17 @@ namespace PBL3REAL.View
         private System.Windows.Forms.Button btnedit;
         private System.Windows.Forms.Button btndelete;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbRoom2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox cbRoom1;
+        private System.Windows.Forms.TextBox searchRoom;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnroty_add;
+        private System.Windows.Forms.Button btnroty_edit;
+        private System.Windows.Forms.Button btnroty_del;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
@@ -503,5 +518,6 @@ namespace PBL3REAL.View
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button btnshow;
+        private System.Windows.Forms.Button btnroty_show;
     }
 }

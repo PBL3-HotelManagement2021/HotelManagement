@@ -8,7 +8,7 @@ namespace HotelManagement.ViewModel
     {
         public RoomDetailVM()
         {
-            MapRoomtype = new Dictionary<int, string>();
+           /* MapRoomtype = new Dictionary<int, string>();*/
             ListStatusTime = new List<StatusTimeVM>();
         }
         public int IdRoom { get; set; }
@@ -18,7 +18,7 @@ namespace HotelManagement.ViewModel
         public string RoTyName { get; set; }
         public int IdRoomType { get; set; }
 
-        public IDictionary<int, string> MapRoomtype { get; set; }
+        /*public IDictionary<int, string> MapRoomtype { get; set; }*/
         public List<StatusTimeVM>ListStatusTime { get; set; }
     }
 }
