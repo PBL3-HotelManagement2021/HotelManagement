@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using HotelManagement.DAL.Implement;
 using HotelManagement.ViewModel;
+using PBL3REAL.Extention;
 using PBL3REAL.Model;
 using PBL3REAL.ViewModel;
 using System;
@@ -92,7 +93,8 @@ namespace HotelManagement.BBL.Implement
             {
                 ImgStorage imgStorage = new ImgStorage();
                 mapper.Map(imageVM, imgStorage);
-                if (imageVM.IdImgsto == null) listadd.Add(imgStorage);
+                imgStorage.ImgstoIdrootyp = roomType.IdRoomtype;
+                if (imageVM.IdImgsto == 0) listadd.Add(imgStorage);
             }
            
             try
@@ -119,10 +121,26 @@ namespace HotelManagement.BBL.Implement
             RoomTypeVM roomTypeVM = mapper.Map<RoomTypeVM>(roomType);
             foreach (ImgStorage img in roomType.ImgStorages)
             {
-                // roomTypeVM.ListImgURL.Add(img.ImgstoUrl);
-                roomTypeVM.MapImgUrl.Add(img.IdImgsto, img.ImgstoUrl);
+                ImageVM imageVM = mapper.Map<ImageVM>(img);
+                 roomTypeVM.ListImg.Add(imageVM);
             }
             return roomTypeVM;
+        }
+
+        public List<CbbItem> addCombobox()
+        {
+
+            List<CbbItem> listcbb = new List<CbbItem>();
+            foreach(RoomType roomType in _roomTypeDAL.getAll())
+            {
+                CbbItem cbbItem = new CbbItem
+                {
+                    text = roomType.RotyName,
+                    Value = roomType.IdRoomtype,
+                };
+                listcbb.Add(cbbItem);
+            }
+            return listcbb;
         }
     }
 }
