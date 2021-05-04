@@ -36,6 +36,7 @@ namespace PBL3REAL.Model
         [Column("user_phone")]
         [StringLength(10)]
         public string UserPhone { get; set; }
+
         [Column("user_gender")]
         public bool UserGender { get; set; }
         [Column("user_activeflag")]

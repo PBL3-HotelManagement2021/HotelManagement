@@ -1,4 +1,6 @@
-﻿using PBL3REAL.Model;
+﻿
+using Microsoft.EntityFrameworkCore;
+using PBL3REAL.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +18,7 @@ namespace PBL3REAL.DAL
 
         public List<Booking> getAllBooking()
         {
-            List<Booking> result = _appDbContext.Bookings.ToList();
+            List<Booking> result = _appDbContext.Bookings.Include(x => x.BookIdclientNavigation).ToList();
             return result;
         }
 

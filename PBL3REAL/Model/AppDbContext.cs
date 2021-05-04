@@ -111,9 +111,13 @@ namespace PBL3REAL.Model
 
                 entity.Property(e => e.IdClient).ValueGeneratedNever();
 
-                entity.Property(e => e.ClGmail).IsUnicode(false);
+                entity.Property(e => e.CliGmail).IsUnicode(false);
 
-                entity.Property(e => e.ClName).IsUnicode(false);
+                entity.Property(e => e.CliName).IsUnicode(false);
+
+                entity.Property(e => e.CliPhone).IsUnicode(false);
+
+                entity.Property(e => e.CliCode).IsUnicode(false);
             });
 
             modelBuilder.Entity<ImgStorage>(entity =>
