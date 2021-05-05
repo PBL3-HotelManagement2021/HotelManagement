@@ -6681,11 +6681,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Code\\Visual Studio 2019\\WinForm\\testQLKS\\HotelManagement\\PBL3REAL\\PBL3REAL.csproj",
+      "projectUniqueName": "E:\\Code\\Visual Studio 2019\\WinForm\\testQLKS\\HotelManagement\\HotelManagement\\PBL3REAL\\PBL3REAL.csproj",
       "projectName": "PBL3REAL",
-      "projectPath": "E:\\Code\\Visual Studio 2019\\WinForm\\testQLKS\\HotelManagement\\PBL3REAL\\PBL3REAL.csproj",
+      "projectPath": "E:\\Code\\Visual Studio 2019\\WinForm\\testQLKS\\HotelManagement\\HotelManagement\\PBL3REAL\\PBL3REAL.csproj",
       "packagesPath": "C:\\Users\\MSI GF63\\.nuget\\packages\\",
-      "outputPath": "E:\\Code\\Visual Studio 2019\\WinForm\\testQLKS\\HotelManagement\\PBL3REAL\\obj\\",
+      "outputPath": "E:\\Code\\Visual Studio 2019\\WinForm\\testQLKS\\HotelManagement\\HotelManagement\\PBL3REAL\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\MSI GF63\\AppData\\Roaming\\NuGet\\NuGet.Config",
