@@ -291,7 +291,7 @@ namespace PBL3REAL.View
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Form_Detail_Room_Category";
-            this.Text = "Form3_Detail_Room_Categorycs";
+            this.Text = "Chi tiết loại phòng";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);

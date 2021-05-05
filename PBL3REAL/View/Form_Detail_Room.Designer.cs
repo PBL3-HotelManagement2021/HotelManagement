@@ -284,7 +284,7 @@ namespace PBL3REAL.View
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.label1);
             this.Name = "Form_Detail_Room";
-            this.Text = "Form_Detail_Room";
+            this.Text = "Chi tiết phòng";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

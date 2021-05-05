@@ -144,7 +144,6 @@ namespace PBL3REAL.View
                 pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             }
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             //Gọi hàm xóa tất cả dữ liệu đã nhập hoặc có sẵn trước đó

@@ -462,7 +462,7 @@ namespace PBL3REAL.View
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.label1);
             this.Name = "Form_Details_Invoice";
-            this.Text = "Form_Details_Invoice";
+            this.Text = "Chi tiết hóa đơn";
             this.flowLayoutPanel1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
