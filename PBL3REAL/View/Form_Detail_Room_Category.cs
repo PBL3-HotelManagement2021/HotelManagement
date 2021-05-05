@@ -14,11 +14,6 @@ namespace PBL3REAL.View
         {
             InitializeComponent();
         }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-        }
         //Hàm tạo folder & insert ảnh
         public Image InsertIMG()
         {
@@ -148,6 +143,11 @@ namespace PBL3REAL.View
                 textBox1.Text = open.FileName;
                 pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //Gọi hàm xóa tất cả dữ liệu đã nhập hoặc có sẵn trước đó
         }
     }
 }
