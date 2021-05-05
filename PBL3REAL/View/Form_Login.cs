@@ -27,5 +27,10 @@ namespace PBL3REAL.View
             f.ShowDialog();
             this.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

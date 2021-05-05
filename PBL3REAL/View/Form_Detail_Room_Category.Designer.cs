@@ -194,6 +194,7 @@ namespace PBL3REAL.View
             this.pictureBox1.Size = new System.Drawing.Size(131, 165);
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // pictureBox3
             // 
@@ -204,6 +205,7 @@ namespace PBL3REAL.View
             this.pictureBox3.Size = new System.Drawing.Size(131, 165);
             this.pictureBox3.TabIndex = 5;
             this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // pictureBox4
             // 
@@ -214,6 +216,7 @@ namespace PBL3REAL.View
             this.pictureBox4.Size = new System.Drawing.Size(131, 165);
             this.pictureBox4.TabIndex = 6;
             this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
             // pictureBox5
             // 
@@ -224,6 +227,7 @@ namespace PBL3REAL.View
             this.pictureBox5.Size = new System.Drawing.Size(131, 165);
             this.pictureBox5.TabIndex = 7;
             this.pictureBox5.TabStop = false;
+            this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
             // 
             // pictureBox6
             // 
@@ -234,6 +238,7 @@ namespace PBL3REAL.View
             this.pictureBox6.Size = new System.Drawing.Size(131, 165);
             this.pictureBox6.TabIndex = 8;
             this.pictureBox6.TabStop = false;
+            this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
             // 
             // button3
             // 
