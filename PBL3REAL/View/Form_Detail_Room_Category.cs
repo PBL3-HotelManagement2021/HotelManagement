@@ -1,5 +1,6 @@
 ﻿using HotelManagement.BBL.Implement;
 using HotelManagement.ViewModel;
+using PBL3REAL.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,6 +33,11 @@ namespace PBL3REAL.View
             textBox1.Text = roomTypeVM.RotyName;
             textBox2.Text = roomTypeVM.RotyDescription;
             textBox3.Text = roomTypeVM.RotyCurrentprice.ToString();
+            foreach(ImageVM imageVM in roomTypeVM.ListImg)
+            {
+             
+            }
+
             pictureBox1.Image = Image.FromFile(@"D:\\C#\\DO_AN\\PBL3REAL\\ImageSource\\OIP.jpg");
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
         }

@@ -85,6 +85,19 @@ namespace HotelManagement.DAL.Implement
             return result;
         }
 
+        public List<Room> findAvailableRoom(int idRoomType , string fromDate , string toDate)
+        {
+            /*
+                        List<Room> result = (from room in _appDbContext.Rooms
+                                             join roty in _appDbContext.RoomTypes on room.RoomIdroomtype equals roty.IdRoomtype
+                                             join statime in _appDbContext.StatusTimes on room.IdRoom equals statime.StatimIdroom
+                                             join status in _appDbContext.Statuses on statime.StatimIdstatus equals status.IdStatus
+                                             where (roty.IdRoomtype == idRoomType && statime.StatimFromdate >= fromDate && statime.StatimTodate <=toDate && sta)
+                                             select room
+                                             ).ToList() ;*/
+            List<Room> result = _appDbContext.Rooms.FromSqlRaw($"GetAvailableRoom {idRoomType} {fromDate} {toDate}").ToList();
+            return result;
+        }
         public List<Room> getall(int start, int length, int idroomtype , string name)
         {
             var predicate = PredicateBuilder.True<Room>();

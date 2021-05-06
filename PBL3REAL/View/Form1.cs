@@ -2,6 +2,9 @@
 using HotelManagement.BLL.Implement;
 using HotelManagement.ViewModel;
 using Newtonsoft.Json;
+using PBL3REAL.BLL;
+using PBL3REAL.DAL;
+using PBL3REAL.Model;
 using PBL3REAL.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -19,17 +22,55 @@ namespace PBL3REAL
     {
         private RoomTypeBLL roomTypeBLL;
         private RoomBLL roomBLL;
+        private BookingBLL bookingBLL;
+        private ClientDAL clientDAL;
         public Form1()
         {
             InitializeComponent();
             roomTypeBLL = new RoomTypeBLL();
             roomBLL = new RoomBLL();
+            bookingBLL = new BookingBLL();
+            clientDAL = new ClientDAL();
             //   findidRoom();
             // addRoomType();
             // deleteRoomType();
-            editRoomType();
+            /*editRoomType();*/
+            // showClient();
+          //  testCBBRoom();
+            showBookingDetail();
+        }
+    
+        public void testCBB()
+        {
+            comboBox1.DataSource = roomTypeBLL.getAll();
+            comboBox1.DisplayMember = "RotyName";
         }
 
+        public void testCBBRoom()
+        {
+
+            comboBox2.DataSource = roomBLL.findAvailableRoom(1, "2021-01-01 00:00:00", "2021-01-01 00:00:00");
+            comboBox2.DisplayMember = "RoomName";
+        }
+        public void showClient()
+        {
+            List<Client> listVM = clientDAL.getAll();
+            string json = JsonConvert.SerializeObject(listVM, Formatting.Indented);
+            richTextBox1.Text = json;
+
+        }
+        public void showBookingDetail()
+        {
+           BookingDetailVM result = bookingBLL.getDetail(10);
+            string json = JsonConvert.SerializeObject(result, Formatting.Indented);
+            richTextBox1.Text = json;
+        }
+        public void showBooking()
+        {
+            List<BookingVM> listVM = bookingBLL.getAll();
+            string json = JsonConvert.SerializeObject(listVM, Formatting.Indented);
+            richTextBox1.Text = json;
+        }
         public void showroomtype()
         {
             List<RoomTypeVM> listVM = roomTypeBLL.getAll();
@@ -147,5 +188,12 @@ namespace PBL3REAL
         {
             roomTypeBLL.deleteRoomType(7);
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            textBox1.Text = ((RoomTypeVM)comboBox1.SelectedItem).RotyCurrentprice.ToString();
+        }
+
+       
     }
 }

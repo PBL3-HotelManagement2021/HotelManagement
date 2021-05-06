@@ -15,5 +15,8 @@ namespace PBL3REAL.ViewModel
         public int BookTotalprice { get; set; }
         public DateTime BookPaymentdate { get; set; }
 
+        public string UserCode { get; set; }
+        public string CliCode { get; set; }
+
     }
 }

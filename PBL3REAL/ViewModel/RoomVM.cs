@@ -11,5 +11,6 @@ namespace PBL3REAL.ViewModel
         public string RoomDescription { get; set; }
         public decimal RotyCurrentprice { get; set; }
         public string RoTyName { get; set; }
+
     }
 }

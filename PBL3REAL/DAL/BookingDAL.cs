@@ -1,4 +1,5 @@
 ﻿
+
 using Microsoft.EntityFrameworkCore;
 using PBL3REAL.Model;
 using System;
@@ -18,8 +19,24 @@ namespace PBL3REAL.DAL
 
         public List<Booking> getAllBooking()
         {
-            List<Booking> result = _appDbContext.Bookings.Include(x => x.BookIdclientNavigation).ToList();
+            List<Booking> result = _appDbContext.Bookings
+                                .Include(x =>x.BookIdclientNavigation)
+                                .Include(x =>x.BookIduserNavigation)
+                                .AsNoTracking()
+                                .ToList();
             return result;
+        }
+
+        public Booking findById(int id)
+        {
+            Booking result = _appDbContext.Bookings
+                            .Include(x => x.BookingDetails)
+                            .ThenInclude(y => y.BoodetIdroomNavigation)
+                            .Include(x => x.BookIdclientNavigation)
+                            .Include(x => x.BookIduserNavigation)
+                            .Where(x => x.IdBook == id)
+                            .SingleOrDefault();
+             return result;     
         }
 
         public List<BookingDetail>getBookingDetail(int idbook)
