@@ -8,10 +8,10 @@ namespace PBL3REAL.ViewModel
     {
         public BookingDetailVM()
         {
-            List = new List<SubBookingDetailVM>();
+            ListSub = new List<SubBookingDetailVM>();
         }
     
         public ClientVM clientVM { get; set; }
-        public List<SubBookingDetailVM>List { get; set; }
+        public List<SubBookingDetailVM>ListSub { get; set; }
     }
 }

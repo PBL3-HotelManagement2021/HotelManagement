@@ -44,5 +44,46 @@ namespace PBL3REAL.DAL
             List<BookingDetail> result = _appDbContext.BookingDetails.Where(x => x.BoodetIdbook == idbook).ToList();
             return result;
         }
+
+        public void addBooking(Booking booking)
+        {
+            try
+            {
+                _appDbContext.Add(booking);
+                _appDbContext.SaveChanges();
+            }catch(Exception)
+            {
+                throw; 
+            }
+        }
+
+        public void addBookingDetail(List<BookingDetail> list)
+        {
+            try
+            {
+                _appDbContext.BookingDetails.AddRange(list);
+                _appDbContext.SaveChanges();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public int getnextid()
+        {
+            int id;
+            using (var command = _appDbContext.Database.GetDbConnection().CreateCommand())
+            {
+                command.CommandText = "SELECT IDENT_CURRENT('booking')+1";
+                _appDbContext.Database.OpenConnection();
+                using (var result = command.ExecuteReader())
+                {
+                    result.Read();
+                    id = Decimal.ToInt32((decimal)result[0]);
+                }
+            }
+            return id;
+        }
     }
 }

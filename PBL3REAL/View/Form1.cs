@@ -38,6 +38,7 @@ namespace PBL3REAL
             // showClient();
             testCBBRoom();
             showBookingDetail();
+            addBooking();
         }
     
         public void testCBB()
@@ -59,6 +60,37 @@ namespace PBL3REAL
             string json = JsonConvert.SerializeObject(listVM, Formatting.Indented);
             richTextBox1.Text = json;
 
+        }
+
+        public void addBooking()
+        {
+            SubBookingDetailVM sub = new SubBookingDetailVM
+            {
+                BooDetNote = "None",
+                BoodetPrice =1000000,
+                BoodetIdroom =1
+            };
+            
+            BookingDetailVM result = new BookingDetailVM
+            {
+                BookNote = "Ko bk",
+                BookCheckindate = DateTime.Now,
+                BookPaymentdate = DateTime.Now,
+                BookBookdate = DateTime.Now,
+                BookStatus = "Proccess",
+                BookTotalprice = 10000000,
+                BookDeposit = 20000,
+                clientVM = new ClientVM
+                {
+                    CliCode = "PROVIP01",
+                    CliName = "dadsa",
+                    CliGmail = "dasdasdas",
+                    CliPhone = "0981234567"
+                }
+            
+            };
+            result.ListSub.Add(sub);
+            bookingBLL.addBooking(result);
         }
         public void showBookingDetail()
         {

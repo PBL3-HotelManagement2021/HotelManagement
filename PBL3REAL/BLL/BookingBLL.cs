@@ -11,12 +11,14 @@ namespace PBL3REAL.BLL
     class BookingBLL
     {
         private BookingDAL _bookingDAL;
+        private ClientDAL clientDAL;
         private MapperConfiguration config = new MapperConfiguration(cfg =>
         {
             cfg.CreateMap<Booking, BookingVM>().ReverseMap();
             cfg.CreateMap<Booking, BookingDetailVM>().ReverseMap();
             cfg.CreateMap<BookingDetail, SubBookingDetailVM>().ReverseMap();
-            cfg.CreateMap<Client,ClientVM>().ReverseMap();
+            cfg.CreateMap<Client, ClientVM>().ReverseMap();
+          
 
         });
         private Mapper mapper;
@@ -24,6 +26,7 @@ namespace PBL3REAL.BLL
         {
             _bookingDAL = new BookingDAL();
             mapper = new Mapper(config);
+            clientDAL = new ClientDAL();
         }
 
         public List<BookingVM> getAll()
@@ -54,15 +57,37 @@ namespace PBL3REAL.BLL
             {
                 SubBookingDetailVM subBookingDetailVM = mapper.Map<SubBookingDetailVM>(val);
                 subBookingDetailVM.IdRoomType = val.BoodetIdroomNavigation.RoomIdroomtype;
-                result.List.Add(subBookingDetailVM);
+                result.ListSub.Add(subBookingDetailVM);
             }
             return result;
         }
 
-        public void addBooking(BookingDetailVM val)
+        public void addBooking(BookingDetailVM result)
         {
+            int idRoom = _bookingDAL.getnextid();
             Booking booking = new Booking();
-            mapper.Map(val, booking);
+            mapper.Map(result, booking);
+            booking.BookIduser = 1;
+            Client client = new Client();
+            mapper.Map(result.clientVM, client);
+            List<BookingDetail> listadd = new List<BookingDetail>();
+            foreach (SubBookingDetailVM val in result.ListSub)
+            {
+                BookingDetail bookingDetail = new BookingDetail();
+                mapper.Map(val, bookingDetail);
+                bookingDetail.BoodetIdbook = idRoom;
+                listadd.Add(bookingDetail);
+            }
+            try
+            {
+                if (client.IdClient == 0) clientDAL.add(client);
+                _bookingDAL.addBooking(booking);
+                _bookingDAL.addBookingDetail(listadd);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
             
         }
     }
