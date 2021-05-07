@@ -14,6 +14,13 @@ namespace PBL3REAL.DAL
         {
             _appDbContext = new AppDbContext();
         }
+
+        public void add(Client client)
+        {
+            _appDbContext.Add(client);
+            _appDbContext.SaveChanges();
+        }
+
         public List<Client> getAll()
         {
             var list = (from emp in _appDbContext.Clients

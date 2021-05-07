@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PBL3REAL.ViewModel
 {
-    class ClientVM
+   public class ClientVM
     {
         public int IdClient { get; set; }
         public string CliName { get; set; }

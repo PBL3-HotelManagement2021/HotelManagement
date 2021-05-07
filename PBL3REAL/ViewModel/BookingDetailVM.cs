@@ -10,9 +10,8 @@ namespace PBL3REAL.ViewModel
         {
             List = new List<SubBookingDetailVM>();
         }
-        public string CliName { get; set; }
-        public string CliPhone { get; set; }
-        public string CliGmail { get; set; }
+    
+        public ClientVM clientVM { get; set; }
         public List<SubBookingDetailVM>List { get; set; }
     }
 }

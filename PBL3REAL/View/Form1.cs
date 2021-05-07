@@ -36,7 +36,7 @@ namespace PBL3REAL
             // deleteRoomType();
             /*editRoomType();*/
             // showClient();
-          //  testCBBRoom();
+            testCBBRoom();
             showBookingDetail();
         }
     
@@ -49,7 +49,8 @@ namespace PBL3REAL
         public void testCBBRoom()
         {
 
-            comboBox2.DataSource = roomBLL.findAvailableRoom(1, "2021-01-01 00:00:00", "2021-01-01 00:00:00");
+            comboBox2.DataSource = roomBLL.findAvailableRoom(1,Convert.ToDateTime("2021-03-01") ,Convert.ToDateTime("2021-03-08"));
+/*            comboBox2.DataSource = roomBLL.findAvailableRoom(1, DateTime.Now, DateTime.Now);*/
             comboBox2.DisplayMember = "RoomName";
         }
         public void showClient()

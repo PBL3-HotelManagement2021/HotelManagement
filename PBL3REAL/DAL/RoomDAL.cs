@@ -1,9 +1,11 @@
 ﻿
 using HotelManagement.Extention;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using PBL3REAL.Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 
@@ -85,7 +87,7 @@ namespace HotelManagement.DAL.Implement
             return result;
         }
 
-        public List<Room> findAvailableRoom(int idRoomType , string fromDate , string toDate)
+        public List<Room> findAvailableRoom(int idRoomType , DateTime fromDate , DateTime toDate)
         {
             /*
                         List<Room> result = (from room in _appDbContext.Rooms
@@ -95,7 +97,17 @@ namespace HotelManagement.DAL.Implement
                                              where (roty.IdRoomtype == idRoomType && statime.StatimFromdate >= fromDate && statime.StatimTodate <=toDate && sta)
                                              select room
                                              ).ToList() ;*/
-            List<Room> result = _appDbContext.Rooms.FromSqlRaw($"GetAvailableRoom {idRoomType} {fromDate} {toDate}").ToList();
+            SqlParameter parameter1 = new SqlParameter();
+            parameter1.ParameterName = "@fromDate";
+            parameter1.SqlDbType = SqlDbType.DateTime2;
+            parameter1.Value = DateTime.Parse(fromDate.ToString());
+
+            SqlParameter parameter2 = new SqlParameter();
+            parameter2.ParameterName = "@toDate";
+            parameter2.SqlDbType = SqlDbType.DateTime2;
+            parameter2.Value = DateTime.Parse(toDate.ToString());
+
+            List<Room> result = _appDbContext.Rooms.FromSqlRaw($"GetAvailableRoom {idRoomType} , @fromDate,@toDate",parameter1,parameter2).ToList();
             return result;
         }
         public List<Room> getall(int start, int length, int idroomtype , string name)

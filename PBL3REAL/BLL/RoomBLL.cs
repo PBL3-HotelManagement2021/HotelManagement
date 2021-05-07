@@ -200,7 +200,7 @@ namespace HotelManagement.BLL.Implement
             return roomDetailVM;
         }
 
-        public List<RoomVM> findAvailableRoom(int idRoomType , string fromDate , string toDate)
+        public List<RoomVM> findAvailableRoom(int idRoomType , DateTime fromDate , DateTime toDate)
         {
             List<RoomVM> listVM = new List<RoomVM>();
             foreach(Room room in _roomDAL.findAvailableRoom(idRoomType, fromDate, toDate))

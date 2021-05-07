@@ -16,6 +16,7 @@ namespace PBL3REAL.BLL
             cfg.CreateMap<Booking, BookingVM>().ReverseMap();
             cfg.CreateMap<Booking, BookingDetailVM>().ReverseMap();
             cfg.CreateMap<BookingDetail, SubBookingDetailVM>().ReverseMap();
+            cfg.CreateMap<Client,ClientVM>().ReverseMap();
 
         });
         private Mapper mapper;
@@ -42,11 +43,12 @@ namespace PBL3REAL.BLL
         {
             Booking booking = _bookingDAL.findById(id);
             BookingDetailVM result = mapper.Map<BookingDetailVM>(booking);
-            result.CliPhone = booking.BookIdclientNavigation.CliPhone;
+            result.clientVM = mapper.Map<ClientVM>(booking.BookIdclientNavigation);
+            /*result.CliPhone = booking.BookIdclientNavigation.CliPhone;
             result.CliCode = booking.BookIdclientNavigation.CliCode;
             
             result.CliName = booking.BookIdclientNavigation.CliName;
-            result.CliGmail = booking.BookIdclientNavigation.CliGmail;
+            result.CliGmail = booking.BookIdclientNavigation.CliGmail;*/
 
             foreach(BookingDetail val in booking.BookingDetails)
             {
@@ -55,6 +57,13 @@ namespace PBL3REAL.BLL
                 result.List.Add(subBookingDetailVM);
             }
             return result;
+        }
+
+        public void addBooking(BookingDetailVM val)
+        {
+            Booking booking = new Booking();
+            mapper.Map(val, booking);
+            
         }
     }
 }
