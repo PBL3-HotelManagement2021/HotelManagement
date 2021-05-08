@@ -11,15 +11,11 @@ namespace PBL3REAL.BLL
     public class ClientBLL
     {
         private ClientDAL _clientDAL;
-        private MapperConfiguration config = new MapperConfiguration(cfg =>
-        {
-            cfg.CreateMap<Client, ClientVM>().ReverseMap();
-
-        });
+        
         private Mapper mapper;
         public ClientBLL()
         {
-            mapper = new Mapper(config);
+            mapper = new Mapper(MapperVM.config);
             _clientDAL = new ClientDAL();
         }
         public void add(ClientVM clientVM)

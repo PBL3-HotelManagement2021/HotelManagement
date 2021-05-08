@@ -24,6 +24,7 @@ namespace PBL3REAL
         private RoomBLL roomBLL;
         private BookingBLL bookingBLL;
         private ClientDAL clientDAL;
+        private ClientBLL clientBLL;
         public Form1()
         {
             InitializeComponent();
@@ -31,14 +32,17 @@ namespace PBL3REAL
             roomBLL = new RoomBLL();
             bookingBLL = new BookingBLL();
             clientDAL = new ClientDAL();
+            clientBLL = new ClientBLL();
             //   findidRoom();
             // addRoomType();
             // deleteRoomType();
             /*editRoomType();*/
             // showClient();
             testCBBRoom();
-            showBookingDetail();
-            addBooking();
+                showBookingDetail();
+             //   addBooking();
+            //delBooking();
+           // addClient();
         }
     
         public void testCBB()
@@ -59,9 +63,24 @@ namespace PBL3REAL
             List<Client> listVM = clientDAL.getAll();
             string json = JsonConvert.SerializeObject(listVM, Formatting.Indented);
             richTextBox1.Text = json;
-
         }
+        public void addClient()
+        {
+            ClientVM clientVM = new ClientVM
+            {
+                CliCode = "asdfgqwe",
+                CliGmail = "cuonggggggg@",
+                CliName = "Hello",
+                CliPhone = "0912345678"
+            };
+         
+            clientBLL.add(clientVM);
+     }
 
+        public void delBooking()
+        {
+            bookingBLL.delBooking(19);
+        }
         public void addBooking()
         {
             SubBookingDetailVM sub = new SubBookingDetailVM

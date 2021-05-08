@@ -8,6 +8,23 @@ namespace PBL3REAL.Model
 {
     public partial class AppDbContext : DbContext
     {
+        public static AppContext Instance
+        {
+            get
+            {
+                if (_Instance == null)
+                {
+                    _Instance = new AppDbContext();
+                }
+                return _Instance;
+            }
+            private set
+            {
+
+            }
+        }
+
+        private static CSDL _Instance;
         public AppDbContext()
         {
         }
@@ -107,9 +124,9 @@ namespace PBL3REAL.Model
             modelBuilder.Entity<Client>(entity =>
             {
                 entity.HasKey(e => e.IdClient)
-                    .HasName("Pk_client_id_client");
+                    .HasName("Pk_client");
 
-                entity.Property(e => e.IdClient).ValueGeneratedNever();
+               /* entity.Property(e => e.IdClient).ValueGeneratedNever();*/
 
                 entity.Property(e => e.CliGmail).IsUnicode(false);
 

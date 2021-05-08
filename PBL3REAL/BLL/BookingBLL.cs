@@ -12,20 +12,11 @@ namespace PBL3REAL.BLL
     {
         private BookingDAL _bookingDAL;
         private ClientDAL clientDAL;
-        private MapperConfiguration config = new MapperConfiguration(cfg =>
-        {
-            cfg.CreateMap<Booking, BookingVM>().ReverseMap();
-            cfg.CreateMap<Booking, BookingDetailVM>().ReverseMap();
-            cfg.CreateMap<BookingDetail, SubBookingDetailVM>().ReverseMap();
-            cfg.CreateMap<Client, ClientVM>().ReverseMap();
-          
-
-        });
         private Mapper mapper;
         public BookingBLL()
         {
             _bookingDAL = new BookingDAL();
-            mapper = new Mapper(config);
+            mapper = new Mapper(MapperVM.config);
             clientDAL = new ClientDAL();
         }
 
@@ -61,7 +52,18 @@ namespace PBL3REAL.BLL
             }
             return result;
         }
-
+        public void delBooking(int id)
+        {
+            try
+            {
+                _bookingDAL.delBooking(id);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+ 
+        }
         public void addBooking(BookingDetailVM result)
         {
             int idRoom = _bookingDAL.getnextid();
@@ -80,7 +82,7 @@ namespace PBL3REAL.BLL
             }
             try
             {
-                if (client.IdClient == 0) clientDAL.add(client);
+                if (client.IdClient == 0) booking.BookIdclient = clientDAL.add(client);
                 _bookingDAL.addBooking(booking);
                 _bookingDAL.addBookingDetail(listadd);
             }

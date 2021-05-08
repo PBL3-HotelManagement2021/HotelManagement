@@ -17,13 +17,7 @@ namespace HotelManagement.BLL.Implement
         private RoomDAL _roomDAL;
         private StatusTimeDAL _statusTimeDAL;
         private StatusDAL _statusDAL;
-        private MapperConfiguration config = new MapperConfiguration(cfg =>
-        {
-            cfg.CreateMap<Room, RoomVM>().ReverseMap();
-            cfg.CreateMap<Status, StatusVM>().ReverseMap();
-            cfg.CreateMap<StatusTime, StatusTimeVM>().ReverseMap();
-            cfg.CreateMap<Room, RoomDetailVM>().ReverseMap();
-        });
+     
         private Mapper mapper;
 
        
@@ -32,7 +26,7 @@ namespace HotelManagement.BLL.Implement
             _roomDAL = new RoomDAL();
             _statusTimeDAL = new StatusTimeDAL();
             _statusDAL = new StatusDAL();
-            mapper = new Mapper(config);
+            mapper = new Mapper(MapperVM.config);
         }
 
        /* public void editRoom1(RoomVM roomVM, List<int> listdel)

@@ -14,11 +14,7 @@ namespace HotelManagement.BBL.Implement
     {
         private RoomtypeDAL _roomTypeDAL;
         private ImgStorageDAL _imgStorageDAL;
-        private MapperConfiguration config = new MapperConfiguration(cfg => {
-            cfg.CreateMap<RoomType, RoomTypeVM>().ReverseMap();
-            cfg.CreateMap<ImgStorage, ImageVM>().ReverseMap();
-            }
-                   );
+     
         private Mapper mapper;
 
        
@@ -26,7 +22,7 @@ namespace HotelManagement.BBL.Implement
         {
             _roomTypeDAL = new RoomtypeDAL();
             _imgStorageDAL = new ImgStorageDAL();
-            mapper = new Mapper(config);
+            mapper = new Mapper(MapperVM.config);
         }
 
         public List<RoomTypeVM> getAll()

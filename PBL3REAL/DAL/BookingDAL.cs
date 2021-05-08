@@ -57,6 +57,30 @@ namespace PBL3REAL.DAL
             }
         }
 
+        public void delBooking(int id)
+        {
+
+            /* List<Booking> list = new List<Booking>();
+             foreach (int id in listdel)
+             {
+
+                 list.Add(booking);
+             }*/
+            Booking booking = _appDbContext.Bookings.Find(id);
+            _appDbContext.Remove(booking);
+            _appDbContext.SaveChanges();
+          
+        }
+        public void delBookingDetail(List<int> listdel_detail)
+        {
+            List<BookingDetail> list = new List<BookingDetail>();
+            foreach(int id in listdel_detail)
+            {
+                BookingDetail bookingDetail = _appDbContext.BookingDetails.Find(id);
+                list.Add(bookingDetail);
+                _appDbContext.Entry(bookingDetail).State = EntityState.Detached;
+            }
+        }
         public void addBookingDetail(List<BookingDetail> list)
         {
             try

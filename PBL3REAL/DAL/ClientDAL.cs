@@ -12,13 +12,14 @@ namespace PBL3REAL.DAL
         private AppDbContext _appDbContext;
         public ClientDAL()
         {
-            _appDbContext = new AppDbContext();
+            _appDbContext = new AppDbContext(); 
         }
 
-        public void add(Client client)
+        public int add(Client client)
         {
             _appDbContext.Clients.Add(client);
             _appDbContext.SaveChanges();
+            return client.IdClient;
         }
 
        

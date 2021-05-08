@@ -4,21 +4,18 @@ using AutoMapper;
 using HotelManagement.DAL.Implement;
 using HotelManagement.ViewModel;
 using PBL3REAL.Model;
+using PBL3REAL.ViewModel;
 
 namespace HotelManagement.BBL.Implement
 {
     public class StatusBLL 
     {
         private StatusDAL _statusDAL;
-        private MapperConfiguration config = new MapperConfiguration(cfg =>
-        {
-           
-            cfg.CreateMap<Status, StatusVM>().ReverseMap();
-        });
+      
         private Mapper mapper;
         public StatusBLL(){
             _statusDAL = new StatusDAL();
-            mapper = new Mapper(config);
+            mapper = new Mapper(MapperVM.config);
         }
         public List<StatusVM> getAll()
         {
