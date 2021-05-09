@@ -47,7 +47,7 @@ namespace PBL3REAL
             // addClient();
             //showUser();
          //   addUser();
-            delUser();
+    
         }
     
         public void showUser()
@@ -56,10 +56,10 @@ namespace PBL3REAL
             string json = JsonConvert.SerializeObject(listVM, Formatting.Indented);
             richTextBox1.Text = json;
         }
-        public void delUser()
+      /*  public void delUser()
         {
             userBLL.delUser(6);
-        }
+        }*/
         public void addUser()
         {
             UserVM userVM = userBLL.getAll()[0];
@@ -106,10 +106,8 @@ namespace PBL3REAL
             clientBLL.add(clientVM);
      }
 
-        public void delBooking()
-        {
-            bookingBLL.delBooking(19);
-        }
+        /// phan Booking
+       
         public void addBooking()
         {
             SubBookingDetailVM sub = new SubBookingDetailVM

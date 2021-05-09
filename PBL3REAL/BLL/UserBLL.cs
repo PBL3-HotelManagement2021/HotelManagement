@@ -42,17 +42,6 @@ namespace PBL3REAL.BLL
             return listVM;
         }
 
-        public void delUser(int idUser)
-        {
-            try
-            {
-                userDAL.delUser(idUser);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
         public void addUser(UserVM userVM)
         {
             int idUser = userDAL.getnextid();
