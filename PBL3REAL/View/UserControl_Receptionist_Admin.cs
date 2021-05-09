@@ -11,6 +11,8 @@ using HotelManagement.View;
 using HotelManagement.BLL.Implement;
 using HotelManagement.BBL.Implement;
 using PBL3REAL.Extention;
+using PBL3REAL.Model;
+using PBL3REAL.ViewModel;
 
 namespace PBL3REAL.View
 {
@@ -25,10 +27,9 @@ namespace PBL3REAL.View
             roomBLL = new RoomBLL();
             roomTypeBLL = new RoomTypeBLL();
             addCbRoom1();
+            setCbbRoomType();
+            setCbbRoom2();
         }
-
-
-
         private void showRoom(int idRoomType , string name)
         {
             dataGridView1.DataSource = null;
@@ -134,6 +135,86 @@ namespace PBL3REAL.View
                     f.Show();
                
             }
+        }
+
+        private void btnroty_del_Click(object sender, EventArgs e)
+        {
+            int idRoomType = Convert.ToInt32(dataGridView2.CurrentRow.Cells["0"].Value);
+            if(dataGridView2.SelectedRows.Count > 0)
+            {
+                int count = dataGridView2.SelectedRows.Count;
+                for(int i = 0; i < count; i++)
+                {
+                    roomTypeBLL.deleteRoomType(Convert.ToInt32(dataGridView2.SelectedRows[i].Cells[0].Value.ToString()));
+                }
+            }
+            else
+            {
+                MessageBox.Show("Không có phong nao`");
+            }
+            showRoomType();
+        }
+
+        public void setCbbRoomType()
+        {
+            cbbRoomtype.Items.AddRange(new object[]
+            {
+                "Tên loại phòng", "Giá tiền", "Sức chứa"
+            });
+            cbbRoomtype.SelectedIndex = 0;
+        }
+        private void cbbRoomtype_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            List<RoomTypeVM> listrtvm = new List<RoomTypeVM>();
+            foreach(RoomTypeVM i in roomTypeBLL.getAll())
+            {
+                listrtvm.Add(i);
+            }
+            if(cbbRoomtype.Text== "Tên loại phòng")
+            {
+                roomTypeBLL.sort(listrtvm, RoomTypeVM.compareName);
+            }
+            if(cbbRoomtype.Text == "Giá tiền")
+            {
+                roomTypeBLL.sort(listrtvm, RoomTypeVM.comparePrice);
+            }
+            if(cbbRoomtype.Text=="Sức chứa")
+            {
+                roomTypeBLL.sort(listrtvm, RoomTypeVM.compareCapacity);
+            }
+            dataGridView2.DataSource = listrtvm;
+        }
+        public void setCbbRoom2()
+        {
+            cbRoom2.Items.AddRange(new object[]
+            {
+                "Tên phòng", "Giá tiền", "Loại phòng"
+            });
+            cbRoom2.SelectedIndex = 0;
+        }
+        private void cbRoom2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int idRoomType = ((CbbItem)cbRoom1.SelectedItem).Value;
+            string name = searchRoom.Text;
+            List<RoomVM> listr = new List<RoomVM>();
+            foreach (RoomVM i in roomBLL.getAll(1, 10, idRoomType, name))
+            {
+                listr.Add(i);
+            }
+            if(cbRoom2.Text== "Tên phòng")
+            {
+                roomBLL.sort(listr, RoomVM.compareName);
+            }
+            if (cbRoom2.Text == "Giá tiền")
+            {
+                roomBLL.sort(listr, RoomVM.comparePrice);
+            }
+            if (cbRoom2.Text == "Loại phòng")
+            {
+                roomBLL.sort(listr, RoomVM.compareRoTyName);
+            }
+            dataGridView1.DataSource = listr;
+
         }
     }
     }

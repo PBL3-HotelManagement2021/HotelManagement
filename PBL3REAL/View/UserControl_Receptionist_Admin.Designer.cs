@@ -53,7 +53,7 @@ namespace PBL3REAL.View
             this.btnroty_edit = new System.Windows.Forms.Button();
             this.btnroty_del = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.cbbRoomtype = new System.Windows.Forms.ComboBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -89,7 +89,7 @@ namespace PBL3REAL.View
             this.tabPage1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tabPage1.Location = new System.Drawing.Point(4, 37);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(835, 835);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Chung";
@@ -104,7 +104,7 @@ namespace PBL3REAL.View
             this.tabPage2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tabPage2.Location = new System.Drawing.Point(4, 37);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(835, 835);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Quản lí danh sách phòng";
@@ -215,6 +215,7 @@ namespace PBL3REAL.View
             this.cbRoom2.Name = "cbRoom2";
             this.cbRoom2.Size = new System.Drawing.Size(205, 36);
             this.cbRoom2.TabIndex = 5;
+            this.cbRoom2.SelectedIndexChanged += new System.EventHandler(this.cbRoom2_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -350,13 +351,14 @@ namespace PBL3REAL.View
             this.btnroty_del.Text = "Xóa loại phòng đã chọn";
             this.btnroty_del.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnroty_del.UseVisualStyleBackColor = true;
+            this.btnroty_del.Click += new System.EventHandler(this.btnroty_del_Click);
             // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.36697F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.63303F));
-            this.tableLayoutPanel3.Controls.Add(this.comboBox4, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.cbbRoomtype, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.textBox2, 1, 1);
             this.tableLayoutPanel3.Controls.Add(this.label6, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.label5, 0, 0);
@@ -368,18 +370,19 @@ namespace PBL3REAL.View
             this.tableLayoutPanel3.Size = new System.Drawing.Size(358, 111);
             this.tableLayoutPanel3.TabIndex = 4;
             // 
-            // comboBox4
+            // cbbRoomtype
             // 
-            this.comboBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.comboBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox4.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(147, 3);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(208, 39);
-            this.comboBox4.TabIndex = 5;
+            this.cbbRoomtype.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.cbbRoomtype.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbbRoomtype.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbRoomtype.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbbRoomtype.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cbbRoomtype.FormattingEnabled = true;
+            this.cbbRoomtype.Location = new System.Drawing.Point(147, 3);
+            this.cbbRoomtype.Name = "cbbRoomtype";
+            this.cbbRoomtype.Size = new System.Drawing.Size(208, 39);
+            this.cbbRoomtype.TabIndex = 5;
+            this.cbbRoomtype.SelectedIndexChanged += new System.EventHandler(this.cbbRoomtype_SelectedIndexChanged);
             // 
             // textBox2
             // 
@@ -499,5 +502,6 @@ namespace PBL3REAL.View
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button btnshow;
         private System.Windows.Forms.Button btnroty_show;
+        private System.Windows.Forms.ComboBox cbbRoomtype;
     }
 }

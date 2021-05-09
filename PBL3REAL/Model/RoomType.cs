@@ -36,5 +36,6 @@ namespace PBL3REAL.Model
         public virtual ICollection<ImgStorage> ImgStorages { get; set; }
         [InverseProperty(nameof(Room.RoomIdroomtypeNavigation))]
         public virtual ICollection<Room> Rooms { get; set; }
+
     }
 }

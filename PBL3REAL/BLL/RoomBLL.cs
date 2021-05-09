@@ -14,6 +14,7 @@ namespace HotelManagement.BLL.Implement
 {
     public class RoomBLL
     {
+        public delegate bool Compare(RoomVM r1, RoomVM r2);
         private RoomDAL _roomDAL;
         private StatusTimeDAL _statusTimeDAL;
         private StatusDAL _statusDAL;
@@ -213,6 +214,21 @@ namespace HotelManagement.BLL.Implement
                 listcbb.Add(cbbItem);
             }
             return listcbb;
+        }
+        public void sort(List<RoomVM> arr, Compare d1)
+        {
+            for (int i = 0; i < arr.Count; i++)
+            {
+                for (int j = i + 1; j < arr.Count; j++)
+                {
+                    if (d1(arr[i], arr[j]))
+                    {
+                        RoomVM temp = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = temp;
+                    }
+                }
+            }
         }
     }
     }

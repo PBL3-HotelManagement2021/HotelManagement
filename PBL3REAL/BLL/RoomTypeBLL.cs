@@ -12,6 +12,7 @@ namespace HotelManagement.BBL.Implement
 {
     public class RoomTypeBLL
     {
+        public delegate bool Compare(RoomTypeVM rt1, RoomTypeVM rt2);
         private RoomtypeDAL _roomTypeDAL;
         private ImgStorageDAL _imgStorageDAL;
         private MapperConfiguration config = new MapperConfiguration(cfg => {
@@ -141,6 +142,22 @@ namespace HotelManagement.BBL.Implement
                 listcbb.Add(cbbItem);
             }
             return listcbb;
+        }
+
+        public void sort(List<RoomTypeVM> arr, Compare d1)
+        {
+            for (int i = 0; i < arr.Count; i++)
+            {
+                for (int j = i + 1; j < arr.Count; j++)
+                {
+                    if (d1(arr[i], arr[j]))
+                    {
+                        RoomTypeVM temp = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = temp;
+                    }
+                }
+            }
         }
     }
 }
