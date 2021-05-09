@@ -49,17 +49,20 @@ namespace PBL3REAL
          //   addUser();
     
         }
-    
+
+        //  PHAN USER (ADMIN ,RECEPTIONIST,...)
+        
+        //show tat ca user
         public void showUser()
         {
             List<UserVM> listVM = userBLL.getAll();
             string json = JsonConvert.SerializeObject(listVM, Formatting.Indented);
             richTextBox1.Text = json;
         }
-      /*  public void delUser()
+        public void delUser()
         {
             userBLL.delUser(6);
-        }*/
+        }
         public void addUser()
         {
             UserVM userVM = userBLL.getAll()[0];
@@ -74,19 +77,9 @@ namespace PBL3REAL
             userVM.ListImg.Add(imageVM);
             userBLL.addUser(userVM);
         }
-        public void testCBB()
-        {
-            comboBox1.DataSource = roomTypeBLL.getAll();
-            comboBox1.DisplayMember = "RotyName";
-        }
+      
 
-        public void testCBBRoom()
-        {
-
-            comboBox2.DataSource = roomBLL.findAvailableRoom(1,Convert.ToDateTime("2021-03-01") ,Convert.ToDateTime("2021-03-08"));
-/*            comboBox2.DataSource = roomBLL.findAvailableRoom(1, DateTime.Now, DateTime.Now);*/
-            comboBox2.DisplayMember = "RoomName";
-        }
+        //  PHAN CLIENT
         public void showClient()
         {
             List<Client> listVM = clientDAL.getAll();
@@ -104,10 +97,15 @@ namespace PBL3REAL
             };
          
             clientBLL.add(clientVM);
-     }
+        }
 
-        /// phan Booking
-       
+        ///     PHAN BOOKING
+
+        public void delBooking()
+        {
+            bookingBLL.delBooking(19);
+        }
+
         public void addBooking()
         {
             SubBookingDetailVM sub = new SubBookingDetailVM
@@ -133,23 +131,42 @@ namespace PBL3REAL
                     CliGmail = "dasdasdas",
                     CliPhone = "0981234567"
                 }
-            
             };
             result.ListSub.Add(sub);
             bookingBLL.addBooking(result);
         }
+
+        //cai ni dung de show bang chi tiet cua booking 
         public void showBookingDetail()
         {
            BookingDetailVM result = bookingBLL.getDetail(10);
             string json = JsonConvert.SerializeObject(result, Formatting.Indented);
             richTextBox1.Text = json;
         }
+
+        //cai ni show ra tat ca booking cho dataGridView
         public void showBooking()
         {
             List<BookingVM> listVM = bookingBLL.getAll();
             string json = JsonConvert.SerializeObject(listVM, Formatting.Indented);
             richTextBox1.Text = json;
         }
+
+        //2 cai combobox ni cho roomtype va room ,o day combobox ta truyen vao RoomTypeVM va RoomVM
+        public void testCBB()
+        {
+            comboBox1.DataSource = roomTypeBLL.getAll();
+            comboBox1.DisplayMember = "RotyName";
+        }
+        public void testCBBRoom()
+        {
+
+            comboBox2.DataSource = roomBLL.findAvailableRoom(1, Convert.ToDateTime("2021-03-01"), Convert.ToDateTime("2021-03-08"));
+            comboBox2.DisplayMember = "RoomName";
+        }
+
+
+        ///     PHAN ROOMTYPE
         public void showroomtype()
         {
             List<RoomTypeVM> listVM = roomTypeBLL.getAll();

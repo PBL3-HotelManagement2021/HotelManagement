@@ -24,7 +24,12 @@ namespace PBL3REAL.DAL
             AppDbContext.Instance.Add(user);
             AppDbContext.Instance.SaveChanges();
         }
-      
+        public void delUser(int idUser)
+        {
+            User user = AppDbContext.Instance.Users.Find(idUser);
+            AppDbContext.Instance.Remove(user);
+            AppDbContext.Instance.SaveChanges();
+        }
 
         public void addUserRole(List<UserRole> list)
         {

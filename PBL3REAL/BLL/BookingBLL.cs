@@ -64,6 +64,7 @@ namespace PBL3REAL.BLL
             }
  
         }
+
         public void addBooking(BookingDetailVM result)
         {
             int idRoom = _bookingDAL.getnextid();
