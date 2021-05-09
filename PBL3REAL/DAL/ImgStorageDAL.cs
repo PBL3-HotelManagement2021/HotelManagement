@@ -31,15 +31,10 @@ namespace HotelManagement.DAL.Implement
         }
         public void add(List<ImgStorage> listadd)
         {
-            try
-            {
+
                 _appDbContext.ImgStorages.AddRange(listadd);
                 _appDbContext.SaveChanges();
-            }
-            catch (Exception e)
-            {
-                throw;
-            }
+
         }
 
         public List<ImgStorage> findByIDRoomtype(int id)

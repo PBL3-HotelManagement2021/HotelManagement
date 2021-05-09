@@ -25,6 +25,7 @@ namespace PBL3REAL
         private BookingBLL bookingBLL;
         private ClientDAL clientDAL;
         private ClientBLL clientBLL;
+        private UserBLL userBLL;
         public Form1()
         {
             InitializeComponent();
@@ -33,18 +34,46 @@ namespace PBL3REAL
             bookingBLL = new BookingBLL();
             clientDAL = new ClientDAL();
             clientBLL = new ClientBLL();
+            userBLL = new UserBLL();
             //   findidRoom();
             // addRoomType();
             // deleteRoomType();
             /*editRoomType();*/
             // showClient();
             testCBBRoom();
-                showBookingDetail();
-             //   addBooking();
+            //   showBookingDetail();
+            //   addBooking();
             //delBooking();
-           // addClient();
+            // addClient();
+            //showUser();
+         //   addUser();
+            delUser();
         }
     
+        public void showUser()
+        {
+            List<UserVM> listVM = userBLL.getAll();
+            string json = JsonConvert.SerializeObject(listVM, Formatting.Indented);
+            richTextBox1.Text = json;
+        }
+        public void delUser()
+        {
+            userBLL.delUser(6);
+        }
+        public void addUser()
+        {
+            UserVM userVM = userBLL.getAll()[0];
+            userVM.IdUser = 0;
+            userVM.UserCode = "PhanTest";
+            userVM.ListRole.RemoveAt(0);
+            userVM.ListImg.Clear();
+            ImageVM imageVM = new ImageVM
+            {
+                ImgstoUrl = "/home/cuong/pro/vip/dangcap"
+            };
+            userVM.ListImg.Add(imageVM);
+            userBLL.addUser(userVM);
+        }
         public void testCBB()
         {
             comboBox1.DataSource = roomTypeBLL.getAll();

@@ -89,14 +89,7 @@ namespace HotelManagement.DAL.Implement
 
         public List<Room> findAvailableRoom(int idRoomType , DateTime fromDate , DateTime toDate)
         {
-            /*
-                        List<Room> result = (from room in _appDbContext.Rooms
-                                             join roty in _appDbContext.RoomTypes on room.RoomIdroomtype equals roty.IdRoomtype
-                                             join statime in _appDbContext.StatusTimes on room.IdRoom equals statime.StatimIdroom
-                                             join status in _appDbContext.Statuses on statime.StatimIdstatus equals status.IdStatus
-                                             where (roty.IdRoomtype == idRoomType && statime.StatimFromdate >= fromDate && statime.StatimTodate <=toDate && sta)
-                                             select room
-                                             ).ToList() ;*/
+           
             SqlParameter parameter1 = new SqlParameter();
             parameter1.ParameterName = "@fromDate";
             parameter1.SqlDbType = SqlDbType.DateTime2;

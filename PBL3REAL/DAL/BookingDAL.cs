@@ -47,14 +47,10 @@ namespace PBL3REAL.DAL
 
         public void addBooking(Booking booking)
         {
-            try
-            {
+         
                 _appDbContext.Add(booking);
                 _appDbContext.SaveChanges();
-            }catch(Exception)
-            {
-                throw; 
-            }
+     
         }
 
         public void delBooking(int id)

@@ -8,7 +8,7 @@ namespace PBL3REAL.Model
 {
     public partial class AppDbContext : DbContext
     {
-        public static AppContext Instance
+        public static AppDbContext Instance
         {
             get
             {
@@ -24,7 +24,7 @@ namespace PBL3REAL.Model
             }
         }
 
-        private static CSDL _Instance;
+        private static AppDbContext _Instance;
         public AppDbContext()
         {
         }
