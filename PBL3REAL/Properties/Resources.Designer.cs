@@ -343,6 +343,46 @@ namespace PBL3REAL.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap left_fluent_color_48px {
+            get {
+                object obj = ResourceManager.GetObject("left_fluent_color_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap left_fluent_systems_regular_24px {
+            get {
+                object obj = ResourceManager.GetObject("left_fluent_systems_regular_24px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap left_fluent_systems_regular_48px {
+            get {
+                object obj = ResourceManager.GetObject("left_fluent_systems_regular_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap left_material_rounded_48px {
+            get {
+                object obj = ResourceManager.GetObject("left_material_rounded_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap list_fluent_color_48px {
             get {
                 object obj = ResourceManager.GetObject("list_fluent-color_48px", resourceCulture);
@@ -436,6 +476,66 @@ namespace PBL3REAL.Properties {
         internal static System.Drawing.Bitmap minus_fluent_color_48px {
             get {
                 object obj = ResourceManager.GetObject("minus_fluent_color_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap next_page_fluent_color_48px {
+            get {
+                object obj = ResourceManager.GetObject("next_page_fluent_color_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap next_page_windows10_32px {
+            get {
+                object obj = ResourceManager.GetObject("next_page_windows10_32px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap prev_fluent_color_48px {
+            get {
+                object obj = ResourceManager.GetObject("prev_fluent_color_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap right_button_fluent_color_48px {
+            get {
+                object obj = ResourceManager.GetObject("right_button_fluent_color_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap right_fluent_color_48px {
+            get {
+                object obj = ResourceManager.GetObject("right_fluent_color_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap right_fluent_systems_regular_48px {
+            get {
+                object obj = ResourceManager.GetObject("right_fluent_systems_regular_48px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
