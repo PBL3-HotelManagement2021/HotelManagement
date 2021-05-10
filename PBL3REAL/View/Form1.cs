@@ -35,19 +35,20 @@ namespace PBL3REAL
             clientDAL = new ClientDAL();
             clientBLL = new ClientBLL();
             userBLL = new UserBLL();
+            PaginationRoom();
             //   findidRoom();
             // addRoomType();
             // deleteRoomType();
             /*editRoomType();*/
             // showClient();
             testCBBRoom();
-            //   showBookingDetail();
+             //  showBookingDetail();
             //   addBooking();
             //delBooking();
             // addClient();
             //showUser();
-         //   addUser();
-    
+            //   addUser();
+            //completeBooking();
         }
 
         //  PHAN USER (ADMIN ,RECEPTIONIST,...)
@@ -101,6 +102,13 @@ namespace PBL3REAL
 
         ///     PHAN BOOKING
 
+        ///tk nay se goi khi client ts lay phong khach san ,luc do le tan bam nut check --->hoan tat thu tuc booking
+        ///Luu y khi complete xong thi ko con chuc nang update nx (unable di)
+        public void completeBooking()
+        {
+            bookingBLL.completeBooking(2);
+        }
+
         public void delBooking()
         {
             bookingBLL.delBooking(19);
@@ -139,7 +147,7 @@ namespace PBL3REAL
         //cai ni dung de show bang chi tiet cua booking 
         public void showBookingDetail()
         {
-           BookingDetailVM result = bookingBLL.getDetail(10);
+           BookingDetailVM result = bookingBLL.getDetail(1);
             string json = JsonConvert.SerializeObject(result, Formatting.Indented);
             richTextBox1.Text = json;
         }
@@ -243,6 +251,12 @@ namespace PBL3REAL
             List<RoomVM> listVM = roomBLL.getAll(1,2,0,"A10");
             string json = JsonConvert.SerializeObject(listVM, Formatting.Indented);
             richTextBox1.Text = json;
+        }
+
+        public void PaginationRoom()
+        {
+            textBox1.Text = roomBLL.getPagination().ToString();
+
         }
         public void addRoomType()
         {

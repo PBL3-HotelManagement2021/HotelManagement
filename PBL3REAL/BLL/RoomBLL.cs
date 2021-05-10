@@ -218,5 +218,22 @@ namespace HotelManagement.BLL.Implement
             }
             return listcbb;
         }
+
+        public int getPagination()
+        {
+            int totalRows = _roomDAL.getTotalRow();
+            int totalpage;
+            if (totalRows % 2 == 0)
+            {
+                totalpage = totalRows / 2;
+            }
+            else
+            {
+                totalpage = totalRows / 2 + 1;
+            }
+           
+            return totalpage;
+         
+        }
     }
     }

@@ -30,7 +30,7 @@ namespace HotelManagement.DAL.Implement
                 bool tracking = _appDbContext.ChangeTracker.Entries<Room>().Any(x => x.Entity.IdRoom == room.IdRoom);
                 if (tracking) throw new InvalidOperationException("Error while updating room");
                 else
-                {        
+                {
                     _appDbContext.Rooms.Update(room);
                     _appDbContext.SaveChanges();
                     _appDbContext.Entry(room).State = EntityState.Detached;
@@ -44,33 +44,34 @@ namespace HotelManagement.DAL.Implement
 
         public void add(Room room)
         {
-            try {
+            try
+            {
                 _appDbContext.Rooms.Add(room);
                 /*_appDbContext.Entry(room.StatusTimes).State = EntityState.Detached;*/
                 _appDbContext.SaveChanges();
-                _appDbContext.Entry(room).State = EntityState.Detached;            
-        }
+                _appDbContext.Entry(room).State = EntityState.Detached;
+            }
             catch (Exception e)
             {
                 throw;
             }
-}
+        }
         public void delete(List<int> listdel)
         {
             List<Room> list = new List<Room>();
             try
             {
-                foreach(int id in listdel)
+                foreach (int id in listdel)
                 {
                     Room room = _appDbContext.Rooms.Find(id);
                     if (room != null) list.Add(room);
                 }
-               
-             
-                    _appDbContext.Rooms.RemoveRange(list);
-                    _appDbContext.SaveChanges();
-                
-               
+
+
+                _appDbContext.Rooms.RemoveRange(list);
+                _appDbContext.SaveChanges();
+
+
             }
             catch (Exception e)
             {
@@ -79,7 +80,7 @@ namespace HotelManagement.DAL.Implement
         }
         public Room findbyid(int id)
         {
-            var result = _appDbContext.Rooms.Where(x =>x.IdRoom ==id).Include(x => x.RoomIdroomtypeNavigation)
+            var result = _appDbContext.Rooms.Where(x => x.IdRoom == id).Include(x => x.RoomIdroomtypeNavigation)
                                            .Include(x => x.StatusTimes)
                                            .ThenInclude(y => y.StatimIdstatusNavigation)
                                            .AsNoTracking()
@@ -87,9 +88,9 @@ namespace HotelManagement.DAL.Implement
             return result;
         }
 
-        public List<Room> findAvailableRoom(int idRoomType , DateTime fromDate , DateTime toDate)
+        public List<Room> findAvailableRoom(int idRoomType, DateTime fromDate, DateTime toDate)
         {
-           
+
             SqlParameter parameter1 = new SqlParameter();
             parameter1.ParameterName = "@fromDate";
             parameter1.SqlDbType = SqlDbType.DateTime2;
@@ -100,18 +101,18 @@ namespace HotelManagement.DAL.Implement
             parameter2.SqlDbType = SqlDbType.DateTime2;
             parameter2.Value = DateTime.Parse(toDate.ToString());
 
-            List<Room> result = _appDbContext.Rooms.FromSqlRaw($"GetAvailableRoom {idRoomType} , @fromDate,@toDate",parameter1,parameter2).ToList();
+            List<Room> result = _appDbContext.Rooms.FromSqlRaw($"GetAvailableRoom {idRoomType} , @fromDate,@toDate", parameter1, parameter2).ToList();
             return result;
         }
-        public List<Room> getall(int start, int length, int idroomtype , string name)
+        public List<Room> getall(int start, int length, int idroomtype, string name)
         {
             var predicate = PredicateBuilder.True<Room>();
 
-            if (idroomtype!=0) predicate = predicate.And(x => x.RoomIdroomtype == idroomtype);
+            if (idroomtype != 0) predicate = predicate.And(x => x.RoomIdroomtype == idroomtype);
 
             if (!string.IsNullOrEmpty(name)) predicate = predicate.And(x => x.RoomName.Contains(name));
 
-    
+
 
             var result = _appDbContext.Rooms.Where(predicate).Include(x => x.RoomIdroomtypeNavigation)
                                             .Skip(start).Take(length)
@@ -119,6 +120,23 @@ namespace HotelManagement.DAL.Implement
                                             .ToList();
             return result;
         }
+
+        public int getTotalRow()
+        {
+            int rows = 0;
+            using (var command = _appDbContext.Database.GetDbConnection().CreateCommand())
+            {
+                command.CommandText = "Exec TotalRows room";
+                _appDbContext.Database.OpenConnection();
+                using (var result = command.ExecuteReader())
+                {
+                    result.Read();
+                    rows = (int)result[0];
+                }
+            }
+            return rows;
+        }
+
 
         public int getnextid()
         {

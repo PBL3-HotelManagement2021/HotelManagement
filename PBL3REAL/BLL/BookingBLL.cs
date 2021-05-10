@@ -35,22 +35,26 @@ namespace PBL3REAL.BLL
 
         public BookingDetailVM getDetail(int id)
         {
-            Booking booking = _bookingDAL.findById(id);
-            BookingDetailVM result = mapper.Map<BookingDetailVM>(booking);
-            result.clientVM = mapper.Map<ClientVM>(booking.BookIdclientNavigation);
-            /*result.CliPhone = booking.BookIdclientNavigation.CliPhone;
-            result.CliCode = booking.BookIdclientNavigation.CliCode;
-            
-            result.CliName = booking.BookIdclientNavigation.CliName;
-            result.CliGmail = booking.BookIdclientNavigation.CliGmail;*/
-
-            foreach(BookingDetail val in booking.BookingDetails)
+            try
             {
-                SubBookingDetailVM subBookingDetailVM = mapper.Map<SubBookingDetailVM>(val);
-                subBookingDetailVM.IdRoomType = val.BoodetIdroomNavigation.RoomIdroomtype;
-                result.ListSub.Add(subBookingDetailVM);
+                Booking booking = _bookingDAL.findById(id);
+                BookingDetailVM result = mapper.Map<BookingDetailVM>(booking);
+                result.clientVM = mapper.Map<ClientVM>(booking.BookIdclientNavigation);
+            
+
+                foreach (BookingDetail val in booking.BookingDetails)
+                {
+                    SubBookingDetailVM subBookingDetailVM = mapper.Map<SubBookingDetailVM>(val);
+                    subBookingDetailVM.IdRoomType = val.BoodetIdroomNavigation.RoomIdroomtype;
+                    result.ListSub.Add(subBookingDetailVM);
+                }
+                return result;
             }
-            return result;
+            catch (Exception)
+            {
+                throw;
+            }
+           
         }
         public void delBooking(int id)
         {
@@ -64,6 +68,19 @@ namespace PBL3REAL.BLL
             }
  
         }
+
+        public void completeBooking(int idbook)
+        {
+            try
+            {
+                _bookingDAL.completeBooking(idbook);
+            }catch(Exception)
+            {
+                throw;
+            }
+        }
+
+      
 
         public void addBooking(BookingDetailVM result)
         {

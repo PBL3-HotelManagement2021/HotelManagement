@@ -27,14 +27,14 @@ namespace PBL3REAL.DAL
             return result;
         }
 
-        public Booking findById(int id)
+        public Booking findById(int idbook)
         {
             Booking result = _appDbContext.Bookings
                             .Include(x => x.BookingDetails)
                             .ThenInclude(y => y.BoodetIdroomNavigation)
                             .Include(x => x.BookIdclientNavigation)
                             .Include(x => x.BookIduserNavigation)
-                            .Where(x => x.IdBook == id)
+                            .Where(x => x.IdBook == idbook)
                             .SingleOrDefault();
              return result;     
         }
@@ -53,7 +53,7 @@ namespace PBL3REAL.DAL
      
         }
 
-        public void delBooking(int id)
+        public void delBooking(int idbook)
         {
 
             /* List<Booking> list = new List<Booking>();
@@ -62,7 +62,7 @@ namespace PBL3REAL.DAL
 
                  list.Add(booking);
              }*/
-            Booking booking = _appDbContext.Bookings.Find(id);
+            Booking booking = _appDbContext.Bookings.Find(idbook);
             _appDbContext.Remove(booking);
             _appDbContext.SaveChanges();
           
@@ -88,6 +88,16 @@ namespace PBL3REAL.DAL
             {
                 throw;
             }
+        }
+
+
+        public void completeBooking(int idbook)
+        {
+            Booking booking = AppDbContext.Instance.Bookings.Find(idbook);
+            booking.BookStatus = "Finish";
+            AppDbContext.Instance.Bookings.Update(booking);
+            AppDbContext.Instance.SaveChanges();
+            _appDbContext.Entry(booking).State = EntityState.Detached;
         }
 
         public int getnextid()

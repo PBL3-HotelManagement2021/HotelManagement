@@ -82,8 +82,7 @@ namespace PBL3REAL.BLL
             {
               userDAL.addUser(user);
                userDAL.addUserRole(ListRole);
-                imgStorageDAL.add(ListImg);
-                
+                imgStorageDAL.add(ListImg);      
             }
             catch (Exception)
             {

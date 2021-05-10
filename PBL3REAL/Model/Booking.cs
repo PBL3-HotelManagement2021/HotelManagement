@@ -32,6 +32,12 @@ namespace PBL3REAL.Model
         [Column("book_status")]
         [StringLength(10)]
         public string BookStatus { get; set; }
+
+        [Required]
+        [Column("book_code")]
+        [StringLength(8)]
+        public string BookCode { get; set; }
+
         [Column("book_deposit")]
         public int BookDeposit { get; set; }
         [Column("book_totalprice")]

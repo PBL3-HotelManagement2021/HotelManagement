@@ -26,6 +26,24 @@ BEGIN
 	 select book_checkindate,book_paymentdate,i.boodet_idroom,@id_status from inserted AS i join booking on i.boodet_idbook = booking.id_book
 END;
 
+
+	+Trigger update booking --->change status_time 
+CREATE TRIGGER update_booking_statusroom
+ON booking
+AFTER delete 
+AS
+BEGIN
+	 SET NOCOUNT ON;
+	 DECLARE @fromdate Date , @toDate Date ,@bookStatus Varchar(8)
+	 select @fromdate = book_checkindate,@toDate = book_paymentdate ,@bookStatus = book_status  from inserted i 
+	 
+	 IF @bookStatus ='Finish'
+	   BEGIN 
+		UPDATE status_time SET statim_idstatus =3 WHERE statim_fromdate =@fromdate AND statim_todate = @toDate
+	   END
+END;
+
+
 	+Stored Procedure :
 USE [HotelManagementREAL]
 GO
@@ -48,3 +66,22 @@ ALTER PROCEDURE [dbo].[GetAvailableRoom]
 																						 where id_roomtype = @IdRoomType AND  (statim_fromdate BETWEEN @fromDate and @toDate) OR (statim_todate BETWEEN @fromDate and @toDate)
 																						 )
         END
+
+
+	+Stored Procedure  : Get Count(*) of table 
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[TotalRows]
+            @tablename varchar(20)
+        AS
+       BEGIN
+     DECLARE @sql NVARCHAR(4000)= '',@rownumber INT
+     SET @sql = 'SELECT @rownumber = Count(*) FROM '+quotename(@tablename) 
+
+   EXEC sp_executesql @sql, N'@rownumber int output',@rownumber OUTPUT
+
+   SELECT @rownumber
+   END

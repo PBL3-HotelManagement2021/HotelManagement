@@ -91,6 +91,8 @@ namespace PBL3REAL.Model
 
                 entity.Property(e => e.BookNote).IsUnicode(false);
 
+                entity.Property(e => e.BookCode).IsUnicode(false);
+
                 entity.Property(e => e.BookStatus).IsUnicode(false);
 
                 entity.HasOne(d => d.BookIdclientNavigation)
