@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\toand\\Source\\Repos\\HotelManagement\\PBL3REAL\\PBL3REAL.csproj": {}
+    "C:\\Users\\toand\\Videos\\PBL3N\\HotelManagement\\PBL3REAL\\PBL3REAL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\toand\\Source\\Repos\\HotelManagement\\PBL3REAL\\PBL3REAL.csproj": {
+    "C:\\Users\\toand\\Videos\\PBL3N\\HotelManagement\\PBL3REAL\\PBL3REAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\toand\\Source\\Repos\\HotelManagement\\PBL3REAL\\PBL3REAL.csproj",
+        "projectUniqueName": "C:\\Users\\toand\\Videos\\PBL3N\\HotelManagement\\PBL3REAL\\PBL3REAL.csproj",
         "projectName": "PBL3REAL",
-        "projectPath": "C:\\Users\\toand\\Source\\Repos\\HotelManagement\\PBL3REAL\\PBL3REAL.csproj",
+        "projectPath": "C:\\Users\\toand\\Videos\\PBL3N\\HotelManagement\\PBL3REAL\\PBL3REAL.csproj",
         "packagesPath": "C:\\Users\\toand\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\toand\\Source\\Repos\\HotelManagement\\PBL3REAL\\obj\\",
+        "outputPath": "C:\\Users\\toand\\Videos\\PBL3N\\HotelManagement\\PBL3REAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\DevExpress 20.2\\Components\\Offline Packages"

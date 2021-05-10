@@ -56,7 +56,6 @@ namespace PBL3REAL.View
             // 
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = global::PBL3REAL.Properties.Resources.shrink_fluent_color_48px;
             this.button1.Location = new System.Drawing.Point(3, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(42, 42);
@@ -67,7 +66,6 @@ namespace PBL3REAL.View
             // 
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Image = global::PBL3REAL.Properties.Resources.cancel_fluent_color_48px;
             this.button2.Location = new System.Drawing.Point(51, 3);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(42, 42);
