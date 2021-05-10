@@ -119,3 +119,6 @@ C:\Users\toand\Source\Repos\HotelManagement\PBL3REAL\bin\Debug\netcoreapp3.1\run
 C:\Users\toand\Source\Repos\HotelManagement\PBL3REAL\obj\Debug\netcoreapp3.1\PBL3REAL.Properties.Resources.resources
 C:\Users\toand\Source\Repos\HotelManagement\PBL3REAL\obj\Debug\netcoreapp3.1\PBL3REAL.csproj.CopyComplete
 C:\Users\toand\Source\Repos\HotelManagement\PBL3REAL\obj\Debug\netcoreapp3.1\PBL3REAL.genruntimeconfig.cache
+C:\Users\toand\Videos\PBL3N\HotelManagement\PBL3REAL\obj\Debug\netcoreapp3.1\PBL3REAL.csprojAssemblyReference.cache
+C:\Users\toand\Videos\PBL3N\HotelManagement\PBL3REAL\obj\Debug\netcoreapp3.1\PBL3REAL.dll
+C:\Users\toand\Videos\PBL3N\HotelManagement\PBL3REAL\obj\Debug\netcoreapp3.1\PBL3REAL.pdb

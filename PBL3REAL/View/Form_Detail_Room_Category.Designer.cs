@@ -29,302 +29,349 @@ namespace PBL3REAL.View
         /// </summary>
         private void InitializeComponent()
         {
+            this.btn_OK = new System.Windows.Forms.Button();
+            this.btn_Reset = new System.Windows.Forms.Button();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.grbx_RoomTypeDetail = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.tb_RoomTypeID = new System.Windows.Forms.TextBox();
+            this.tb_RoomTypePrice = new System.Windows.Forms.TextBox();
+            this.tb_RoomTypeDescription = new System.Windows.Forms.TextBox();
+            this.tb_RoomTypeName = new System.Windows.Forms.TextBox();
+            this.lb_RoomTypeDescription = new System.Windows.Forms.Label();
+            this.lb_RoomTypePrice = new System.Windows.Forms.Label();
+            this.lb_RoomTypeID = new System.Windows.Forms.Label();
+            this.lb_RoomTypeName = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.picbx_add1 = new System.Windows.Forms.PictureBox();
+            this.picbx_add2 = new System.Windows.Forms.PictureBox();
+            this.picbx_add3 = new System.Windows.Forms.PictureBox();
+            this.picbx_add6 = new System.Windows.Forms.PictureBox();
+            this.picbx_add5 = new System.Windows.Forms.PictureBox();
+            this.picbx_add4 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.btn_Cancel = new System.Windows.Forms.Button();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.grbx_RoomTypeDetail.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbx_add1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbx_add2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbx_add3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbx_add6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbx_add5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbx_add4)).BeginInit();
             this.SuspendLayout();
+            // 
+            // btn_OK
+            // 
+            this.btn_OK.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_OK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.btn_OK.FlatAppearance.BorderSize = 0;
+            this.btn_OK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_OK.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_OK.Location = new System.Drawing.Point(25, 4);
+            this.btn_OK.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_OK.Name = "btn_OK";
+            this.btn_OK.Size = new System.Drawing.Size(173, 55);
+            this.btn_OK.TabIndex = 11;
+            this.btn_OK.Text = "OK";
+            this.btn_OK.UseVisualStyleBackColor = false;
+            // 
+            // btn_Reset
+            // 
+            this.btn_Reset.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Reset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.btn_Reset.FlatAppearance.BorderSize = 0;
+            this.btn_Reset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Reset.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_Reset.Location = new System.Drawing.Point(248, 4);
+            this.btn_Reset.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_Reset.Name = "btn_Reset";
+            this.btn_Reset.Size = new System.Drawing.Size(173, 55);
+            this.btn_Reset.TabIndex = 10;
+            this.btn_Reset.Text = "Reset";
+            this.btn_Reset.UseVisualStyleBackColor = false;
+            this.btn_Reset.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 3;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel2.Controls.Add(this.btn_Cancel, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btn_OK, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btn_Reset, 1, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(171, 426);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(669, 63);
+            this.tableLayoutPanel2.TabIndex = 12;
+            // 
+            // grbx_RoomTypeDetail
+            // 
+            this.grbx_RoomTypeDetail.Controls.Add(this.button1);
+            this.grbx_RoomTypeDetail.Controls.Add(this.flowLayoutPanel1);
+            this.grbx_RoomTypeDetail.Controls.Add(this.tableLayoutPanel1);
+            this.grbx_RoomTypeDetail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.grbx_RoomTypeDetail.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.grbx_RoomTypeDetail.Location = new System.Drawing.Point(27, 12);
+            this.grbx_RoomTypeDetail.Name = "grbx_RoomTypeDetail";
+            this.grbx_RoomTypeDetail.Size = new System.Drawing.Size(974, 382);
+            this.grbx_RoomTypeDetail.TabIndex = 0;
+            this.grbx_RoomTypeDetail.TabStop = false;
+            this.grbx_RoomTypeDetail.Text = "Thông tin chi tiết loại phòng";
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.textBox4, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.textBox3, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.textBox1, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.textBox2, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label4, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(27, 22);
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.73254F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.26746F));
+            this.tableLayoutPanel1.Controls.Add(this.tb_RoomTypeID, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.tb_RoomTypePrice, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.tb_RoomTypeDescription, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.tb_RoomTypeName, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lb_RoomTypeDescription, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lb_RoomTypePrice, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.lb_RoomTypeID, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.lb_RoomTypeName, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 69);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(605, 270);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(468, 270);
+            this.tableLayoutPanel1.TabIndex = 1;
             // 
-            // textBox4
+            // tb_RoomTypeID
             // 
-            this.textBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox4.Location = new System.Drawing.Point(305, 204);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(297, 27);
-            this.textBox4.TabIndex = 9;
+            this.tb_RoomTypeID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.tb_RoomTypeID.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_RoomTypeID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tb_RoomTypeID.Location = new System.Drawing.Point(160, 204);
+            this.tb_RoomTypeID.Name = "tb_RoomTypeID";
+            this.tb_RoomTypeID.Size = new System.Drawing.Size(297, 27);
+            this.tb_RoomTypeID.TabIndex = 9;
             // 
-            // textBox3
+            // tb_RoomTypePrice
             // 
-            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox3.Location = new System.Drawing.Point(305, 137);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(297, 27);
-            this.textBox3.TabIndex = 8;
+            this.tb_RoomTypePrice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.tb_RoomTypePrice.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_RoomTypePrice.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tb_RoomTypePrice.Location = new System.Drawing.Point(160, 137);
+            this.tb_RoomTypePrice.Name = "tb_RoomTypePrice";
+            this.tb_RoomTypePrice.Size = new System.Drawing.Size(297, 27);
+            this.tb_RoomTypePrice.TabIndex = 8;
             // 
-            // textBox1
+            // tb_RoomTypeDescription
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(305, 70);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(297, 27);
-            this.textBox1.TabIndex = 7;
+            this.tb_RoomTypeDescription.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.tb_RoomTypeDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_RoomTypeDescription.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tb_RoomTypeDescription.Location = new System.Drawing.Point(160, 70);
+            this.tb_RoomTypeDescription.Name = "tb_RoomTypeDescription";
+            this.tb_RoomTypeDescription.Size = new System.Drawing.Size(297, 27);
+            this.tb_RoomTypeDescription.TabIndex = 7;
             // 
-            // textBox2
+            // tb_RoomTypeName
             // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.Location = new System.Drawing.Point(305, 3);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(297, 27);
-            this.textBox2.TabIndex = 6;
+            this.tb_RoomTypeName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.tb_RoomTypeName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_RoomTypeName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tb_RoomTypeName.Location = new System.Drawing.Point(160, 3);
+            this.tb_RoomTypeName.Name = "tb_RoomTypeName";
+            this.tb_RoomTypeName.Size = new System.Drawing.Size(297, 27);
+            this.tb_RoomTypeName.TabIndex = 6;
             // 
-            // label2
+            // lb_RoomTypeDescription
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(3, 67);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 28);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Mô tả";
+            this.lb_RoomTypeDescription.AutoSize = true;
+            this.lb_RoomTypeDescription.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lb_RoomTypeDescription.Location = new System.Drawing.Point(3, 67);
+            this.lb_RoomTypeDescription.Name = "lb_RoomTypeDescription";
+            this.lb_RoomTypeDescription.Size = new System.Drawing.Size(64, 28);
+            this.lb_RoomTypeDescription.TabIndex = 0;
+            this.lb_RoomTypeDescription.Text = "Mô tả";
             // 
-            // label3
+            // lb_RoomTypePrice
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(3, 134);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 28);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Giá tiền";
+            this.lb_RoomTypePrice.AutoSize = true;
+            this.lb_RoomTypePrice.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lb_RoomTypePrice.Location = new System.Drawing.Point(3, 134);
+            this.lb_RoomTypePrice.Name = "lb_RoomTypePrice";
+            this.lb_RoomTypePrice.Size = new System.Drawing.Size(79, 28);
+            this.lb_RoomTypePrice.TabIndex = 0;
+            this.lb_RoomTypePrice.Text = "Giá tiền";
             // 
-            // label4
+            // lb_RoomTypeID
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(3, 201);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(140, 28);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Mã loại phòng";
+            this.lb_RoomTypeID.AutoSize = true;
+            this.lb_RoomTypeID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lb_RoomTypeID.Location = new System.Drawing.Point(3, 201);
+            this.lb_RoomTypeID.Name = "lb_RoomTypeID";
+            this.lb_RoomTypeID.Size = new System.Drawing.Size(140, 28);
+            this.lb_RoomTypeID.TabIndex = 0;
+            this.lb_RoomTypeID.Text = "Mã loại phòng";
             // 
-            // label1
+            // lb_RoomTypeName
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(141, 28);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Tên loại phòng";
+            this.lb_RoomTypeName.AutoSize = true;
+            this.lb_RoomTypeName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lb_RoomTypeName.Location = new System.Drawing.Point(3, 0);
+            this.lb_RoomTypeName.Name = "lb_RoomTypeName";
+            this.lb_RoomTypeName.Size = new System.Drawing.Size(141, 28);
+            this.lb_RoomTypeName.TabIndex = 0;
+            this.lb_RoomTypeName.Text = "Tên loại phòng";
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Controls.Add(this.pictureBox2);
-            this.flowLayoutPanel1.Controls.Add(this.pictureBox1);
-            this.flowLayoutPanel1.Controls.Add(this.pictureBox3);
-            this.flowLayoutPanel1.Controls.Add(this.pictureBox4);
-            this.flowLayoutPanel1.Controls.Add(this.pictureBox5);
-            this.flowLayoutPanel1.Controls.Add(this.pictureBox6);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(27, 323);
+            this.flowLayoutPanel1.Controls.Add(this.picbx_add1);
+            this.flowLayoutPanel1.Controls.Add(this.picbx_add2);
+            this.flowLayoutPanel1.Controls.Add(this.picbx_add3);
+            this.flowLayoutPanel1.Controls.Add(this.picbx_add6);
+            this.flowLayoutPanel1.Controls.Add(this.picbx_add5);
+            this.flowLayoutPanel1.Controls.Add(this.picbx_add4);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(500, 16);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(824, 169);
-            this.flowLayoutPanel1.TabIndex = 1;
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(415, 351);
+            this.flowLayoutPanel1.TabIndex = 2;
             // 
-            // pictureBox2
+            // picbx_add1
             // 
-            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox2.Image = global::PBL3REAL.Properties.Resources.select_none_fluent_system_filled_48px;
-            this.pictureBox2.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(131, 165);
-            this.pictureBox2.TabIndex = 3;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            this.picbx_add1.BackgroundImage = global::PBL3REAL.Properties.Resources.add_fluent_color_96px;
+            this.picbx_add1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.picbx_add1.Location = new System.Drawing.Point(3, 3);
+            this.picbx_add1.Name = "picbx_add1";
+            this.picbx_add1.Size = new System.Drawing.Size(131, 165);
+            this.picbx_add1.TabIndex = 3;
+            this.picbx_add1.TabStop = false;
             // 
-            // pictureBox1
+            // picbx_add2
             // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Image = global::PBL3REAL.Properties.Resources.select_none_fluent_system_filled_48px;
-            this.pictureBox1.Location = new System.Drawing.Point(140, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(131, 165);
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.picbx_add2.BackgroundImage = global::PBL3REAL.Properties.Resources.select_none_fluent_system_filled_48px;
+            this.picbx_add2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.picbx_add2.Location = new System.Drawing.Point(140, 3);
+            this.picbx_add2.Name = "picbx_add2";
+            this.picbx_add2.Size = new System.Drawing.Size(131, 165);
+            this.picbx_add2.TabIndex = 4;
+            this.picbx_add2.TabStop = false;
             // 
-            // pictureBox3
+            // picbx_add3
             // 
-            this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox3.Image = global::PBL3REAL.Properties.Resources.select_none_fluent_system_filled_48px;
-            this.pictureBox3.Location = new System.Drawing.Point(277, 3);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(131, 165);
-            this.pictureBox3.TabIndex = 5;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            this.picbx_add3.BackgroundImage = global::PBL3REAL.Properties.Resources.select_none_fluent_system_filled_48px;
+            this.picbx_add3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.picbx_add3.Location = new System.Drawing.Point(277, 3);
+            this.picbx_add3.Name = "picbx_add3";
+            this.picbx_add3.Size = new System.Drawing.Size(131, 165);
+            this.picbx_add3.TabIndex = 5;
+            this.picbx_add3.TabStop = false;
             // 
-            // pictureBox4
+            // picbx_add6
             // 
-            this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox4.Image = global::PBL3REAL.Properties.Resources.select_none_fluent_system_filled_48px;
-            this.pictureBox4.Location = new System.Drawing.Point(414, 3);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(131, 165);
-            this.pictureBox4.TabIndex = 6;
-            this.pictureBox4.TabStop = false;
-            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
+            this.picbx_add6.BackgroundImage = global::PBL3REAL.Properties.Resources.select_none_fluent_system_filled_48px;
+            this.picbx_add6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.picbx_add6.Location = new System.Drawing.Point(3, 174);
+            this.picbx_add6.Name = "picbx_add6";
+            this.picbx_add6.Size = new System.Drawing.Size(131, 165);
+            this.picbx_add6.TabIndex = 8;
+            this.picbx_add6.TabStop = false;
             // 
-            // pictureBox5
+            // picbx_add5
             // 
-            this.pictureBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox5.Image = global::PBL3REAL.Properties.Resources.select_none_fluent_system_filled_48px;
-            this.pictureBox5.Location = new System.Drawing.Point(551, 3);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(131, 165);
-            this.pictureBox5.TabIndex = 7;
-            this.pictureBox5.TabStop = false;
-            this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
+            this.picbx_add5.BackgroundImage = global::PBL3REAL.Properties.Resources.select_none_fluent_system_filled_48px;
+            this.picbx_add5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.picbx_add5.Location = new System.Drawing.Point(140, 174);
+            this.picbx_add5.Name = "picbx_add5";
+            this.picbx_add5.Size = new System.Drawing.Size(131, 165);
+            this.picbx_add5.TabIndex = 7;
+            this.picbx_add5.TabStop = false;
             // 
-            // pictureBox6
+            // picbx_add4
             // 
-            this.pictureBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox6.Image = global::PBL3REAL.Properties.Resources.select_none_fluent_system_filled_48px;
-            this.pictureBox6.Location = new System.Drawing.Point(688, 3);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(131, 165);
-            this.pictureBox6.TabIndex = 8;
-            this.pictureBox6.TabStop = false;
-            this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button3.Location = new System.Drawing.Point(692, 49);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(126, 53);
-            this.button3.TabIndex = 11;
-            this.button3.Text = "OK";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button2.Location = new System.Drawing.Point(692, 125);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(126, 53);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "Reset";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.picbx_add4.BackgroundImage = global::PBL3REAL.Properties.Resources.select_none_fluent_system_filled_48px;
+            this.picbx_add4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.picbx_add4.Location = new System.Drawing.Point(277, 174);
+            this.picbx_add4.Name = "picbx_add4";
+            this.picbx_add4.Size = new System.Drawing.Size(131, 165);
+            this.picbx_add4.TabIndex = 6;
+            this.picbx_add4.TabStop = false;
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(692, 207);
+            this.button1.Image = global::PBL3REAL.Properties.Resources.minus_fluent_color_48px;
+            this.button1.Location = new System.Drawing.Point(918, 16);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(126, 53);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Cancel";
-            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Size = new System.Drawing.Size(52, 55);
+            this.button1.TabIndex = 3;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // btn_Cancel
+            // 
+            this.btn_Cancel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Cancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.btn_Cancel.FlatAppearance.BorderSize = 0;
+            this.btn_Cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Cancel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_Cancel.Location = new System.Drawing.Point(471, 3);
+            this.btn_Cancel.Name = "btn_Cancel";
+            this.btn_Cancel.Size = new System.Drawing.Size(173, 57);
+            this.btn_Cancel.TabIndex = 9;
+            this.btn_Cancel.Text = "Cancel";
+            this.btn_Cancel.UseVisualStyleBackColor = false;
             // 
             // Form_Detail_Room_Category
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(898, 516);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.ClientSize = new System.Drawing.Size(1084, 516);
+            this.Controls.Add(this.grbx_RoomTypeDetail);
+            this.Controls.Add(this.tableLayoutPanel2);
             this.Name = "Form_Detail_Room_Category";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Chi tiết loại phòng";
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.grbx_RoomTypeDetail.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbx_add1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbx_add2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbx_add3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbx_add6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbx_add5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbx_add4)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_OK;
+        private System.Windows.Forms.Button btn_Reset;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Button btn_Cancel;
+        private System.Windows.Forms.GroupBox grbx_RoomTypeDetail;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.PictureBox picbx_add1;
+        private System.Windows.Forms.PictureBox picbx_add2;
+        private System.Windows.Forms.PictureBox picbx_add3;
+        private System.Windows.Forms.PictureBox picbx_add6;
+        private System.Windows.Forms.PictureBox picbx_add5;
+        private System.Windows.Forms.PictureBox picbx_add4;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TextBox tb_RoomTypeID;
+        private System.Windows.Forms.TextBox tb_RoomTypePrice;
+        private System.Windows.Forms.TextBox tb_RoomTypeDescription;
+        private System.Windows.Forms.TextBox tb_RoomTypeName;
+        private System.Windows.Forms.Label lb_RoomTypeDescription;
+        private System.Windows.Forms.Label lb_RoomTypePrice;
+        private System.Windows.Forms.Label lb_RoomTypeID;
+        private System.Windows.Forms.Label lb_RoomTypeName;
     }
 }
