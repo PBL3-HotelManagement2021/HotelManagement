@@ -453,6 +453,16 @@ namespace PBL3REAL.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap select_none_fluent_color_96px {
+            get {
+                object obj = ResourceManager.GetObject("select_none_fluent_color_96px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap select_none_fluent_system_filled_48px {
             get {
                 object obj = ResourceManager.GetObject("select_none_fluent_system_filled_48px", resourceCulture);

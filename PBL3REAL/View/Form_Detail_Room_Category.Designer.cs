@@ -117,7 +117,7 @@ namespace PBL3REAL.View
             this.grbx_RoomTypeDetail.Controls.Add(this.tableLayoutPanel1);
             this.grbx_RoomTypeDetail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.grbx_RoomTypeDetail.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.grbx_RoomTypeDetail.Location = new System.Drawing.Point(27, 12);
+            this.grbx_RoomTypeDetail.Location = new System.Drawing.Point(3, 12);
             this.grbx_RoomTypeDetail.Name = "grbx_RoomTypeDetail";
             this.grbx_RoomTypeDetail.Size = new System.Drawing.Size(974, 382);
             this.grbx_RoomTypeDetail.TabIndex = 0;
@@ -252,7 +252,7 @@ namespace PBL3REAL.View
             // 
             // picbx_add2
             // 
-            this.picbx_add2.BackgroundImage = global::PBL3REAL.Properties.Resources.select_none_fluent_system_filled_48px;
+            this.picbx_add2.BackgroundImage = global::PBL3REAL.Properties.Resources.select_none_fluent_color_96px;
             this.picbx_add2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.picbx_add2.Location = new System.Drawing.Point(140, 3);
             this.picbx_add2.Name = "picbx_add2";
@@ -262,7 +262,7 @@ namespace PBL3REAL.View
             // 
             // picbx_add3
             // 
-            this.picbx_add3.BackgroundImage = global::PBL3REAL.Properties.Resources.select_none_fluent_system_filled_48px;
+            this.picbx_add3.BackgroundImage = global::PBL3REAL.Properties.Resources.select_none_fluent_color_96px;
             this.picbx_add3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.picbx_add3.Location = new System.Drawing.Point(277, 3);
             this.picbx_add3.Name = "picbx_add3";
@@ -272,7 +272,7 @@ namespace PBL3REAL.View
             // 
             // picbx_add6
             // 
-            this.picbx_add6.BackgroundImage = global::PBL3REAL.Properties.Resources.select_none_fluent_system_filled_48px;
+            this.picbx_add6.BackgroundImage = global::PBL3REAL.Properties.Resources.select_none_fluent_color_96px;
             this.picbx_add6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.picbx_add6.Location = new System.Drawing.Point(3, 174);
             this.picbx_add6.Name = "picbx_add6";
@@ -282,7 +282,7 @@ namespace PBL3REAL.View
             // 
             // picbx_add5
             // 
-            this.picbx_add5.BackgroundImage = global::PBL3REAL.Properties.Resources.select_none_fluent_system_filled_48px;
+            this.picbx_add5.BackgroundImage = global::PBL3REAL.Properties.Resources.select_none_fluent_color_96px;
             this.picbx_add5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.picbx_add5.Location = new System.Drawing.Point(140, 174);
             this.picbx_add5.Name = "picbx_add5";
@@ -292,7 +292,7 @@ namespace PBL3REAL.View
             // 
             // picbx_add4
             // 
-            this.picbx_add4.BackgroundImage = global::PBL3REAL.Properties.Resources.select_none_fluent_system_filled_48px;
+            this.picbx_add4.BackgroundImage = global::PBL3REAL.Properties.Resources.select_none_fluent_color_96px;
             this.picbx_add4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.picbx_add4.Location = new System.Drawing.Point(277, 174);
             this.picbx_add4.Name = "picbx_add4";
@@ -329,9 +329,10 @@ namespace PBL3REAL.View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1084, 516);
+            this.ClientSize = new System.Drawing.Size(984, 495);
             this.Controls.Add(this.grbx_RoomTypeDetail);
             this.Controls.Add(this.tableLayoutPanel2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form_Detail_Room_Category";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Chi tiết loại phòng";
