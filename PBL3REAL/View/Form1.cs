@@ -42,13 +42,14 @@ namespace PBL3REAL
             /*editRoomType();*/
             // showClient();
             testCBBRoom();
-             //  showBookingDetail();
+            //  showBookingDetail();
             //   addBooking();
             //delBooking();
             // addClient();
             //showUser();
             //   addUser();
             //completeBooking();
+            checkUser();
         }
 
         //  PHAN USER (ADMIN ,RECEPTIONIST,...)
@@ -63,6 +64,13 @@ namespace PBL3REAL
         public void delUser()
         {
             userBLL.delUser(6);
+        }
+        public void checkUser()
+        {
+            
+            UserVM userVM = userBLL.checkUser("PVC20001","phanvancuong2001");
+            string json = JsonConvert.SerializeObject(userVM, Formatting.Indented);
+            richTextBox1.Text = json;
         }
         public void addUser()
         {

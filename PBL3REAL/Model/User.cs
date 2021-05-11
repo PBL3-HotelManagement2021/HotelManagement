@@ -26,8 +26,7 @@ namespace PBL3REAL.Model
         [Column("user_name")]
         [StringLength(100)]
         public string UserName { get; set; }
-        [Column("user_photo")]
-        public int UserPhoto { get; set; }
+      
         [Required]
         [Column("user_gmail")]
         [StringLength(100)]
@@ -44,6 +43,11 @@ namespace PBL3REAL.Model
         [Column("user_code")]
         [StringLength(8)]
         public string UserCode { get; set; }
+
+        [Required]
+        [Column("user_password")]
+        [StringLength(100)]
+        public string UserPassword { get; set; }
 
         [InverseProperty(nameof(Booking.BookIduserNavigation))]
         public virtual ICollection<Booking> Bookings { get; set; }

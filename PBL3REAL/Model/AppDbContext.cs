@@ -275,6 +275,8 @@ namespace PBL3REAL.Model
 
                 entity.Property(e => e.UserGmail).IsUnicode(false);
 
+                entity.Property(e => e.UserPassword).IsUnicode(false);
+
                 entity.Property(e => e.UserName).IsUnicode(false);
 
                 entity.Property(e => e.UserPhone).IsUnicode(false);

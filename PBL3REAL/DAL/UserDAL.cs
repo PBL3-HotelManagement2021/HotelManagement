@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using HotelManagement.Extention;
+using Microsoft.EntityFrameworkCore;
 using PBL3REAL.Model;
 using System;
 using System.Collections.Generic;
@@ -13,10 +14,31 @@ namespace PBL3REAL.DAL
         {
             List<User> result = AppDbContext.Instance.Users
                                 .Include(x => x.UserRoles)
-                                .ThenInclude(y =>y.UserolIdroleNavigation)
-                                .Include(x =>x.ImgStorages)
+                                .ThenInclude(y => y.UserolIdroleNavigation)
+                                .Where(x => x.UserActiveflag == true)
                                 .ToList();
             return result;
+        }
+
+        public List<User> findByProperty(Dictionary<string, string> properties) 
+        {
+            var predicate = PredicateBuilder.True<User>();      
+            if (!properties.ContainsKey("code"))
+            {
+                predicate = predicate.And(x => x.UserCode == properties["code"]);
+            }
+            if (!properties.ContainsKey("password"))
+            {
+                predicate = predicate.And(x => x.UserPassword == properties["password"]);
+            }
+            predicate = predicate.And(x => x.UserActiveflag == true);
+            List<User> users = AppDbContext.Instance.Users
+                        .Include(x => x.UserRoles)
+                        .ThenInclude(y => y.UserolIdroleNavigation)
+                        .Include(x => x.ImgStorages)
+                        .Where(predicate)
+                        .ToList();
+            return users;
         }
 
         public void addUser(User user)
@@ -27,7 +49,8 @@ namespace PBL3REAL.DAL
         public void delUser(int idUser)
         {
             User user = AppDbContext.Instance.Users.Find(idUser);
-            AppDbContext.Instance.Remove(user);
+            user.UserActiveflag = false;
+            AppDbContext.Instance.Update(user);
             AppDbContext.Instance.SaveChanges();
         }
 

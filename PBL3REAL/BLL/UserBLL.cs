@@ -32,14 +32,39 @@ namespace PBL3REAL.BLL
                     RoleVM roleVM = mapper.Map<RoleVM>(userRole.UserolIdroleNavigation);
                     userVM.ListRole.Add(roleVM);
                 }
+              
+                listVM.Add(userVM);
+            }
+            return listVM;
+        }
+
+
+        public UserVM checkUser(string code , string password)
+        {
+            Dictionary<string, string> properties = new Dictionary<string, string>();
+            properties.Add("code", code);
+            properties.Add("password",password);
+            UserVM userVM = null;
+            try
+            {
+                User user = userDAL.findByProperty(properties)[0];
+               userVM = mapper.Map<UserVM>(user);
+                foreach (UserRole userRole in user.UserRoles)
+                {
+                    RoleVM roleVM = mapper.Map<RoleVM>(userRole.UserolIdroleNavigation);
+                    userVM.ListRole.Add(roleVM);
+                }
                 foreach (ImgStorage img in user.ImgStorages)
                 {
                     ImageVM imageVM = mapper.Map<ImageVM>(img);
                     userVM.ListImg.Add(imageVM);
                 }
-                listVM.Add(userVM);
             }
-            return listVM;
+            catch (Exception)
+            {
+                throw;
+            }         
+            return userVM;
         }
         public void delUser(int idUser)
         {
