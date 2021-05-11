@@ -10,6 +10,9 @@ using System.Windows.Forms;
 //using iTextSharp.text.pdf;
 using PdfSharp.Pdf;
 using PdfSharp.Drawing;
+using PdfSharp.Fonts;
+using Microsoft.Extensions.DependencyInjection;
+
 namespace PBL3REAL.View
 {
     public partial class Form_Details_Invoice : Form
@@ -17,6 +20,8 @@ namespace PBL3REAL.View
         public Form_Details_Invoice()
         {
             InitializeComponent();
+            System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
+            //ConfigureServices();
         }
         public void ExportToPDF(string FileName)
         {
@@ -89,9 +94,21 @@ namespace PBL3REAL.View
             PdfDocument pdf = new PdfDocument();
             PdfPage pdfPage = pdf.AddPage();
             XGraphics graph = XGraphics.FromPdfPage(pdfPage);
-            XFont font = new XFont("Verdana", 20, XFontStyle.Bold);
-            graph.DrawString("This is my first PDF document", font, XBrushes.Black,new XRect(0, 0, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
-            pdf.Save("firstpage.pdf");
+            XFont font_Header = new XFont("Arial", 30, XFontStyle.Bold);
+            XFont font_Footer = new XFont("Arial", 8, XFontStyle.Bold);
+            graph.DrawString("INVOICE", font_Header, XBrushes.Black,new XRect(0, 30, pdfPage.Width.Point, 0), XStringFormats.BaseLineCenter);
+            graph.DrawString("Invoice ID: " + FileName, font_Footer, XBrushes.Black, new XRect(3, 0, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.BottomLeft);
+            pdf.Save(FileName + ".pdf");
+        }
+        //public void ConfigureServices(IServiceCollection services)
+        //{
+        //    Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+
+        //    // more code here
+        //}
+        private void btn_OK_Click(object sender, EventArgs e)
+        {
+            ExportToPDF("Test");
         }
     }
 }

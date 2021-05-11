@@ -29,6 +29,7 @@ namespace PBL3REAL.View
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Details_Invoice));
             this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -508,6 +509,7 @@ namespace PBL3REAL.View
             this.btn_OK.TabIndex = 0;
             this.btn_OK.Text = "OK";
             this.btn_OK.UseVisualStyleBackColor = false;
+            this.btn_OK.Click += new System.EventHandler(this.btn_OK_Click);
             // 
             // btn_Reset
             // 
@@ -538,6 +540,7 @@ namespace PBL3REAL.View
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form_Details_Invoice";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form_Details_Invoice";

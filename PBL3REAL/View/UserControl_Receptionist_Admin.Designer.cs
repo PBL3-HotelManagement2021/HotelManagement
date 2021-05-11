@@ -121,7 +121,6 @@ namespace PBL3REAL.View
             this.btnshow.TabIndex = 4;
             this.btnshow.Text = "button7";
             this.btnshow.UseVisualStyleBackColor = true;
-            this.btnshow.Click += new System.EventHandler(this.btnshow_Click);
             // 
             // dataGridView1
             // 
@@ -159,7 +158,6 @@ namespace PBL3REAL.View
             this.btnadd.Text = "Thêm phòng mới";
             this.btnadd.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnadd.UseVisualStyleBackColor = true;
-            this.btnadd.Click += new System.EventHandler(this.btnadd_Click);
             // 
             // btnedit
             // 
@@ -174,7 +172,6 @@ namespace PBL3REAL.View
             this.btnedit.Text = "Chỉnh sửa thông tin phòng";
             this.btnedit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnedit.UseVisualStyleBackColor = true;
-            this.btnedit.Click += new System.EventHandler(this.btnedit_Click);
             // 
             // btndelete
             // 
@@ -189,7 +186,6 @@ namespace PBL3REAL.View
             this.btndelete.Text = "Xóa phòng đã chọn";
             this.btndelete.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btndelete.UseVisualStyleBackColor = true;
-            this.btndelete.Click += new System.EventHandler(this.btndelete_Click);
             // 
             // tableLayoutPanel2
             // 
@@ -298,7 +294,6 @@ namespace PBL3REAL.View
             this.btnroty_show.TabIndex = 7;
             this.btnroty_show.Text = "button1";
             this.btnroty_show.UseVisualStyleBackColor = true;
-            this.btnroty_show.Click += new System.EventHandler(this.btnroty_show_Click);
             // 
             // dataGridView2
             // 
@@ -336,7 +331,6 @@ namespace PBL3REAL.View
             this.btnroty_add.Text = "Thêm loại phòng mới";
             this.btnroty_add.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnroty_add.UseVisualStyleBackColor = true;
-            this.btnroty_add.Click += new System.EventHandler(this.btnroty_add_Click);
             // 
             // btnroty_edit
             // 
@@ -351,7 +345,6 @@ namespace PBL3REAL.View
             this.btnroty_edit.Text = "Chỉnh sửa thông tin loại phòng";
             this.btnroty_edit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnroty_edit.UseVisualStyleBackColor = true;
-            this.btnroty_edit.Click += new System.EventHandler(this.btnroty_edit_Click);
             // 
             // btnroty_del
             // 
