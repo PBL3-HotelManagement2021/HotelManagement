@@ -8,6 +8,23 @@ namespace PBL3REAL.Model
 {
     public partial class AppDbContext : DbContext
     {
+        public static AppDbContext Instance
+        {
+            get
+            {
+                if (_Instance == null)
+                {
+                    _Instance = new AppDbContext();
+                }
+                return _Instance;
+            }
+            private set
+            {
+
+            }
+        }
+
+        private static AppDbContext _Instance;
         public AppDbContext()
         {
         }
@@ -74,6 +91,8 @@ namespace PBL3REAL.Model
 
                 entity.Property(e => e.BookNote).IsUnicode(false);
 
+                entity.Property(e => e.BookCode).IsUnicode(false);
+
                 entity.Property(e => e.BookStatus).IsUnicode(false);
 
                 entity.HasOne(d => d.BookIdclientNavigation)
@@ -107,13 +126,17 @@ namespace PBL3REAL.Model
             modelBuilder.Entity<Client>(entity =>
             {
                 entity.HasKey(e => e.IdClient)
-                    .HasName("Pk_client_id_client");
+                    .HasName("Pk_client");
 
-                entity.Property(e => e.IdClient).ValueGeneratedNever();
+                /* entity.Property(e => e.IdClient).ValueGeneratedNever();*/
 
-                entity.Property(e => e.ClGmail).IsUnicode(false);
+                entity.Property(e => e.CliGmail).IsUnicode(false);
 
-                entity.Property(e => e.ClName).IsUnicode(false);
+                entity.Property(e => e.CliName).IsUnicode(false);
+
+                entity.Property(e => e.CliPhone).IsUnicode(false);
+
+                entity.Property(e => e.CliCode).IsUnicode(false);
             });
 
             modelBuilder.Entity<ImgStorage>(entity =>
@@ -251,6 +274,8 @@ namespace PBL3REAL.Model
                     .HasDefaultValueSql("((0))");
 
                 entity.Property(e => e.UserGmail).IsUnicode(false);
+
+                entity.Property(e => e.UserPassword).IsUnicode(false);
 
                 entity.Property(e => e.UserName).IsUnicode(false);
 

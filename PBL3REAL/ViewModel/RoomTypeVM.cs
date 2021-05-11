@@ -10,7 +10,7 @@ namespace HotelManagement.ViewModel
         public RoomTypeVM()
         {
             ListImg = new List<ImageVM>();
-            MapImgUrl = new Dictionary<int, string>();
+            /* MapImgUrl = new Dictionary<int, string>();*/
         }
         public int IdRoomtype { get; set; }
         public string RotyName { get; set; }
@@ -18,7 +18,7 @@ namespace HotelManagement.ViewModel
         public decimal RotyCurrentprice { get; set; }
         public int RotyCapacity { get; set; }
 
-        public IDictionary<int, string> MapImgUrl { get; set; }
+        /* public IDictionary<int, string> MapImgUrl { get; set; }*/
         public List<ImageVM> ListImg { get; set; }
     }
 }

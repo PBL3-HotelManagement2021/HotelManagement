@@ -11,9 +11,14 @@ namespace PBL3REAL.ViewModel
         public DateTime BookCheckindate { get; set; }
         public string BookNote { get; set; }
         public string BookStatus { get; set; }
+
+        public string BookCode { get; set; }
         public int BookDeposit { get; set; }
         public int BookTotalprice { get; set; }
         public DateTime BookPaymentdate { get; set; }
+
+        public string UserCode { get; set; }
+        public string CliCode { get; set; }
 
     }
 }

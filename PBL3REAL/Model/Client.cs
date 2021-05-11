@@ -21,15 +21,20 @@ namespace PBL3REAL.Model
         [Column("id_client")]
         public int IdClient { get; set; }
         [Required]
-        [Column("cl_name")]
+        [Column("cli_name")]
         [StringLength(100)]
-        public string ClName { get; set; }
+        public string CliName { get; set; }
+        [Column("cli_phone")]
+        [StringLength(10)]
+        public string CliPhone { get; set; }
+        [Column("cli_code")]
+        [StringLength(10)]
+        public string CliCode { get; set; }
         [Required]
-        [Column("cl_gmail")]
+        [Column("cli_gmail")]
         [StringLength(100)]
-        public string ClGmail { get; set; }
-        [Column("cli_idclityp")]
-        public int CliIdclityp { get; set; }
+        public string CliGmail { get; set; }
+
 
         [InverseProperty(nameof(Booking.BookIdclientNavigation))]
         public virtual ICollection<Booking> Bookings { get; set; }

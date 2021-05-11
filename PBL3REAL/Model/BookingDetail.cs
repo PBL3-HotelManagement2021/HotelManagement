@@ -14,8 +14,7 @@ namespace PBL3REAL.Model
         [Key]
         [Column("id_boodet")]
         public int IdBoodet { get; set; }
-        [Column("boodet_duration")]
-        public int BoodetDuration { get; set; }
+
         [Column("boodet_price")]
         public int BoodetPrice { get; set; }
         [Column("boodet_idbook")]

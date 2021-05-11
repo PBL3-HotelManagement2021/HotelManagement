@@ -4,10 +4,14 @@ using System.Text;
 
 namespace PBL3REAL.ViewModel
 {
-    class BookingDetailVM
+    class BookingDetailVM : BookingVM
     {
-        public int IdBoodet { get; set; }
-        public string Note { get; set; }
-        public string RoomName { get; set; }
+        public BookingDetailVM()
+        {
+            ListSub = new List<SubBookingDetailVM>();
+        }
+
+        public ClientVM clientVM { get; set; }
+        public List<SubBookingDetailVM> ListSub { get; set; }
     }
 }

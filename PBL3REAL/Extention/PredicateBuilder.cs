@@ -91,6 +91,5 @@ namespace HotelManagement.Extention
                 return base.VisitParameter(p);
             }
         }
-    
-}
+    }
 }

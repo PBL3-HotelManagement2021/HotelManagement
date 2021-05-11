@@ -4,6 +4,7 @@ using HotelManagement.DAL.Implement;
 using HotelManagement.ViewModel;
 using PBL3REAL.Model;
 using PBL3REAL.ViewModel;
+using PBL3REAL.Extention;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,58 +16,54 @@ namespace HotelManagement.BLL.Implement
     {
         private RoomDAL _roomDAL;
         private StatusTimeDAL _statusTimeDAL;
-        private MapperConfiguration config = new MapperConfiguration(cfg =>
-        {
-            cfg.CreateMap<Room, RoomVM>().ReverseMap();
-            cfg.CreateMap<Status, StatusVM>().ReverseMap();
-            cfg.CreateMap<StatusTime, StatusTimeVM>().ReverseMap();
-            cfg.CreateMap<Room, RoomDetailVM>().ReverseMap();
-        });
+        private StatusDAL _statusDAL;
+
         private Mapper mapper;
 
-       
+
         public RoomBLL()
         {
             _roomDAL = new RoomDAL();
             _statusTimeDAL = new StatusTimeDAL();
-            mapper = new Mapper(config);
+            _statusDAL = new StatusDAL();
+            mapper = new Mapper(MapperVM.config);
         }
 
-       /* public void editRoom1(RoomVM roomVM, List<int> listdel)
-        {
-            Room room = new Room();
-            mapper.Map(roomVM, room);
-            room.RoomIdroomtype = roomVM.MapRoomtype.First().Key;
-            foreach (StatusTimeVM statusTimeVM in roomVM.ListStatusTime)
-            {
-                StatusTime statusTime = new StatusTime();
-                mapper.Map(statusTimeVM, statusTime);
-                // Status status = new Status();
-                // _iMapper.Map(statusTimeVM.statusVM,status);
-                // statusTime.StatimIdstatusNavigation = status;
-                statusTime.StatimIdstatus = statusTimeVM.statusVM.IdStatus;
-                statusTime.StatimIdroom = room.IdRoom;
-                room.StatusTimes.Add(statusTime);
-            }
-            try
-            {
-                _roomDAL.update(room);
-                if (listdel.Count != 0) _statusTimeDAL.delete(listdel);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-        }*/
+        /* public void editRoom1(RoomVM roomVM, List<int> listdel)
+         {
+             Room room = new Room();
+             mapper.Map(roomVM, room);
+             room.RoomIdroomtype = roomVM.MapRoomtype.First().Key;
+             foreach (StatusTimeVM statusTimeVM in roomVM.ListStatusTime)
+             {
+                 StatusTime statusTime = new StatusTime();
+                 mapper.Map(statusTimeVM, statusTime);
+                 // Status status = new Status();
+                 // _iMapper.Map(statusTimeVM.statusVM,status);
+                 // statusTime.StatimIdstatusNavigation = status;
+                 statusTime.StatimIdstatus = statusTimeVM.statusVM.IdStatus;
+                 statusTime.StatimIdroom = room.IdRoom;
+                 room.StatusTimes.Add(statusTime);
+             }
+             try
+             {
+                 _roomDAL.update(room);
+                 if (listdel.Count != 0) _statusTimeDAL.delete(listdel);
+             }
+             catch (Exception e)
+             {
+                 Console.WriteLine(e.Message);
+             }
+         }*/
 
-        public void addRoom(RoomDetailVM roomVM)
+        public void addRoom(RoomDetailVM roomDetailVM)
         {
             int idRoom = _roomDAL.getnextid();
             Room room = new Room();
-            mapper.Map(roomVM, room);
-            room.RoomIdroomtype = roomVM.MapRoomtype.First().Key;
+            mapper.Map(roomDetailVM, room);
+            room.RoomIdroomtype = roomDetailVM.IdRoomType;
             List<StatusTime> listadd = new List<StatusTime>();
-            foreach (StatusTimeVM statusTimeVM in roomVM.ListStatusTime)
+            foreach (StatusTimeVM statusTimeVM in roomDetailVM.ListStatusTime)
             {
                 StatusTime statusTime = new StatusTime();
                 mapper.Map(statusTimeVM, statusTime);
@@ -85,22 +82,23 @@ namespace HotelManagement.BLL.Implement
             }
         }
 
-        public void deleteRoom(int id)
+        public void deleteRoom(List<int> listdel)
         {
-          /*  List<int> listdel = new List<int>();
-            foreach(StatusTime statusTime in _statusTimeDAL.findByIdRoom(id))
-            {
-                listdel.Add(statusTime.IdStatim);
-            }
-            ko can boi vi no xoa lien thong lun roi
-           */
+            /*  List<int> listdel = new List<int>();
+              foreach(StatusTime statusTime in _statusTimeDAL.findByIdRoom(id))
+              {
+                  listdel.Add(statusTime.IdStatim);
+              }
+              ko can boi vi no xoa lien thong lun roi
+             */
             try
             {
-                _roomDAL.delete(id);
+                _roomDAL.delete(listdel);
 
-            }catch(Exception e)
+            }
+            catch (Exception e)
             {
-               
+                throw;
             }
 
         }
@@ -109,8 +107,7 @@ namespace HotelManagement.BLL.Implement
         {
             Room room = new Room();
             mapper.Map(roomVM, room);
-            room.RoomIdroomtype = roomVM.MapRoomtype.First().Key;
-            List<StatusTime> listedit = new List<StatusTime>();
+            room.RoomIdroomtype = roomVM.IdRoomType;
             List<StatusTime> listadd = new List<StatusTime>();
             foreach (StatusTimeVM statusTimeVM in roomVM.ListStatusTime)
             {
@@ -121,58 +118,57 @@ namespace HotelManagement.BLL.Implement
                 // statusTime.StatimIdstatusNavigation = status;
                 statusTime.StatimIdstatus = statusTimeVM.statusVM.IdStatus;
                 statusTime.StatimIdroom = room.IdRoom;
-                if (statusTime.IdStatim != 0) listedit.Add(statusTime);
-                else listadd.Add(statusTime);
+                if (statusTime.IdStatim == 0) listadd.Add(statusTime);
+
             }
             try
             {
                 _roomDAL.update(room);
                 if (listdel != null) _statusTimeDAL.delete(listdel);
-                if (listedit.Count != 0) _statusTimeDAL.update(listedit);
                 if (listadd.Count != 0) _statusTimeDAL.add(listadd);
-                
+
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
         }
-       
 
-     
 
-       /* public List<RoomVM> getAll1(int pages, int rows, string orderby)
-        {
-            int start = (pages - 1) * rows;
-            int length = rows;
-            List<Room> listRoom = _roomDAL.getall(start, length, orderby);
-            List<RoomVM> listRoomVM = new List<RoomVM>();
-            foreach (Room room in listRoom)
-            {
-                RoomVM roomVM = mapper.Map<RoomVM>(room);
-                int id = room.RoomIdroomtypeNavigation.IdRoomtype;
-                string roomname = room.RoomIdroomtypeNavigation.RotyName;
-                roomVM.MapRoomtype.Add(id, roomname);
-                foreach (StatusTime statusTime in room.StatusTimes)
-                {
-                    StatusTimeVM statusTimeVM = mapper.Map<StatusTimeVM>(statusTime);
-                    statusTimeVM.statusVM = mapper.Map<StatusVM>(statusTime.StatimIdstatusNavigation);
-                    roomVM.ListStatusTime.Add(statusTimeVM);
-                }
-                listRoomVM.Add(roomVM);
-            }
-            return listRoomVM;
-        }*/
+
+
+        /* public List<RoomVM> getAll1(int pages, int rows, string orderby)
+         {
+             int start = (pages - 1) * rows;
+             int length = rows;
+             List<Room> listRoom = _roomDAL.getall(start, length, orderby);
+             List<RoomVM> listRoomVM = new List<RoomVM>();
+             foreach (Room room in listRoom)
+             {
+                 RoomVM roomVM = mapper.Map<RoomVM>(room);
+                 int id = room.RoomIdroomtypeNavigation.IdRoomtype;
+                 string roomname = room.RoomIdroomtypeNavigation.RotyName;
+                 roomVM.MapRoomtype.Add(id, roomname);
+                 foreach (StatusTime statusTime in room.StatusTimes)
+                 {
+                     StatusTimeVM statusTimeVM = mapper.Map<StatusTimeVM>(statusTime);
+                     statusTimeVM.statusVM = mapper.Map<StatusVM>(statusTime.StatimIdstatusNavigation);
+                     roomVM.ListStatusTime.Add(statusTimeVM);
+                 }
+                 listRoomVM.Add(roomVM);
+             }
+             return listRoomVM;
+         }*/
         public List<RoomVM> getAll(int pages, int rows, int idroomtype, string name)
         {
             int start = (pages - 1) * rows;
             int length = rows;
-            List<Room> listRoom = _roomDAL.getall(start, length, idroomtype ,name);
+            List<Room> listRoom = _roomDAL.getall(start, length, idroomtype, name);
             List<RoomVM> listRoomVM = new List<RoomVM>();
             foreach (Room room in listRoom)
             {
                 RoomVM roomVM = mapper.Map<RoomVM>(room);
-                roomVM.RoTyName= room.RoomIdroomtypeNavigation.RotyName;
+                roomVM.RoTyName = room.RoomIdroomtypeNavigation.RotyName;
                 roomVM.RotyCurrentprice = room.RoomIdroomtypeNavigation.RotyCurrentprice;
                 listRoomVM.Add(roomVM);
             }
@@ -183,16 +179,62 @@ namespace HotelManagement.BLL.Implement
             Room room = _roomDAL.findbyid(idroom);
             RoomDetailVM roomDetailVM = mapper.Map<RoomDetailVM>(room);
             int id = room.RoomIdroomtypeNavigation.IdRoomtype;
-            string roomname = room.RoomIdroomtypeNavigation.RotyName;
-            roomDetailVM.MapRoomtype.Add(id, roomname);
+            string rotyname = room.RoomIdroomtypeNavigation.RotyName;
+            roomDetailVM.RoTyName = rotyname;
+            roomDetailVM.IdRoomType = id;
+            /* roomDetailVM.MapRoomtype.Add(id, rotyname);*/
             roomDetailVM.RotyCurrentprice = room.RoomIdroomtypeNavigation.RotyCurrentprice;
             foreach (StatusTime statusTime in room.StatusTimes)
             {
                 StatusTimeVM statusTimeVM = mapper.Map<StatusTimeVM>(statusTime);
+                statusTimeVM.IdStatus = statusTime.StatimIdstatusNavigation.IdStatus;
+                statusTimeVM.StaName = statusTime.StatimIdstatusNavigation.StaName;
                 statusTimeVM.statusVM = mapper.Map<StatusVM>(statusTime.StatimIdstatusNavigation);
                 roomDetailVM.ListStatusTime.Add(statusTimeVM);
-            }  
+            }
             return roomDetailVM;
         }
+
+        public List<RoomVM> findAvailableRoom(int idRoomType, DateTime fromDate, DateTime toDate)
+        {
+            List<RoomVM> listVM = new List<RoomVM>();
+            foreach (Room room in _roomDAL.findAvailableRoom(idRoomType, fromDate, toDate))
+            {
+                RoomVM roomVM = mapper.Map<RoomVM>(room);
+                listVM.Add(roomVM);
+            }
+            return listVM;
+        }
+        public List<CbbItem> addComboboxStatus()
+        {
+            List<CbbItem> listcbb = new List<CbbItem>();
+            foreach (Status status in _statusDAL.getAll())
+            {
+                CbbItem cbbItem = new CbbItem
+                {
+                    text = status.StaName,
+                    Value = status.IdStatus
+                };
+                listcbb.Add(cbbItem);
+            }
+            return listcbb;
+        }
+
+        public int getPagination()
+        {
+            int totalRows = _roomDAL.getTotalRow();
+            int totalpage;
+            if (totalRows % 2 == 0)
+            {
+                totalpage = totalRows / 2;
+            }
+            else
+            {
+                totalpage = totalRows / 2 + 1;
+            }
+
+            return totalpage;
+
+        }
     }
-    }
+}

@@ -8,7 +8,7 @@ using System.Text;
 
 namespace HotelManagement.DAL.Implement
 {
-   public class RoomtypeDAL 
+    public class RoomtypeDAL
     {
         private AppDbContext _appDbContext;
         public RoomtypeDAL()
