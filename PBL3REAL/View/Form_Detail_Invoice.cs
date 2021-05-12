@@ -15,9 +15,9 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace PBL3REAL.View
 {
-    public partial class Form_Details_Invoice : Form
+    public partial class Form_Detail_Invoice : Form
     {
-        public Form_Details_Invoice()
+        public Form_Detail_Invoice()
         {
             InitializeComponent();
             System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
