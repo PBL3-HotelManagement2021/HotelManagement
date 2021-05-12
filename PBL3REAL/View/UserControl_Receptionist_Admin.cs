@@ -26,6 +26,11 @@ namespace PBL3REAL.View
             //addCbRoom1();
         }
 
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
 
 
         //private void showRoom(int idRoomType, string name)

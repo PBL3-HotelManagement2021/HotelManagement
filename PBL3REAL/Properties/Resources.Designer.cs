@@ -709,5 +709,15 @@ namespace PBL3REAL.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap waste_fluent_color_96px1 {
+            get {
+                object obj = ResourceManager.GetObject("waste_fluent_color_96px1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
