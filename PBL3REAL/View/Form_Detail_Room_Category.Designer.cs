@@ -31,18 +31,18 @@ namespace PBL3REAL.View
         {
             this.btn_OK = new System.Windows.Forms.Button();
             this.btn_Reset = new System.Windows.Forms.Button();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.tbllaypn_ControlButtons = new System.Windows.Forms.TableLayoutPanel();
             this.btn_Cancel = new System.Windows.Forms.Button();
             this.grbx_RoomTypeDetail = new System.Windows.Forms.GroupBox();
             this.btn_del = new System.Windows.Forms.Button();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.fllaypn_Images = new System.Windows.Forms.FlowLayoutPanel();
             this.picbx_add1 = new System.Windows.Forms.PictureBox();
             this.picbx_add2 = new System.Windows.Forms.PictureBox();
             this.picbx_add3 = new System.Windows.Forms.PictureBox();
             this.picbx_add4 = new System.Windows.Forms.PictureBox();
             this.picbx_add5 = new System.Windows.Forms.PictureBox();
             this.picbx_add6 = new System.Windows.Forms.PictureBox();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tbllaypn_DetailsRoomCategory = new System.Windows.Forms.TableLayoutPanel();
             this.tb_RoomTypeID = new System.Windows.Forms.TextBox();
             this.tb_RoomTypePrice = new System.Windows.Forms.TextBox();
             this.tb_RoomTypeDescription = new System.Windows.Forms.TextBox();
@@ -51,16 +51,16 @@ namespace PBL3REAL.View
             this.lb_RoomTypePrice = new System.Windows.Forms.Label();
             this.lb_RoomTypeID = new System.Windows.Forms.Label();
             this.lb_RoomTypeName = new System.Windows.Forms.Label();
-            this.tableLayoutPanel2.SuspendLayout();
+            this.tbllaypn_ControlButtons.SuspendLayout();
             this.grbx_RoomTypeDetail.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
+            this.fllaypn_Images.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picbx_add1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbx_add2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbx_add3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbx_add4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbx_add5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbx_add6)).BeginInit();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.tbllaypn_DetailsRoomCategory.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_OK
@@ -95,21 +95,21 @@ namespace PBL3REAL.View
             this.btn_Reset.UseVisualStyleBackColor = false;
             this.btn_Reset.Click += new System.EventHandler(this.btn_Reset_Click);
             // 
-            // tableLayoutPanel2
+            // tbllaypn_ControlButtons
             // 
-            this.tableLayoutPanel2.ColumnCount = 3;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.Controls.Add(this.btn_Cancel, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btn_OK, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btn_Reset, 1, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(171, 426);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(669, 63);
-            this.tableLayoutPanel2.TabIndex = 12;
+            this.tbllaypn_ControlButtons.ColumnCount = 3;
+            this.tbllaypn_ControlButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tbllaypn_ControlButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tbllaypn_ControlButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tbllaypn_ControlButtons.Controls.Add(this.btn_Cancel, 2, 0);
+            this.tbllaypn_ControlButtons.Controls.Add(this.btn_OK, 0, 0);
+            this.tbllaypn_ControlButtons.Controls.Add(this.btn_Reset, 1, 0);
+            this.tbllaypn_ControlButtons.Location = new System.Drawing.Point(171, 426);
+            this.tbllaypn_ControlButtons.Name = "tbllaypn_ControlButtons";
+            this.tbllaypn_ControlButtons.RowCount = 1;
+            this.tbllaypn_ControlButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tbllaypn_ControlButtons.Size = new System.Drawing.Size(669, 63);
+            this.tbllaypn_ControlButtons.TabIndex = 0;
             // 
             // btn_Cancel
             // 
@@ -129,8 +129,8 @@ namespace PBL3REAL.View
             // grbx_RoomTypeDetail
             // 
             this.grbx_RoomTypeDetail.Controls.Add(this.btn_del);
-            this.grbx_RoomTypeDetail.Controls.Add(this.flowLayoutPanel1);
-            this.grbx_RoomTypeDetail.Controls.Add(this.tableLayoutPanel1);
+            this.grbx_RoomTypeDetail.Controls.Add(this.fllaypn_Images);
+            this.grbx_RoomTypeDetail.Controls.Add(this.tbllaypn_DetailsRoomCategory);
             this.grbx_RoomTypeDetail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.grbx_RoomTypeDetail.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.grbx_RoomTypeDetail.Location = new System.Drawing.Point(3, 12);
@@ -151,18 +151,18 @@ namespace PBL3REAL.View
             this.btn_del.TabIndex = 0;
             this.btn_del.UseVisualStyleBackColor = true;
             // 
-            // flowLayoutPanel1
+            // fllaypn_Images
             // 
-            this.flowLayoutPanel1.Controls.Add(this.picbx_add1);
-            this.flowLayoutPanel1.Controls.Add(this.picbx_add2);
-            this.flowLayoutPanel1.Controls.Add(this.picbx_add3);
-            this.flowLayoutPanel1.Controls.Add(this.picbx_add4);
-            this.flowLayoutPanel1.Controls.Add(this.picbx_add5);
-            this.flowLayoutPanel1.Controls.Add(this.picbx_add6);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(500, 16);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(415, 351);
-            this.flowLayoutPanel1.TabIndex = 2;
+            this.fllaypn_Images.Controls.Add(this.picbx_add1);
+            this.fllaypn_Images.Controls.Add(this.picbx_add2);
+            this.fllaypn_Images.Controls.Add(this.picbx_add3);
+            this.fllaypn_Images.Controls.Add(this.picbx_add4);
+            this.fllaypn_Images.Controls.Add(this.picbx_add5);
+            this.fllaypn_Images.Controls.Add(this.picbx_add6);
+            this.fllaypn_Images.Location = new System.Drawing.Point(500, 16);
+            this.fllaypn_Images.Name = "fllaypn_Images";
+            this.fllaypn_Images.Size = new System.Drawing.Size(415, 351);
+            this.fllaypn_Images.TabIndex = 0;
             // 
             // picbx_add1
             // 
@@ -230,28 +230,28 @@ namespace PBL3REAL.View
             this.picbx_add6.TabStop = false;
             this.picbx_add6.Click += new System.EventHandler(this.picbx_add6_Click);
             // 
-            // tableLayoutPanel1
+            // tbllaypn_DetailsRoomCategory
             // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.73254F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.26746F));
-            this.tableLayoutPanel1.Controls.Add(this.tb_RoomTypeID, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.tb_RoomTypePrice, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.tb_RoomTypeDescription, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.tb_RoomTypeName, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.lb_RoomTypeDescription, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.lb_RoomTypePrice, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.lb_RoomTypeID, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.lb_RoomTypeName, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 69);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 4;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(468, 270);
-            this.tableLayoutPanel1.TabIndex = 1;
+            this.tbllaypn_DetailsRoomCategory.ColumnCount = 2;
+            this.tbllaypn_DetailsRoomCategory.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.73254F));
+            this.tbllaypn_DetailsRoomCategory.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.26746F));
+            this.tbllaypn_DetailsRoomCategory.Controls.Add(this.tb_RoomTypeID, 1, 3);
+            this.tbllaypn_DetailsRoomCategory.Controls.Add(this.tb_RoomTypePrice, 1, 2);
+            this.tbllaypn_DetailsRoomCategory.Controls.Add(this.tb_RoomTypeDescription, 1, 1);
+            this.tbllaypn_DetailsRoomCategory.Controls.Add(this.tb_RoomTypeName, 1, 0);
+            this.tbllaypn_DetailsRoomCategory.Controls.Add(this.lb_RoomTypeDescription, 0, 1);
+            this.tbllaypn_DetailsRoomCategory.Controls.Add(this.lb_RoomTypePrice, 0, 2);
+            this.tbllaypn_DetailsRoomCategory.Controls.Add(this.lb_RoomTypeID, 0, 3);
+            this.tbllaypn_DetailsRoomCategory.Controls.Add(this.lb_RoomTypeName, 0, 0);
+            this.tbllaypn_DetailsRoomCategory.Location = new System.Drawing.Point(6, 69);
+            this.tbllaypn_DetailsRoomCategory.Name = "tbllaypn_DetailsRoomCategory";
+            this.tbllaypn_DetailsRoomCategory.RowCount = 4;
+            this.tbllaypn_DetailsRoomCategory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tbllaypn_DetailsRoomCategory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tbllaypn_DetailsRoomCategory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tbllaypn_DetailsRoomCategory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tbllaypn_DetailsRoomCategory.Size = new System.Drawing.Size(468, 270);
+            this.tbllaypn_DetailsRoomCategory.TabIndex = 0;
             // 
             // tb_RoomTypeID
             // 
@@ -339,22 +339,22 @@ namespace PBL3REAL.View
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 495);
             this.Controls.Add(this.grbx_RoomTypeDetail);
-            this.Controls.Add(this.tableLayoutPanel2);
+            this.Controls.Add(this.tbllaypn_ControlButtons);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form_Detail_Room_Category";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Chi tiết loại phòng";
-            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tbllaypn_ControlButtons.ResumeLayout(false);
             this.grbx_RoomTypeDetail.ResumeLayout(false);
-            this.flowLayoutPanel1.ResumeLayout(false);
+            this.fllaypn_Images.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picbx_add1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbx_add2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbx_add3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbx_add4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbx_add5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbx_add6)).EndInit();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
+            this.tbllaypn_DetailsRoomCategory.ResumeLayout(false);
+            this.tbllaypn_DetailsRoomCategory.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -362,18 +362,18 @@ namespace PBL3REAL.View
         #endregion
         private System.Windows.Forms.Button btn_OK;
         private System.Windows.Forms.Button btn_Reset;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.TableLayoutPanel tbllaypn_ControlButtons;
         private System.Windows.Forms.Button btn_Cancel;
         private System.Windows.Forms.GroupBox grbx_RoomTypeDetail;
         private System.Windows.Forms.Button btn_del;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel fllaypn_Images;
         private System.Windows.Forms.PictureBox picbx_add1;
         private System.Windows.Forms.PictureBox picbx_add2;
         private System.Windows.Forms.PictureBox picbx_add3;
         private System.Windows.Forms.PictureBox picbx_add6;
         private System.Windows.Forms.PictureBox picbx_add5;
         private System.Windows.Forms.PictureBox picbx_add4;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tbllaypn_DetailsRoomCategory;
         private System.Windows.Forms.TextBox tb_RoomTypeID;
         private System.Windows.Forms.TextBox tb_RoomTypePrice;
         private System.Windows.Forms.TextBox tb_RoomTypeDescription;

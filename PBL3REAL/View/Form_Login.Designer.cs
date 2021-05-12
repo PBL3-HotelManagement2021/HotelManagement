@@ -163,9 +163,9 @@ namespace PBL3REAL.View
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictureBox1.Image = global::PBL3REAL.Properties.Resources.enter_fluent_color_96px;
-            this.pictureBox1.Location = new System.Drawing.Point(22, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(31, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(99, 91);
+            this.pictureBox1.Size = new System.Drawing.Size(82, 91);
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
