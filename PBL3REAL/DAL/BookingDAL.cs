@@ -24,6 +24,8 @@ namespace PBL3REAL.DAL
                                 .Include(x =>x.BookIduserNavigation)
                                 .AsNoTracking()
                                 .ToList();
+
+
             return result;
         }
 
@@ -37,6 +39,39 @@ namespace PBL3REAL.DAL
                             .Where(x => x.IdBook == idbook)
                             .SingleOrDefault();
              return result;     
+        }
+
+        public Booking findForInvoice(string code)
+        {
+            Booking result = (from book in AppDbContext.Instance.Bookings
+                              join client in AppDbContext.Instance.Clients on book.BookIdclient equals client.IdClient
+                              join bkdt in AppDbContext.Instance.BookingDetails on book.IdBook equals bkdt.BoodetIdbook
+                           /* join room in AppDbContext.Instance.Rooms on bkdt.BoodetIdroom equals room.IdRoom
+                              join roty in AppDbContext.Instance.RoomTypes on room.RoomIdroomtype equals roty.IdRoomtype*/
+                              where book.BookCode.Equals(code)
+                              select new Booking()
+                              {
+                                  IdBook = book.IdBook,
+                                  BookCheckindate = book.BookCheckindate,
+                                  BookCheckoutdate = book.BookCheckoutdate,
+                                  BookTotalprice = book.BookTotalprice,
+                                  BookIdclientNavigation = new Client
+                                  {
+                                       CliCode = client.CliCode,
+                                       CliName =client.CliName,
+                                       CliPhone = client.CliPhone                                     
+                                  }
+                              }
+                              ).FirstOrDefault();
+            return result;
+        }
+       
+
+        public void updateBooking(Booking booking)
+        {
+            AppDbContext.Instance.Update(booking);
+            AppDbContext.Instance.SaveChanges();
+            AppDbContext.Instance.Entry(booking).State = EntityState.Detached;
         }
 
         public List<BookingDetail>getBookingDetail(int idbook)

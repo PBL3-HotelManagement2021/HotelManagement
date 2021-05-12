@@ -56,11 +56,12 @@ namespace PBL3REAL.BLL
             }
            
         }
-        public void delBooking(int id)
+        public void delBooking(int id , string status)
         {
             try
             {
-                _bookingDAL.delBooking(id);
+                if (!status.Equals("Finish")) _bookingDAL.delBooking(id);
+                else throw new ArgumentException("Completed booking can't be deleted");
             }
             catch (Exception)
             {

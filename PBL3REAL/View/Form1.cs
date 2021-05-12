@@ -1,5 +1,6 @@
 ﻿using HotelManagement.BBL.Implement;
 using HotelManagement.BLL.Implement;
+using HotelManagement.DAL.Implement;
 using HotelManagement.ViewModel;
 using Newtonsoft.Json;
 using PBL3REAL.BLL;
@@ -26,6 +27,8 @@ namespace PBL3REAL
         private ClientDAL clientDAL;
         private ClientBLL clientBLL;
         private UserBLL userBLL;
+        private RoomDAL roomDAL;
+        private QLInvoiceBLL qLInvoiceBLL;
         public Form1()
         {
             InitializeComponent();
@@ -35,6 +38,8 @@ namespace PBL3REAL
             clientDAL = new ClientDAL();
             clientBLL = new ClientBLL();
             userBLL = new UserBLL();
+            roomDAL = new RoomDAL();
+            qLInvoiceBLL = new QLInvoiceBLL();
             PaginationRoom();
             //   findidRoom();
             // addRoomType();
@@ -44,12 +49,20 @@ namespace PBL3REAL
             testCBBRoom();
             //  showBookingDetail();
             //   addBooking();
-            //delBooking();
+           // delBooking();
             // addClient();
             //showUser();
             //   addUser();
             //completeBooking();
-            checkUser();
+            // checkUser();
+          //  Test(); 
+        }
+
+        public void Test()
+        {
+            Invoice listVM =InvoiceDAL.Instance.findById(1);
+            string json = JsonConvert.SerializeObject(listVM, Formatting.Indented);
+            richTextBox1.Text = json;
         }
 
         //  PHAN USER (ADMIN ,RECEPTIONIST,...)
@@ -67,8 +80,10 @@ namespace PBL3REAL
         }
         public void checkUser()
         {
-            
-            UserVM userVM = userBLL.checkUser("PVC20001","phanvancuong2001");
+            Dictionary<string, string> properties = new Dictionary<string, string>();
+            properties.Add("code", "PVC20001");
+            properties.Add("password", "phanvancuong2001");
+            UserVM userVM = userBLL.checkUser(properties);
             string json = JsonConvert.SerializeObject(userVM, Formatting.Indented);
             richTextBox1.Text = json;
         }
@@ -119,7 +134,15 @@ namespace PBL3REAL
 
         public void delBooking()
         {
-            bookingBLL.delBooking(19);
+            try
+            {
+                bookingBLL.delBooking(19,"Finish");
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+         
         }
 
         public void addBooking()
@@ -312,6 +335,13 @@ namespace PBL3REAL
             textBox1.Text = ((RoomTypeVM)comboBox1.SelectedItem).RotyCurrentprice.ToString();
         }
 
-       
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string code = textBox2.Text;
+            InvoiceVM invoiceVM = qLInvoiceBLL.infoAddInvoice(code);
+            string json = JsonConvert.SerializeObject(invoiceVM, Formatting.Indented);
+            richTextBox1.Text = json;
+
+        }
     }
 }

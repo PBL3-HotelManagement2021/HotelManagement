@@ -15,7 +15,7 @@ namespace PBL3REAL.Model
         {
             Bookings = new HashSet<Booking>();
             ImgStorages = new HashSet<ImgStorage>();
-            Invoices = new HashSet<Invoice>();
+          //  Invoices = new HashSet<Invoice>();
             UserRoles = new HashSet<UserRole>();
         }
 
@@ -53,8 +53,8 @@ namespace PBL3REAL.Model
         public virtual ICollection<Booking> Bookings { get; set; }
         [InverseProperty(nameof(ImgStorage.ImgstoIduserNavigation))]
         public virtual ICollection<ImgStorage> ImgStorages { get; set; }
-        [InverseProperty(nameof(Invoice.InvIduserNavigation))]
-        public virtual ICollection<Invoice> Invoices { get; set; }
+        /*[InverseProperty(nameof(Invoice.InvIduserNavigation))]
+        public virtual ICollection<Invoice> Invoices { get; set; }*/
         [InverseProperty(nameof(UserRole.UserolIduserNavigation))]
         public virtual ICollection<UserRole> UserRoles { get; set; }
     }

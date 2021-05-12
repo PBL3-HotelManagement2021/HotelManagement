@@ -23,6 +23,7 @@ namespace PBL3REAL.ViewModel
             cfg.CreateMap<ImgStorage, ImageVM>().ReverseMap();
             cfg.CreateMap<User, UserVM>().ReverseMap();
             cfg.CreateMap<Role, RoleVM>().ReverseMap();
+            cfg.CreateMap<Invoice, InvoiceVM>().ReverseMap();
 
         });
     }

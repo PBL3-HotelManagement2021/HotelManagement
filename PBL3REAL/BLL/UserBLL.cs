@@ -39,11 +39,8 @@ namespace PBL3REAL.BLL
         }
 
 
-        public UserVM checkUser(string code , string password)
+        public UserVM checkUser(Dictionary<string, string> properties)
         {
-            Dictionary<string, string> properties = new Dictionary<string, string>();
-            properties.Add("code", code);
-            properties.Add("password",password);
             UserVM userVM = null;
             try
             {
@@ -106,7 +103,7 @@ namespace PBL3REAL.BLL
             try
             {
               userDAL.addUser(user);
-               userDAL.addUserRole(ListRole);
+              userDAL.addUserRole(ListRole);
                 imgStorageDAL.add(ListImg);      
             }
             catch (Exception)

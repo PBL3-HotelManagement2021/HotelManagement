@@ -89,16 +89,17 @@ namespace PBL3REAL.Model
 
                 entity.Property(e => e.BookBookdate).HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.BookNote).IsUnicode(false);
-
                 entity.Property(e => e.BookCode).IsUnicode(false);
+
+                entity.Property(e => e.BookNote).IsUnicode(false);
 
                 entity.Property(e => e.BookStatus).IsUnicode(false);
 
                 entity.HasOne(d => d.BookIdclientNavigation)
                     .WithMany(p => p.Bookings)
                     .HasForeignKey(d => d.BookIdclient)
-                    .HasConstraintName("Fk_booking_client");
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_booking_client");
 
                 entity.HasOne(d => d.BookIduserNavigation)
                     .WithMany(p => p.Bookings)
@@ -137,6 +138,8 @@ namespace PBL3REAL.Model
                 entity.Property(e => e.CliPhone).IsUnicode(false);
 
                 entity.Property(e => e.CliCode).IsUnicode(false);
+                entity.Property(e => e.CliActiveflag)
+                    .HasDefaultValueSql("true");
             });
 
             modelBuilder.Entity<ImgStorage>(entity =>
@@ -164,19 +167,17 @@ namespace PBL3REAL.Model
                 entity.HasKey(e => e.IdInvoice)
                     .HasName("Pk_Invoice_id_invoice");
 
+                entity.Property(e => e.InvCode).IsUnicode(false);
+
                 entity.Property(e => e.InvCreatedate).HasDefaultValueSql("(getdate())");
 
                 entity.Property(e => e.InvUpdatedate).HasDefaultValueSql("(getdate())");
 
-                entity.HasOne(d => d.InvIdclientNavigation)
-                    .WithMany(p => p.Invoices)
-                    .HasForeignKey(d => d.InvIdclient)
-                    .HasConstraintName("Fk_Invoice_client");
-
-                entity.HasOne(d => d.InvIduserNavigation)
-                    .WithMany(p => p.Invoices)
-                    .HasForeignKey(d => d.InvIduser)
-                    .HasConstraintName("Fk_Invoice_user");
+                entity.HasOne(d => d.InvIdbookNavigation)
+                    .WithOne(p => p.Invoice)
+                    .HasForeignKey<Invoice>(d => d.InvIdbook)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__Invoice__inv_idb__540C7B00");
             });
 
             modelBuilder.Entity<Menu>(entity =>
@@ -281,6 +282,7 @@ namespace PBL3REAL.Model
 
                 entity.Property(e => e.UserPhone).IsUnicode(false);
             });
+
 
             modelBuilder.Entity<UserRole>(entity =>
             {

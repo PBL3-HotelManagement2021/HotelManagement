@@ -120,7 +120,24 @@ namespace HotelManagement.DAL.Implement
                                             .ToList();
             return result;
         }
-
+        public List<Room>findByIdBook(int idbook)
+        {
+            Room result = new Room();
+            List<Room> joinResult = (from room in AppDbContext.Instance.Rooms
+                                     join roty in AppDbContext.Instance.RoomTypes on room.RoomIdroomtype equals roty.IdRoomtype
+                                     join bkdt in AppDbContext.Instance.BookingDetails on room.IdRoom equals bkdt.BoodetIdroom
+                                     join book in AppDbContext.Instance.Bookings on bkdt.BoodetIdbook equals book.IdBook
+                                     where book.IdBook == idbook
+                                     select new Room()
+                                     {
+                                         RoomName = room.RoomName,
+                                         RoomIdroomtypeNavigation = new RoomType() {
+                                             RotyCurrentprice = roty.RotyCurrentprice
+                                         }
+                                     }).ToList();
+         
+            return joinResult;
+        }
         public int getTotalRow()
         {
             int rows = 0;
