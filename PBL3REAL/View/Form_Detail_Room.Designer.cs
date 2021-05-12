@@ -29,270 +29,270 @@ namespace HotelManagement.View
         /// </summary>
         private void InitializeComponent()
         {
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btndelete = new System.Windows.Forms.Button();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.btnadd = new System.Windows.Forms.Button();
+            this.tbllaypn_RoomInfo = new System.Windows.Forms.TableLayoutPanel();
+            this.cbb_RoomType = new System.Windows.Forms.ComboBox();
+            this.tb_RoomDescription = new System.Windows.Forms.TextBox();
+            this.tb_RoomName = new System.Windows.Forms.TextBox();
+            this.lb_RoomType = new System.Windows.Forms.Label();
+            this.lb_RoomName = new System.Windows.Forms.Label();
+            this.lb_RoomDescription = new System.Windows.Forms.Label();
+            this.lb_Header = new System.Windows.Forms.Label();
+            this.dgv = new System.Windows.Forms.DataGridView();
+            this.btn_Delete = new System.Windows.Forms.Button();
+            this.tbllaypn_RoomStatus = new System.Windows.Forms.TableLayoutPanel();
+            this.dtp_To = new System.Windows.Forms.DateTimePicker();
+            this.dtp_From = new System.Windows.Forms.DateTimePicker();
+            this.cbb_RoomStatus = new System.Windows.Forms.ComboBox();
+            this.lb_Status = new System.Windows.Forms.Label();
+            this.lb_From = new System.Windows.Forms.Label();
+            this.lb_To = new System.Windows.Forms.Label();
+            this.btn_Add = new System.Windows.Forms.Button();
             this.grbx_Room_Info = new System.Windows.Forms.GroupBox();
             this.grbx_FromToStatus = new System.Windows.Forms.GroupBox();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.tbllaypn_ControlButtons = new System.Windows.Forms.TableLayoutPanel();
             this.btn_Cancel = new System.Windows.Forms.Button();
             this.btn_OK = new System.Windows.Forms.Button();
             this.btn_Reset = new System.Windows.Forms.Button();
-            this.tbx_page = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.tableLayoutPanel2.SuspendLayout();
+            this.tb_PageNumber = new System.Windows.Forms.TextBox();
+            this.picbx_PrevPage = new System.Windows.Forms.PictureBox();
+            this.fllaypn_SwitchPage = new System.Windows.Forms.FlowLayoutPanel();
+            this.picbx_NextPage = new System.Windows.Forms.PictureBox();
+            this.tbllaypn_RoomInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
+            this.tbllaypn_RoomStatus.SuspendLayout();
             this.grbx_Room_Info.SuspendLayout();
             this.grbx_FromToStatus.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.tbllaypn_ControlButtons.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picbx_PrevPage)).BeginInit();
+            this.fllaypn_SwitchPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picbx_NextPage)).BeginInit();
             this.SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // tbllaypn_RoomInfo
             // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.87013F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.12987F));
-            this.tableLayoutPanel1.Controls.Add(this.comboBox1, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.textBox2, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.textBox1, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label4, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 33);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 67.85714F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.46032F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(417, 252);
-            this.tableLayoutPanel1.TabIndex = 3;
+            this.tbllaypn_RoomInfo.ColumnCount = 2;
+            this.tbllaypn_RoomInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.87013F));
+            this.tbllaypn_RoomInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.12987F));
+            this.tbllaypn_RoomInfo.Controls.Add(this.cbb_RoomType, 1, 2);
+            this.tbllaypn_RoomInfo.Controls.Add(this.tb_RoomDescription, 1, 1);
+            this.tbllaypn_RoomInfo.Controls.Add(this.tb_RoomName, 1, 0);
+            this.tbllaypn_RoomInfo.Controls.Add(this.lb_RoomType, 0, 2);
+            this.tbllaypn_RoomInfo.Controls.Add(this.lb_RoomName, 0, 0);
+            this.tbllaypn_RoomInfo.Controls.Add(this.lb_RoomDescription, 0, 1);
+            this.tbllaypn_RoomInfo.Location = new System.Drawing.Point(6, 33);
+            this.tbllaypn_RoomInfo.Name = "tbllaypn_RoomInfo";
+            this.tbllaypn_RoomInfo.RowCount = 3;
+            this.tbllaypn_RoomInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tbllaypn_RoomInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 67.85714F));
+            this.tbllaypn_RoomInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.46032F));
+            this.tbllaypn_RoomInfo.Size = new System.Drawing.Size(417, 252);
+            this.tbllaypn_RoomInfo.TabIndex = 0;
             // 
-            // comboBox1
+            // cbb_RoomType
             // 
-            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(127, 211);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(287, 36);
-            this.comboBox1.TabIndex = 3;
+            this.cbb_RoomType.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbb_RoomType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.cbb_RoomType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbb_RoomType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbb_RoomType.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cbb_RoomType.FormattingEnabled = true;
+            this.cbb_RoomType.Location = new System.Drawing.Point(127, 211);
+            this.cbb_RoomType.Name = "cbb_RoomType";
+            this.cbb_RoomType.Size = new System.Drawing.Size(287, 36);
+            this.cbb_RoomType.TabIndex = 3;
             // 
-            // textBox2
+            // tb_RoomDescription
             // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.Location = new System.Drawing.Point(127, 39);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(287, 165);
-            this.textBox2.TabIndex = 2;
+            this.tb_RoomDescription.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.tb_RoomDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_RoomDescription.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tb_RoomDescription.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tb_RoomDescription.Location = new System.Drawing.Point(127, 39);
+            this.tb_RoomDescription.Multiline = true;
+            this.tb_RoomDescription.Name = "tb_RoomDescription";
+            this.tb_RoomDescription.Size = new System.Drawing.Size(287, 165);
+            this.tb_RoomDescription.TabIndex = 2;
             // 
-            // textBox1
+            // tb_RoomName
             // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(127, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(287, 27);
-            this.textBox1.TabIndex = 1;
+            this.tb_RoomName.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tb_RoomName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.tb_RoomName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_RoomName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tb_RoomName.Location = new System.Drawing.Point(127, 4);
+            this.tb_RoomName.Name = "tb_RoomName";
+            this.tb_RoomName.Size = new System.Drawing.Size(287, 27);
+            this.tb_RoomName.TabIndex = 1;
             // 
-            // label4
+            // lb_RoomType
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(8, 215);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(108, 28);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Room type";
+            this.lb_RoomType.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lb_RoomType.AutoSize = true;
+            this.lb_RoomType.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lb_RoomType.Location = new System.Drawing.Point(8, 215);
+            this.lb_RoomType.Name = "lb_RoomType";
+            this.lb_RoomType.Size = new System.Drawing.Size(108, 28);
+            this.lb_RoomType.TabIndex = 0;
+            this.lb_RoomType.Text = "Room type";
             // 
-            // label2
+            // lb_RoomName
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(3, 4);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(117, 28);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Room name";
+            this.lb_RoomName.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lb_RoomName.AutoSize = true;
+            this.lb_RoomName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lb_RoomName.Location = new System.Drawing.Point(3, 4);
+            this.lb_RoomName.Name = "lb_RoomName";
+            this.lb_RoomName.Size = new System.Drawing.Size(117, 28);
+            this.lb_RoomName.TabIndex = 0;
+            this.lb_RoomName.Text = "Room name";
             // 
-            // label3
+            // lb_RoomDescription
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(6, 107);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(112, 28);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Description";
+            this.lb_RoomDescription.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lb_RoomDescription.AutoSize = true;
+            this.lb_RoomDescription.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lb_RoomDescription.Location = new System.Drawing.Point(6, 107);
+            this.lb_RoomDescription.Name = "lb_RoomDescription";
+            this.lb_RoomDescription.Size = new System.Drawing.Size(112, 28);
+            this.lb_RoomDescription.TabIndex = 0;
+            this.lb_RoomDescription.Text = "Description";
             // 
-            // label1
+            // lb_Header
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(398, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(205, 38);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "ROOM DETAIL";
+            this.lb_Header.AutoSize = true;
+            this.lb_Header.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lb_Header.Location = new System.Drawing.Point(398, 9);
+            this.lb_Header.Name = "lb_Header";
+            this.lb_Header.Size = new System.Drawing.Size(205, 38);
+            this.lb_Header.TabIndex = 0;
+            this.lb_Header.Text = "ROOM DETAIL";
             // 
-            // dataGridView1
+            // dgv
             // 
-            this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(190)))), ((int)(((byte)(195)))));
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.ColumnHeadersVisible = false;
-            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.dataGridView1.Location = new System.Drawing.Point(12, 347);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1023, 230);
-            this.dataGridView1.TabIndex = 0;
+            this.dgv.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dgv.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(190)))), ((int)(((byte)(195)))));
+            this.dgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgv.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv.ColumnHeadersVisible = false;
+            this.dgv.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.dgv.Location = new System.Drawing.Point(12, 347);
+            this.dgv.Name = "dgv";
+            this.dgv.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgv.RowHeadersWidth = 51;
+            this.dgv.RowTemplate.Height = 29;
+            this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv.Size = new System.Drawing.Size(1023, 230);
+            this.dgv.TabIndex = 0;
             // 
-            // btndelete
+            // btn_Delete
             // 
-            this.btndelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.btndelete.FlatAppearance.BorderSize = 0;
-            this.btndelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btndelete.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btndelete.Location = new System.Drawing.Point(282, 227);
-            this.btndelete.Name = "btndelete";
-            this.btndelete.Size = new System.Drawing.Size(126, 53);
-            this.btndelete.TabIndex = 5;
-            this.btndelete.Text = "Delete";
-            this.btndelete.UseVisualStyleBackColor = false;
-            this.btndelete.Click += new System.EventHandler(this.btndelete_Click);
+            this.btn_Delete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.btn_Delete.FlatAppearance.BorderSize = 0;
+            this.btn_Delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Delete.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_Delete.Location = new System.Drawing.Point(282, 227);
+            this.btn_Delete.Name = "btn_Delete";
+            this.btn_Delete.Size = new System.Drawing.Size(126, 53);
+            this.btn_Delete.TabIndex = 0;
+            this.btn_Delete.Text = "Delete";
+            this.btn_Delete.UseVisualStyleBackColor = false;
+            this.btn_Delete.Click += new System.EventHandler(this.btndelete_Click);
             // 
-            // tableLayoutPanel2
+            // tbllaypn_RoomStatus
             // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.42253F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 79.57746F));
-            this.tableLayoutPanel2.Controls.Add(this.dateTimePicker2, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.dateTimePicker1, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.comboBox2, 1, 2);
-            this.tableLayoutPanel2.Controls.Add(this.label5, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.label6, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label7, 0, 1);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(21, 50);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 3;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(426, 163);
-            this.tableLayoutPanel2.TabIndex = 0;
+            this.tbllaypn_RoomStatus.ColumnCount = 2;
+            this.tbllaypn_RoomStatus.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.42253F));
+            this.tbllaypn_RoomStatus.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 79.57746F));
+            this.tbllaypn_RoomStatus.Controls.Add(this.dtp_To, 1, 1);
+            this.tbllaypn_RoomStatus.Controls.Add(this.dtp_From, 1, 0);
+            this.tbllaypn_RoomStatus.Controls.Add(this.cbb_RoomStatus, 1, 2);
+            this.tbllaypn_RoomStatus.Controls.Add(this.lb_Status, 0, 2);
+            this.tbllaypn_RoomStatus.Controls.Add(this.lb_From, 0, 0);
+            this.tbllaypn_RoomStatus.Controls.Add(this.lb_To, 0, 1);
+            this.tbllaypn_RoomStatus.Location = new System.Drawing.Point(21, 50);
+            this.tbllaypn_RoomStatus.Name = "tbllaypn_RoomStatus";
+            this.tbllaypn_RoomStatus.RowCount = 3;
+            this.tbllaypn_RoomStatus.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tbllaypn_RoomStatus.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tbllaypn_RoomStatus.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tbllaypn_RoomStatus.Size = new System.Drawing.Size(426, 163);
+            this.tbllaypn_RoomStatus.TabIndex = 0;
             // 
-            // dateTimePicker2
+            // dtp_To
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(90, 57);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(331, 34);
-            this.dateTimePicker2.TabIndex = 9;
+            this.dtp_To.Location = new System.Drawing.Point(89, 57);
+            this.dtp_To.Name = "dtp_To";
+            this.dtp_To.Size = new System.Drawing.Size(331, 34);
+            this.dtp_To.TabIndex = 0;
             // 
-            // dateTimePicker1
+            // dtp_From
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(90, 3);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(331, 34);
-            this.dateTimePicker1.TabIndex = 8;
+            this.dtp_From.Location = new System.Drawing.Point(89, 3);
+            this.dtp_From.Name = "dtp_From";
+            this.dtp_From.Size = new System.Drawing.Size(331, 34);
+            this.dtp_From.TabIndex = 0;
             // 
-            // comboBox2
+            // cbb_RoomStatus
             // 
-            this.comboBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(90, 111);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(331, 36);
-            this.comboBox2.TabIndex = 4;
+            this.cbb_RoomStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.cbb_RoomStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbb_RoomStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbb_RoomStatus.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cbb_RoomStatus.FormattingEnabled = true;
+            this.cbb_RoomStatus.Location = new System.Drawing.Point(89, 111);
+            this.cbb_RoomStatus.Name = "cbb_RoomStatus";
+            this.cbb_RoomStatus.Size = new System.Drawing.Size(331, 36);
+            this.cbb_RoomStatus.TabIndex = 0;
             // 
-            // label5
+            // lb_Status
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(3, 108);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(65, 28);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Status";
+            this.lb_Status.AutoSize = true;
+            this.lb_Status.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lb_Status.Location = new System.Drawing.Point(3, 108);
+            this.lb_Status.Name = "lb_Status";
+            this.lb_Status.Size = new System.Drawing.Size(65, 28);
+            this.lb_Status.TabIndex = 0;
+            this.lb_Status.Text = "Status";
             // 
-            // label6
+            // lb_From
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(3, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(58, 28);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "From";
+            this.lb_From.AutoSize = true;
+            this.lb_From.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lb_From.Location = new System.Drawing.Point(3, 0);
+            this.lb_From.Name = "lb_From";
+            this.lb_From.Size = new System.Drawing.Size(58, 28);
+            this.lb_From.TabIndex = 0;
+            this.lb_From.Text = "From";
             // 
-            // label7
+            // lb_To
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(3, 54);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(32, 28);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "To";
+            this.lb_To.AutoSize = true;
+            this.lb_To.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lb_To.Location = new System.Drawing.Point(3, 54);
+            this.lb_To.Name = "lb_To";
+            this.lb_To.Size = new System.Drawing.Size(32, 28);
+            this.lb_To.TabIndex = 0;
+            this.lb_To.Text = "To";
             // 
-            // btnadd
+            // btn_Add
             // 
-            this.btnadd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.btnadd.FlatAppearance.BorderSize = 0;
-            this.btnadd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnadd.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnadd.Location = new System.Drawing.Point(94, 227);
-            this.btnadd.Name = "btnadd";
-            this.btnadd.Size = new System.Drawing.Size(126, 53);
-            this.btnadd.TabIndex = 8;
-            this.btnadd.Text = "Add";
-            this.btnadd.UseVisualStyleBackColor = false;
-            this.btnadd.Click += new System.EventHandler(this.btnadd_Click);
+            this.btn_Add.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.btn_Add.FlatAppearance.BorderSize = 0;
+            this.btn_Add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Add.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_Add.Location = new System.Drawing.Point(94, 227);
+            this.btn_Add.Name = "btn_Add";
+            this.btn_Add.Size = new System.Drawing.Size(126, 53);
+            this.btn_Add.TabIndex = 0;
+            this.btn_Add.Text = "Add";
+            this.btn_Add.UseVisualStyleBackColor = false;
+            this.btn_Add.Click += new System.EventHandler(this.btnadd_Click);
             // 
             // grbx_Room_Info
             // 
-            this.grbx_Room_Info.Controls.Add(this.tableLayoutPanel1);
+            this.grbx_Room_Info.Controls.Add(this.tbllaypn_RoomInfo);
             this.grbx_Room_Info.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.grbx_Room_Info.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.grbx_Room_Info.Location = new System.Drawing.Point(12, 50);
@@ -304,9 +304,9 @@ namespace HotelManagement.View
             // 
             // grbx_FromToStatus
             // 
-            this.grbx_FromToStatus.Controls.Add(this.tableLayoutPanel2);
-            this.grbx_FromToStatus.Controls.Add(this.btnadd);
-            this.grbx_FromToStatus.Controls.Add(this.btndelete);
+            this.grbx_FromToStatus.Controls.Add(this.tbllaypn_RoomStatus);
+            this.grbx_FromToStatus.Controls.Add(this.btn_Add);
+            this.grbx_FromToStatus.Controls.Add(this.btn_Delete);
             this.grbx_FromToStatus.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.grbx_FromToStatus.Location = new System.Drawing.Point(565, 50);
             this.grbx_FromToStatus.Name = "grbx_FromToStatus";
@@ -315,21 +315,21 @@ namespace HotelManagement.View
             this.grbx_FromToStatus.TabStop = false;
             this.grbx_FromToStatus.Text = "Thiết lập trạng thái phòng ";
             // 
-            // tableLayoutPanel3
+            // tbllaypn_ControlButtons
             // 
-            this.tableLayoutPanel3.ColumnCount = 3;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.68421F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.63158F));
-            this.tableLayoutPanel3.Controls.Add(this.btn_Cancel, 2, 0);
-            this.tableLayoutPanel3.Controls.Add(this.btn_OK, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.btn_Reset, 1, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(381, 622);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(273, 46);
-            this.tableLayoutPanel3.TabIndex = 0;
+            this.tbllaypn_ControlButtons.ColumnCount = 3;
+            this.tbllaypn_ControlButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.68421F));
+            this.tbllaypn_ControlButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tbllaypn_ControlButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.63158F));
+            this.tbllaypn_ControlButtons.Controls.Add(this.btn_Cancel, 2, 0);
+            this.tbllaypn_ControlButtons.Controls.Add(this.btn_OK, 0, 0);
+            this.tbllaypn_ControlButtons.Controls.Add(this.btn_Reset, 1, 0);
+            this.tbllaypn_ControlButtons.Location = new System.Drawing.Point(381, 622);
+            this.tbllaypn_ControlButtons.Name = "tbllaypn_ControlButtons";
+            this.tbllaypn_ControlButtons.RowCount = 1;
+            this.tbllaypn_ControlButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tbllaypn_ControlButtons.Size = new System.Drawing.Size(273, 46);
+            this.tbllaypn_ControlButtons.TabIndex = 0;
             // 
             // btn_Cancel
             // 
@@ -375,75 +375,75 @@ namespace HotelManagement.View
             this.btn_Reset.Text = "Reset";
             this.btn_Reset.UseVisualStyleBackColor = false;
             // 
-            // tbx_page
+            // tb_PageNumber
             // 
-            this.tbx_page.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbx_page.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.tbx_page.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbx_page.Font = new System.Drawing.Font("Segoe UI", 19.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbx_page.Location = new System.Drawing.Point(54, 3);
-            this.tbx_page.Name = "tbx_page";
-            this.tbx_page.Size = new System.Drawing.Size(94, 43);
-            this.tbx_page.TabIndex = 0;
-            this.tbx_page.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tb_PageNumber.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tb_PageNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.tb_PageNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_PageNumber.Font = new System.Drawing.Font("Segoe UI", 19.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tb_PageNumber.Location = new System.Drawing.Point(54, 3);
+            this.tb_PageNumber.Name = "tb_PageNumber";
+            this.tb_PageNumber.Size = new System.Drawing.Size(94, 43);
+            this.tb_PageNumber.TabIndex = 0;
+            this.tb_PageNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // pictureBox1
+            // picbx_PrevPage
             // 
-            this.pictureBox1.BackgroundImage = global::PBL3REAL.Properties.Resources.prev_fluent_color_48px;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(45, 43);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.picbx_PrevPage.BackgroundImage = global::PBL3REAL.Properties.Resources.prev_fluent_color_48px;
+            this.picbx_PrevPage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.picbx_PrevPage.Location = new System.Drawing.Point(3, 3);
+            this.picbx_PrevPage.Name = "picbx_PrevPage";
+            this.picbx_PrevPage.Size = new System.Drawing.Size(45, 43);
+            this.picbx_PrevPage.TabIndex = 0;
+            this.picbx_PrevPage.TabStop = false;
             // 
-            // flowLayoutPanel1
+            // fllaypn_SwitchPage
             // 
-            this.flowLayoutPanel1.Controls.Add(this.pictureBox1);
-            this.flowLayoutPanel1.Controls.Add(this.tbx_page);
-            this.flowLayoutPanel1.Controls.Add(this.pictureBox2);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(833, 574);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(202, 48);
-            this.flowLayoutPanel1.TabIndex = 0;
+            this.fllaypn_SwitchPage.Controls.Add(this.picbx_PrevPage);
+            this.fllaypn_SwitchPage.Controls.Add(this.tb_PageNumber);
+            this.fllaypn_SwitchPage.Controls.Add(this.picbx_NextPage);
+            this.fllaypn_SwitchPage.Location = new System.Drawing.Point(833, 574);
+            this.fllaypn_SwitchPage.Name = "fllaypn_SwitchPage";
+            this.fllaypn_SwitchPage.Size = new System.Drawing.Size(202, 48);
+            this.fllaypn_SwitchPage.TabIndex = 0;
             // 
-            // pictureBox2
+            // picbx_NextPage
             // 
-            this.pictureBox2.BackgroundImage = global::PBL3REAL.Properties.Resources.right_button_fluent_color_48px;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox2.Location = new System.Drawing.Point(154, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(45, 43);
-            this.pictureBox2.TabIndex = 3;
-            this.pictureBox2.TabStop = false;
+            this.picbx_NextPage.BackgroundImage = global::PBL3REAL.Properties.Resources.right_button_fluent_color_48px;
+            this.picbx_NextPage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.picbx_NextPage.Location = new System.Drawing.Point(154, 3);
+            this.picbx_NextPage.Name = "picbx_NextPage";
+            this.picbx_NextPage.Size = new System.Drawing.Size(45, 43);
+            this.picbx_NextPage.TabIndex = 3;
+            this.picbx_NextPage.TabStop = false;
             // 
             // Form_Detail_Room
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1041, 668);
-            this.Controls.Add(this.tableLayoutPanel3);
+            this.Controls.Add(this.tbllaypn_ControlButtons);
             this.Controls.Add(this.grbx_FromToStatus);
             this.Controls.Add(this.grbx_Room_Info);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.dgv);
+            this.Controls.Add(this.lb_Header);
+            this.Controls.Add(this.fllaypn_SwitchPage);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form_Detail_Room";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form_Detail_Room";
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
+            this.tbllaypn_RoomInfo.ResumeLayout(false);
+            this.tbllaypn_RoomInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
+            this.tbllaypn_RoomStatus.ResumeLayout(false);
+            this.tbllaypn_RoomStatus.PerformLayout();
             this.grbx_Room_Info.ResumeLayout(false);
             this.grbx_FromToStatus.ResumeLayout(false);
-            this.tableLayoutPanel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.tbllaypn_ControlButtons.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picbx_PrevPage)).EndInit();
+            this.fllaypn_SwitchPage.ResumeLayout(false);
+            this.fllaypn_SwitchPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picbx_NextPage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -451,33 +451,33 @@ namespace HotelManagement.View
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button btndelete;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button btnadd;
+        private System.Windows.Forms.TableLayoutPanel tbllaypn_RoomInfo;
+        private System.Windows.Forms.Label lb_RoomType;
+        private System.Windows.Forms.Label lb_RoomName;
+        private System.Windows.Forms.Label lb_RoomDescription;
+        private System.Windows.Forms.Label lb_Header;
+        private System.Windows.Forms.TextBox tb_RoomName;
+        private System.Windows.Forms.TextBox tb_RoomDescription;
+        private System.Windows.Forms.DataGridView dgv;
+        private System.Windows.Forms.Button btn_Delete;
+        private System.Windows.Forms.ComboBox cbb_RoomType;
+        private System.Windows.Forms.TableLayoutPanel tbllaypn_RoomStatus;
+        private System.Windows.Forms.DateTimePicker dtp_To;
+        private System.Windows.Forms.DateTimePicker dtp_From;
+        private System.Windows.Forms.ComboBox cbb_RoomStatus;
+        private System.Windows.Forms.Label lb_Status;
+        private System.Windows.Forms.Label lb_From;
+        private System.Windows.Forms.Label lb_To;
+        private System.Windows.Forms.Button btn_Add;
         private System.Windows.Forms.GroupBox grbx_Room_Info;
         private System.Windows.Forms.GroupBox grbx_FromToStatus;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.TableLayoutPanel tbllaypn_ControlButtons;
         private System.Windows.Forms.Button btn_Cancel;
         private System.Windows.Forms.Button btn_OK;
         private System.Windows.Forms.Button btn_Reset;
-        private System.Windows.Forms.TextBox tbx_page;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.TextBox tb_PageNumber;
+        private System.Windows.Forms.PictureBox picbx_PrevPage;
+        private System.Windows.Forms.FlowLayoutPanel fllaypn_SwitchPage;
+        private System.Windows.Forms.PictureBox picbx_NextPage;
     }
 }
