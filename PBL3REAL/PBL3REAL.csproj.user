@@ -4,7 +4,7 @@
     <Compile Update="View\Form_Booking.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="View\Form_Details_Invoice.cs">
+    <Compile Update="View\Form_Detail_Invoice.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="View\Form_Detail_Room.cs">
