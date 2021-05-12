@@ -17,7 +17,7 @@ namespace PBL3REAL
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form_Details_Invoice());
+            Application.Run(new Form_Login());
         }
         
     }
