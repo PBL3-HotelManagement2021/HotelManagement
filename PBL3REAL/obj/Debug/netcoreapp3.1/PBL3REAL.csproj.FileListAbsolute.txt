@@ -124,7 +124,6 @@ C:\Users\toand\Videos\PBL3N\HotelManagement\PBL3REAL\obj\Debug\netcoreapp3.1\PBL
 C:\Users\toand\Videos\PBL3N\HotelManagement\PBL3REAL\obj\Debug\netcoreapp3.1\PBL3REAL.pdb
 C:\Users\toand\Videos\PBL3N\HotelManagement\PBL3REAL\obj\Debug\netcoreapp3.1\PBL3REAL.Properties.Resources.resources
 C:\Users\toand\Videos\PBL3N\HotelManagement\PBL3REAL\obj\Debug\netcoreapp3.1\PBL3REAL.View.Form_Booking.resources
-C:\Users\toand\Videos\PBL3N\HotelManagement\PBL3REAL\obj\Debug\netcoreapp3.1\PBL3REAL.View.Form_Details_Invoice.resources
 C:\Users\toand\Videos\PBL3N\HotelManagement\PBL3REAL\obj\Debug\netcoreapp3.1\HotelManagement.View.Form_Detail_Room.resources
 C:\Users\toand\Videos\PBL3N\HotelManagement\PBL3REAL\obj\Debug\netcoreapp3.1\PBL3REAL.View.Form_Detail_Room_Category.resources
 C:\Users\toand\Videos\PBL3N\HotelManagement\PBL3REAL\obj\Debug\netcoreapp3.1\PBL3REAL.View.Form_Home_Admin.resources
@@ -192,3 +191,4 @@ C:\Users\toand\Videos\PBL3N\HotelManagement\PBL3REAL\obj\Debug\netcoreapp3.1\PBL
 C:\Users\toand\Videos\PBL3N\HotelManagement\PBL3REAL\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll
 C:\Users\toand\Videos\PBL3N\HotelManagement\PBL3REAL\bin\Debug\netcoreapp3.1\System.Text.Encoding.CodePages.dll
 C:\Users\toand\Videos\PBL3N\HotelManagement\PBL3REAL\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Text.Encoding.CodePages.dll
+C:\Users\toand\Videos\PBL3N\HotelManagement\PBL3REAL\obj\Debug\netcoreapp3.1\PBL3REAL.View.Form_Detail_Invoice.resources

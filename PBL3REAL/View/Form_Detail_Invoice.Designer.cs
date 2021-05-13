@@ -526,7 +526,7 @@ namespace PBL3REAL.View
             this.btn_Reset.Text = "Reset";
             this.btn_Reset.UseVisualStyleBackColor = false;
             // 
-            // Form_Details_Invoice
+            // Form_Detail_Invoice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -541,7 +541,7 @@ namespace PBL3REAL.View
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form_Details_Invoice";
+            this.Name = "Form_Detail_Invoice";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form_Details_Invoice";
             this.flowLayoutPanel1.ResumeLayout(false);
