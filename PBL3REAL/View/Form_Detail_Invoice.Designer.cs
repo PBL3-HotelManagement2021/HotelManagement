@@ -30,267 +30,291 @@ namespace PBL3REAL.View
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Detail_Invoice));
-            this.label1 = new System.Windows.Forms.Label();
+            this.lb_Header = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.grbx_BookingInfo = new System.Windows.Forms.GroupBox();
+            this.tbllaypn_BookingInfo = new System.Windows.Forms.TableLayoutPanel();
+            this.lb_BookingDate = new System.Windows.Forms.Label();
+            this.lb_BookingID = new System.Windows.Forms.Label();
+            this.lb_BookingDeposit = new System.Windows.Forms.Label();
+            this.tb_BookingID = new System.Windows.Forms.TextBox();
+            this.tb_BookingDate = new System.Windows.Forms.TextBox();
+            this.tb_BookingDeposit = new System.Windows.Forms.TextBox();
+            this.grbx_PayerInfo = new System.Windows.Forms.GroupBox();
+            this.tbllaypn_PayerInfo = new System.Windows.Forms.TableLayoutPanel();
+            this.lb_Address = new System.Windows.Forms.Label();
+            this.lb_FullName = new System.Windows.Forms.Label();
+            this.lb_Contact = new System.Windows.Forms.Label();
+            this.tb_FullName = new System.Windows.Forms.TextBox();
+            this.tb_Address = new System.Windows.Forms.TextBox();
+            this.tb_Contact = new System.Windows.Forms.TextBox();
+            this.lb_PaymentDate = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label12 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.tb_LastUpdateDate = new System.Windows.Forms.TextBox();
+            this.tb_CreateDate = new System.Windows.Forms.TextBox();
+            this.tb_CheckinDate = new System.Windows.Forms.TextBox();
+            this.tb_PaymentDate = new System.Windows.Forms.TextBox();
+            this.lb_LastUpdateDate = new System.Windows.Forms.Label();
+            this.lb_CreateDate = new System.Windows.Forms.Label();
+            this.lb_CheckinDate = new System.Windows.Forms.Label();
+            this.lb_Total = new System.Windows.Forms.Label();
+            this.fllaypn_Total = new System.Windows.Forms.FlowLayoutPanel();
+            this.tb_Total = new System.Windows.Forms.TextBox();
+            this.dgv = new System.Windows.Forms.DataGridView();
+            this.lb_InvoiceID = new System.Windows.Forms.Label();
+            this.tbllaypn_ControlButtons = new System.Windows.Forms.TableLayoutPanel();
             this.btn_Cancel = new System.Windows.Forms.Button();
             this.btn_OK = new System.Windows.Forms.Button();
             this.btn_Reset = new System.Windows.Forms.Button();
+            this.btn_Export = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.grbx_BookingInfo.SuspendLayout();
+            this.tbllaypn_BookingInfo.SuspendLayout();
+            this.grbx_PayerInfo.SuspendLayout();
+            this.tbllaypn_PayerInfo.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            this.flowLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.tableLayoutPanel4.SuspendLayout();
+            this.fllaypn_Total.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
+            this.tbllaypn_ControlButtons.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // lb_Header
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(291, 7);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(140, 41);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "INVOICE";
+            this.lb_Header.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lb_Header.AutoSize = true;
+            this.lb_Header.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lb_Header.Location = new System.Drawing.Point(291, 7);
+            this.lb_Header.Name = "lb_Header";
+            this.lb_Header.Size = new System.Drawing.Size(140, 41);
+            this.lb_Header.TabIndex = 0;
+            this.lb_Header.Text = "INVOICE";
+            this.lb_Header.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Controls.Add(this.groupBox2);
-            this.flowLayoutPanel1.Controls.Add(this.groupBox1);
+            this.flowLayoutPanel1.Controls.Add(this.grbx_BookingInfo);
+            this.flowLayoutPanel1.Controls.Add(this.grbx_PayerInfo);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 57);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(686, 236);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
-            // groupBox2
+            // grbx_BookingInfo
             // 
-            this.groupBox2.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox2.Controls.Add(this.tableLayoutPanel2);
-            this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox2.Location = new System.Drawing.Point(3, 3);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(333, 225);
-            this.groupBox2.TabIndex = 0;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Payee";
+            this.grbx_BookingInfo.BackColor = System.Drawing.Color.Transparent;
+            this.grbx_BookingInfo.Controls.Add(this.tbllaypn_BookingInfo);
+            this.grbx_BookingInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.grbx_BookingInfo.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.grbx_BookingInfo.Location = new System.Drawing.Point(3, 3);
+            this.grbx_BookingInfo.Name = "grbx_BookingInfo";
+            this.grbx_BookingInfo.Size = new System.Drawing.Size(333, 225);
+            this.grbx_BookingInfo.TabIndex = 0;
+            this.grbx_BookingInfo.TabStop = false;
+            this.grbx_BookingInfo.Text = "Booking Info";
             // 
-            // tableLayoutPanel2
+            // tbllaypn_BookingInfo
             // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.61491F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.38509F));
-            this.tableLayoutPanel2.Controls.Add(this.label5, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.label6, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label7, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.textBox4, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.textBox5, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.textBox6, 1, 2);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(6, 26);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 3;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(322, 199);
-            this.tableLayoutPanel2.TabIndex = 0;
+            this.tbllaypn_BookingInfo.ColumnCount = 2;
+            this.tbllaypn_BookingInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.7205F));
+            this.tbllaypn_BookingInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.2795F));
+            this.tbllaypn_BookingInfo.Controls.Add(this.lb_BookingDate, 0, 1);
+            this.tbllaypn_BookingInfo.Controls.Add(this.lb_BookingID, 0, 0);
+            this.tbllaypn_BookingInfo.Controls.Add(this.lb_BookingDeposit, 0, 2);
+            this.tbllaypn_BookingInfo.Controls.Add(this.tb_BookingID, 1, 0);
+            this.tbllaypn_BookingInfo.Controls.Add(this.tb_BookingDate, 1, 1);
+            this.tbllaypn_BookingInfo.Controls.Add(this.tb_BookingDeposit, 1, 2);
+            this.tbllaypn_BookingInfo.Location = new System.Drawing.Point(6, 26);
+            this.tbllaypn_BookingInfo.Name = "tbllaypn_BookingInfo";
+            this.tbllaypn_BookingInfo.RowCount = 3;
+            this.tbllaypn_BookingInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tbllaypn_BookingInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tbllaypn_BookingInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tbllaypn_BookingInfo.Size = new System.Drawing.Size(322, 199);
+            this.tbllaypn_BookingInfo.TabIndex = 0;
             // 
-            // label5
+            // lb_BookingDate
             // 
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(3, 66);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(123, 37);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Address";
+            this.lb_BookingDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lb_BookingDate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lb_BookingDate.Location = new System.Drawing.Point(3, 80);
+            this.lb_BookingDate.Name = "lb_BookingDate";
+            this.lb_BookingDate.Size = new System.Drawing.Size(136, 37);
+            this.lb_BookingDate.TabIndex = 0;
+            this.lb_BookingDate.Text = "Booking Date";
+            this.lb_BookingDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label6
+            // lb_BookingID
             // 
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(3, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(123, 37);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Hotel Name";
+            this.lb_BookingID.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lb_BookingID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lb_BookingID.Location = new System.Drawing.Point(3, 14);
+            this.lb_BookingID.Name = "lb_BookingID";
+            this.lb_BookingID.Size = new System.Drawing.Size(136, 37);
+            this.lb_BookingID.TabIndex = 0;
+            this.lb_BookingID.Text = "Booking ID";
+            this.lb_BookingID.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label7
+            // lb_BookingDeposit
             // 
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(3, 132);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(123, 37);
-            this.label7.TabIndex = 4;
-            this.label7.Text = "Contact";
+            this.lb_BookingDeposit.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lb_BookingDeposit.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lb_BookingDeposit.Location = new System.Drawing.Point(3, 133);
+            this.lb_BookingDeposit.Name = "lb_BookingDeposit";
+            this.lb_BookingDeposit.Size = new System.Drawing.Size(136, 64);
+            this.lb_BookingDeposit.TabIndex = 0;
+            this.lb_BookingDeposit.Text = "Booking Deposit";
+            this.lb_BookingDeposit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // textBox4
+            // tb_BookingID
             // 
-            this.textBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox4.Location = new System.Drawing.Point(137, 3);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(182, 27);
-            this.textBox4.TabIndex = 1;
+            this.tb_BookingID.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tb_BookingID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.tb_BookingID.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_BookingID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tb_BookingID.Location = new System.Drawing.Point(147, 19);
+            this.tb_BookingID.Name = "tb_BookingID";
+            this.tb_BookingID.Size = new System.Drawing.Size(172, 27);
+            this.tb_BookingID.TabIndex = 1;
+            this.tb_BookingID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox5
+            // tb_BookingDate
             // 
-            this.textBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox5.Location = new System.Drawing.Point(137, 69);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(182, 27);
-            this.textBox5.TabIndex = 2;
+            this.tb_BookingDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tb_BookingDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.tb_BookingDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_BookingDate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tb_BookingDate.Location = new System.Drawing.Point(147, 85);
+            this.tb_BookingDate.Multiline = true;
+            this.tb_BookingDate.Name = "tb_BookingDate";
+            this.tb_BookingDate.Size = new System.Drawing.Size(172, 27);
+            this.tb_BookingDate.TabIndex = 2;
+            this.tb_BookingDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox6
+            // tb_BookingDeposit
             // 
-            this.textBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox6.Location = new System.Drawing.Point(137, 135);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(182, 27);
-            this.textBox6.TabIndex = 3;
+            this.tb_BookingDeposit.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tb_BookingDeposit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.tb_BookingDeposit.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_BookingDeposit.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tb_BookingDeposit.Location = new System.Drawing.Point(147, 152);
+            this.tb_BookingDeposit.Name = "tb_BookingDeposit";
+            this.tb_BookingDeposit.Size = new System.Drawing.Size(172, 27);
+            this.tb_BookingDeposit.TabIndex = 3;
+            this.tb_BookingDeposit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // groupBox1
+            // grbx_PayerInfo
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.Controls.Add(this.tableLayoutPanel1);
-            this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(342, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(333, 225);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Payer";
+            this.grbx_PayerInfo.BackColor = System.Drawing.Color.Transparent;
+            this.grbx_PayerInfo.Controls.Add(this.tbllaypn_PayerInfo);
+            this.grbx_PayerInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.grbx_PayerInfo.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.grbx_PayerInfo.Location = new System.Drawing.Point(342, 3);
+            this.grbx_PayerInfo.Name = "grbx_PayerInfo";
+            this.grbx_PayerInfo.Size = new System.Drawing.Size(333, 225);
+            this.grbx_PayerInfo.TabIndex = 0;
+            this.grbx_PayerInfo.TabStop = false;
+            this.grbx_PayerInfo.Text = "Payer Info";
             // 
-            // tableLayoutPanel1
+            // tbllaypn_PayerInfo
             // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.61491F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.38509F));
-            this.tableLayoutPanel1.Controls.Add(this.label4, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.textBox1, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.textBox2, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.textBox3, 1, 2);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 26);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(322, 199);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.tbllaypn_PayerInfo.ColumnCount = 2;
+            this.tbllaypn_PayerInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.61491F));
+            this.tbllaypn_PayerInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.38509F));
+            this.tbllaypn_PayerInfo.Controls.Add(this.lb_Address, 0, 1);
+            this.tbllaypn_PayerInfo.Controls.Add(this.lb_FullName, 0, 0);
+            this.tbllaypn_PayerInfo.Controls.Add(this.lb_Contact, 0, 2);
+            this.tbllaypn_PayerInfo.Controls.Add(this.tb_FullName, 1, 0);
+            this.tbllaypn_PayerInfo.Controls.Add(this.tb_Address, 1, 1);
+            this.tbllaypn_PayerInfo.Controls.Add(this.tb_Contact, 1, 2);
+            this.tbllaypn_PayerInfo.Location = new System.Drawing.Point(6, 26);
+            this.tbllaypn_PayerInfo.Name = "tbllaypn_PayerInfo";
+            this.tbllaypn_PayerInfo.RowCount = 3;
+            this.tbllaypn_PayerInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tbllaypn_PayerInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tbllaypn_PayerInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tbllaypn_PayerInfo.Size = new System.Drawing.Size(322, 199);
+            this.tbllaypn_PayerInfo.TabIndex = 0;
             // 
-            // label4
+            // lb_Address
             // 
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(3, 66);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(123, 37);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Address";
+            this.lb_Address.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lb_Address.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lb_Address.Location = new System.Drawing.Point(3, 80);
+            this.lb_Address.Name = "lb_Address";
+            this.lb_Address.Size = new System.Drawing.Size(123, 37);
+            this.lb_Address.TabIndex = 0;
+            this.lb_Address.Text = "Address";
             // 
-            // label2
+            // lb_FullName
             // 
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(3, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(123, 37);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Full Name";
+            this.lb_FullName.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lb_FullName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lb_FullName.Location = new System.Drawing.Point(3, 14);
+            this.lb_FullName.Name = "lb_FullName";
+            this.lb_FullName.Size = new System.Drawing.Size(123, 37);
+            this.lb_FullName.TabIndex = 0;
+            this.lb_FullName.Text = "Full Name";
             // 
-            // label3
+            // lb_Contact
             // 
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(3, 132);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(123, 37);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Contact";
+            this.lb_Contact.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lb_Contact.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lb_Contact.Location = new System.Drawing.Point(3, 147);
+            this.lb_Contact.Name = "lb_Contact";
+            this.lb_Contact.Size = new System.Drawing.Size(123, 37);
+            this.lb_Contact.TabIndex = 0;
+            this.lb_Contact.Text = "Contact";
             // 
-            // textBox1
+            // tb_FullName
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(137, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(182, 27);
-            this.textBox1.TabIndex = 4;
+            this.tb_FullName.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tb_FullName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.tb_FullName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_FullName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tb_FullName.Location = new System.Drawing.Point(137, 19);
+            this.tb_FullName.Name = "tb_FullName";
+            this.tb_FullName.Size = new System.Drawing.Size(182, 27);
+            this.tb_FullName.TabIndex = 4;
+            this.tb_FullName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox2
+            // tb_Address
             // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.Location = new System.Drawing.Point(137, 69);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(182, 27);
-            this.textBox2.TabIndex = 5;
+            this.tb_Address.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tb_Address.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.tb_Address.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_Address.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tb_Address.Location = new System.Drawing.Point(137, 85);
+            this.tb_Address.Multiline = true;
+            this.tb_Address.Name = "tb_Address";
+            this.tb_Address.Size = new System.Drawing.Size(182, 27);
+            this.tb_Address.TabIndex = 5;
+            this.tb_Address.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox3
+            // tb_Contact
             // 
-            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox3.Location = new System.Drawing.Point(137, 135);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(182, 27);
-            this.textBox3.TabIndex = 6;
+            this.tb_Contact.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tb_Contact.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.tb_Contact.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_Contact.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tb_Contact.Location = new System.Drawing.Point(137, 152);
+            this.tb_Contact.Name = "tb_Contact";
+            this.tb_Contact.Size = new System.Drawing.Size(182, 27);
+            this.tb_Contact.TabIndex = 6;
+            this.tb_Contact.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label8
+            // lb_PaymentDate
             // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(177)))), ((int)(((byte)(160)))));
-            this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(3, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(165, 60);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Payment method";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lb_PaymentDate.AutoSize = true;
+            this.lb_PaymentDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(177)))), ((int)(((byte)(160)))));
+            this.lb_PaymentDate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lb_PaymentDate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lb_PaymentDate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lb_PaymentDate.Location = new System.Drawing.Point(3, 0);
+            this.lb_PaymentDate.Name = "lb_PaymentDate";
+            this.lb_PaymentDate.Size = new System.Drawing.Size(165, 60);
+            this.lb_PaymentDate.TabIndex = 0;
+            this.lb_PaymentDate.Text = "Payment Date";
+            this.lb_PaymentDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel3
             // 
@@ -299,14 +323,14 @@ namespace PBL3REAL.View
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel3.Controls.Add(this.textBox10, 3, 1);
-            this.tableLayoutPanel3.Controls.Add(this.textBox9, 2, 1);
-            this.tableLayoutPanel3.Controls.Add(this.textBox8, 1, 1);
-            this.tableLayoutPanel3.Controls.Add(this.textBox7, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.label11, 3, 0);
-            this.tableLayoutPanel3.Controls.Add(this.label10, 2, 0);
-            this.tableLayoutPanel3.Controls.Add(this.label9, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.label8, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.tb_LastUpdateDate, 3, 1);
+            this.tableLayoutPanel3.Controls.Add(this.tb_CreateDate, 2, 1);
+            this.tableLayoutPanel3.Controls.Add(this.tb_CheckinDate, 1, 1);
+            this.tableLayoutPanel3.Controls.Add(this.tb_PaymentDate, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.lb_LastUpdateDate, 3, 0);
+            this.tableLayoutPanel3.Controls.Add(this.lb_CreateDate, 2, 0);
+            this.tableLayoutPanel3.Controls.Add(this.lb_CheckinDate, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.lb_PaymentDate, 0, 0);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(12, 308);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
@@ -315,171 +339,174 @@ namespace PBL3REAL.View
             this.tableLayoutPanel3.Size = new System.Drawing.Size(686, 94);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
-            // textBox10
+            // tb_LastUpdateDate
             // 
-            this.textBox10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(190)))), ((int)(((byte)(195)))));
-            this.textBox10.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox10.Location = new System.Drawing.Point(516, 63);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(167, 27);
-            this.textBox10.TabIndex = 0;
-            this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tb_LastUpdateDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(190)))), ((int)(((byte)(195)))));
+            this.tb_LastUpdateDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_LastUpdateDate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tb_LastUpdateDate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tb_LastUpdateDate.Location = new System.Drawing.Point(516, 63);
+            this.tb_LastUpdateDate.Name = "tb_LastUpdateDate";
+            this.tb_LastUpdateDate.Size = new System.Drawing.Size(167, 27);
+            this.tb_LastUpdateDate.TabIndex = 0;
+            this.tb_LastUpdateDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox9
+            // tb_CreateDate
             // 
-            this.textBox9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(190)))), ((int)(((byte)(195)))));
-            this.textBox9.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox9.Location = new System.Drawing.Point(345, 63);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(165, 27);
-            this.textBox9.TabIndex = 0;
-            this.textBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tb_CreateDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(190)))), ((int)(((byte)(195)))));
+            this.tb_CreateDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_CreateDate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tb_CreateDate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tb_CreateDate.Location = new System.Drawing.Point(345, 63);
+            this.tb_CreateDate.Name = "tb_CreateDate";
+            this.tb_CreateDate.Size = new System.Drawing.Size(165, 27);
+            this.tb_CreateDate.TabIndex = 0;
+            this.tb_CreateDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox8
+            // tb_CheckinDate
             // 
-            this.textBox8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(190)))), ((int)(((byte)(195)))));
-            this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox8.Location = new System.Drawing.Point(174, 63);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(165, 27);
-            this.textBox8.TabIndex = 0;
-            this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tb_CheckinDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(190)))), ((int)(((byte)(195)))));
+            this.tb_CheckinDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_CheckinDate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tb_CheckinDate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tb_CheckinDate.Location = new System.Drawing.Point(174, 63);
+            this.tb_CheckinDate.Name = "tb_CheckinDate";
+            this.tb_CheckinDate.Size = new System.Drawing.Size(165, 27);
+            this.tb_CheckinDate.TabIndex = 0;
+            this.tb_CheckinDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox7
+            // tb_PaymentDate
             // 
-            this.textBox7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(190)))), ((int)(((byte)(195)))));
-            this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox7.Location = new System.Drawing.Point(3, 63);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(165, 27);
-            this.textBox7.TabIndex = 0;
-            this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tb_PaymentDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(190)))), ((int)(((byte)(195)))));
+            this.tb_PaymentDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_PaymentDate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tb_PaymentDate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tb_PaymentDate.Location = new System.Drawing.Point(3, 63);
+            this.tb_PaymentDate.Name = "tb_PaymentDate";
+            this.tb_PaymentDate.Size = new System.Drawing.Size(165, 27);
+            this.tb_PaymentDate.TabIndex = 0;
+            this.tb_PaymentDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label11
+            // lb_LastUpdateDate
             // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(177)))), ((int)(((byte)(160)))));
-            this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label11.Location = new System.Drawing.Point(516, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(167, 60);
-            this.label11.TabIndex = 0;
-            this.label11.Text = "Due Date";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lb_LastUpdateDate.AutoSize = true;
+            this.lb_LastUpdateDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(177)))), ((int)(((byte)(160)))));
+            this.lb_LastUpdateDate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lb_LastUpdateDate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lb_LastUpdateDate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lb_LastUpdateDate.Location = new System.Drawing.Point(516, 0);
+            this.lb_LastUpdateDate.Name = "lb_LastUpdateDate";
+            this.lb_LastUpdateDate.Size = new System.Drawing.Size(167, 60);
+            this.lb_LastUpdateDate.TabIndex = 0;
+            this.lb_LastUpdateDate.Text = "Last Update Date";
+            this.lb_LastUpdateDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label10
+            // lb_CreateDate
             // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(177)))), ((int)(((byte)(160)))));
-            this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label10.Location = new System.Drawing.Point(345, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(165, 60);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "Completion Date";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lb_CreateDate.AutoSize = true;
+            this.lb_CreateDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(177)))), ((int)(((byte)(160)))));
+            this.lb_CreateDate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lb_CreateDate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lb_CreateDate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lb_CreateDate.Location = new System.Drawing.Point(345, 0);
+            this.lb_CreateDate.Name = "lb_CreateDate";
+            this.lb_CreateDate.Size = new System.Drawing.Size(165, 60);
+            this.lb_CreateDate.TabIndex = 0;
+            this.lb_CreateDate.Text = "Create Date";
+            this.lb_CreateDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label9
+            // lb_CheckinDate
             // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(177)))), ((int)(((byte)(160)))));
-            this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(174, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(165, 60);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "Invoice Date";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lb_CheckinDate.AutoSize = true;
+            this.lb_CheckinDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(177)))), ((int)(((byte)(160)))));
+            this.lb_CheckinDate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lb_CheckinDate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lb_CheckinDate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lb_CheckinDate.Location = new System.Drawing.Point(174, 0);
+            this.lb_CheckinDate.Name = "lb_CheckinDate";
+            this.lb_CheckinDate.Size = new System.Drawing.Size(165, 60);
+            this.lb_CheckinDate.TabIndex = 0;
+            this.lb_CheckinDate.Text = "Checkin Date";
+            this.lb_CheckinDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label13
+            // lb_Total
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label13.Location = new System.Drawing.Point(3, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(59, 28);
-            this.label13.TabIndex = 0;
-            this.label13.Text = "Total";
+            this.lb_Total.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lb_Total.AutoSize = true;
+            this.lb_Total.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lb_Total.Location = new System.Drawing.Point(3, 2);
+            this.lb_Total.Name = "lb_Total";
+            this.lb_Total.Size = new System.Drawing.Size(59, 28);
+            this.lb_Total.TabIndex = 0;
+            this.lb_Total.Text = "Total";
             // 
-            // flowLayoutPanel2
+            // fllaypn_Total
             // 
-            this.flowLayoutPanel2.Controls.Add(this.label13);
-            this.flowLayoutPanel2.Controls.Add(this.textBox11);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(469, 858);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(229, 37);
-            this.flowLayoutPanel2.TabIndex = 0;
+            this.fllaypn_Total.Controls.Add(this.lb_Total);
+            this.fllaypn_Total.Controls.Add(this.tb_Total);
+            this.fllaypn_Total.Location = new System.Drawing.Point(469, 858);
+            this.fllaypn_Total.Name = "fllaypn_Total";
+            this.fllaypn_Total.Size = new System.Drawing.Size(229, 37);
+            this.fllaypn_Total.TabIndex = 0;
             // 
-            // textBox11
+            // tb_Total
             // 
-            this.textBox11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(190)))), ((int)(((byte)(195)))));
-            this.textBox11.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox11.Location = new System.Drawing.Point(68, 3);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(157, 27);
-            this.textBox11.TabIndex = 0;
-            this.textBox11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tb_Total.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tb_Total.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(190)))), ((int)(((byte)(195)))));
+            this.tb_Total.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_Total.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tb_Total.Location = new System.Drawing.Point(68, 3);
+            this.tb_Total.Name = "tb_Total";
+            this.tb_Total.Size = new System.Drawing.Size(157, 27);
+            this.tb_Total.TabIndex = 0;
+            this.tb_Total.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // dataGridView1
+            // dgv
             // 
-            this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(190)))), ((int)(((byte)(195)))));
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.ColumnHeadersVisible = false;
-            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.dataGridView1.Location = new System.Drawing.Point(12, 404);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(686, 444);
-            this.dataGridView1.TabIndex = 0;
+            this.dgv.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dgv.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(190)))), ((int)(((byte)(195)))));
+            this.dgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgv.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv.ColumnHeadersVisible = false;
+            this.dgv.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.dgv.Location = new System.Drawing.Point(15, 404);
+            this.dgv.Name = "dgv";
+            this.dgv.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgv.RowHeadersWidth = 51;
+            this.dgv.RowTemplate.Height = 29;
+            this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv.Size = new System.Drawing.Size(680, 444);
+            this.dgv.TabIndex = 0;
             // 
-            // label12
+            // lb_InvoiceID
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label12.Location = new System.Drawing.Point(537, 2);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(167, 20);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "ID Invoice: ABCDXYZH";
+            this.lb_InvoiceID.AutoSize = true;
+            this.lb_InvoiceID.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lb_InvoiceID.Location = new System.Drawing.Point(537, 2);
+            this.lb_InvoiceID.Name = "lb_InvoiceID";
+            this.lb_InvoiceID.Size = new System.Drawing.Size(167, 20);
+            this.lb_InvoiceID.TabIndex = 0;
+            this.lb_InvoiceID.Text = "ID Invoice: ABCDXYZH";
             // 
-            // tableLayoutPanel4
+            // tbllaypn_ControlButtons
             // 
-            this.tableLayoutPanel4.ColumnCount = 3;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.68421F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.63158F));
-            this.tableLayoutPanel4.Controls.Add(this.btn_Cancel, 2, 0);
-            this.tableLayoutPanel4.Controls.Add(this.btn_OK, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.btn_Reset, 1, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(225, 969);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 1;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(273, 46);
-            this.tableLayoutPanel4.TabIndex = 0;
+            this.tbllaypn_ControlButtons.ColumnCount = 4;
+            this.tbllaypn_ControlButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tbllaypn_ControlButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tbllaypn_ControlButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tbllaypn_ControlButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tbllaypn_ControlButtons.Controls.Add(this.btn_Export, 0, 0);
+            this.tbllaypn_ControlButtons.Controls.Add(this.btn_Cancel, 2, 0);
+            this.tbllaypn_ControlButtons.Controls.Add(this.btn_OK, 0, 0);
+            this.tbllaypn_ControlButtons.Controls.Add(this.btn_Reset, 1, 0);
+            this.tbllaypn_ControlButtons.Location = new System.Drawing.Point(182, 969);
+            this.tbllaypn_ControlButtons.Name = "tbllaypn_ControlButtons";
+            this.tbllaypn_ControlButtons.RowCount = 1;
+            this.tbllaypn_ControlButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tbllaypn_ControlButtons.Size = new System.Drawing.Size(340, 46);
+            this.tbllaypn_ControlButtons.TabIndex = 0;
             // 
             // btn_Cancel
             // 
@@ -488,9 +515,9 @@ namespace PBL3REAL.View
             this.btn_Cancel.FlatAppearance.BorderSize = 0;
             this.btn_Cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Cancel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_Cancel.Location = new System.Drawing.Point(186, 3);
+            this.btn_Cancel.Location = new System.Drawing.Point(258, 3);
             this.btn_Cancel.Name = "btn_Cancel";
-            this.btn_Cancel.Size = new System.Drawing.Size(83, 40);
+            this.btn_Cancel.Size = new System.Drawing.Size(79, 40);
             this.btn_Cancel.TabIndex = 0;
             this.btn_Cancel.Text = "Cancel";
             this.btn_Cancel.UseVisualStyleBackColor = false;
@@ -505,7 +532,7 @@ namespace PBL3REAL.View
             this.btn_OK.Location = new System.Drawing.Point(4, 4);
             this.btn_OK.Margin = new System.Windows.Forms.Padding(4);
             this.btn_OK.Name = "btn_OK";
-            this.btn_OK.Size = new System.Drawing.Size(83, 38);
+            this.btn_OK.Size = new System.Drawing.Size(77, 38);
             this.btn_OK.TabIndex = 0;
             this.btn_OK.Text = "OK";
             this.btn_OK.UseVisualStyleBackColor = false;
@@ -518,13 +545,27 @@ namespace PBL3REAL.View
             this.btn_Reset.FlatAppearance.BorderSize = 0;
             this.btn_Reset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Reset.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_Reset.Location = new System.Drawing.Point(96, 4);
+            this.btn_Reset.Location = new System.Drawing.Point(174, 4);
             this.btn_Reset.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Reset.Name = "btn_Reset";
-            this.btn_Reset.Size = new System.Drawing.Size(83, 38);
+            this.btn_Reset.Size = new System.Drawing.Size(77, 38);
             this.btn_Reset.TabIndex = 0;
             this.btn_Reset.Text = "Reset";
             this.btn_Reset.UseVisualStyleBackColor = false;
+            // 
+            // btn_Export
+            // 
+            this.btn_Export.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Export.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.btn_Export.FlatAppearance.BorderSize = 0;
+            this.btn_Export.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Export.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_Export.Location = new System.Drawing.Point(88, 3);
+            this.btn_Export.Name = "btn_Export";
+            this.btn_Export.Size = new System.Drawing.Size(79, 40);
+            this.btn_Export.TabIndex = 0;
+            this.btn_Export.Text = "Export";
+            this.btn_Export.UseVisualStyleBackColor = false;
             // 
             // Form_Detail_Invoice
             // 
@@ -532,31 +573,31 @@ namespace PBL3REAL.View
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(230)))), ((int)(((byte)(233)))));
             this.ClientSize = new System.Drawing.Size(706, 1015);
-            this.Controls.Add(this.tableLayoutPanel4);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.flowLayoutPanel2);
+            this.Controls.Add(this.tbllaypn_ControlButtons);
+            this.Controls.Add(this.lb_InvoiceID);
+            this.Controls.Add(this.dgv);
+            this.Controls.Add(this.fllaypn_Total);
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lb_Header);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form_Detail_Invoice";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form_Details_Invoice";
             this.flowLayoutPanel1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
+            this.grbx_BookingInfo.ResumeLayout(false);
+            this.tbllaypn_BookingInfo.ResumeLayout(false);
+            this.tbllaypn_BookingInfo.PerformLayout();
+            this.grbx_PayerInfo.ResumeLayout(false);
+            this.tbllaypn_PayerInfo.ResumeLayout(false);
+            this.tbllaypn_PayerInfo.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
-            this.flowLayoutPanel2.ResumeLayout(false);
-            this.flowLayoutPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.tableLayoutPanel4.ResumeLayout(false);
+            this.fllaypn_Total.ResumeLayout(false);
+            this.fllaypn_Total.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
+            this.tbllaypn_ControlButtons.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -564,41 +605,42 @@ namespace PBL3REAL.View
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lb_Header;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.GroupBox grbx_PayerInfo;
+        private System.Windows.Forms.TableLayoutPanel tbllaypn_PayerInfo;
+        private System.Windows.Forms.TextBox tb_FullName;
+        private System.Windows.Forms.TextBox tb_Address;
+        private System.Windows.Forms.TextBox tb_Contact;
+        private System.Windows.Forms.GroupBox grbx_BookingInfo;
+        private System.Windows.Forms.TableLayoutPanel tbllaypn_BookingInfo;
+        private System.Windows.Forms.Label lb_BookingDate;
+        private System.Windows.Forms.Label lb_BookingID;
+        private System.Windows.Forms.Label lb_BookingDeposit;
+        private System.Windows.Forms.TextBox tb_BookingID;
+        private System.Windows.Forms.TextBox tb_BookingDate;
+        private System.Windows.Forms.TextBox tb_BookingDeposit;
+        private System.Windows.Forms.Label lb_Address;
+        private System.Windows.Forms.Label lb_FullName;
+        private System.Windows.Forms.Label lb_Contact;
+        private System.Windows.Forms.Label lb_PaymentDate;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.Label lb_LastUpdateDate;
+        private System.Windows.Forms.Label lb_CreateDate;
+        private System.Windows.Forms.Label lb_CheckinDate;
+        private System.Windows.Forms.TextBox tb_LastUpdateDate;
+        private System.Windows.Forms.TextBox tb_CreateDate;
+        private System.Windows.Forms.TextBox tb_CheckinDate;
+        private System.Windows.Forms.TextBox tb_PaymentDate;
+        private System.Windows.Forms.Label lb_Total;
+        private System.Windows.Forms.FlowLayoutPanel fllaypn_Total;
+        private System.Windows.Forms.TextBox tb_Total;
+        private System.Windows.Forms.DataGridView dgv;
+        private System.Windows.Forms.Label lb_InvoiceID;
+        private System.Windows.Forms.TableLayoutPanel tbllaypn_ControlButtons;
         private System.Windows.Forms.Button btn_Cancel;
         private System.Windows.Forms.Button btn_OK;
         private System.Windows.Forms.Button btn_Reset;
+        private System.Windows.Forms.Button btn_Export;
     }
 }
