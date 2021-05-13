@@ -23,7 +23,7 @@ namespace PBL3REAL
     {
         private RoomTypeBLL roomTypeBLL;
         private RoomBLL roomBLL;
-        private BookingBLL bookingBLL;
+        private QLBookingBLL bookingBLL;
         private ClientDAL clientDAL;
         private ClientBLL clientBLL;
         private QLUserBLL userBLL;
@@ -34,7 +34,7 @@ namespace PBL3REAL
             InitializeComponent();
             roomTypeBLL = new RoomTypeBLL();
             roomBLL = new RoomBLL();
-            bookingBLL = new BookingBLL();
+            bookingBLL = new QLBookingBLL();
             clientDAL = new ClientDAL();
             clientBLL = new ClientBLL();
             userBLL = new QLUserBLL();
@@ -47,7 +47,7 @@ namespace PBL3REAL
             /*editRoomType();*/
             // showClient();
          //   testCBBRoom();
-              showBookingDetail();
+           //   showBookingDetail();
             //   addBooking();
             // delBooking();
             // addClient();
@@ -57,8 +57,9 @@ namespace PBL3REAL
             // checkUser();
             //  Test(); 
             cbbForRole();
-            // updateUser();
-            delUser();
+            //  updateUser();
+            //delUser();
+            showDetailUser();
         }
 
         public void Test()
@@ -87,6 +88,12 @@ namespace PBL3REAL
         public void delUser()
         {
             userBLL.delUser(2);
+        }
+        public void showDetailUser()
+        {
+            UserVM userVM = userBLL.findDetailUser(2);
+            string json = JsonConvert.SerializeObject(userVM, Formatting.Indented);
+            richTextBox1.Text = json;
         }
         public void checkUser()
         {

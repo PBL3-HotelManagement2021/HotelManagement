@@ -30,6 +30,7 @@ namespace PBL3REAL.View
         private void button3_Click(object sender, EventArgs e)
         {
             userControl_Receptionist_Admin1.Visible = true;
+            userControl_Accountant_Admin1.Visible = false;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -45,6 +46,12 @@ namespace PBL3REAL.View
         private void button5_Click(object sender, EventArgs e)
         {
             userControl_Accountant_Admin1.Visible = true;
+            userControl_Receptionist_Admin1.Visible = false;
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

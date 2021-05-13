@@ -31,7 +31,7 @@ namespace PBL3REAL.View
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Home_Admin));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -44,12 +44,13 @@ namespace PBL3REAL.View
             this.userControl_Receptionist_Admin1 = new PBL3REAL.View.UserControl_Receptionist_Admin();
             this.userControl_Accountant_Admin1 = new PBL3REAL.View.UserControl_Accountant_Admin();
             this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Controls.Add(this.button1);
+            this.flowLayoutPanel1.Controls.Add(this.pictureBox1);
             this.flowLayoutPanel1.Controls.Add(this.button2);
             this.flowLayoutPanel1.Controls.Add(this.button3);
             this.flowLayoutPanel1.Controls.Add(this.button4);
@@ -62,24 +63,21 @@ namespace PBL3REAL.View
             this.flowLayoutPanel1.Size = new System.Drawing.Size(144, 876);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
-            // button1
+            // pictureBox1
             // 
-            this.button1.Enabled = false;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(144, 140);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Logo";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.UseVisualStyleBackColor = true;
+            this.pictureBox1.BackgroundImage = global::PBL3REAL.Properties.Resources.hotel_fluent_color_120px;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(144, 140);
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
             // 
             // button2
             // 
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Image = global::PBL3REAL.Properties.Resources.home_page_fluent_color_96px;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button2.Location = new System.Drawing.Point(3, 149);
             this.button2.Name = "button2";
@@ -94,6 +92,7 @@ namespace PBL3REAL.View
             // 
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Image = global::PBL3REAL.Properties.Resources.front_desk_fluent_color_96px;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button3.Location = new System.Drawing.Point(3, 295);
             this.button3.Name = "button3";
@@ -108,6 +107,7 @@ namespace PBL3REAL.View
             // 
             this.button4.FlatAppearance.BorderSize = 0;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Image = global::PBL3REAL.Properties.Resources.food_service_96px;
             this.button4.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button4.Location = new System.Drawing.Point(3, 441);
             this.button4.Name = "button4";
@@ -121,6 +121,7 @@ namespace PBL3REAL.View
             // 
             this.button5.FlatAppearance.BorderSize = 0;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Image = global::PBL3REAL.Properties.Resources.accounting_96px;
             this.button5.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button5.Location = new System.Drawing.Point(3, 587);
             this.button5.Name = "button5";
@@ -135,6 +136,7 @@ namespace PBL3REAL.View
             // 
             this.button6.FlatAppearance.BorderSize = 0;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Image = global::PBL3REAL.Properties.Resources.feedback_hub_96px;
             this.button6.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button6.Location = new System.Drawing.Point(3, 733);
             this.button6.Name = "button6";
@@ -149,10 +151,11 @@ namespace PBL3REAL.View
             this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button7.FlatAppearance.BorderSize = 0;
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Image = global::PBL3REAL.Properties.Resources.triangle_arrow_material_filled__535c68_24px;
             this.button7.Location = new System.Drawing.Point(1617, 0);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(38, 25);
-            this.button7.TabIndex = 1;
+            this.button7.TabIndex = 0;
             this.button7.UseVisualStyleBackColor = true;
             // 
             // flowLayoutPanel2
@@ -160,7 +163,7 @@ namespace PBL3REAL.View
             this.flowLayoutPanel2.Controls.Add(this.button8);
             this.flowLayoutPanel2.Controls.Add(this.button9);
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(1259, 22);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(1521, 25);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(138, 84);
             this.flowLayoutPanel2.TabIndex = 2;
@@ -169,6 +172,7 @@ namespace PBL3REAL.View
             // 
             this.button8.FlatAppearance.BorderSize = 0;
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Image = global::PBL3REAL.Properties.Resources.profile_fluent_color_36px;
             this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button8.Location = new System.Drawing.Point(3, 3);
             this.button8.Name = "button8";
@@ -182,6 +186,7 @@ namespace PBL3REAL.View
             // 
             this.button9.FlatAppearance.BorderSize = 0;
             this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.Image = global::PBL3REAL.Properties.Resources.sign_out_fluent_color_36px;
             this.button9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button9.Location = new System.Drawing.Point(3, 45);
             this.button9.Name = "button9";
@@ -197,22 +202,21 @@ namespace PBL3REAL.View
             this.userControl_Receptionist_Admin1.AutoSize = true;
             this.userControl_Receptionist_Admin1.Location = new System.Drawing.Point(141, -6);
             this.userControl_Receptionist_Admin1.Name = "userControl_Receptionist_Admin1";
-            this.userControl_Receptionist_Admin1.Size = new System.Drawing.Size(1164, 1230);
+            this.userControl_Receptionist_Admin1.Size = new System.Drawing.Size(1309, 1230);
             this.userControl_Receptionist_Admin1.TabIndex = 3;
             // 
             // userControl_Accountant_Admin1
             // 
-            this.userControl_Accountant_Admin1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.userControl_Accountant_Admin1.Location = new System.Drawing.Point(144, 0);
+            this.userControl_Accountant_Admin1.Location = new System.Drawing.Point(141, 0);
             this.userControl_Accountant_Admin1.Name = "userControl_Accountant_Admin1";
-            this.userControl_Accountant_Admin1.Size = new System.Drawing.Size(1513, 1230);
+            this.userControl_Accountant_Admin1.Size = new System.Drawing.Size(1309, 1230);
             this.userControl_Accountant_Admin1.TabIndex = 4;
             // 
             // Form_Home_Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(155)))), ((int)(((byte)(254)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(177)))), ((int)(((byte)(160)))));
             this.ClientSize = new System.Drawing.Size(1657, 876);
             this.ControlBox = false;
             this.Controls.Add(this.userControl_Accountant_Admin1);
@@ -228,6 +232,7 @@ namespace PBL3REAL.View
             this.Text = "Welcome Admin!";
             this.Load += new System.EventHandler(this.Form_Home_Admin_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.flowLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -237,7 +242,6 @@ namespace PBL3REAL.View
         #endregion
 
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
@@ -248,6 +252,7 @@ namespace PBL3REAL.View
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button9;
         private UserControl_Receptionist_Admin userControl_Receptionist_Admin1;
+        private System.Windows.Forms.PictureBox pictureBox1;
         private UserControl_Accountant_Admin userControl_Accountant_Admin1;
     }
 }

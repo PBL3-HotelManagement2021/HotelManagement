@@ -8,12 +8,12 @@ using System.Text;
 
 namespace PBL3REAL.BLL
 {
-    class BookingBLL
+    class QLBookingBLL
     {
         private BookingDAL _bookingDAL;
         private ClientDAL clientDAL;
         private Mapper mapper;
-        public BookingBLL()
+        public QLBookingBLL()
         {
             _bookingDAL = new BookingDAL();
             mapper = new Mapper(MapperVM.config);

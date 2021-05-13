@@ -15,7 +15,7 @@ namespace HotelManagement.ViewModel
         public int IdRoomtype { get; set; }
         public string RotyName { get; set; }
         public string RotyDescription { get; set; }
-        public decimal RotyCurrentprice { get; set; }
+        public int RotyCurrentprice { get; set; }
         public int RotyCapacity { get; set; }
 
        /* public IDictionary<int, string> MapImgUrl { get; set; }*/

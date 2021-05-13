@@ -75,9 +75,9 @@ namespace PBL3REAL.View
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(291, 7);
+            this.label1.Location = new System.Drawing.Point(255, 5);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(131, 41);
+            this.label1.Size = new System.Drawing.Size(103, 32);
             this.label1.TabIndex = 0;
             this.label1.Text = "INVOICE";
             // 
@@ -85,9 +85,10 @@ namespace PBL3REAL.View
             // 
             this.flowLayoutPanel1.Controls.Add(this.groupBox2);
             this.flowLayoutPanel1.Controls.Add(this.groupBox1);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 57);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(10, 43);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(686, 236);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(600, 177);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // groupBox2
@@ -96,9 +97,11 @@ namespace PBL3REAL.View
             this.groupBox2.Controls.Add(this.tableLayoutPanel2);
             this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox2.Location = new System.Drawing.Point(3, 3);
+            this.groupBox2.Location = new System.Drawing.Point(3, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(333, 225);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox2.Size = new System.Drawing.Size(291, 169);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Payee";
@@ -114,21 +117,22 @@ namespace PBL3REAL.View
             this.tableLayoutPanel2.Controls.Add(this.textBox4, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.textBox5, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.textBox6, 1, 2);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(6, 26);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(5, 20);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 3;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(322, 199);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(282, 149);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(3, 66);
+            this.label5.Location = new System.Drawing.Point(3, 49);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(123, 37);
+            this.label5.Size = new System.Drawing.Size(108, 28);
             this.label5.TabIndex = 11;
             this.label5.Text = "Address";
             // 
@@ -137,16 +141,16 @@ namespace PBL3REAL.View
             this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label6.Location = new System.Drawing.Point(3, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(123, 37);
+            this.label6.Size = new System.Drawing.Size(108, 28);
             this.label6.TabIndex = 10;
             this.label6.Text = "Hotel Name";
             // 
             // label7
             // 
             this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(3, 132);
+            this.label7.Location = new System.Drawing.Point(3, 98);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(123, 37);
+            this.label7.Size = new System.Drawing.Size(108, 28);
             this.label7.TabIndex = 4;
             this.label7.Text = "Contact";
             // 
@@ -155,9 +159,10 @@ namespace PBL3REAL.View
             this.textBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
             this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox4.Location = new System.Drawing.Point(137, 3);
+            this.textBox4.Location = new System.Drawing.Point(120, 2);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(182, 27);
+            this.textBox4.Size = new System.Drawing.Size(159, 22);
             this.textBox4.TabIndex = 7;
             // 
             // textBox5
@@ -165,9 +170,10 @@ namespace PBL3REAL.View
             this.textBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
             this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox5.Location = new System.Drawing.Point(137, 69);
+            this.textBox5.Location = new System.Drawing.Point(120, 51);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(182, 27);
+            this.textBox5.Size = new System.Drawing.Size(159, 22);
             this.textBox5.TabIndex = 8;
             // 
             // textBox6
@@ -175,9 +181,10 @@ namespace PBL3REAL.View
             this.textBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
             this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox6.Location = new System.Drawing.Point(137, 135);
+            this.textBox6.Location = new System.Drawing.Point(120, 100);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(182, 27);
+            this.textBox6.Size = new System.Drawing.Size(159, 22);
             this.textBox6.TabIndex = 9;
             // 
             // groupBox1
@@ -186,9 +193,11 @@ namespace PBL3REAL.View
             this.groupBox1.Controls.Add(this.tableLayoutPanel1);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(342, 3);
+            this.groupBox1.Location = new System.Drawing.Point(300, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(333, 225);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(291, 169);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Payer";
@@ -204,21 +213,22 @@ namespace PBL3REAL.View
             this.tableLayoutPanel1.Controls.Add(this.textBox1, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.textBox2, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.textBox3, 1, 2);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 26);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(5, 20);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(322, 199);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(282, 149);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(3, 66);
+            this.label4.Location = new System.Drawing.Point(3, 49);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(123, 37);
+            this.label4.Size = new System.Drawing.Size(108, 28);
             this.label4.TabIndex = 11;
             this.label4.Text = "Address";
             // 
@@ -227,16 +237,16 @@ namespace PBL3REAL.View
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(3, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(123, 37);
+            this.label2.Size = new System.Drawing.Size(108, 28);
             this.label2.TabIndex = 10;
             this.label2.Text = "Full Name";
             // 
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(3, 132);
+            this.label3.Location = new System.Drawing.Point(3, 98);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(123, 37);
+            this.label3.Size = new System.Drawing.Size(108, 28);
             this.label3.TabIndex = 4;
             this.label3.Text = "Contact";
             // 
@@ -245,9 +255,10 @@ namespace PBL3REAL.View
             this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(137, 3);
+            this.textBox1.Location = new System.Drawing.Point(120, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(182, 27);
+            this.textBox1.Size = new System.Drawing.Size(159, 22);
             this.textBox1.TabIndex = 7;
             // 
             // textBox2
@@ -255,9 +266,10 @@ namespace PBL3REAL.View
             this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.Location = new System.Drawing.Point(137, 69);
+            this.textBox2.Location = new System.Drawing.Point(120, 51);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(182, 27);
+            this.textBox2.Size = new System.Drawing.Size(159, 22);
             this.textBox2.TabIndex = 8;
             // 
             // textBox3
@@ -265,9 +277,10 @@ namespace PBL3REAL.View
             this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox3.Location = new System.Drawing.Point(137, 135);
+            this.textBox3.Location = new System.Drawing.Point(120, 100);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(182, 27);
+            this.textBox3.Size = new System.Drawing.Size(159, 22);
             this.textBox3.TabIndex = 9;
             // 
             // label8
@@ -279,7 +292,7 @@ namespace PBL3REAL.View
             this.label8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label8.Location = new System.Drawing.Point(3, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(165, 60);
+            this.label8.Size = new System.Drawing.Size(144, 45);
             this.label8.TabIndex = 3;
             this.label8.Text = "Payment method";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -299,12 +312,13 @@ namespace PBL3REAL.View
             this.tableLayoutPanel3.Controls.Add(this.label10, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.label9, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.label8, 0, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(12, 308);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(10, 231);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(686, 94);
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(600, 70);
             this.tableLayoutPanel3.TabIndex = 4;
             // 
             // textBox10
@@ -313,9 +327,10 @@ namespace PBL3REAL.View
             this.textBox10.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox10.Location = new System.Drawing.Point(516, 63);
+            this.textBox10.Location = new System.Drawing.Point(453, 47);
+            this.textBox10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(167, 27);
+            this.textBox10.Size = new System.Drawing.Size(144, 22);
             this.textBox10.TabIndex = 9;
             this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -325,9 +340,10 @@ namespace PBL3REAL.View
             this.textBox9.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox9.Location = new System.Drawing.Point(345, 63);
+            this.textBox9.Location = new System.Drawing.Point(303, 47);
+            this.textBox9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(165, 27);
+            this.textBox9.Size = new System.Drawing.Size(144, 22);
             this.textBox9.TabIndex = 8;
             this.textBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -337,9 +353,10 @@ namespace PBL3REAL.View
             this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox8.Location = new System.Drawing.Point(174, 63);
+            this.textBox8.Location = new System.Drawing.Point(153, 47);
+            this.textBox8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(165, 27);
+            this.textBox8.Size = new System.Drawing.Size(144, 22);
             this.textBox8.TabIndex = 7;
             this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -349,9 +366,10 @@ namespace PBL3REAL.View
             this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox7.Location = new System.Drawing.Point(3, 63);
+            this.textBox7.Location = new System.Drawing.Point(3, 47);
+            this.textBox7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(165, 27);
+            this.textBox7.Size = new System.Drawing.Size(144, 22);
             this.textBox7.TabIndex = 5;
             this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -362,9 +380,10 @@ namespace PBL3REAL.View
             this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label11.Location = new System.Drawing.Point(516, 0);
+            this.label11.Image = global::PBL3REAL.Properties.Resources.waste_fluent_color_48px;
+            this.label11.Location = new System.Drawing.Point(453, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(167, 60);
+            this.label11.Size = new System.Drawing.Size(144, 45);
             this.label11.TabIndex = 6;
             this.label11.Text = "Due Date";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -376,9 +395,9 @@ namespace PBL3REAL.View
             this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label10.Location = new System.Drawing.Point(345, 0);
+            this.label10.Location = new System.Drawing.Point(303, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(165, 60);
+            this.label10.Size = new System.Drawing.Size(144, 45);
             this.label10.TabIndex = 5;
             this.label10.Text = "Completion Date";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -390,9 +409,9 @@ namespace PBL3REAL.View
             this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(174, 0);
+            this.label9.Location = new System.Drawing.Point(153, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(165, 60);
+            this.label9.Size = new System.Drawing.Size(144, 45);
             this.label9.TabIndex = 4;
             this.label9.Text = "Invoice Date";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -401,9 +420,9 @@ namespace PBL3REAL.View
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label12.Location = new System.Drawing.Point(3, 933);
+            this.label12.Location = new System.Drawing.Point(3, 700);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(167, 20);
+            this.label12.Size = new System.Drawing.Size(133, 15);
             this.label12.TabIndex = 5;
             this.label12.Text = "ID Invoice: ABCDXYZH";
             // 
@@ -411,11 +430,12 @@ namespace PBL3REAL.View
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(230)))), ((int)(((byte)(233)))));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 408);
+            this.dataGridView1.Location = new System.Drawing.Point(10, 306);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(686, 434);
+            this.dataGridView1.Size = new System.Drawing.Size(600, 326);
             this.dataGridView1.TabIndex = 6;
             // 
             // label13
@@ -424,7 +444,7 @@ namespace PBL3REAL.View
             this.label13.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label13.Location = new System.Drawing.Point(3, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(59, 28);
+            this.label13.Size = new System.Drawing.Size(48, 21);
             this.label13.TabIndex = 7;
             this.label13.Text = "Total";
             // 
@@ -432,9 +452,10 @@ namespace PBL3REAL.View
             // 
             this.flowLayoutPanel2.Controls.Add(this.label13);
             this.flowLayoutPanel2.Controls.Add(this.textBox11);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(469, 858);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(410, 644);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(229, 37);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(200, 28);
             this.flowLayoutPanel2.TabIndex = 8;
             // 
             // textBox11
@@ -443,24 +464,26 @@ namespace PBL3REAL.View
             this.textBox11.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox11.Location = new System.Drawing.Point(68, 3);
+            this.textBox11.Location = new System.Drawing.Point(57, 2);
+            this.textBox11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(157, 27);
+            this.textBox11.Size = new System.Drawing.Size(137, 22);
             this.textBox11.TabIndex = 10;
             this.textBox11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Form_Details_Invoice
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(230)))), ((int)(((byte)(233)))));
-            this.ClientSize = new System.Drawing.Size(706, 953);
+            this.ClientSize = new System.Drawing.Size(618, 562);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form_Details_Invoice";
             this.Text = "Form_Details_Invoice";
             this.flowLayoutPanel1.ResumeLayout(false);

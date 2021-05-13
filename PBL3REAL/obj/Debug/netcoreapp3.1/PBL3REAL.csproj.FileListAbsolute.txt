@@ -62,3 +62,4 @@ D:\C#\DO_AN\PBL3REAL\PBL3REAL\obj\Debug\netcoreapp3.1\PBL3REAL.csproj.CopyComple
 D:\C#\DO_AN\PBL3REAL\PBL3REAL\obj\Debug\netcoreapp3.1\PBL3REAL.dll
 D:\C#\DO_AN\PBL3REAL\PBL3REAL\obj\Debug\netcoreapp3.1\PBL3REAL.pdb
 D:\C#\DO_AN\PBL3REAL\PBL3REAL\obj\Debug\netcoreapp3.1\PBL3REAL.genruntimeconfig.cache
+D:\C#\DO_AN\PBL3REAL\PBL3REAL\obj\Debug\netcoreapp3.1\PBL3REAL.Properties.Resources.resources
