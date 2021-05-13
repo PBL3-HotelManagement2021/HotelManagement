@@ -26,7 +26,7 @@ namespace PBL3REAL
         private BookingBLL bookingBLL;
         private ClientDAL clientDAL;
         private ClientBLL clientBLL;
-        private UserBLL userBLL;
+        private QLUserBLL userBLL;
         private RoomDAL roomDAL;
         private QLInvoiceBLL qLInvoiceBLL;
         public Form1()
@@ -37,7 +37,7 @@ namespace PBL3REAL
             bookingBLL = new BookingBLL();
             clientDAL = new ClientDAL();
             clientBLL = new ClientBLL();
-            userBLL = new UserBLL();
+            userBLL = new QLUserBLL();
             roomDAL = new RoomDAL();
             qLInvoiceBLL = new QLInvoiceBLL();
             PaginationRoom();
@@ -46,16 +46,19 @@ namespace PBL3REAL
             // deleteRoomType();
             /*editRoomType();*/
             // showClient();
-            testCBBRoom();
-            //  showBookingDetail();
+         //   testCBBRoom();
+              showBookingDetail();
             //   addBooking();
-           // delBooking();
+            // delBooking();
             // addClient();
             //showUser();
             //   addUser();
             //completeBooking();
             // checkUser();
-          //  Test(); 
+            //  Test(); 
+            cbbForRole();
+            // updateUser();
+            delUser();
         }
 
         public void Test()
@@ -66,6 +69,13 @@ namespace PBL3REAL
         }
 
         //  PHAN USER (ADMIN ,RECEPTIONIST,...)
+
+        //show tat ca cac quyen cua User
+        public void cbbForRole()
+        {
+            comboBox2.DataSource = userBLL.getRoleForUser();
+            comboBox2.DisplayMember = "RoleName";
+        }
         
         //show tat ca user
         public void showUser()
@@ -76,7 +86,7 @@ namespace PBL3REAL
         }
         public void delUser()
         {
-            userBLL.delUser(6);
+            userBLL.delUser(2);
         }
         public void checkUser()
         {
@@ -86,6 +96,22 @@ namespace PBL3REAL
             UserVM userVM = userBLL.checkUser(properties);
             string json = JsonConvert.SerializeObject(userVM, Formatting.Indented);
             richTextBox1.Text = json;
+        }
+
+        public void updateUser()
+        {
+            UserVM userVM = userBLL.findDetailUser(2);
+            RoleVM roleVM1 = new RoleVM
+            {
+                IdRole = 2
+            };
+            RoleVM roleVM2 = new RoleVM
+            {
+                IdRole = 3
+            };
+            userVM.ListRole.Add(roleVM1);
+            userVM.ListRole.Add(roleVM2);
+            userBLL.updateUser(userVM,null);
         }
         public void addUser()
         {

@@ -10,7 +10,7 @@ namespace PBL3REAL.ViewModel
         public int BoodetPrice { get; set; }
         public string BooDetNote { get; set; }
         public int BoodetIdroom { get; set; }
-        public int IdRoomType { get; set; }
+        public int BoodetIdroomtype { get; set; }
 
     }
 }

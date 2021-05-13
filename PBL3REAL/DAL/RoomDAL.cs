@@ -56,27 +56,13 @@ namespace HotelManagement.DAL.Implement
                 throw;
             }
         }
-        public void delete(List<int> listdel)
+        public void delete(int id)
         {
-            List<Room> list = new List<Room>();
-            try
-            {
-                foreach (int id in listdel)
-                {
-                    Room room = _appDbContext.Rooms.Find(id);
-                    if (room != null) list.Add(room);
-                }
-
-
-                _appDbContext.Rooms.RemoveRange(list);
-                _appDbContext.SaveChanges();
-
-
-            }
-            catch (Exception e)
-            {
-                throw;
-            }
+     
+                 Room room = _appDbContext.Rooms.Find(id);
+                 if (room != null) room.RoomActiveflag = false;
+                _appDbContext.Rooms.Update(room);
+                _appDbContext.SaveChanges();  
         }
         public Room findbyid(int id)
         {

@@ -36,7 +36,8 @@ namespace HotelManagement.DAL.Implement
         public void deleteRoomtype(int idRoomtype)
         {
             RoomType roomType = _appDbContext.RoomTypes.Find(idRoomtype);
-            _appDbContext.Remove(roomType);
+            if(roomType !=null) roomType.RoTyActiveflag = false;
+            _appDbContext.Update(roomType);
             _appDbContext.SaveChanges();
         }
 

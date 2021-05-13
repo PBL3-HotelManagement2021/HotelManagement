@@ -30,6 +30,9 @@ namespace PBL3REAL.Model
         [Column("room_idroomtype")]
         public int RoomIdroomtype { get; set; }
 
+        [Column("room_activeflag")]
+        public bool RoomActiveflag { get; set; }
+
         [ForeignKey(nameof(RoomIdroomtype))]
         [InverseProperty(nameof(RoomType.Rooms))]
         public virtual RoomType RoomIdroomtypeNavigation { get; set; }

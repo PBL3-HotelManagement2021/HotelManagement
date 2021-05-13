@@ -77,20 +77,16 @@ namespace PBL3REAL.View
         private void btndelete_Click(object sender, EventArgs e)
         {
             DataGridViewSelectedRowCollection r = dataGridView1.SelectedRows;
-            if (r.Count == 0)
+            if (r.Count != 1)
             {
-                MessageBox.Show("Please choose rows  !!!");
+                MessageBox.Show("Please choose only 1 rows  !!!");
             }
             else
             {
-                List<int> listdel = new List<int>();
-                foreach (DataGridViewRow val in r)
-                {
-                    listdel.Add(Int32.Parse(val.Cells["IdRoom"].Value.ToString()));
-                }
+                int idRoom = Int32.Parse(r[0].Cells["IdRoom"].Value.ToString());
                 try
                 {
-                    roomBLL.deleteRoom(listdel);
+                    roomBLL.deleteRoom(idRoom);
                     showRoom(0,"");
                 }
                 catch (Exception mes)

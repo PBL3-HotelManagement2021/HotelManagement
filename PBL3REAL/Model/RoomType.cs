@@ -32,6 +32,9 @@ namespace PBL3REAL.Model
         [Column("roty_capacity")]
         public int RotyCapacity { get; set; }
 
+        [Column("roty_activeflag")]
+        public bool RoTyActiveflag { get; set; }
+
         [InverseProperty(nameof(ImgStorage.ImgstoIdrootypNavigation))]
         public virtual ICollection<ImgStorage> ImgStorages { get; set; }
         [InverseProperty(nameof(Room.RoomIdroomtypeNavigation))]

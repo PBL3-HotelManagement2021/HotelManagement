@@ -289,7 +289,7 @@ namespace PBL3REAL.Model
                 entity.HasKey(e => e.IdUserol)
                     .HasName("Pk_user_role_id_userol");
 
-                entity.Property(e => e.UserolActiveflag).HasDefaultValueSql("((1))");
+              
 
                 entity.HasOne(d => d.UserolIdroleNavigation)
                     .WithMany(p => p.UserRoles)

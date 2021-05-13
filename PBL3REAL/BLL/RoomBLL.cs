@@ -82,7 +82,7 @@ namespace HotelManagement.BLL.Implement
             }
         }
 
-        public void deleteRoom(List<int>listdel)
+        public void deleteRoom(int id)
         {
           /*  List<int> listdel = new List<int>();
             foreach(StatusTime statusTime in _statusTimeDAL.findByIdRoom(id))
@@ -93,7 +93,7 @@ namespace HotelManagement.BLL.Implement
            */
             try
             {
-                _roomDAL.delete(listdel);
+                _roomDAL.delete(id);
 
             }catch(Exception e)
             {

@@ -22,6 +22,9 @@ namespace PBL3REAL.Model
         [Column("boodet_idroom")]
         public int BoodetIdroom { get; set; }
 
+        [Column("boodet_idroomtype")]
+        public int BoodetIdroomtype { get; set; }
+
         [Column("boodet_note")]
         [StringLength(200)]
         public string BooDetNote { get; set; }

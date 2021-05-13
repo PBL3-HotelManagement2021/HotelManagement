@@ -40,12 +40,10 @@ namespace PBL3REAL.BLL
                 Booking booking = _bookingDAL.findById(id);
                 BookingDetailVM result = mapper.Map<BookingDetailVM>(booking);
                 result.clientVM = mapper.Map<ClientVM>(booking.BookIdclientNavigation);
-            
-
                 foreach (BookingDetail val in booking.BookingDetails)
                 {
                     SubBookingDetailVM subBookingDetailVM = mapper.Map<SubBookingDetailVM>(val);
-                    subBookingDetailVM.IdRoomType = val.BoodetIdroomNavigation.RoomIdroomtype;
+/*                    subBookingDetailVM.IdRoomType = val.BoodetIdroomNavigation.RoomIdroomtype;*/
                     result.ListSub.Add(subBookingDetailVM);
                 }
                 return result;
