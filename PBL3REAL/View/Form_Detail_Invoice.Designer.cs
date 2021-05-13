@@ -63,10 +63,10 @@ namespace PBL3REAL.View
             this.dgv = new System.Windows.Forms.DataGridView();
             this.lb_InvoiceID = new System.Windows.Forms.Label();
             this.tbllaypn_ControlButtons = new System.Windows.Forms.TableLayoutPanel();
+            this.btn_Export = new System.Windows.Forms.Button();
             this.btn_Cancel = new System.Windows.Forms.Button();
             this.btn_OK = new System.Windows.Forms.Button();
             this.btn_Reset = new System.Windows.Forms.Button();
-            this.btn_Export = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.grbx_BookingInfo.SuspendLayout();
             this.tbllaypn_BookingInfo.SuspendLayout();
@@ -508,6 +508,20 @@ namespace PBL3REAL.View
             this.tbllaypn_ControlButtons.Size = new System.Drawing.Size(340, 46);
             this.tbllaypn_ControlButtons.TabIndex = 0;
             // 
+            // btn_Export
+            // 
+            this.btn_Export.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Export.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.btn_Export.FlatAppearance.BorderSize = 0;
+            this.btn_Export.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Export.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_Export.Location = new System.Drawing.Point(88, 3);
+            this.btn_Export.Name = "btn_Export";
+            this.btn_Export.Size = new System.Drawing.Size(79, 40);
+            this.btn_Export.TabIndex = 0;
+            this.btn_Export.Text = "Export";
+            this.btn_Export.UseVisualStyleBackColor = false;
+            // 
             // btn_Cancel
             // 
             this.btn_Cancel.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -521,6 +535,7 @@ namespace PBL3REAL.View
             this.btn_Cancel.TabIndex = 0;
             this.btn_Cancel.Text = "Cancel";
             this.btn_Cancel.UseVisualStyleBackColor = false;
+            this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
             // 
             // btn_OK
             // 
@@ -552,20 +567,6 @@ namespace PBL3REAL.View
             this.btn_Reset.TabIndex = 0;
             this.btn_Reset.Text = "Reset";
             this.btn_Reset.UseVisualStyleBackColor = false;
-            // 
-            // btn_Export
-            // 
-            this.btn_Export.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Export.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.btn_Export.FlatAppearance.BorderSize = 0;
-            this.btn_Export.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Export.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_Export.Location = new System.Drawing.Point(88, 3);
-            this.btn_Export.Name = "btn_Export";
-            this.btn_Export.Size = new System.Drawing.Size(79, 40);
-            this.btn_Export.TabIndex = 0;
-            this.btn_Export.Text = "Export";
-            this.btn_Export.UseVisualStyleBackColor = false;
             // 
             // Form_Detail_Invoice
             // 

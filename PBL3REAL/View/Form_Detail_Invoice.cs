@@ -110,5 +110,10 @@ namespace PBL3REAL.View
         {
             ExportToPDF("Test");
         }
+
+        private void btn_Cancel_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }

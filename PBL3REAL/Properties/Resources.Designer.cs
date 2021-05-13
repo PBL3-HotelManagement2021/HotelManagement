@@ -273,6 +273,16 @@ namespace PBL3REAL.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap front_desk_fluent_color_96px {
+            get {
+                object obj = ResourceManager.GetObject("front_desk_fluent_color_96px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap home_96px {
             get {
                 object obj = ResourceManager.GetObject("home_96px", resourceCulture);
@@ -303,6 +313,16 @@ namespace PBL3REAL.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap home_page_fluent_color_96px {
+            get {
+                object obj = ResourceManager.GetObject("home_page_fluent_color_96px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap home_window_metro__eb4d4b_52px {
             get {
                 object obj = ResourceManager.GetObject("home_window-metro_#eb4d4b_52px", resourceCulture);
@@ -323,6 +343,16 @@ namespace PBL3REAL.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap hotel {
+            get {
+                object obj = ResourceManager.GetObject("hotel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap hotel_48px {
             get {
                 object obj = ResourceManager.GetObject("hotel_48px", resourceCulture);
@@ -336,6 +366,26 @@ namespace PBL3REAL.Properties {
         internal static System.Drawing.Bitmap hotel_96px {
             get {
                 object obj = ResourceManager.GetObject("hotel_96px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap hotel_fluent_color_120px {
+            get {
+                object obj = ResourceManager.GetObject("hotel_fluent_color_120px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Hotel_Logo {
+            get {
+                object obj = ResourceManager.GetObject("Hotel_Logo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -416,6 +466,16 @@ namespace PBL3REAL.Properties {
         internal static System.Drawing.Bitmap login_fluent_color_96px {
             get {
                 object obj = ResourceManager.GetObject("login_fluent_color_96px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logo_size {
+            get {
+                object obj = ResourceManager.GetObject("logo_size", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -533,6 +593,26 @@ namespace PBL3REAL.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap profile_fluent_color_24px {
+            get {
+                object obj = ResourceManager.GetObject("profile_fluent_color_24px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap profile_fluent_color_36px {
+            get {
+                object obj = ResourceManager.GetObject("profile_fluent_color_36px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap right_button_fluent_color_48px {
             get {
                 object obj = ResourceManager.GetObject("right_button_fluent_color_48px", resourceCulture);
@@ -633,6 +713,16 @@ namespace PBL3REAL.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap sign_out_fluent_color_36px {
+            get {
+                object obj = ResourceManager.GetObject("sign_out_fluent_color_36px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap sign_out_windows10_32px {
             get {
                 object obj = ResourceManager.GetObject("sign_out_windows10_32px", resourceCulture);
@@ -646,6 +736,16 @@ namespace PBL3REAL.Properties {
         internal static System.Drawing.Bitmap triangle_arrow_material_filled__535c68_24px {
             get {
                 object obj = ResourceManager.GetObject("triangle_arrow_material_filled_#535c68_24px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap triangle_arrow_material_filled__535c68_24px1 {
+            get {
+                object obj = ResourceManager.GetObject("triangle_arrow_material_filled_#535c68_24px1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
