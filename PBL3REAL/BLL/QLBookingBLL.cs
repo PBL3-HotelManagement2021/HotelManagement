@@ -79,11 +79,55 @@ namespace PBL3REAL.BLL
             }
         }
 
-      
+        public void updateBooking(BookingDetailVM bookingDetailVM, List<int> listdel,List<int>listOld)
+        {
+            Booking booking = new Booking();
+            mapper.Map(bookingDetailVM, booking);
+            booking.BookIdclient = bookingDetailVM.clientVM.IdClient;
+            booking.BookIduser = 2;         //user se dc luu o tang BLL khi dang nhap 
+            List<BookingDetail> listadd = new List<BookingDetail>();
+
+            foreach (SubBookingDetailVM valVM in bookingDetailVM.ListSub)
+            {
+                BookingDetail bookingDetail = new BookingDetail();
+                mapper.Map(valVM, bookingDetail);
+                bookingDetail.BoodetIdbook = booking.IdBook;
+                if (listOld.Count == 0)   //truong hop ko thay doi fromDate va toDate
+                {
+                    if (bookingDetail.IdBoodet == 0) listadd.Add(bookingDetail);
+                }
+                else
+                {
+                    listadd.Add(bookingDetail);
+                }
+            }
+          
+            try
+            {
+                _bookingDAL.updateBooking(booking);
+                if (listOld.Count == 0)
+                {   
+                    _bookingDAL.delBookingDetail(listOld);
+                    if (listadd.Count != 0) _bookingDAL.addBookingDetail(listadd);
+                }
+                else
+                {
+                    _bookingDAL.delBookingDetail(listOld);
+                    if (listadd.Count != 0) _bookingDAL.addBookingDetail(listadd);
+                }
+            }
+            catch (Exception e)
+            {
+                /*  Console.WriteLine(e.Message);*/
+                throw;
+            }
+        }
+
+
 
         public void addBooking(BookingDetailVM result)
         {
-            int idRoom = _bookingDAL.getnextid();
+            int idBook = _bookingDAL.getnextid();
             Booking booking = new Booking();
             mapper.Map(result, booking);
             booking.BookIduser = 1;
@@ -94,7 +138,7 @@ namespace PBL3REAL.BLL
             {
                 BookingDetail bookingDetail = new BookingDetail();
                 mapper.Map(val, bookingDetail);
-                bookingDetail.BoodetIdbook = idRoom;
+                bookingDetail.BoodetIdbook = idBook;
                 listadd.Add(bookingDetail);
             }
             try

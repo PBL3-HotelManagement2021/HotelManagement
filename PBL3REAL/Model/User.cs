@@ -39,7 +39,6 @@ namespace PBL3REAL.Model
         public bool UserGender { get; set; }
         [Column("user_activeflag")]
         public bool UserActiveflag { get; set; }
-        [Required]
         [Column("user_code")]
         [StringLength(8)]
         public string UserCode { get; set; }

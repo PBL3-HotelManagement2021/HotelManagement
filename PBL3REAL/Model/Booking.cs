@@ -40,7 +40,7 @@ namespace PBL3REAL.Model
         public DateTime BookCheckoutdate { get; set; }
         [Column("book_iduser")]
         public int BookIduser { get; set; }
-        [Required]
+
         [Column("book_code")]
         [StringLength(8)]
         public string BookCode { get; set; }

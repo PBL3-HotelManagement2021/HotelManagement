@@ -111,6 +111,12 @@ namespace PBL3REAL.DAL
                 list.Add(bookingDetail);
                 _appDbContext.Entry(bookingDetail).State = EntityState.Detached;
             }
+            AppDbContext.Instance.BookingDetails.RemoveRange(list);
+            AppDbContext.Instance.SaveChanges();
+            foreach(BookingDetail bookingDetail1 in list)
+            {
+                AppDbContext.Instance.Entry(bookingDetail1).State = EntityState.Detached;
+            }
         }
         public void addBookingDetail(List<BookingDetail> list)
         {

@@ -271,8 +271,7 @@ namespace PBL3REAL.Model
                     .HasName("Pk_Tbl_id_user");
 
                 entity.Property(e => e.UserCode)
-                    .IsUnicode(false)
-                    .HasDefaultValueSql("((0))");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.UserGmail).IsUnicode(false);
 

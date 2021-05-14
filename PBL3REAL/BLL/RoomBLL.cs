@@ -132,32 +132,6 @@ namespace HotelManagement.BLL.Implement
                 Console.WriteLine(e.Message);
             }
         }
-       
-
-     
-
-       /* public List<RoomVM> getAll1(int pages, int rows, string orderby)
-        {
-            int start = (pages - 1) * rows;
-            int length = rows;
-            List<Room> listRoom = _roomDAL.getall(start, length, orderby);
-            List<RoomVM> listRoomVM = new List<RoomVM>();
-            foreach (Room room in listRoom)
-            {
-                RoomVM roomVM = mapper.Map<RoomVM>(room);
-                int id = room.RoomIdroomtypeNavigation.IdRoomtype;
-                string roomname = room.RoomIdroomtypeNavigation.RotyName;
-                roomVM.MapRoomtype.Add(id, roomname);
-                foreach (StatusTime statusTime in room.StatusTimes)
-                {
-                    StatusTimeVM statusTimeVM = mapper.Map<StatusTimeVM>(statusTime);
-                    statusTimeVM.statusVM = mapper.Map<StatusVM>(statusTime.StatimIdstatusNavigation);
-                    roomVM.ListStatusTime.Add(statusTimeVM);
-                }
-                listRoomVM.Add(roomVM);
-            }
-            return listRoomVM;
-        }*/
         public List<RoomVM> getAll(int pages, int rows, int idroomtype, string name)
         {
             int start = (pages - 1) * rows;

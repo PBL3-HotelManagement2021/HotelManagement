@@ -48,7 +48,7 @@ namespace PBL3REAL
             // showClient();
          //   testCBBRoom();
            //   showBookingDetail();
-            //   addBooking();
+         //      addBooking();
             // delBooking();
             // addClient();
             //showUser();
@@ -56,10 +56,11 @@ namespace PBL3REAL
             //completeBooking();
             // checkUser();
             //  Test(); 
-            cbbForRole();
+            //   cbbForRole();
             //  updateUser();
             //delUser();
-            showDetailUser();
+            //   showDetailUser();
+            updateBooking1();
         }
 
         public void Test()
@@ -178,20 +179,69 @@ namespace PBL3REAL
          
         }
 
+        //Truong hop no ko thay doi fromDate va toDate
+        public void updateBooking()
+        {
+            List<int> listOld = new List<int>();
+            List<int> listdel = new List<int>();
+            SubBookingDetailVM sub1 = new SubBookingDetailVM
+            {
+                BooDetNote = "Helllworllddddd",
+                BoodetPrice = 1000000,
+                BoodetIdroom = 3,
+                BoodetIdroomtype = 4
+            };
+            listdel.Add(7);
+            listdel.Add(8);
+            BookingDetailVM bookingDetailVM = bookingBLL.getDetail(1);
+            bookingDetailVM.BookNote = "ProYesssVip";
+            bookingDetailVM.ListSub.Add(sub1);
+            bookingBLL.updateBooking(bookingDetailVM, listdel, listOld);
+        }
+
+        //truong hop thay doi fromDate va toDate
+        public void updateBooking1()
+        {
+            List<int> listOld = new List<int>();
+            List<int> listdel = new List<int>();
+            BookingDetailVM bookingDetailVM = bookingBLL.getDetail(1);
+            bookingDetailVM.BookNote = "ProYesssVip";
+            bookingDetailVM.BookCheckindate = Convert.ToDateTime("2021-03-18");
+            bookingDetailVM.BookCheckoutdate = Convert.ToDateTime("2021-03-25");
+            //b1 luu tat ca id cua SubBookingDetailVm qua listOld
+            foreach (SubBookingDetailVM val in bookingDetailVM.ListSub)
+            {
+                listOld.Add(val.IdBoodet);
+            }
+            //b2 Xoa het tat ca SubBookingDetailVm
+            bookingDetailVM.ListSub.Clear();
+            //b3 them SubBookingDetailVm ms vao
+            SubBookingDetailVM sub1 = new SubBookingDetailVM
+            {
+                BooDetNote = "TestUpdate",
+                BoodetPrice = 2000000,
+                BoodetIdroom = 3,
+                BoodetIdroomtype = 4
+            };
+
+            bookingDetailVM.ListSub.Add(sub1);
+            bookingBLL.updateBooking(bookingDetailVM, null, listOld);
+        }
         public void addBooking()
         {
             SubBookingDetailVM sub = new SubBookingDetailVM
             {
                 BooDetNote = "None",
                 BoodetPrice =1000000,
-                BoodetIdroom =1
+                BoodetIdroom =1,
+                BoodetIdroomtype = 2
             };
             
             BookingDetailVM result = new BookingDetailVM
             {
                 BookNote = "Ko bk",
                 BookCheckindate = DateTime.Now,
-                BookPaymentdate = DateTime.Now,
+                BookCheckoutdate = DateTime.Now,
                 BookBookdate = DateTime.Now,
                 BookStatus = "Proccess",
                 BookTotalprice = 10000000,
