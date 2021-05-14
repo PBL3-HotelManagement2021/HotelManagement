@@ -33,10 +33,10 @@ namespace PBL3REAL.View
         }
         private void addCbRoom1()
         {
-            List<CbbItem> list = roomTypeBLL.addCombobox();
-            list.Insert(0, new CbbItem(0, "All RoomType"));
-            List<CbbItem> res = list;
-            cbRoom1.DataSource = res;
+            //List<CbbItem> list = roomTypeBLL.addCombobox();
+            //list.Insert(0, new CbbItem(0, "All RoomType"));
+            //List<CbbItem> res = list;
+            //cbRoom1.DataSource = res;
         }
         private void showRoomType()
         {

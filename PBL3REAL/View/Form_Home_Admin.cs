@@ -53,6 +53,14 @@ namespace PBL3REAL.View
         {
 
         }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            Form_User_Profile f = new Form_User_Profile();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
+        }
     }
 }
 //www.csharp-tutorial.hu/wp-content/uploads/2017/01/printform.png

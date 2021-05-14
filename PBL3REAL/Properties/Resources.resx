@@ -265,6 +265,9 @@
   <data name="hotel_96px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\View\Materials\hotel_96px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="sign_out_fluent_color_36px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\View\Materials\sign_out_fluent_color_36px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="feedback_hub_96px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\View\Materials\feedback_hub_96px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -343,7 +346,7 @@
   <data name="next_page_fluent_color_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\View\Materials\next_page_fluent_color_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="sign_out_fluent_color_36px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\View\Materials\sign_out_fluent_color_36px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="male_user_fluent_color_96px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\View\Materials\male_user_fluent_color_96px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
