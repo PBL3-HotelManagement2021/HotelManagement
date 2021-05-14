@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using HotelManagement.Extention;
+
 namespace PBL3REAL.DAL
 {
     class ClientDAL
@@ -21,6 +23,24 @@ namespace PBL3REAL.DAL
             return client.IdClient;
         }
 
+        public List<Client> findByProperty(Dictionary<string, string> properties)
+        {
+            var predicate = PredicateBuilder.True<Client>();
+            if (!properties.ContainsKey("name"))
+            {
+                predicate = predicate.And(x => x.CliName.Contains(properties["name"]));
+            }
+            if (!properties.ContainsKey("code"))
+            {
+                predicate = predicate.And(x => x.CliCode == properties["code"]);
+            }
+
+            predicate = predicate.And(x => x.CliActiveflag == true);
+            List<Client> result = AppDbContext.Instance.Clients
+                        .Where(predicate)
+                        .ToList();
+            return result;
+        }
 
         public List<Client> getAll()
         {

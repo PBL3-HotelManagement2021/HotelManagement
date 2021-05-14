@@ -113,7 +113,6 @@ namespace PBL3REAL.View
             this.tabControl1.Size = new System.Drawing.Size(949, 876);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.TabStop = false;
-            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage1
             // 
@@ -196,7 +195,6 @@ namespace PBL3REAL.View
             this.button4.Text = "Thêm đơn mới";
             this.button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
@@ -231,7 +229,7 @@ namespace PBL3REAL.View
             this.tableLayoutPanel4.ColumnCount = 3;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.06097F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64.93903F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 58F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel4.Controls.Add(this.pictureBox5, 2, 1);
             this.tableLayoutPanel4.Controls.Add(this.pictureBox6, 2, 0);
             this.tableLayoutPanel4.Controls.Add(this.comboBox1, 1, 0);
@@ -249,7 +247,7 @@ namespace PBL3REAL.View
             // pictureBox5
             // 
             this.pictureBox5.Image = global::PBL3REAL.Properties.Resources.search_fluent_color_48px;
-            this.pictureBox5.Location = new System.Drawing.Point(330, 58);
+            this.pictureBox5.Location = new System.Drawing.Point(328, 58);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(48, 48);
             this.pictureBox5.TabIndex = 10;
@@ -258,7 +256,7 @@ namespace PBL3REAL.View
             // pictureBox6
             // 
             this.pictureBox6.Image = global::PBL3REAL.Properties.Resources.filter_fluent_color_48px;
-            this.pictureBox6.Location = new System.Drawing.Point(330, 3);
+            this.pictureBox6.Location = new System.Drawing.Point(328, 3);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(48, 48);
             this.pictureBox6.TabIndex = 9;
@@ -274,7 +272,7 @@ namespace PBL3REAL.View
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(117, 3);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(207, 39);
+            this.comboBox1.Size = new System.Drawing.Size(205, 39);
             this.comboBox1.TabIndex = 5;
             // 
             // textBox1
@@ -285,7 +283,7 @@ namespace PBL3REAL.View
             this.textBox1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBox1.Location = new System.Drawing.Point(117, 58);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(207, 31);
+            this.textBox1.Size = new System.Drawing.Size(205, 31);
             this.textBox1.TabIndex = 6;
             // 
             // label7
@@ -413,7 +411,7 @@ namespace PBL3REAL.View
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.12698F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.87302F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 57F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 59F));
             this.tableLayoutPanel2.Controls.Add(this.pictureBox4, 2, 2);
             this.tableLayoutPanel2.Controls.Add(this.cbRoom2, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.label3, 0, 2);
@@ -435,7 +433,7 @@ namespace PBL3REAL.View
             // 
             this.pictureBox4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.pictureBox4.Image = global::PBL3REAL.Properties.Resources.search_fluent_color_48px;
-            this.pictureBox4.Location = new System.Drawing.Point(336, 99);
+            this.pictureBox4.Location = new System.Drawing.Point(334, 99);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(47, 45);
             this.pictureBox4.TabIndex = 11;
@@ -448,9 +446,9 @@ namespace PBL3REAL.View
             this.cbRoom2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbRoom2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbRoom2.FormattingEnabled = true;
-            this.cbRoom2.Location = new System.Drawing.Point(150, 58);
+            this.cbRoom2.Location = new System.Drawing.Point(149, 58);
             this.cbRoom2.Name = "cbRoom2";
-            this.cbRoom2.Size = new System.Drawing.Size(180, 36);
+            this.cbRoom2.Size = new System.Drawing.Size(179, 36);
             this.cbRoom2.TabIndex = 5;
             // 
             // label3
@@ -468,7 +466,7 @@ namespace PBL3REAL.View
             this.label4.Cursor = System.Windows.Forms.Cursors.Default;
             this.label4.Location = new System.Drawing.Point(3, 8);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(141, 31);
+            this.label4.Size = new System.Drawing.Size(140, 31);
             this.label4.TabIndex = 1;
             this.label4.Text = "Xem theo loại phòng";
             // 
@@ -488,9 +486,9 @@ namespace PBL3REAL.View
             this.cbRoom1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbRoom1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbRoom1.FormattingEnabled = true;
-            this.cbRoom1.Location = new System.Drawing.Point(150, 10);
+            this.cbRoom1.Location = new System.Drawing.Point(149, 10);
             this.cbRoom1.Name = "cbRoom1";
-            this.cbRoom1.Size = new System.Drawing.Size(180, 36);
+            this.cbRoom1.Size = new System.Drawing.Size(179, 36);
             this.cbRoom1.TabIndex = 4;
             // 
             // searchRoom
@@ -498,16 +496,16 @@ namespace PBL3REAL.View
             this.searchRoom.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.searchRoom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
             this.searchRoom.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.searchRoom.Location = new System.Drawing.Point(150, 108);
+            this.searchRoom.Location = new System.Drawing.Point(149, 108);
             this.searchRoom.Name = "searchRoom";
-            this.searchRoom.Size = new System.Drawing.Size(180, 27);
+            this.searchRoom.Size = new System.Drawing.Size(179, 27);
             this.searchRoom.TabIndex = 6;
             // 
             // pictureBox3
             // 
             this.pictureBox3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.pictureBox3.Image = global::PBL3REAL.Properties.Resources.filter_fluent_color_48px;
-            this.pictureBox3.Location = new System.Drawing.Point(336, 51);
+            this.pictureBox3.Location = new System.Drawing.Point(334, 51);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(47, 42);
             this.pictureBox3.TabIndex = 10;
@@ -569,6 +567,7 @@ namespace PBL3REAL.View
             this.button1.Text = "Xem thông tin loại phòng đã chọn";
             this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btn_Add
             // 
@@ -583,6 +582,7 @@ namespace PBL3REAL.View
             this.btn_Add.Text = "Thêm loại phòng mới";
             this.btn_Add.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Add.UseVisualStyleBackColor = true;
+            this.btn_Add.Click += new System.EventHandler(this.btn_Add_Click);
             // 
             // btn_Edit
             // 
@@ -597,6 +597,7 @@ namespace PBL3REAL.View
             this.btn_Edit.Text = "Chỉnh sửa thông tin loại phòng";
             this.btn_Edit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Edit.UseVisualStyleBackColor = true;
+            this.btn_Edit.Click += new System.EventHandler(this.btn_Edit_Click);
             // 
             // btn_Delete
             // 
@@ -611,13 +612,14 @@ namespace PBL3REAL.View
             this.btn_Delete.Text = "Xóa loại phòng đã chọn";
             this.btn_Delete.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Delete.UseVisualStyleBackColor = true;
+            this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
             // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 3;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.06097F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64.93903F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 58F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel3.Controls.Add(this.pictureBox2, 2, 1);
             this.tableLayoutPanel3.Controls.Add(this.pictureBox1, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.comboBox4, 1, 0);
@@ -635,7 +637,7 @@ namespace PBL3REAL.View
             // pictureBox2
             // 
             this.pictureBox2.Image = global::PBL3REAL.Properties.Resources.search_fluent_color_48px;
-            this.pictureBox2.Location = new System.Drawing.Point(330, 58);
+            this.pictureBox2.Location = new System.Drawing.Point(328, 58);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(48, 48);
             this.pictureBox2.TabIndex = 10;
@@ -644,7 +646,7 @@ namespace PBL3REAL.View
             // pictureBox1
             // 
             this.pictureBox1.Image = global::PBL3REAL.Properties.Resources.filter_fluent_color_48px;
-            this.pictureBox1.Location = new System.Drawing.Point(330, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(328, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(48, 48);
             this.pictureBox1.TabIndex = 9;
@@ -660,7 +662,7 @@ namespace PBL3REAL.View
             this.comboBox4.FormattingEnabled = true;
             this.comboBox4.Location = new System.Drawing.Point(117, 3);
             this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(207, 39);
+            this.comboBox4.Size = new System.Drawing.Size(205, 39);
             this.comboBox4.TabIndex = 5;
             // 
             // textBox2
@@ -671,7 +673,7 @@ namespace PBL3REAL.View
             this.textBox2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBox2.Location = new System.Drawing.Point(117, 58);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(207, 31);
+            this.textBox2.Size = new System.Drawing.Size(205, 31);
             this.textBox2.TabIndex = 6;
             // 
             // label6

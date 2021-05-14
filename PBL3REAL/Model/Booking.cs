@@ -15,7 +15,6 @@ namespace PBL3REAL.Model
         {
             BookingDetails = new HashSet<BookingDetail>();
         }
-
         [Key]
         [Column("id_book")]
         public int IdBook { get; set; }
@@ -32,27 +31,25 @@ namespace PBL3REAL.Model
         [Column("book_status")]
         [StringLength(10)]
         public string BookStatus { get; set; }
-
-        [Required]
-        [Column("book_code")]
-        [StringLength(8)]
-        public string BookCode { get; set; }
-
         [Column("book_deposit")]
         public int BookDeposit { get; set; }
         [Column("book_totalprice")]
         public int BookTotalprice { get; set; }
-        [Column("book_paymentdate", TypeName = "date")]
-        public DateTime BookPaymentdate { get; set; }
+        [Column("book_checkoutdate", TypeName = "date")]
+        public DateTime BookCheckoutdate { get; set; }
         [Column("book_iduser")]
         public int BookIduser { get; set; }
-
+        [Column("book_code")]
+        [StringLength(8)]
+        public string BookCode { get; set; }
         [ForeignKey(nameof(BookIdclient))]
         [InverseProperty(nameof(Client.Bookings))]
         public virtual Client BookIdclientNavigation { get; set; }
         [ForeignKey(nameof(BookIduser))]
         [InverseProperty(nameof(User.Bookings))]
         public virtual User BookIduserNavigation { get; set; }
+        [InverseProperty("InvIdbookNavigation")]
+        public virtual Invoice Invoice { get; set; }
         [InverseProperty(nameof(BookingDetail.BoodetIdbookNavigation))]
         public virtual ICollection<BookingDetail> BookingDetails { get; set; }
     }

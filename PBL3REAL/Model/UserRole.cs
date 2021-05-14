@@ -18,10 +18,6 @@ namespace PBL3REAL.Model
         public int UserolIduser { get; set; }
         [Column("userol_idrole")]
         public int UserolIdrole { get; set; }
-        [Required]
-        [Column("userol_activeflag")]
-        public bool? UserolActiveflag { get; set; }
-
         [ForeignKey(nameof(UserolIdrole))]
         [InverseProperty(nameof(Role.UserRoles))]
         public virtual Role UserolIdroleNavigation { get; set; }

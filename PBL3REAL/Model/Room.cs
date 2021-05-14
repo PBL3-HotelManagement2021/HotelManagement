@@ -16,7 +16,6 @@ namespace PBL3REAL.Model
             BookingDetails = new HashSet<BookingDetail>();
             StatusTimes = new HashSet<StatusTime>();
         }
-
         [Key]
         [Column("id_room")]
         public int IdRoom { get; set; }
@@ -29,7 +28,8 @@ namespace PBL3REAL.Model
         public string RoomDescription { get; set; }
         [Column("room_idroomtype")]
         public int RoomIdroomtype { get; set; }
-
+        [Column("room_activeflag")]
+        public bool RoomActiveflag { get; set; }
         [ForeignKey(nameof(RoomIdroomtype))]
         [InverseProperty(nameof(RoomType.Rooms))]
         public virtual RoomType RoomIdroomtypeNavigation { get; set; }

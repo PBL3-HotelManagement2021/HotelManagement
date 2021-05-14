@@ -18,22 +18,13 @@ namespace PBL3REAL.Model
                 }
                 return _Instance;
             }
-            private set
-            {
-
-            }
+            private set {}
         }
-
         private static AppDbContext _Instance;
-        public AppDbContext()
-        {
-        }
-
+        public AppDbContext() {}
         public AppDbContext(DbContextOptions<AppDbContext> options)
             : base(options)
-        {
-        }
-
+        {}
         public virtual DbSet<Auth> Auths { get; set; }
         public virtual DbSet<Booking> Bookings { get; set; }
         public virtual DbSet<BookingDetail> BookingDetails { get; set; }
@@ -48,7 +39,6 @@ namespace PBL3REAL.Model
         public virtual DbSet<StatusTime> StatusTimes { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<UserRole> UserRoles { get; set; }
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -57,7 +47,6 @@ namespace PBL3REAL.Model
                 optionsBuilder.UseSqlServer("Data Source=DESKTOP-G1I0NVJ ;Initial Catalog =HotelManagementREAL;Integrated Security=true");
             }
         }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
@@ -81,7 +70,6 @@ namespace PBL3REAL.Model
                     .HasForeignKey(d => d.AuthIdrole)
                     .HasConstraintName("Fk_auth_role");
             });
-
             modelBuilder.Entity<Booking>(entity =>
             {
                 entity.HasKey(e => e.IdBook)
@@ -89,23 +77,23 @@ namespace PBL3REAL.Model
 
                 entity.Property(e => e.BookBookdate).HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.BookNote).IsUnicode(false);
-
                 entity.Property(e => e.BookCode).IsUnicode(false);
+
+                entity.Property(e => e.BookNote).IsUnicode(false);
 
                 entity.Property(e => e.BookStatus).IsUnicode(false);
 
                 entity.HasOne(d => d.BookIdclientNavigation)
                     .WithMany(p => p.Bookings)
                     .HasForeignKey(d => d.BookIdclient)
-                    .HasConstraintName("Fk_booking_client");
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_booking_client");
 
                 entity.HasOne(d => d.BookIduserNavigation)
                     .WithMany(p => p.Bookings)
                     .HasForeignKey(d => d.BookIduser)
                     .HasConstraintName("Fk_booking_user");
             });
-
             modelBuilder.Entity<BookingDetail>(entity =>
             {
                 entity.Property(e => e.BooDetNote).IsUnicode(false);
@@ -122,7 +110,6 @@ namespace PBL3REAL.Model
                     .HasForeignKey(d => d.BoodetIdroom)
                     .HasConstraintName("Fk_booking_detail_room");
             });
-
             modelBuilder.Entity<Client>(entity =>
             {
                 entity.HasKey(e => e.IdClient)
@@ -137,8 +124,9 @@ namespace PBL3REAL.Model
                 entity.Property(e => e.CliPhone).IsUnicode(false);
 
                 entity.Property(e => e.CliCode).IsUnicode(false);
+                entity.Property(e => e.CliActiveflag)
+                    .HasDefaultValueSql("true");
             });
-
             modelBuilder.Entity<ImgStorage>(entity =>
             {
                 entity.HasKey(e => e.IdImgsto)
@@ -158,27 +146,23 @@ namespace PBL3REAL.Model
                     .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("Fk_ImgStorage_user");
             });
-
             modelBuilder.Entity<Invoice>(entity =>
             {
                 entity.HasKey(e => e.IdInvoice)
                     .HasName("Pk_Invoice_id_invoice");
 
+                entity.Property(e => e.InvCode).IsUnicode(false);
+
                 entity.Property(e => e.InvCreatedate).HasDefaultValueSql("(getdate())");
 
                 entity.Property(e => e.InvUpdatedate).HasDefaultValueSql("(getdate())");
 
-                entity.HasOne(d => d.InvIdclientNavigation)
-                    .WithMany(p => p.Invoices)
-                    .HasForeignKey(d => d.InvIdclient)
-                    .HasConstraintName("Fk_Invoice_client");
-
-                entity.HasOne(d => d.InvIduserNavigation)
-                    .WithMany(p => p.Invoices)
-                    .HasForeignKey(d => d.InvIduser)
-                    .HasConstraintName("Fk_Invoice_user");
+                entity.HasOne(d => d.InvIdbookNavigation)
+                    .WithOne(p => p.Invoice)
+                    .HasForeignKey<Invoice>(d => d.InvIdbook)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__Invoice__inv_idb__540C7B00");
             });
-
             modelBuilder.Entity<Menu>(entity =>
             {
                 entity.HasKey(e => e.IdMenu)
@@ -192,7 +176,6 @@ namespace PBL3REAL.Model
 
                 entity.Property(e => e.MenuUrl).IsUnicode(false);
             });
-
             modelBuilder.Entity<Role>(entity =>
             {
                 entity.HasKey(e => e.IdRole)
@@ -204,7 +187,6 @@ namespace PBL3REAL.Model
 
                 entity.Property(e => e.RoleName).IsUnicode(false);
             });
-
             modelBuilder.Entity<Room>(entity =>
             {
                 entity.HasKey(e => e.IdRoom)
@@ -219,7 +201,6 @@ namespace PBL3REAL.Model
                     .HasForeignKey(d => d.RoomIdroomtype)
                     .HasConstraintName("Fk_room_room_type");
             });
-
             modelBuilder.Entity<RoomType>(entity =>
             {
                 entity.HasKey(e => e.IdRoomtype)
@@ -231,7 +212,6 @@ namespace PBL3REAL.Model
 
                 entity.Property(e => e.RotyName).IsUnicode(false);
             });
-
             modelBuilder.Entity<Status>(entity =>
             {
                 entity.HasKey(e => e.IdStatus)
@@ -243,7 +223,6 @@ namespace PBL3REAL.Model
 
                 entity.Property(e => e.StaName).IsUnicode(false);
             });
-
             modelBuilder.Entity<StatusTime>(entity =>
             {
                 entity.HasKey(e => e.IdStatim)
@@ -263,15 +242,13 @@ namespace PBL3REAL.Model
                     .HasForeignKey(d => d.StatimIdstatus)
                     .HasConstraintName("Fk_status_time_status");
             });
-
             modelBuilder.Entity<User>(entity =>
             {
                 entity.HasKey(e => e.IdUser)
                     .HasName("Pk_Tbl_id_user");
 
                 entity.Property(e => e.UserCode)
-                    .IsUnicode(false)
-                    .HasDefaultValueSql("((0))");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.UserGmail).IsUnicode(false);
 
@@ -281,14 +258,10 @@ namespace PBL3REAL.Model
 
                 entity.Property(e => e.UserPhone).IsUnicode(false);
             });
-
             modelBuilder.Entity<UserRole>(entity =>
             {
                 entity.HasKey(e => e.IdUserol)
                     .HasName("Pk_user_role_id_userol");
-
-                entity.Property(e => e.UserolActiveflag).HasDefaultValueSql("((1))");
-
                 entity.HasOne(d => d.UserolIdroleNavigation)
                     .WithMany(p => p.UserRoles)
                     .HasForeignKey(d => d.UserolIdrole)
@@ -299,10 +272,8 @@ namespace PBL3REAL.Model
                     .HasForeignKey(d => d.UserolIduser)
                     .HasConstraintName("Fk_user_role_user");
             });
-
             OnModelCreatingPartial(modelBuilder);
         }
-
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
 }

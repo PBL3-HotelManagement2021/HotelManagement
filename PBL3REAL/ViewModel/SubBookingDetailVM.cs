@@ -4,12 +4,13 @@ using System.Text;
 
 namespace PBL3REAL.ViewModel
 {
-    class SubBookingDetailVM
+    public class SubBookingDetailVM
     {
         public int IdBoodet { get; set; }
         public int BoodetPrice { get; set; }
         public string BooDetNote { get; set; }
         public int BoodetIdroom { get; set; }
-        public int IdRoomType { get; set; }
+        public int BoodetIdroomtype { get; set; }
+        public int BoodetIdbook { get; set; }
     }
 }

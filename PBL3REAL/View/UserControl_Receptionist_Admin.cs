@@ -15,20 +15,36 @@ namespace PBL3REAL.View
 {
     public partial class UserControl_Receptionist_Admin : UserControl
     {
+        private RoomBLL roomBLL;
+        private RoomTypeBLL roomTypeBLL;
         public UserControl_Receptionist_Admin()
         {
             InitializeComponent();
+            roomBLL = new RoomBLL();
+            roomTypeBLL = new RoomTypeBLL();
+            addCbRoom1();
         }
-
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        private void showRoom(int idRoomType, string name)
         {
+            dataGridView1.DataSource = null;
 
+            dataGridView1.DataSource = roomBLL.getAll(1, 10, idRoomType, name);
+            dataGridView1.Columns["IdRoom"].Visible = false;
         }
-
-        private void button4_Click(object sender, EventArgs e)
+        private void addCbRoom1()
         {
-            Form_Booking f = new Form_Booking();
-            f.ShowDialog();
+            List<CbbItem> list = roomTypeBLL.addCombobox();
+            list.Insert(0, new CbbItem(0, "All RoomType"));
+            List<CbbItem> res = list;
+            cbRoom1.DataSource = res;
         }
+        private void showRoomType()
+        {
+            dataGridView2.DataSource = null;
+            dataGridView2.DataSource = roomTypeBLL.getAll();
+            dataGridView2.Columns["IdRoomtype"].Visible = false;
+            /*dataGridView1.Columns["ListImg"].Visible = false;*/
+        }
+
     }
 }

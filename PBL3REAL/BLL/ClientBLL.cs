@@ -24,5 +24,16 @@ namespace PBL3REAL.BLL
             mapper.Map(clientVM, client);
             _clientDAL.add(client);
         }
+
+        public List<ClientVM> findByProperty(Dictionary<string, string> properties)
+        {
+            List<ClientVM> listVm = new List<ClientVM>();
+            foreach (Client client in _clientDAL.findByProperty(properties))
+            {
+                ClientVM clientVM = mapper.Map<ClientVM>(client);
+                listVm.Add(clientVM);
+            }
+            return listVm;
+        }
     }
 }

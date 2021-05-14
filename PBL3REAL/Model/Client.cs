@@ -14,9 +14,8 @@ namespace PBL3REAL.Model
         public Client()
         {
             Bookings = new HashSet<Booking>();
-            Invoices = new HashSet<Invoice>();
+            //Invoices = new HashSet<Invoice>();
         }
-
         [Key]
         [Column("id_client")]
         public int IdClient { get; set; }
@@ -34,11 +33,11 @@ namespace PBL3REAL.Model
         [Column("cli_gmail")]
         [StringLength(100)]
         public string CliGmail { get; set; }
-
-
+        [Column("cli_activeflag")]
+        public bool CliActiveflag { get; set; }
         [InverseProperty(nameof(Booking.BookIdclientNavigation))]
         public virtual ICollection<Booking> Bookings { get; set; }
-        [InverseProperty(nameof(Invoice.InvIdclientNavigation))]
-        public virtual ICollection<Invoice> Invoices { get; set; }
+        //[InverseProperty(nameof(Invoice.InvIdclientNavigation))]
+        //public virtual ICollection<Invoice> Invoices { get; set; }
     }
 }

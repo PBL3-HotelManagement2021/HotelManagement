@@ -16,7 +16,6 @@ namespace PBL3REAL.Model
             ImgStorages = new HashSet<ImgStorage>();
             Rooms = new HashSet<Room>();
         }
-
         [Key]
         [Column("id_roomtype")]
         public int IdRoomtype { get; set; }
@@ -27,11 +26,12 @@ namespace PBL3REAL.Model
         [Column("roty_description")]
         [StringLength(250)]
         public string RotyDescription { get; set; }
-        [Column("roty_currentprice", TypeName = "decimal(10, 2)")]
-        public decimal RotyCurrentprice { get; set; }
+        [Column("roty_currentprice")]
+        public int RotyCurrentprice { get; set; }
         [Column("roty_capacity")]
         public int RotyCapacity { get; set; }
-
+        [Column("roty_activeflag")]
+        public bool RoTyActiveflag { get; set; }
         [InverseProperty(nameof(ImgStorage.ImgstoIdrootypNavigation))]
         public virtual ICollection<ImgStorage> ImgStorages { get; set; }
         [InverseProperty(nameof(Room.RoomIdroomtypeNavigation))]

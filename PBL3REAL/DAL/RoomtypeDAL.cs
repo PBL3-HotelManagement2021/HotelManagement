@@ -1,5 +1,4 @@
-﻿
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using PBL3REAL.Model;
 using System;
 using System.Collections.Generic;
@@ -20,33 +19,28 @@ namespace HotelManagement.DAL.Implement
             _appDbContext.RoomTypes.Add(roomType);
             _appDbContext.SaveChanges();
         }
-
         public List<RoomType> getAll()
         {
             var result = _appDbContext.RoomTypes.ToList();
             return result;
         }
-
         public void addRoomtype(RoomType roomType)
         {
             _appDbContext.RoomTypes.Add(roomType);
             _appDbContext.SaveChanges();
         }
-
         public void deleteRoomtype(int idRoomtype)
         {
             RoomType roomType = _appDbContext.RoomTypes.Find(idRoomtype);
-            _appDbContext.Remove(roomType);
+            if (roomType != null) roomType.RoTyActiveflag = false;
+            _appDbContext.Update(roomType);
             _appDbContext.SaveChanges();
         }
-
         public void updateRoomtype(RoomType roomType)
         {
             _appDbContext.RoomTypes.Update(roomType);
             _appDbContext.SaveChanges();
         }
-
-
         public int getnextid()
         {
             int id;
@@ -62,7 +56,6 @@ namespace HotelManagement.DAL.Implement
             }
             return id;
         }
-
         public RoomType findbyid(int id)
         {
             RoomType roomType = (RoomType)_appDbContext.RoomTypes.Where(x => x.IdRoomtype == id).Include(x => x.ImgStorages).SingleOrDefault();
@@ -71,4 +64,3 @@ namespace HotelManagement.DAL.Implement
         }
     }
 }
-

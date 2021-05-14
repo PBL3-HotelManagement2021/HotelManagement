@@ -14,7 +14,6 @@ namespace PBL3REAL.DAL
         {
             _appDbContext = new AppDbContext();
         }
-
         public List<Booking> getAllBooking()
         {
             List<Booking> result = _appDbContext.Bookings
@@ -22,9 +21,10 @@ namespace PBL3REAL.DAL
                                 .Include(x => x.BookIduserNavigation)
                                 .AsNoTracking()
                                 .ToList();
+
+
             return result;
         }
-
         public Booking findById(int idbook)
         {
             Booking result = _appDbContext.Bookings
@@ -36,33 +36,57 @@ namespace PBL3REAL.DAL
                             .SingleOrDefault();
             return result;
         }
-
+        public Booking findForInvoice(string code)
+        {
+            Booking result = (from book in AppDbContext.Instance.Bookings
+                              join client in AppDbContext.Instance.Clients on book.BookIdclient equals client.IdClient
+                              join bkdt in AppDbContext.Instance.BookingDetails on book.IdBook equals bkdt.BoodetIdbook
+                              /* join room in AppDbContext.Instance.Rooms on bkdt.BoodetIdroom equals room.IdRoom
+                                 join roty in AppDbContext.Instance.RoomTypes on room.RoomIdroomtype equals roty.IdRoomtype*/
+                              where book.BookCode.Equals(code)
+                              select new Booking()
+                              {
+                                  IdBook = book.IdBook,
+                                  BookCheckindate = book.BookCheckindate,
+                                  BookCheckoutdate = book.BookCheckoutdate,
+                                  BookTotalprice = book.BookTotalprice,
+                                  BookIdclientNavigation = new Client
+                                  {
+                                      CliCode = client.CliCode,
+                                      CliName = client.CliName,
+                                      CliPhone = client.CliPhone
+                                  }
+                              }
+                              ).FirstOrDefault();
+            return result;
+        }
+        public void updateBooking(Booking booking)
+        {
+            AppDbContext.Instance.Update(booking);
+            AppDbContext.Instance.SaveChanges();
+            AppDbContext.Instance.Entry(booking).State = EntityState.Detached;
+        }
         public List<BookingDetail> getBookingDetail(int idbook)
         {
             List<BookingDetail> result = _appDbContext.BookingDetails.Where(x => x.BoodetIdbook == idbook).ToList();
             return result;
         }
-
         public void addBooking(Booking booking)
         {
-
             _appDbContext.Add(booking);
             _appDbContext.SaveChanges();
-
         }
 
         public void delBooking(int idbook)
         {
-
-            /* List<Booking> list = new List<Booking>();
-             foreach (int id in listdel)
-             {
-                 list.Add(booking);
-             }*/
+            //List<Booking> list = new List<Booking>();
+            //foreach (int id in listdel)
+            //{
+            //    list.Add(booking);
+            //}
             Booking booking = _appDbContext.Bookings.Find(idbook);
             _appDbContext.Remove(booking);
             _appDbContext.SaveChanges();
-
         }
         public void delBookingDetail(List<int> listdel_detail)
         {
@@ -72,6 +96,12 @@ namespace PBL3REAL.DAL
                 BookingDetail bookingDetail = _appDbContext.BookingDetails.Find(id);
                 list.Add(bookingDetail);
                 _appDbContext.Entry(bookingDetail).State = EntityState.Detached;
+            }
+            AppDbContext.Instance.BookingDetails.RemoveRange(list);
+            AppDbContext.Instance.SaveChanges();
+            foreach (BookingDetail bookingDetail1 in list)
+            {
+                AppDbContext.Instance.Entry(bookingDetail1).State = EntityState.Detached;
             }
         }
         public void addBookingDetail(List<BookingDetail> list)
@@ -86,8 +116,6 @@ namespace PBL3REAL.DAL
                 throw;
             }
         }
-
-
         public void completeBooking(int idbook)
         {
             Booking booking = AppDbContext.Instance.Bookings.Find(idbook);
@@ -96,7 +124,6 @@ namespace PBL3REAL.DAL
             AppDbContext.Instance.SaveChanges();
             _appDbContext.Entry(booking).State = EntityState.Detached;
         }
-
         public int getnextid()
         {
             int id;

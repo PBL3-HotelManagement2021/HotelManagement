@@ -17,7 +17,6 @@ namespace HotelManagement.DAL.Implement
         {
             _appDbContext = new AppDbContext();
         }
-
         public void update(Room room)
         {
             foreach (var entityEntry in _appDbContext.ChangeTracker.Entries())
@@ -40,7 +39,6 @@ namespace HotelManagement.DAL.Implement
                 throw;
             }
         }
-
         public void add(Room room)
         {
             try
@@ -55,27 +53,12 @@ namespace HotelManagement.DAL.Implement
                 throw;
             }
         }
-        public void delete(List<int> listdel)
+        public void delete(int id)
         {
-            List<Room> list = new List<Room>();
-            try
-            {
-                foreach (int id in listdel)
-                {
-                    Room room = _appDbContext.Rooms.Find(id);
-                    if (room != null) list.Add(room);
-                }
-
-
-                _appDbContext.Rooms.RemoveRange(list);
-                _appDbContext.SaveChanges();
-
-
-            }
-            catch (Exception e)
-            {
-                throw;
-            }
+            Room room = _appDbContext.Rooms.Find(id);
+            if (room != null) room.RoomActiveflag = false;
+            _appDbContext.Rooms.Update(room);
+            _appDbContext.SaveChanges();
         }
         public Room findbyid(int id)
         {
@@ -86,7 +69,6 @@ namespace HotelManagement.DAL.Implement
                                            .SingleOrDefault();
             return result;
         }
-
         public List<Room> findAvailableRoom(int idRoomType, DateTime fromDate, DateTime toDate)
         {
 
@@ -119,7 +101,25 @@ namespace HotelManagement.DAL.Implement
                                             .ToList();
             return result;
         }
+        public List<Room> findByIdBook(int idbook)
+        {
+            Room result = new Room();
+            List<Room> joinResult = (from room in AppDbContext.Instance.Rooms
+                                     join roty in AppDbContext.Instance.RoomTypes on room.RoomIdroomtype equals roty.IdRoomtype
+                                     join bkdt in AppDbContext.Instance.BookingDetails on room.IdRoom equals bkdt.BoodetIdroom
+                                     join book in AppDbContext.Instance.Bookings on bkdt.BoodetIdbook equals book.IdBook
+                                     where book.IdBook == idbook
+                                     select new Room()
+                                     {
+                                         RoomName = room.RoomName,
+                                         RoomIdroomtypeNavigation = new RoomType()
+                                         {
+                                             RotyCurrentprice = roty.RotyCurrentprice
+                                         }
+                                     }).ToList();
 
+            return joinResult;
+        }
         public int getTotalRow()
         {
             int rows = 0;
@@ -135,8 +135,6 @@ namespace HotelManagement.DAL.Implement
             }
             return rows;
         }
-
-
         public int getnextid()
         {
             int id;
@@ -152,6 +150,5 @@ namespace HotelManagement.DAL.Implement
             }
             return id;
         }
-
     }
 }
