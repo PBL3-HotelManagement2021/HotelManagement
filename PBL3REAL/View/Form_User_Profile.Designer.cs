@@ -325,6 +325,7 @@ namespace PBL3REAL.View
             this.btn_Cancel.TabIndex = 6;
             this.btn_Cancel.Text = "Cancel";
             this.btn_Cancel.UseVisualStyleBackColor = false;
+            this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
             // 
             // btn_OK
             // 

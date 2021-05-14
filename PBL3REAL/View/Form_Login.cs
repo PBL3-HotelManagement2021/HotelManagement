@@ -62,7 +62,7 @@ namespace PBL3REAL.View
             if (CheckData())
             {
                 //Gọi hàm BLL kiểm tra & cho phép đăng nhập
-                Form_Home_Admin f = new Form_Home_Admin();
+                Form_Switch_Role f = new Form_Switch_Role();
                 this.Hide();
                 f.ShowDialog();
                 this.Show();
