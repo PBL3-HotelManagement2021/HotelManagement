@@ -5,11 +5,13 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-
+using PBL3REAL.BLL;
+using PBL3REAL.ViewModel;
 namespace PBL3REAL.View
 {
     public partial class Form_Login : Form
     {
+        private QLUserBLL qLUserBLL;
         private static readonly string[] VietNamChar = new string[]
         {
             "aAeEoOuUiIdDyY",
@@ -31,10 +33,11 @@ namespace PBL3REAL.View
         public Form_Login()
         {
             InitializeComponent();
+            qLUserBLL = new QLUserBLL();
         }
         //Check Data 
         //Solution: (https://)itexpress.vn/tin-tuc/loc-dau-tieng-viet-trong-c-va-javascript-160.html
-        public bool CheckVietNamChar(string s)
+        private bool CheckVietNamChar(string s)
         {
             for (int i = 1; i < VietNamChar.Length; i++)
             {
@@ -48,12 +51,30 @@ namespace PBL3REAL.View
             }
             return false;
         }
-        public bool CheckData()
+        private bool CheckData()
         {
             if (tb_UserCode.Text.Contains(' ') == true || tb_Password.Text.Contains(' ') == true || CheckVietNamChar(tb_UserCode.Text) == true 
                 || CheckVietNamChar(tb_Password.Text) == true || tb_UserCode.Text.Length == 0 || tb_Password.Text.Length == 0)
             { return false; }
             return true;
+        }
+        private bool CheckUser()
+        {
+            bool check = false;
+            Dictionary<string, string> properties = new Dictionary<string, string>();
+            properties.Add("code", tb_UserCode.Text);
+            properties.Add("password", tb_Password.Text);
+            try
+            {
+                UserVM userVM = qLUserBLL.checkUser(properties);
+                if (userVM != null)
+                {
+                    QLUserBLL.stoUser = userVM;
+                    check = true;
+                }
+            }
+            catch (Exception) {}
+            return check;
         }
         //Events
         private void btn_Login_Click(object sender, EventArgs e)
@@ -62,14 +83,21 @@ namespace PBL3REAL.View
             if (CheckData())
             {
                 //Gọi hàm BLL kiểm tra & cho phép đăng nhập
-                Form_Switch_Role f = new Form_Switch_Role();
-                this.Hide();
-                f.ShowDialog();
-                this.Show();
+                if (CheckUser())
+                {
+                    Form_Switch_Role f = new Form_Switch_Role();
+                    this.Hide();
+                    f.ShowDialog();
+                    this.Show();
+                }    
+                else
+                {
+                    MessageBox.Show("Mã tài khoản hoặc mật khẩu đã nhập không tồn tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }    
             }
             else
             {
-                MessageBox.Show("Tên tài khoản hoặc mật khẩu đã nhập không hợp lệ!","Thông báo", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Mã tài khoản hoặc mật khẩu đã nhập không hợp lệ!","Thông báo", MessageBoxButtons.OK,MessageBoxIcon.Error);
             }    
         }
         private void btn_Exit_Click(object sender, EventArgs e)

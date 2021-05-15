@@ -11,6 +11,7 @@ namespace PBL3REAL.BLL
 {
     public class QLUserBLL
     {
+        public static UserVM stoUser;
         private UserDAL userDAL;
         private Mapper mapper;
         private ImgStorageDAL imgStorageDAL;

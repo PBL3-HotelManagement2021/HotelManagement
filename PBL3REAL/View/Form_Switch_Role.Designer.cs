@@ -29,77 +29,78 @@ namespace PBL3REAL.View
         /// </summary>
         private void InitializeComponent()
         {
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.cbb_RoomType = new System.Windows.Forms.ComboBox();
+            this.fllaypn_Header = new System.Windows.Forms.FlowLayoutPanel();
+            this.picbx_Header = new System.Windows.Forms.PictureBox();
+            this.lb_Header = new System.Windows.Forms.Label();
+            this.lb_LoginRole = new System.Windows.Forms.Label();
+            this.cbb_LoginRole = new System.Windows.Forms.ComboBox();
             this.btn_Login = new System.Windows.Forms.Button();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.flowLayoutPanel2.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.fllaypn_LoginRole = new System.Windows.Forms.FlowLayoutPanel();
+            this.tbllaypn_Loginout = new System.Windows.Forms.TableLayoutPanel();
+            this.btn_Logout = new System.Windows.Forms.Button();
+            this.fllaypn_Header.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picbx_Header)).BeginInit();
+            this.fllaypn_LoginRole.SuspendLayout();
+            this.tbllaypn_Loginout.SuspendLayout();
             this.SuspendLayout();
             // 
-            // flowLayoutPanel1
+            // fllaypn_Header
             // 
-            this.flowLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.flowLayoutPanel1.Controls.Add(this.pictureBox1);
-            this.flowLayoutPanel1.Controls.Add(this.label1);
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(102, 12);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(170, 134);
-            this.flowLayoutPanel1.TabIndex = 1;
+            this.fllaypn_Header.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.fllaypn_Header.Controls.Add(this.picbx_Header);
+            this.fllaypn_Header.Controls.Add(this.lb_Header);
+            this.fllaypn_Header.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.fllaypn_Header.Location = new System.Drawing.Point(102, 12);
+            this.fllaypn_Header.Name = "fllaypn_Header";
+            this.fllaypn_Header.Size = new System.Drawing.Size(170, 134);
+            this.fllaypn_Header.TabIndex = 0;
             // 
-            // pictureBox1
+            // picbx_Header
             // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pictureBox1.Image = global::PBL3REAL.Properties.Resources.male_user_fluent_color_96px;
-            this.pictureBox1.Location = new System.Drawing.Point(39, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(91, 90);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.picbx_Header.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.picbx_Header.Image = global::PBL3REAL.Properties.Resources.male_user_fluent_color_96px;
+            this.picbx_Header.Location = new System.Drawing.Point(36, 3);
+            this.picbx_Header.Name = "picbx_Header";
+            this.picbx_Header.Size = new System.Drawing.Size(91, 90);
+            this.picbx_Header.TabIndex = 0;
+            this.picbx_Header.TabStop = false;
             // 
-            // label1
+            // lb_Header
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(3, 96);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(164, 31);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "User ID: ..........";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lb_Header.AutoSize = true;
+            this.lb_Header.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lb_Header.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lb_Header.Location = new System.Drawing.Point(3, 96);
+            this.lb_Header.Name = "lb_Header";
+            this.lb_Header.Size = new System.Drawing.Size(158, 31);
+            this.lb_Header.TabIndex = 0;
+            this.lb_Header.Text = "........................";
+            this.lb_Header.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label7
+            // lb_LoginRole
             // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(25, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(184, 28);
-            this.label7.TabIndex = 9;
-            this.label7.Text = "Đăng nhập với vị trí";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lb_LoginRole.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lb_LoginRole.AutoSize = true;
+            this.lb_LoginRole.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lb_LoginRole.Location = new System.Drawing.Point(25, 0);
+            this.lb_LoginRole.Name = "lb_LoginRole";
+            this.lb_LoginRole.Size = new System.Drawing.Size(184, 28);
+            this.lb_LoginRole.TabIndex = 0;
+            this.lb_LoginRole.Text = "Đăng nhập với vị trí";
+            this.lb_LoginRole.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // cbb_RoomType
+            // cbb_LoginRole
             // 
-            this.cbb_RoomType.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cbb_RoomType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.cbb_RoomType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbb_RoomType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbb_RoomType.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cbb_RoomType.FormattingEnabled = true;
-            this.cbb_RoomType.Location = new System.Drawing.Point(3, 31);
-            this.cbb_RoomType.Name = "cbb_RoomType";
-            this.cbb_RoomType.Size = new System.Drawing.Size(228, 36);
-            this.cbb_RoomType.TabIndex = 10;
+            this.cbb_LoginRole.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbb_LoginRole.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.cbb_LoginRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbb_LoginRole.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbb_LoginRole.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cbb_LoginRole.FormattingEnabled = true;
+            this.cbb_LoginRole.Location = new System.Drawing.Point(3, 31);
+            this.cbb_LoginRole.Name = "cbb_LoginRole";
+            this.cbb_LoginRole.Size = new System.Drawing.Size(228, 36);
+            this.cbb_LoginRole.TabIndex = 1;
             // 
             // btn_Login
             // 
@@ -111,83 +112,83 @@ namespace PBL3REAL.View
             this.btn_Login.Location = new System.Drawing.Point(12, 3);
             this.btn_Login.Name = "btn_Login";
             this.btn_Login.Size = new System.Drawing.Size(135, 43);
-            this.btn_Login.TabIndex = 4;
+            this.btn_Login.TabIndex = 2;
             this.btn_Login.Text = "Đăng nhập";
             this.btn_Login.UseVisualStyleBackColor = false;
             this.btn_Login.Click += new System.EventHandler(this.btn_Login_Click);
             // 
-            // flowLayoutPanel2
+            // fllaypn_LoginRole
             // 
-            this.flowLayoutPanel2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.flowLayoutPanel2.Controls.Add(this.label7);
-            this.flowLayoutPanel2.Controls.Add(this.cbb_RoomType);
-            this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(73, 191);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(237, 72);
-            this.flowLayoutPanel2.TabIndex = 11;
+            this.fllaypn_LoginRole.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.fllaypn_LoginRole.Controls.Add(this.lb_LoginRole);
+            this.fllaypn_LoginRole.Controls.Add(this.cbb_LoginRole);
+            this.fllaypn_LoginRole.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.fllaypn_LoginRole.Location = new System.Drawing.Point(73, 191);
+            this.fllaypn_LoginRole.Name = "fllaypn_LoginRole";
+            this.fllaypn_LoginRole.Size = new System.Drawing.Size(237, 72);
+            this.fllaypn_LoginRole.TabIndex = 0;
             // 
-            // tableLayoutPanel1
+            // tbllaypn_Loginout
             // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.button1, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.btn_Login, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(27, 335);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(319, 49);
-            this.tableLayoutPanel1.TabIndex = 12;
+            this.tbllaypn_Loginout.ColumnCount = 2;
+            this.tbllaypn_Loginout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tbllaypn_Loginout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tbllaypn_Loginout.Controls.Add(this.btn_Logout, 1, 0);
+            this.tbllaypn_Loginout.Controls.Add(this.btn_Login, 0, 0);
+            this.tbllaypn_Loginout.Location = new System.Drawing.Point(27, 335);
+            this.tbllaypn_Loginout.Name = "tbllaypn_Loginout";
+            this.tbllaypn_Loginout.RowCount = 1;
+            this.tbllaypn_Loginout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tbllaypn_Loginout.Size = new System.Drawing.Size(319, 49);
+            this.tbllaypn_Loginout.TabIndex = 0;
             // 
-            // button1
+            // btn_Logout
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(203)))), ((int)(((byte)(110)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(171, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(135, 43);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Đăng xuất";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_Logout.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn_Logout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(203)))), ((int)(((byte)(110)))));
+            this.btn_Logout.FlatAppearance.BorderSize = 0;
+            this.btn_Logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Logout.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_Logout.Location = new System.Drawing.Point(171, 3);
+            this.btn_Logout.Name = "btn_Logout";
+            this.btn_Logout.Size = new System.Drawing.Size(135, 43);
+            this.btn_Logout.TabIndex = 3;
+            this.btn_Logout.Text = "Đăng xuất";
+            this.btn_Logout.UseVisualStyleBackColor = false;
+            this.btn_Logout.Click += new System.EventHandler(this.btn_Logout_Click);
             // 
             // Form_Switch_Role
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(373, 407);
-            this.Controls.Add(this.tableLayoutPanel1);
-            this.Controls.Add(this.flowLayoutPanel2);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.tbllaypn_Loginout);
+            this.Controls.Add(this.fllaypn_LoginRole);
+            this.Controls.Add(this.fllaypn_Header);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form_Switch_Role";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form_Switch_Role";
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.flowLayoutPanel2.ResumeLayout(false);
-            this.flowLayoutPanel2.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
+            this.fllaypn_Header.ResumeLayout(false);
+            this.fllaypn_Header.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picbx_Header)).EndInit();
+            this.fllaypn_LoginRole.ResumeLayout(false);
+            this.fllaypn_LoginRole.PerformLayout();
+            this.tbllaypn_Loginout.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox cbb_RoomType;
+        private System.Windows.Forms.FlowLayoutPanel fllaypn_Header;
+        private System.Windows.Forms.PictureBox picbx_Header;
+        private System.Windows.Forms.Label lb_Header;
+        private System.Windows.Forms.Label lb_LoginRole;
+        private System.Windows.Forms.ComboBox cbb_LoginRole;
         private System.Windows.Forms.Button btn_Login;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.FlowLayoutPanel fllaypn_LoginRole;
+        private System.Windows.Forms.TableLayoutPanel tbllaypn_Loginout;
+        private System.Windows.Forms.Button btn_Logout;
     }
 }
