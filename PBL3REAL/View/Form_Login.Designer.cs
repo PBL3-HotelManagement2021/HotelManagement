@@ -35,19 +35,19 @@ namespace PBL3REAL.View
             this.btn_Minimize = new System.Windows.Forms.Button();
             this.btn_Exit = new System.Windows.Forms.Button();
             this.tbllaypn_LoginInfo = new System.Windows.Forms.TableLayoutPanel();
-            this.tb_Username = new System.Windows.Forms.TextBox();
+            this.tb_UserCode = new System.Windows.Forms.TextBox();
             this.tb_Password = new System.Windows.Forms.TextBox();
-            this.lb_Username = new System.Windows.Forms.Label();
+            this.lb_UserCode = new System.Windows.Forms.Label();
             this.lb_Password = new System.Windows.Forms.Label();
             this.btn_Login = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.picbx_Header = new System.Windows.Forms.PictureBox();
+            this.fllaypn_Header = new System.Windows.Forms.FlowLayoutPanel();
+            this.lb_Header = new System.Windows.Forms.Label();
             this.toolTip_Warning = new System.Windows.Forms.ToolTip(this.components);
             this.fllaypn_ControlBar.SuspendLayout();
             this.tbllaypn_LoginInfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picbx_Header)).BeginInit();
+            this.fllaypn_Header.SuspendLayout();
             this.SuspendLayout();
             // 
             // fllaypn_ControlBar
@@ -88,9 +88,9 @@ namespace PBL3REAL.View
             this.tbllaypn_LoginInfo.ColumnCount = 2;
             this.tbllaypn_LoginInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.66667F));
             this.tbllaypn_LoginInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.33333F));
-            this.tbllaypn_LoginInfo.Controls.Add(this.tb_Username, 1, 0);
+            this.tbllaypn_LoginInfo.Controls.Add(this.tb_UserCode, 1, 0);
             this.tbllaypn_LoginInfo.Controls.Add(this.tb_Password, 1, 1);
-            this.tbllaypn_LoginInfo.Controls.Add(this.lb_Username, 0, 0);
+            this.tbllaypn_LoginInfo.Controls.Add(this.lb_UserCode, 0, 0);
             this.tbllaypn_LoginInfo.Controls.Add(this.lb_Password, 0, 1);
             this.tbllaypn_LoginInfo.Location = new System.Drawing.Point(12, 227);
             this.tbllaypn_LoginInfo.Name = "tbllaypn_LoginInfo";
@@ -100,17 +100,17 @@ namespace PBL3REAL.View
             this.tbllaypn_LoginInfo.Size = new System.Drawing.Size(372, 144);
             this.tbllaypn_LoginInfo.TabIndex = 0;
             // 
-            // tb_Username
+            // tb_UserCode
             // 
-            this.tb_Username.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.tb_Username.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tb_Username.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.tb_Username.Location = new System.Drawing.Point(158, 3);
-            this.tb_Username.Name = "tb_Username";
-            this.tb_Username.Size = new System.Drawing.Size(211, 34);
-            this.tb_Username.TabIndex = 1;
-            this.tb_Username.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tb_Username.TextChanged += new System.EventHandler(this.tb_Username_TextChanged);
+            this.tb_UserCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.tb_UserCode.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tb_UserCode.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.tb_UserCode.Location = new System.Drawing.Point(158, 3);
+            this.tb_UserCode.Name = "tb_UserCode";
+            this.tb_UserCode.Size = new System.Drawing.Size(211, 34);
+            this.tb_UserCode.TabIndex = 1;
+            this.tb_UserCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tb_UserCode.TextChanged += new System.EventHandler(this.tb_Username_TextChanged);
             // 
             // tb_Password
             // 
@@ -125,15 +125,15 @@ namespace PBL3REAL.View
             this.tb_Password.UseSystemPasswordChar = true;
             this.tb_Password.TextChanged += new System.EventHandler(this.tb_Password_TextChanged);
             // 
-            // lb_Username
+            // lb_UserCode
             // 
-            this.lb_Username.AutoSize = true;
-            this.lb_Username.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lb_Username.Location = new System.Drawing.Point(3, 0);
-            this.lb_Username.Name = "lb_Username";
-            this.lb_Username.Size = new System.Drawing.Size(149, 31);
-            this.lb_Username.TabIndex = 0;
-            this.lb_Username.Text = "Tên tài khoản";
+            this.lb_UserCode.AutoSize = true;
+            this.lb_UserCode.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lb_UserCode.Location = new System.Drawing.Point(3, 0);
+            this.lb_UserCode.Name = "lb_UserCode";
+            this.lb_UserCode.Size = new System.Drawing.Size(147, 31);
+            this.lb_UserCode.TabIndex = 0;
+            this.lb_UserCode.Text = "Mã tài khoản";
             // 
             // lb_Password
             // 
@@ -159,37 +159,37 @@ namespace PBL3REAL.View
             this.btn_Login.UseVisualStyleBackColor = false;
             this.btn_Login.Click += new System.EventHandler(this.btn_Login_Click);
             // 
-            // pictureBox1
+            // picbx_Header
             // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pictureBox1.Image = global::PBL3REAL.Properties.Resources.enter_fluent_color_96px;
-            this.pictureBox1.Location = new System.Drawing.Point(31, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(82, 91);
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
+            this.picbx_Header.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.picbx_Header.Image = global::PBL3REAL.Properties.Resources.enter_fluent_color_96px;
+            this.picbx_Header.Location = new System.Drawing.Point(31, 3);
+            this.picbx_Header.Name = "picbx_Header";
+            this.picbx_Header.Size = new System.Drawing.Size(82, 91);
+            this.picbx_Header.TabIndex = 4;
+            this.picbx_Header.TabStop = false;
             // 
-            // flowLayoutPanel1
+            // fllaypn_Header
             // 
-            this.flowLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.flowLayoutPanel1.Controls.Add(this.pictureBox1);
-            this.flowLayoutPanel1.Controls.Add(this.label1);
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(137, 63);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(149, 137);
-            this.flowLayoutPanel1.TabIndex = 5;
+            this.fllaypn_Header.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.fllaypn_Header.Controls.Add(this.picbx_Header);
+            this.fllaypn_Header.Controls.Add(this.lb_Header);
+            this.fllaypn_Header.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.fllaypn_Header.Location = new System.Drawing.Point(137, 63);
+            this.fllaypn_Header.Name = "fllaypn_Header";
+            this.fllaypn_Header.Size = new System.Drawing.Size(149, 137);
+            this.fllaypn_Header.TabIndex = 0;
             // 
-            // label1
+            // lb_Header
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(3, 97);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(138, 38);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Welcome";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lb_Header.AutoSize = true;
+            this.lb_Header.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lb_Header.Location = new System.Drawing.Point(3, 97);
+            this.lb_Header.Name = "lb_Header";
+            this.lb_Header.Size = new System.Drawing.Size(138, 38);
+            this.lb_Header.TabIndex = 6;
+            this.lb_Header.Text = "Welcome";
+            this.lb_Header.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // toolTip_Warning
             // 
@@ -201,7 +201,7 @@ namespace PBL3REAL.View
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(230)))), ((int)(((byte)(233)))));
             this.ClientSize = new System.Drawing.Size(402, 534);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.fllaypn_Header);
             this.Controls.Add(this.btn_Login);
             this.Controls.Add(this.tbllaypn_LoginInfo);
             this.Controls.Add(this.fllaypn_ControlBar);
@@ -213,9 +213,9 @@ namespace PBL3REAL.View
             this.fllaypn_ControlBar.ResumeLayout(false);
             this.tbllaypn_LoginInfo.ResumeLayout(false);
             this.tbllaypn_LoginInfo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picbx_Header)).EndInit();
+            this.fllaypn_Header.ResumeLayout(false);
+            this.fllaypn_Header.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -228,12 +228,12 @@ namespace PBL3REAL.View
         private System.Windows.Forms.TableLayoutPanel tbllaypn_LoginInfo;
         private System.Windows.Forms.Button btn_Login;
         private System.Windows.Forms.TextBox tb_Password;
-        private System.Windows.Forms.TextBox tb_Username;
-        private System.Windows.Forms.Label lb_Username;
+        private System.Windows.Forms.TextBox tb_UserCode;
+        private System.Windows.Forms.Label lb_UserCode;
         private System.Windows.Forms.Label lb_Password;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox picbx_Header;
+        private System.Windows.Forms.FlowLayoutPanel fllaypn_Header;
+        private System.Windows.Forms.Label lb_Header;
         private System.Windows.Forms.ToolTip toolTip_Warning;
     }
 }

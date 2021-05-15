@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using HotelManagement.BBL.Implement;
 using HotelManagement.BLL.Implement;
+using HotelManagement.DAL.Implement;
 using HotelManagement.ViewModel;
 using Newtonsoft.Json;
 using PBL3REAL.BLL;
@@ -17,10 +18,27 @@ namespace PBL3REAL.View
 {
     public partial class Form_Detail_Room_Category : Form
     {
+        private RoomTypeBLL roomTypeBLL;
+        private RoomBLL roomBLL;
+        private QLBookingBLL bookingBLL;
+        private ClientDAL clientDAL;
+        private ClientBLL clientBLL;
+        private QLUserBLL userBLL;
+        private RoomDAL roomDAL;
+        private QLInvoiceBLL qLInvoiceBLL;
+        List<ImageVM> ImgList = new List<ImageVM>();
         public Form_Detail_Room_Category()
         {
             InitializeComponent();
             LoadData();
+            roomTypeBLL = new RoomTypeBLL();
+            roomBLL = new RoomBLL();
+            bookingBLL = new QLBookingBLL();
+            clientDAL = new ClientDAL();
+            clientBLL = new ClientBLL();
+            userBLL = new QLUserBLL();
+            roomDAL = new RoomDAL();
+            qLInvoiceBLL = new QLInvoiceBLL();
         }
         //Loading Data Function
         public void LoadData() { }
@@ -52,6 +70,27 @@ namespace PBL3REAL.View
                 return new Bitmap(open.FileName);
             }
             return null;
+        }
+        public void addRoomType()
+        {
+            RoomTypeVM roomTypeVM = new RoomTypeVM
+            {
+                RotyCapacity = Int32.Parse(tb_RoomTypeCapacity.Text),
+                RotyCurrentprice = Int32.Parse(tb_RoomTypePrice.Text),
+                RotyDescription = tb_RoomTypeDescription.Text,
+                RotyName = tb_RoomTypeName.Text,
+            };
+            //ImageVM image1 = new ImageVM
+            //{
+            //    ImgstoUrl = "home/cuong/yessss"
+            //};
+            //roomTypeVM.ListImg.Add(image1);
+            //ImageVM image2 = new ImageVM
+            //{
+            //    ImgstoUrl = "home/cuong/nooooo"
+            //};
+            //roomTypeVM.ListImg.Add(image2);
+            roomTypeBLL.addRoomType(roomTypeVM);
         }
         //Events
         private void picbx_add1_Click(object sender, EventArgs e)
@@ -103,6 +142,7 @@ namespace PBL3REAL.View
         private void btn_OK_Click(object sender, EventArgs e)
         {
             //Gọi hàm BLL xử lí nghiệp vụ
+            
         }
         private void btn_Reset_Click(object sender, EventArgs e)
         {

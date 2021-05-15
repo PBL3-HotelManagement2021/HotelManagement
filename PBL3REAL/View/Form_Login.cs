@@ -50,8 +50,8 @@ namespace PBL3REAL.View
         }
         public bool CheckData()
         {
-            if (tb_Username.Text.Contains(' ') == true || tb_Password.Text.Contains(' ') == true || CheckVietNamChar(tb_Username.Text) == true 
-                || CheckVietNamChar(tb_Password.Text) == true || tb_Username.Text.Length == 0 || tb_Password.Text.Length == 0)
+            if (tb_UserCode.Text.Contains(' ') == true || tb_Password.Text.Contains(' ') == true || CheckVietNamChar(tb_UserCode.Text) == true 
+                || CheckVietNamChar(tb_Password.Text) == true || tb_UserCode.Text.Length == 0 || tb_Password.Text.Length == 0)
             { return false; }
             return true;
         }
@@ -76,7 +76,6 @@ namespace PBL3REAL.View
         {
             this.Dispose();
         }
-
         private void btn_Minimize_Click(object sender, EventArgs e)
         {
             //Solution: (https://)stackoverflow.com/questions/7285386/how-to-minimize-and-maximize-in-c-net/7285418
@@ -87,10 +86,9 @@ namespace PBL3REAL.View
         //Solution: (https://)docs.microsoft.com/en-us/dotnet/api/system.windows.forms.tooltipicon?view=net-5.0
         private void tb_Username_TextChanged(object sender, EventArgs e)
         {
-            toolTip_Warning.SetToolTip(tb_Username, "Tên tài khoản không được chứa dấu thanh & khoảng trắng");
+            toolTip_Warning.SetToolTip(tb_UserCode, "Tên tài khoản không được chứa dấu thanh & khoảng trắng");
             toolTip_Warning.ToolTipIcon = ToolTipIcon.Warning;
         }
-
         private void tb_Password_TextChanged(object sender, EventArgs e)
         {
             toolTip_Warning.SetToolTip(tb_Password, "Mật khẩu không được chứa dấu thanh & khoảng trắng");

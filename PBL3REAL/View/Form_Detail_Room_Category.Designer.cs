@@ -43,7 +43,7 @@ namespace PBL3REAL.View
             this.picbx_add5 = new System.Windows.Forms.PictureBox();
             this.picbx_add6 = new System.Windows.Forms.PictureBox();
             this.tbllaypn_DetailsRoomCategory = new System.Windows.Forms.TableLayoutPanel();
-            this.tb_RoomTypeID = new System.Windows.Forms.TextBox();
+            this.tb_RoomTypeCapacity = new System.Windows.Forms.TextBox();
             this.tb_RoomTypePrice = new System.Windows.Forms.TextBox();
             this.tb_RoomTypeDescription = new System.Windows.Forms.TextBox();
             this.tb_RoomTypeName = new System.Windows.Forms.TextBox();
@@ -235,7 +235,7 @@ namespace PBL3REAL.View
             this.tbllaypn_DetailsRoomCategory.ColumnCount = 2;
             this.tbllaypn_DetailsRoomCategory.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.73254F));
             this.tbllaypn_DetailsRoomCategory.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.26746F));
-            this.tbllaypn_DetailsRoomCategory.Controls.Add(this.tb_RoomTypeID, 1, 3);
+            this.tbllaypn_DetailsRoomCategory.Controls.Add(this.tb_RoomTypeCapacity, 1, 3);
             this.tbllaypn_DetailsRoomCategory.Controls.Add(this.tb_RoomTypePrice, 1, 2);
             this.tbllaypn_DetailsRoomCategory.Controls.Add(this.tb_RoomTypeDescription, 1, 1);
             this.tbllaypn_DetailsRoomCategory.Controls.Add(this.tb_RoomTypeName, 1, 0);
@@ -253,15 +253,15 @@ namespace PBL3REAL.View
             this.tbllaypn_DetailsRoomCategory.Size = new System.Drawing.Size(468, 270);
             this.tbllaypn_DetailsRoomCategory.TabIndex = 0;
             // 
-            // tb_RoomTypeID
+            // tb_RoomTypeCapacity
             // 
-            this.tb_RoomTypeID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.tb_RoomTypeID.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tb_RoomTypeID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tb_RoomTypeID.Location = new System.Drawing.Point(160, 204);
-            this.tb_RoomTypeID.Name = "tb_RoomTypeID";
-            this.tb_RoomTypeID.Size = new System.Drawing.Size(297, 27);
-            this.tb_RoomTypeID.TabIndex = 4;
+            this.tb_RoomTypeCapacity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.tb_RoomTypeCapacity.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_RoomTypeCapacity.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tb_RoomTypeCapacity.Location = new System.Drawing.Point(160, 204);
+            this.tb_RoomTypeCapacity.Name = "tb_RoomTypeCapacity";
+            this.tb_RoomTypeCapacity.Size = new System.Drawing.Size(297, 27);
+            this.tb_RoomTypeCapacity.TabIndex = 4;
             // 
             // tb_RoomTypePrice
             // 
@@ -319,9 +319,9 @@ namespace PBL3REAL.View
             this.lb_RoomTypeID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lb_RoomTypeID.Location = new System.Drawing.Point(3, 201);
             this.lb_RoomTypeID.Name = "lb_RoomTypeID";
-            this.lb_RoomTypeID.Size = new System.Drawing.Size(140, 28);
+            this.lb_RoomTypeID.Size = new System.Drawing.Size(92, 28);
             this.lb_RoomTypeID.TabIndex = 0;
-            this.lb_RoomTypeID.Text = "Mã loại phòng";
+            this.lb_RoomTypeID.Text = "Số lượng";
             // 
             // lb_RoomTypeName
             // 
@@ -374,7 +374,7 @@ namespace PBL3REAL.View
         private System.Windows.Forms.PictureBox picbx_add5;
         private System.Windows.Forms.PictureBox picbx_add4;
         private System.Windows.Forms.TableLayoutPanel tbllaypn_DetailsRoomCategory;
-        private System.Windows.Forms.TextBox tb_RoomTypeID;
+        private System.Windows.Forms.TextBox tb_RoomTypeCapacity;
         private System.Windows.Forms.TextBox tb_RoomTypePrice;
         private System.Windows.Forms.TextBox tb_RoomTypeDescription;
         private System.Windows.Forms.TextBox tb_RoomTypeName;
