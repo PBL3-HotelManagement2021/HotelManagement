@@ -193,3 +193,5 @@ C:\Users\toand\Videos\PBL3N\HotelManagement\PBL3REAL\bin\Debug\netcoreapp3.1\run
 C:\Users\toand\Videos\PBL3N\HotelManagement\PBL3REAL\obj\Debug\netcoreapp3.1\PBL3REAL.View.Form_Detail_Invoice.resources
 C:\Users\toand\Videos\PBL3N\HotelManagement\PBL3REAL\obj\Debug\netcoreapp3.1\PBL3REAL.View.Form_User_Profile.resources
 C:\Users\toand\Videos\PBL3N\HotelManagement\PBL3REAL\obj\Debug\netcoreapp3.1\PBL3REAL.View.Form_Switch_Role.resources
+C:\Users\toand\Videos\PBL3N\HotelManagement\PBL3REAL\obj\Debug\netcoreapp3.1\PBL3REAL.csprojAssemblyReference.cache
+C:\Users\toand\Videos\PBL3N\HotelManagement\PBL3REAL\obj\Debug\netcoreapp3.1\PBL3REAL.View.UserControl_HRM_Admin.resources

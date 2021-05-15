@@ -51,10 +51,17 @@ namespace PBL3REAL.View
             }
             return false;
         }
-        private bool CheckData()
+        //private bool CheckData()
+        //{
+        //    if (tb_UserCode.Text.Contains(' ') == true || tb_Password.Text.Contains(' ') == true || CheckVietNamChar(tb_UserCode.Text) == true 
+        //        || CheckVietNamChar(tb_Password.Text) == true || tb_UserCode.Text.Length == 0 || tb_Password.Text.Length == 0)
+        //    { return false; }
+        //    return true;
+        //}
+        public bool CheckData()
         {
-            if (tb_UserCode.Text.Contains(' ') == true || tb_Password.Text.Contains(' ') == true || CheckVietNamChar(tb_UserCode.Text) == true 
-                || CheckVietNamChar(tb_Password.Text) == true || tb_UserCode.Text.Length == 0 || tb_Password.Text.Length == 0)
+            if (tb_UserCode.Text.Contains(' ') == true || tb_Password.Text.Contains(' ') == true || CheckVietNamChar(tb_UserCode.Text) == true
+                || CheckVietNamChar(tb_Password.Text) == true || tb_UserCode.Text.Length == 0 || tb_Password.Text.Length == 0 || CheckUser() == false)
             { return false; }
             return true;
         }
@@ -79,26 +86,38 @@ namespace PBL3REAL.View
         //Events
         private void btn_Login_Click(object sender, EventArgs e)
         {
+            ////Check Data
+            //if (CheckData())
+            //{
+            //    //Gọi hàm kiểm tra & cho phép đăng nhập
+            //    if (CheckUser())
+            //    {
+            //        Form_Switch_Role f = new Form_Switch_Role();
+            //        this.Hide();
+            //        f.ShowDialog();
+            //        this.Show();
+            //    }    
+            //    else
+            //    {
+            //        MessageBox.Show("Mã tài khoản hoặc mật khẩu đã nhập không tồn tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    }    
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Mã tài khoản hoặc mật khẩu đã nhập không hợp lệ!","Thông báo", MessageBoxButtons.OK,MessageBoxIcon.Error);
+            //}    
             //Check Data
             if (CheckData())
             {
-                //Gọi hàm kiểm tra & cho phép đăng nhập
-                if (CheckUser())
-                {
-                    Form_Switch_Role f = new Form_Switch_Role();
-                    this.Hide();
-                    f.ShowDialog();
-                    this.Show();
-                }    
-                else
-                {
-                    MessageBox.Show("Mã tài khoản hoặc mật khẩu đã nhập không tồn tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }    
+                Form_Switch_Role f = new Form_Switch_Role();
+                this.Hide();
+                f.ShowDialog();
+                this.Show();
             }
             else
             {
-                MessageBox.Show("Mã tài khoản hoặc mật khẩu đã nhập không hợp lệ!","Thông báo", MessageBoxButtons.OK,MessageBoxIcon.Error);
-            }    
+                MessageBox.Show("Tên tài khoản hoặc mật khẩu đã nhập không hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void btn_Exit_Click(object sender, EventArgs e)
         {

@@ -28,6 +28,9 @@
     <Compile Update="View\UserControl_Accountant_Admin.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="View\UserControl_HRM_Admin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="View\UserControl_Receptionist_Admin.cs">
       <SubType>UserControl</SubType>
     </Compile>

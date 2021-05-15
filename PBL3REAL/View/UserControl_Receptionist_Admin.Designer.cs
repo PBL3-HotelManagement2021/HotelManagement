@@ -234,7 +234,7 @@ namespace PBL3REAL.View
             this.tbllaypn_Booking.ColumnCount = 3;
             this.tbllaypn_Booking.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.06097F));
             this.tbllaypn_Booking.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64.93903F));
-            this.tbllaypn_Booking.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 63F));
+            this.tbllaypn_Booking.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 64F));
             this.tbllaypn_Booking.Controls.Add(this.picbx_BookingSearch, 2, 1);
             this.tbllaypn_Booking.Controls.Add(this.picbx_BookingSort, 2, 0);
             this.tbllaypn_Booking.Controls.Add(this.cbb_BookingSort, 1, 0);
@@ -252,7 +252,7 @@ namespace PBL3REAL.View
             // picbx_BookingSearch
             // 
             this.picbx_BookingSearch.Image = global::PBL3REAL.Properties.Resources.search_fluent_color_48px;
-            this.picbx_BookingSearch.Location = new System.Drawing.Point(325, 58);
+            this.picbx_BookingSearch.Location = new System.Drawing.Point(324, 58);
             this.picbx_BookingSearch.Name = "picbx_BookingSearch";
             this.picbx_BookingSearch.Size = new System.Drawing.Size(48, 48);
             this.picbx_BookingSearch.TabIndex = 10;
@@ -261,7 +261,7 @@ namespace PBL3REAL.View
             // picbx_BookingSort
             // 
             this.picbx_BookingSort.Image = global::PBL3REAL.Properties.Resources.filter_fluent_color_48px;
-            this.picbx_BookingSort.Location = new System.Drawing.Point(325, 3);
+            this.picbx_BookingSort.Location = new System.Drawing.Point(324, 3);
             this.picbx_BookingSort.Name = "picbx_BookingSort";
             this.picbx_BookingSort.Size = new System.Drawing.Size(48, 48);
             this.picbx_BookingSort.TabIndex = 9;
@@ -275,7 +275,7 @@ namespace PBL3REAL.View
             this.cbb_BookingSort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbb_BookingSort.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbb_BookingSort.FormattingEnabled = true;
-            this.cbb_BookingSort.Location = new System.Drawing.Point(116, 3);
+            this.cbb_BookingSort.Location = new System.Drawing.Point(115, 3);
             this.cbb_BookingSort.Name = "cbb_BookingSort";
             this.cbb_BookingSort.Size = new System.Drawing.Size(203, 39);
             this.cbb_BookingSort.TabIndex = 1;
@@ -286,7 +286,7 @@ namespace PBL3REAL.View
             this.tb_BookingSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tb_BookingSearch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tb_BookingSearch.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tb_BookingSearch.Location = new System.Drawing.Point(116, 58);
+            this.tb_BookingSearch.Location = new System.Drawing.Point(115, 58);
             this.tb_BookingSearch.Name = "tb_BookingSearch";
             this.tb_BookingSearch.Size = new System.Drawing.Size(203, 31);
             this.tb_BookingSearch.TabIndex = 2;
@@ -297,7 +297,7 @@ namespace PBL3REAL.View
             this.lb_BookingSearch.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lb_BookingSearch.Location = new System.Drawing.Point(3, 55);
             this.lb_BookingSearch.Name = "lb_BookingSearch";
-            this.lb_BookingSearch.Size = new System.Drawing.Size(107, 56);
+            this.lb_BookingSearch.Size = new System.Drawing.Size(106, 56);
             this.lb_BookingSearch.TabIndex = 0;
             this.lb_BookingSearch.Text = "Tìm kiếm";
             // 
@@ -307,7 +307,7 @@ namespace PBL3REAL.View
             this.lb_BookingSort.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lb_BookingSort.Location = new System.Drawing.Point(3, 0);
             this.lb_BookingSort.Name = "lb_BookingSort";
-            this.lb_BookingSort.Size = new System.Drawing.Size(107, 55);
+            this.lb_BookingSort.Size = new System.Drawing.Size(106, 55);
             this.lb_BookingSort.TabIndex = 0;
             this.lb_BookingSort.Text = "Sắp xếp theo";
             // 
@@ -417,7 +417,7 @@ namespace PBL3REAL.View
             this.tbllaypn_Room.ColumnCount = 3;
             this.tbllaypn_Room.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.12698F));
             this.tbllaypn_Room.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.87302F));
-            this.tbllaypn_Room.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 62F));
+            this.tbllaypn_Room.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 63F));
             this.tbllaypn_Room.Controls.Add(this.picbx_RoomSearch, 2, 2);
             this.tbllaypn_Room.Controls.Add(this.cbb_RoomSort, 1, 1);
             this.tbllaypn_Room.Controls.Add(this.lb_RoomSearch, 0, 2);
@@ -439,7 +439,7 @@ namespace PBL3REAL.View
             // 
             this.picbx_RoomSearch.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.picbx_RoomSearch.Image = global::PBL3REAL.Properties.Resources.search_fluent_color_48px;
-            this.picbx_RoomSearch.Location = new System.Drawing.Point(331, 99);
+            this.picbx_RoomSearch.Location = new System.Drawing.Point(330, 99);
             this.picbx_RoomSearch.Name = "picbx_RoomSearch";
             this.picbx_RoomSearch.Size = new System.Drawing.Size(47, 45);
             this.picbx_RoomSearch.TabIndex = 11;
@@ -452,7 +452,7 @@ namespace PBL3REAL.View
             this.cbb_RoomSort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbb_RoomSort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbb_RoomSort.FormattingEnabled = true;
-            this.cbb_RoomSort.Location = new System.Drawing.Point(148, 58);
+            this.cbb_RoomSort.Location = new System.Drawing.Point(147, 58);
             this.cbb_RoomSort.Name = "cbb_RoomSort";
             this.cbb_RoomSort.Size = new System.Drawing.Size(177, 36);
             this.cbb_RoomSort.TabIndex = 2;
@@ -472,7 +472,7 @@ namespace PBL3REAL.View
             this.lb_RoomFilter.Cursor = System.Windows.Forms.Cursors.Default;
             this.lb_RoomFilter.Location = new System.Drawing.Point(3, 8);
             this.lb_RoomFilter.Name = "lb_RoomFilter";
-            this.lb_RoomFilter.Size = new System.Drawing.Size(139, 31);
+            this.lb_RoomFilter.Size = new System.Drawing.Size(138, 31);
             this.lb_RoomFilter.TabIndex = 0;
             this.lb_RoomFilter.Text = "Xem theo loại phòng";
             // 
@@ -492,7 +492,7 @@ namespace PBL3REAL.View
             this.cbb_RoomFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbb_RoomFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbb_RoomFilter.FormattingEnabled = true;
-            this.cbb_RoomFilter.Location = new System.Drawing.Point(148, 10);
+            this.cbb_RoomFilter.Location = new System.Drawing.Point(147, 10);
             this.cbb_RoomFilter.Name = "cbb_RoomFilter";
             this.cbb_RoomFilter.Size = new System.Drawing.Size(177, 36);
             this.cbb_RoomFilter.TabIndex = 1;
@@ -502,7 +502,7 @@ namespace PBL3REAL.View
             this.tb_RoomSearch.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.tb_RoomSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
             this.tb_RoomSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tb_RoomSearch.Location = new System.Drawing.Point(148, 108);
+            this.tb_RoomSearch.Location = new System.Drawing.Point(147, 108);
             this.tb_RoomSearch.Name = "tb_RoomSearch";
             this.tb_RoomSearch.Size = new System.Drawing.Size(177, 27);
             this.tb_RoomSearch.TabIndex = 3;
@@ -511,7 +511,7 @@ namespace PBL3REAL.View
             // 
             this.picbx_RoomSort.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.picbx_RoomSort.Image = global::PBL3REAL.Properties.Resources.filter_fluent_color_48px;
-            this.picbx_RoomSort.Location = new System.Drawing.Point(331, 51);
+            this.picbx_RoomSort.Location = new System.Drawing.Point(330, 51);
             this.picbx_RoomSort.Name = "picbx_RoomSort";
             this.picbx_RoomSort.Size = new System.Drawing.Size(47, 42);
             this.picbx_RoomSort.TabIndex = 10;
@@ -621,7 +621,7 @@ namespace PBL3REAL.View
             this.tbllaypn_RoomType.ColumnCount = 3;
             this.tbllaypn_RoomType.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.06097F));
             this.tbllaypn_RoomType.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64.93903F));
-            this.tbllaypn_RoomType.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 63F));
+            this.tbllaypn_RoomType.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 64F));
             this.tbllaypn_RoomType.Controls.Add(this.picbx_RoomTypeSearch, 2, 1);
             this.tbllaypn_RoomType.Controls.Add(this.picbx_RoomTypeSort, 2, 0);
             this.tbllaypn_RoomType.Controls.Add(this.cbb_RoomTypeSort, 1, 0);
@@ -639,7 +639,7 @@ namespace PBL3REAL.View
             // picbx_RoomTypeSearch
             // 
             this.picbx_RoomTypeSearch.Image = global::PBL3REAL.Properties.Resources.search_fluent_color_48px;
-            this.picbx_RoomTypeSearch.Location = new System.Drawing.Point(325, 58);
+            this.picbx_RoomTypeSearch.Location = new System.Drawing.Point(324, 58);
             this.picbx_RoomTypeSearch.Name = "picbx_RoomTypeSearch";
             this.picbx_RoomTypeSearch.Size = new System.Drawing.Size(48, 48);
             this.picbx_RoomTypeSearch.TabIndex = 10;
@@ -648,7 +648,7 @@ namespace PBL3REAL.View
             // picbx_RoomTypeSort
             // 
             this.picbx_RoomTypeSort.Image = global::PBL3REAL.Properties.Resources.filter_fluent_color_48px;
-            this.picbx_RoomTypeSort.Location = new System.Drawing.Point(325, 3);
+            this.picbx_RoomTypeSort.Location = new System.Drawing.Point(324, 3);
             this.picbx_RoomTypeSort.Name = "picbx_RoomTypeSort";
             this.picbx_RoomTypeSort.Size = new System.Drawing.Size(48, 48);
             this.picbx_RoomTypeSort.TabIndex = 9;
@@ -662,7 +662,7 @@ namespace PBL3REAL.View
             this.cbb_RoomTypeSort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbb_RoomTypeSort.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbb_RoomTypeSort.FormattingEnabled = true;
-            this.cbb_RoomTypeSort.Location = new System.Drawing.Point(116, 3);
+            this.cbb_RoomTypeSort.Location = new System.Drawing.Point(115, 3);
             this.cbb_RoomTypeSort.Name = "cbb_RoomTypeSort";
             this.cbb_RoomTypeSort.Size = new System.Drawing.Size(203, 39);
             this.cbb_RoomTypeSort.TabIndex = 1;
@@ -673,7 +673,7 @@ namespace PBL3REAL.View
             this.tb_RoomTypeSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tb_RoomTypeSearch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tb_RoomTypeSearch.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tb_RoomTypeSearch.Location = new System.Drawing.Point(116, 58);
+            this.tb_RoomTypeSearch.Location = new System.Drawing.Point(115, 58);
             this.tb_RoomTypeSearch.Name = "tb_RoomTypeSearch";
             this.tb_RoomTypeSearch.Size = new System.Drawing.Size(203, 31);
             this.tb_RoomTypeSearch.TabIndex = 2;
@@ -684,7 +684,7 @@ namespace PBL3REAL.View
             this.lb_RoomTypeSearch.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lb_RoomTypeSearch.Location = new System.Drawing.Point(3, 55);
             this.lb_RoomTypeSearch.Name = "lb_RoomTypeSearch";
-            this.lb_RoomTypeSearch.Size = new System.Drawing.Size(107, 56);
+            this.lb_RoomTypeSearch.Size = new System.Drawing.Size(106, 56);
             this.lb_RoomTypeSearch.TabIndex = 0;
             this.lb_RoomTypeSearch.Text = "Tìm kiếm";
             // 
@@ -694,7 +694,7 @@ namespace PBL3REAL.View
             this.lb_RoomTypeSort.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lb_RoomTypeSort.Location = new System.Drawing.Point(3, 0);
             this.lb_RoomTypeSort.Name = "lb_RoomTypeSort";
-            this.lb_RoomTypeSort.Size = new System.Drawing.Size(107, 55);
+            this.lb_RoomTypeSort.Size = new System.Drawing.Size(106, 55);
             this.lb_RoomTypeSort.TabIndex = 0;
             this.lb_RoomTypeSort.Text = "Sắp xếp theo";
             // 
