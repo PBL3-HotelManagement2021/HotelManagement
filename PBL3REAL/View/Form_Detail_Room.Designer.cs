@@ -47,25 +47,23 @@ namespace HotelManagement.View
             this.lb_From = new System.Windows.Forms.Label();
             this.lb_To = new System.Windows.Forms.Label();
             this.btn_Add = new System.Windows.Forms.Button();
-            this.grbx_Room_Info = new System.Windows.Forms.GroupBox();
+            this.grbx_RoomInfo = new System.Windows.Forms.GroupBox();
             this.grbx_FromToStatus = new System.Windows.Forms.GroupBox();
             this.tbllaypn_ControlButtons = new System.Windows.Forms.TableLayoutPanel();
             this.btn_Cancel = new System.Windows.Forms.Button();
             this.btn_OK = new System.Windows.Forms.Button();
             this.btn_Reset = new System.Windows.Forms.Button();
             this.tb_PageNumber = new System.Windows.Forms.TextBox();
-            this.picbx_PrevPage = new System.Windows.Forms.PictureBox();
             this.fllaypn_SwitchPage = new System.Windows.Forms.FlowLayoutPanel();
-            this.picbx_NextPage = new System.Windows.Forms.PictureBox();
+            this.btn_PrevPage = new System.Windows.Forms.Button();
+            this.btn_NextPage = new System.Windows.Forms.Button();
             this.tbllaypn_RoomInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.tbllaypn_RoomStatus.SuspendLayout();
-            this.grbx_Room_Info.SuspendLayout();
+            this.grbx_RoomInfo.SuspendLayout();
             this.grbx_FromToStatus.SuspendLayout();
             this.tbllaypn_ControlButtons.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picbx_PrevPage)).BeginInit();
             this.fllaypn_SwitchPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picbx_NextPage)).BeginInit();
             this.SuspendLayout();
             // 
             // tbllaypn_RoomInfo
@@ -290,17 +288,17 @@ namespace HotelManagement.View
             this.btn_Add.UseVisualStyleBackColor = false;
             this.btn_Add.Click += new System.EventHandler(this.btnadd_Click);
             // 
-            // grbx_Room_Info
+            // grbx_RoomInfo
             // 
-            this.grbx_Room_Info.Controls.Add(this.tbllaypn_RoomInfo);
-            this.grbx_Room_Info.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.grbx_Room_Info.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.grbx_Room_Info.Location = new System.Drawing.Point(12, 50);
-            this.grbx_Room_Info.Name = "grbx_Room_Info";
-            this.grbx_Room_Info.Size = new System.Drawing.Size(427, 291);
-            this.grbx_Room_Info.TabIndex = 0;
-            this.grbx_Room_Info.TabStop = false;
-            this.grbx_Room_Info.Text = "Thông tin phòng";
+            this.grbx_RoomInfo.Controls.Add(this.tbllaypn_RoomInfo);
+            this.grbx_RoomInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.grbx_RoomInfo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.grbx_RoomInfo.Location = new System.Drawing.Point(12, 50);
+            this.grbx_RoomInfo.Name = "grbx_RoomInfo";
+            this.grbx_RoomInfo.Size = new System.Drawing.Size(427, 291);
+            this.grbx_RoomInfo.TabIndex = 0;
+            this.grbx_RoomInfo.TabStop = false;
+            this.grbx_RoomInfo.Text = "Thông tin phòng";
             // 
             // grbx_FromToStatus
             // 
@@ -341,7 +339,7 @@ namespace HotelManagement.View
             this.btn_Cancel.Location = new System.Drawing.Point(186, 3);
             this.btn_Cancel.Name = "btn_Cancel";
             this.btn_Cancel.Size = new System.Drawing.Size(83, 40);
-            this.btn_Cancel.TabIndex = 6;
+            this.btn_Cancel.TabIndex = 0;
             this.btn_Cancel.Text = "Cancel";
             this.btn_Cancel.UseVisualStyleBackColor = false;
             // 
@@ -356,7 +354,7 @@ namespace HotelManagement.View
             this.btn_OK.Margin = new System.Windows.Forms.Padding(4);
             this.btn_OK.Name = "btn_OK";
             this.btn_OK.Size = new System.Drawing.Size(83, 38);
-            this.btn_OK.TabIndex = 4;
+            this.btn_OK.TabIndex = 0;
             this.btn_OK.Text = "OK";
             this.btn_OK.UseVisualStyleBackColor = false;
             // 
@@ -371,7 +369,7 @@ namespace HotelManagement.View
             this.btn_Reset.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Reset.Name = "btn_Reset";
             this.btn_Reset.Size = new System.Drawing.Size(83, 38);
-            this.btn_Reset.TabIndex = 5;
+            this.btn_Reset.TabIndex = 0;
             this.btn_Reset.Text = "Reset";
             this.btn_Reset.UseVisualStyleBackColor = false;
             // 
@@ -380,42 +378,49 @@ namespace HotelManagement.View
             this.tb_PageNumber.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_PageNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
             this.tb_PageNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tb_PageNumber.Font = new System.Drawing.Font("Segoe UI", 19.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tb_PageNumber.Location = new System.Drawing.Point(54, 3);
+            this.tb_PageNumber.Font = new System.Drawing.Font("Segoe UI", 16.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tb_PageNumber.Location = new System.Drawing.Point(43, 2);
+            this.tb_PageNumber.Margin = new System.Windows.Forms.Padding(0);
             this.tb_PageNumber.Name = "tb_PageNumber";
-            this.tb_PageNumber.Size = new System.Drawing.Size(94, 43);
+            this.tb_PageNumber.Size = new System.Drawing.Size(94, 38);
             this.tb_PageNumber.TabIndex = 0;
             this.tb_PageNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // picbx_PrevPage
-            // 
-            this.picbx_PrevPage.BackgroundImage = global::PBL3REAL.Properties.Resources.prev_fluent_color_48px;
-            this.picbx_PrevPage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.picbx_PrevPage.Location = new System.Drawing.Point(3, 3);
-            this.picbx_PrevPage.Name = "picbx_PrevPage";
-            this.picbx_PrevPage.Size = new System.Drawing.Size(45, 43);
-            this.picbx_PrevPage.TabIndex = 0;
-            this.picbx_PrevPage.TabStop = false;
-            // 
             // fllaypn_SwitchPage
             // 
-            this.fllaypn_SwitchPage.Controls.Add(this.picbx_PrevPage);
+            this.fllaypn_SwitchPage.Controls.Add(this.btn_PrevPage);
             this.fllaypn_SwitchPage.Controls.Add(this.tb_PageNumber);
-            this.fllaypn_SwitchPage.Controls.Add(this.picbx_NextPage);
-            this.fllaypn_SwitchPage.Location = new System.Drawing.Point(833, 574);
+            this.fllaypn_SwitchPage.Controls.Add(this.btn_NextPage);
+            this.fllaypn_SwitchPage.Location = new System.Drawing.Point(858, 573);
             this.fllaypn_SwitchPage.Name = "fllaypn_SwitchPage";
-            this.fllaypn_SwitchPage.Size = new System.Drawing.Size(202, 48);
+            this.fllaypn_SwitchPage.Size = new System.Drawing.Size(188, 44);
             this.fllaypn_SwitchPage.TabIndex = 0;
             // 
-            // picbx_NextPage
+            // btn_PrevPage
             // 
-            this.picbx_NextPage.BackgroundImage = global::PBL3REAL.Properties.Resources.right_button_fluent_color_48px;
-            this.picbx_NextPage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.picbx_NextPage.Location = new System.Drawing.Point(154, 3);
-            this.picbx_NextPage.Name = "picbx_NextPage";
-            this.picbx_NextPage.Size = new System.Drawing.Size(45, 43);
-            this.picbx_NextPage.TabIndex = 3;
-            this.picbx_NextPage.TabStop = false;
+            this.btn_PrevPage.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_PrevPage.FlatAppearance.BorderSize = 0;
+            this.btn_PrevPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_PrevPage.Image = global::PBL3REAL.Properties.Resources.prev_fluent_color_48px;
+            this.btn_PrevPage.Location = new System.Drawing.Point(0, 0);
+            this.btn_PrevPage.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_PrevPage.Name = "btn_PrevPage";
+            this.btn_PrevPage.Size = new System.Drawing.Size(43, 43);
+            this.btn_PrevPage.TabIndex = 0;
+            this.btn_PrevPage.UseVisualStyleBackColor = true;
+            // 
+            // btn_NextPage
+            // 
+            this.btn_NextPage.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_NextPage.FlatAppearance.BorderSize = 0;
+            this.btn_NextPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_NextPage.Image = global::PBL3REAL.Properties.Resources.right_button_fluent_color_48px;
+            this.btn_NextPage.Location = new System.Drawing.Point(137, 0);
+            this.btn_NextPage.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_NextPage.Name = "btn_NextPage";
+            this.btn_NextPage.Size = new System.Drawing.Size(43, 43);
+            this.btn_NextPage.TabIndex = 0;
+            this.btn_NextPage.UseVisualStyleBackColor = true;
             // 
             // Form_Detail_Room
             // 
@@ -424,7 +429,7 @@ namespace HotelManagement.View
             this.ClientSize = new System.Drawing.Size(1041, 668);
             this.Controls.Add(this.tbllaypn_ControlButtons);
             this.Controls.Add(this.grbx_FromToStatus);
-            this.Controls.Add(this.grbx_Room_Info);
+            this.Controls.Add(this.grbx_RoomInfo);
             this.Controls.Add(this.dgv);
             this.Controls.Add(this.lb_Header);
             this.Controls.Add(this.fllaypn_SwitchPage);
@@ -437,13 +442,11 @@ namespace HotelManagement.View
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.tbllaypn_RoomStatus.ResumeLayout(false);
             this.tbllaypn_RoomStatus.PerformLayout();
-            this.grbx_Room_Info.ResumeLayout(false);
+            this.grbx_RoomInfo.ResumeLayout(false);
             this.grbx_FromToStatus.ResumeLayout(false);
             this.tbllaypn_ControlButtons.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picbx_PrevPage)).EndInit();
             this.fllaypn_SwitchPage.ResumeLayout(false);
             this.fllaypn_SwitchPage.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picbx_NextPage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -469,15 +472,15 @@ namespace HotelManagement.View
         private System.Windows.Forms.Label lb_From;
         private System.Windows.Forms.Label lb_To;
         private System.Windows.Forms.Button btn_Add;
-        private System.Windows.Forms.GroupBox grbx_Room_Info;
+        private System.Windows.Forms.GroupBox grbx_RoomInfo;
         private System.Windows.Forms.GroupBox grbx_FromToStatus;
         private System.Windows.Forms.TableLayoutPanel tbllaypn_ControlButtons;
         private System.Windows.Forms.Button btn_Cancel;
         private System.Windows.Forms.Button btn_OK;
         private System.Windows.Forms.Button btn_Reset;
         private System.Windows.Forms.TextBox tb_PageNumber;
-        private System.Windows.Forms.PictureBox picbx_PrevPage;
         private System.Windows.Forms.FlowLayoutPanel fllaypn_SwitchPage;
-        private System.Windows.Forms.PictureBox picbx_NextPage;
+        private System.Windows.Forms.Button btn_PrevPage;
+        private System.Windows.Forms.Button btn_NextPage;
     }
 }

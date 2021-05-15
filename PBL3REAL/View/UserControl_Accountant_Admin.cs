@@ -14,13 +14,5 @@ namespace PBL3REAL.View
         {
             InitializeComponent();
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Form_Detail_Invoice f = new Form_Detail_Invoice();
-            this.Hide();
-            f.ShowDialog();
-            this.Show();
-        }
     }
 }

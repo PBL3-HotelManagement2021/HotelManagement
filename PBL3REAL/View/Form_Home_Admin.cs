@@ -12,51 +12,63 @@ namespace PBL3REAL.View
 {
     public partial class Form_Home_Admin : Form
     {
-        public Form_Home_Admin()
+        private string RoleLogged = "";
+        public Form_Home_Admin(string role)
         {
             InitializeComponent();
-            SetVisible();
+            SetVisible(1);
+            RoleLogged = role;
         }
-        public void SetVisible()
+        //Set GUI
+        private void SetVisible(int tab)
         {
-            userControl_Receptionist_Admin1.Visible = false;
-            userControl_Accountant_Admin1.Visible = false;
+            fllaypn_Menu.Visible = false;
+            userControl_Receptionist_Admin.Visible = false;
+            userControl_Accountant_Admin.Visible = false;
+            switch(tab)
+            {
+                case 1:
+                    //Home
+                    break;
+                case 2:
+                    //Receptionist
+                    userControl_Receptionist_Admin.Visible = true;
+                    break;
+                case 3:
+                    //Service
+                    break;
+                case 4:
+                    //Accountant
+                    userControl_Accountant_Admin.Visible = true;
+                    break;
+                case 5:
+                    //Human Resources
+                    break;
+                default:
+                    break;
+            }
         }
-        private void button9_Click(object sender, EventArgs e)
+        //Events
+        private void Form_Home_Admin_VisibleChanged(object sender, EventArgs e)
         {
-            this.Dispose();
+            fllaypn_Menu.Visible = false;
         }
-
-        private void button3_Click(object sender, EventArgs e)
+        private void btn_Receptionist_Click(object sender, EventArgs e)
         {
-            userControl_Receptionist_Admin1.Visible = true;
-            userControl_Accountant_Admin1.Visible = false;
+            SetVisible(2);
         }
-
-        private void button2_Click(object sender, EventArgs e)
+        private void btn_Accountant_Click(object sender, EventArgs e)
         {
-
+            SetVisible(4);
         }
-
-        private void Form_Home_Admin_Load(object sender, EventArgs e)
+        private void btn_Menu_VisibleChanged(object sender, EventArgs e)
         {
-
+            //fllaypn_Menu.Visible = true;
+            fllaypn_Menu.Visible = (!fllaypn_Menu.Visible);
         }
-
-        private void button5_Click(object sender, EventArgs e)
+        private void btn_Profile_Click(object sender, EventArgs e)
         {
-            userControl_Accountant_Admin1.Visible = true;
-            userControl_Receptionist_Admin1.Visible = false;
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-            Form_User_Profile f = new Form_User_Profile();
+            Form_User_Profile f = new Form_User_Profile(RoleLogged);
             this.Hide();
             f.ShowDialog();
             this.Show();

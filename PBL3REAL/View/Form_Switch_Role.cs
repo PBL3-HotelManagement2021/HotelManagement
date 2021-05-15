@@ -43,7 +43,7 @@ namespace PBL3REAL.View
                 {
                     if (roleVM.RoleName.Equals(role))
                     {
-                        Form_Home_Admin f = new Form_Home_Admin();
+                        Form_Home_Admin f = new Form_Home_Admin(role);
                         this.Hide();
                         f.ShowDialog();
                         this.Show();

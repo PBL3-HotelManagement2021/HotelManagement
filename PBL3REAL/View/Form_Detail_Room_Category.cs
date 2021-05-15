@@ -95,49 +95,49 @@ namespace PBL3REAL.View
         //Events
         private void picbx_add1_Click(object sender, EventArgs e)
         {
-            Image temp = new Bitmap(picbx_add1.BackgroundImage);
-            picbx_add1.BackgroundImage = null;
-            picbx_add1.Image = InsertIMG();
-            picbx_add1.SizeMode = PictureBoxSizeMode.StretchImage;
-            picbx_add2.BackgroundImage = temp;
+            Image temp = new Bitmap(picbx_Add1.BackgroundImage);
+            picbx_Add1.BackgroundImage = null;
+            picbx_Add1.Image = InsertIMG();
+            picbx_Add1.SizeMode = PictureBoxSizeMode.StretchImage;
+            picbx_Add2.BackgroundImage = temp;
         }
         private void picbx_add2_Click(object sender, EventArgs e)
         {
-            Image temp = new Bitmap(picbx_add2.BackgroundImage);
-            picbx_add2.BackgroundImage = null;
-            picbx_add2.Image = InsertIMG();
-            picbx_add2.SizeMode = PictureBoxSizeMode.StretchImage;
-            picbx_add3.BackgroundImage = temp;
+            Image temp = new Bitmap(picbx_Add2.BackgroundImage);
+            picbx_Add2.BackgroundImage = null;
+            picbx_Add2.Image = InsertIMG();
+            picbx_Add2.SizeMode = PictureBoxSizeMode.StretchImage;
+            picbx_Add3.BackgroundImage = temp;
         }
         private void picbx_add3_Click(object sender, EventArgs e)
         {
-            Image temp = new Bitmap(picbx_add3.BackgroundImage);
-            picbx_add3.BackgroundImage = null;
-            picbx_add3.Image = InsertIMG();
-            picbx_add3.SizeMode = PictureBoxSizeMode.StretchImage;
-            picbx_add4.BackgroundImage = temp;
+            Image temp = new Bitmap(picbx_Add3.BackgroundImage);
+            picbx_Add3.BackgroundImage = null;
+            picbx_Add3.Image = InsertIMG();
+            picbx_Add3.SizeMode = PictureBoxSizeMode.StretchImage;
+            picbx_Add4.BackgroundImage = temp;
         }
         private void picbx_add4_Click(object sender, EventArgs e)
         {
-            Image temp = new Bitmap(picbx_add4.BackgroundImage);
-            picbx_add4.BackgroundImage = null;
-            picbx_add4.Image = InsertIMG();
-            picbx_add4.SizeMode = PictureBoxSizeMode.StretchImage;
-            picbx_add5.BackgroundImage = temp;
+            Image temp = new Bitmap(picbx_Add4.BackgroundImage);
+            picbx_Add4.BackgroundImage = null;
+            picbx_Add4.Image = InsertIMG();
+            picbx_Add4.SizeMode = PictureBoxSizeMode.StretchImage;
+            picbx_Add5.BackgroundImage = temp;
         }
         private void picbx_add5_Click(object sender, EventArgs e)
         {
-            Image temp = new Bitmap(picbx_add5.BackgroundImage);
-            picbx_add5.BackgroundImage = null;
-            picbx_add5.Image = InsertIMG();
-            picbx_add5.SizeMode = PictureBoxSizeMode.StretchImage;
-            picbx_add6.BackgroundImage = temp;
+            Image temp = new Bitmap(picbx_Add5.BackgroundImage);
+            picbx_Add5.BackgroundImage = null;
+            picbx_Add5.Image = InsertIMG();
+            picbx_Add5.SizeMode = PictureBoxSizeMode.StretchImage;
+            picbx_Add6.BackgroundImage = temp;
         }
         private void picbx_add6_Click(object sender, EventArgs e)
         {
-            picbx_add6.BackgroundImage = null;
-            picbx_add6.Image = InsertIMG();
-            picbx_add6.SizeMode = PictureBoxSizeMode.StretchImage;
+            picbx_Add6.BackgroundImage = null;
+            picbx_Add6.Image = InsertIMG();
+            picbx_Add6.SizeMode = PictureBoxSizeMode.StretchImage;
         }
         private void btn_OK_Click(object sender, EventArgs e)
         {

@@ -85,7 +85,7 @@ namespace HotelManagement.View
         //            List<CbbItem> res = _roomBLL.addComboboxStatus();
         //            comboBox2.DataSource = res;
         //        }
-
+        //Events
         private void btnadd_Click(object sender, EventArgs e)
         {
             //StatusTimeVM statusTimeVM = new StatusTimeVM
@@ -101,7 +101,6 @@ namespace HotelManagement.View
             //addDataGridView();
             ///*     dataGridView1.Rows.Add(dateTimePicker1.Value, dateTimePicker2.Value, ((CbbItem)comboBox1.SelectedItem).Value);*/
         }
-
         private void btnOke_Click(object sender, EventArgs e)
         {
             //roomDetailVM.RoomName = textBox1.Text;
@@ -119,7 +118,6 @@ namespace HotelManagement.View
 
             //this.Dispose();
         }
-
         private void btndelete_Click(object sender, EventArgs e)
         {
             //DataGridViewSelectedRowCollection r = dataGridView1.SelectedRows;
@@ -136,7 +134,6 @@ namespace HotelManagement.View
             //}
             //addDataGridView();
         }
-
         private void btncancel_Click(object sender, EventArgs e)
         {
             this.Dispose();

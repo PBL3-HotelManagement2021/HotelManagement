@@ -34,14 +34,14 @@ namespace PBL3REAL.View
             this.tbllaypn_ControlButtons = new System.Windows.Forms.TableLayoutPanel();
             this.btn_Cancel = new System.Windows.Forms.Button();
             this.grbx_RoomTypeDetail = new System.Windows.Forms.GroupBox();
-            this.btn_del = new System.Windows.Forms.Button();
+            this.btn_Del = new System.Windows.Forms.Button();
             this.fllaypn_Images = new System.Windows.Forms.FlowLayoutPanel();
-            this.picbx_add1 = new System.Windows.Forms.PictureBox();
-            this.picbx_add2 = new System.Windows.Forms.PictureBox();
-            this.picbx_add3 = new System.Windows.Forms.PictureBox();
-            this.picbx_add4 = new System.Windows.Forms.PictureBox();
-            this.picbx_add5 = new System.Windows.Forms.PictureBox();
-            this.picbx_add6 = new System.Windows.Forms.PictureBox();
+            this.picbx_Add1 = new System.Windows.Forms.PictureBox();
+            this.picbx_Add2 = new System.Windows.Forms.PictureBox();
+            this.picbx_Add3 = new System.Windows.Forms.PictureBox();
+            this.picbx_Add4 = new System.Windows.Forms.PictureBox();
+            this.picbx_Add5 = new System.Windows.Forms.PictureBox();
+            this.picbx_Add6 = new System.Windows.Forms.PictureBox();
             this.tbllaypn_DetailsRoomCategory = new System.Windows.Forms.TableLayoutPanel();
             this.tb_RoomTypeCapacity = new System.Windows.Forms.TextBox();
             this.tb_RoomTypePrice = new System.Windows.Forms.TextBox();
@@ -54,12 +54,12 @@ namespace PBL3REAL.View
             this.tbllaypn_ControlButtons.SuspendLayout();
             this.grbx_RoomTypeDetail.SuspendLayout();
             this.fllaypn_Images.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picbx_add1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picbx_add2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picbx_add3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picbx_add4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picbx_add5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picbx_add6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbx_Add1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbx_Add2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbx_Add3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbx_Add4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbx_Add5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbx_Add6)).BeginInit();
             this.tbllaypn_DetailsRoomCategory.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -74,7 +74,7 @@ namespace PBL3REAL.View
             this.btn_OK.Margin = new System.Windows.Forms.Padding(4);
             this.btn_OK.Name = "btn_OK";
             this.btn_OK.Size = new System.Drawing.Size(173, 55);
-            this.btn_OK.TabIndex = 5;
+            this.btn_OK.TabIndex = 0;
             this.btn_OK.Text = "OK";
             this.btn_OK.UseVisualStyleBackColor = false;
             this.btn_OK.Click += new System.EventHandler(this.btn_OK_Click);
@@ -90,7 +90,7 @@ namespace PBL3REAL.View
             this.btn_Reset.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Reset.Name = "btn_Reset";
             this.btn_Reset.Size = new System.Drawing.Size(173, 55);
-            this.btn_Reset.TabIndex = 6;
+            this.btn_Reset.TabIndex = 0;
             this.btn_Reset.Text = "Reset";
             this.btn_Reset.UseVisualStyleBackColor = false;
             this.btn_Reset.Click += new System.EventHandler(this.btn_Reset_Click);
@@ -121,14 +121,14 @@ namespace PBL3REAL.View
             this.btn_Cancel.Location = new System.Drawing.Point(471, 3);
             this.btn_Cancel.Name = "btn_Cancel";
             this.btn_Cancel.Size = new System.Drawing.Size(173, 57);
-            this.btn_Cancel.TabIndex = 7;
+            this.btn_Cancel.TabIndex = 0;
             this.btn_Cancel.Text = "Cancel";
             this.btn_Cancel.UseVisualStyleBackColor = false;
             this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
             // 
             // grbx_RoomTypeDetail
             // 
-            this.grbx_RoomTypeDetail.Controls.Add(this.btn_del);
+            this.grbx_RoomTypeDetail.Controls.Add(this.btn_Del);
             this.grbx_RoomTypeDetail.Controls.Add(this.fllaypn_Images);
             this.grbx_RoomTypeDetail.Controls.Add(this.tbllaypn_DetailsRoomCategory);
             this.grbx_RoomTypeDetail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -140,95 +140,95 @@ namespace PBL3REAL.View
             this.grbx_RoomTypeDetail.TabStop = false;
             this.grbx_RoomTypeDetail.Text = "Thông tin chi tiết loại phòng";
             // 
-            // btn_del
+            // btn_Del
             // 
-            this.btn_del.FlatAppearance.BorderSize = 0;
-            this.btn_del.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_del.Image = global::PBL3REAL.Properties.Resources.minus_fluent_color_48px;
-            this.btn_del.Location = new System.Drawing.Point(918, 16);
-            this.btn_del.Name = "btn_del";
-            this.btn_del.Size = new System.Drawing.Size(52, 55);
-            this.btn_del.TabIndex = 0;
-            this.btn_del.UseVisualStyleBackColor = true;
+            this.btn_Del.FlatAppearance.BorderSize = 0;
+            this.btn_Del.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Del.Image = global::PBL3REAL.Properties.Resources.minus_fluent_color_48px;
+            this.btn_Del.Location = new System.Drawing.Point(918, 16);
+            this.btn_Del.Name = "btn_Del";
+            this.btn_Del.Size = new System.Drawing.Size(52, 55);
+            this.btn_Del.TabIndex = 0;
+            this.btn_Del.UseVisualStyleBackColor = true;
             // 
             // fllaypn_Images
             // 
-            this.fllaypn_Images.Controls.Add(this.picbx_add1);
-            this.fllaypn_Images.Controls.Add(this.picbx_add2);
-            this.fllaypn_Images.Controls.Add(this.picbx_add3);
-            this.fllaypn_Images.Controls.Add(this.picbx_add4);
-            this.fllaypn_Images.Controls.Add(this.picbx_add5);
-            this.fllaypn_Images.Controls.Add(this.picbx_add6);
+            this.fllaypn_Images.Controls.Add(this.picbx_Add1);
+            this.fllaypn_Images.Controls.Add(this.picbx_Add2);
+            this.fllaypn_Images.Controls.Add(this.picbx_Add3);
+            this.fllaypn_Images.Controls.Add(this.picbx_Add4);
+            this.fllaypn_Images.Controls.Add(this.picbx_Add5);
+            this.fllaypn_Images.Controls.Add(this.picbx_Add6);
             this.fllaypn_Images.Location = new System.Drawing.Point(500, 16);
             this.fllaypn_Images.Name = "fllaypn_Images";
             this.fllaypn_Images.Size = new System.Drawing.Size(415, 351);
             this.fllaypn_Images.TabIndex = 0;
             // 
-            // picbx_add1
+            // picbx_Add1
             // 
-            this.picbx_add1.BackgroundImage = global::PBL3REAL.Properties.Resources.add_fluent_color_96px;
-            this.picbx_add1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.picbx_add1.Location = new System.Drawing.Point(3, 3);
-            this.picbx_add1.Name = "picbx_add1";
-            this.picbx_add1.Size = new System.Drawing.Size(131, 165);
-            this.picbx_add1.TabIndex = 3;
-            this.picbx_add1.TabStop = false;
-            this.picbx_add1.Click += new System.EventHandler(this.picbx_add1_Click);
+            this.picbx_Add1.BackgroundImage = global::PBL3REAL.Properties.Resources.add_fluent_color_96px;
+            this.picbx_Add1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.picbx_Add1.Location = new System.Drawing.Point(3, 3);
+            this.picbx_Add1.Name = "picbx_Add1";
+            this.picbx_Add1.Size = new System.Drawing.Size(131, 165);
+            this.picbx_Add1.TabIndex = 3;
+            this.picbx_Add1.TabStop = false;
+            this.picbx_Add1.Click += new System.EventHandler(this.picbx_add1_Click);
             // 
-            // picbx_add2
+            // picbx_Add2
             // 
-            this.picbx_add2.BackgroundImage = global::PBL3REAL.Properties.Resources.select_none_fluent_color_96px;
-            this.picbx_add2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.picbx_add2.Location = new System.Drawing.Point(140, 3);
-            this.picbx_add2.Name = "picbx_add2";
-            this.picbx_add2.Size = new System.Drawing.Size(131, 165);
-            this.picbx_add2.TabIndex = 4;
-            this.picbx_add2.TabStop = false;
-            this.picbx_add2.Click += new System.EventHandler(this.picbx_add2_Click);
+            this.picbx_Add2.BackgroundImage = global::PBL3REAL.Properties.Resources.select_none_fluent_color_96px;
+            this.picbx_Add2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.picbx_Add2.Location = new System.Drawing.Point(140, 3);
+            this.picbx_Add2.Name = "picbx_Add2";
+            this.picbx_Add2.Size = new System.Drawing.Size(131, 165);
+            this.picbx_Add2.TabIndex = 4;
+            this.picbx_Add2.TabStop = false;
+            this.picbx_Add2.Click += new System.EventHandler(this.picbx_add2_Click);
             // 
-            // picbx_add3
+            // picbx_Add3
             // 
-            this.picbx_add3.BackgroundImage = global::PBL3REAL.Properties.Resources.select_none_fluent_color_96px;
-            this.picbx_add3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.picbx_add3.Location = new System.Drawing.Point(277, 3);
-            this.picbx_add3.Name = "picbx_add3";
-            this.picbx_add3.Size = new System.Drawing.Size(131, 165);
-            this.picbx_add3.TabIndex = 5;
-            this.picbx_add3.TabStop = false;
-            this.picbx_add3.Click += new System.EventHandler(this.picbx_add3_Click);
+            this.picbx_Add3.BackgroundImage = global::PBL3REAL.Properties.Resources.select_none_fluent_color_96px;
+            this.picbx_Add3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.picbx_Add3.Location = new System.Drawing.Point(277, 3);
+            this.picbx_Add3.Name = "picbx_Add3";
+            this.picbx_Add3.Size = new System.Drawing.Size(131, 165);
+            this.picbx_Add3.TabIndex = 5;
+            this.picbx_Add3.TabStop = false;
+            this.picbx_Add3.Click += new System.EventHandler(this.picbx_add3_Click);
             // 
-            // picbx_add4
+            // picbx_Add4
             // 
-            this.picbx_add4.BackgroundImage = global::PBL3REAL.Properties.Resources.select_none_fluent_color_96px;
-            this.picbx_add4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.picbx_add4.Location = new System.Drawing.Point(3, 174);
-            this.picbx_add4.Name = "picbx_add4";
-            this.picbx_add4.Size = new System.Drawing.Size(131, 165);
-            this.picbx_add4.TabIndex = 6;
-            this.picbx_add4.TabStop = false;
-            this.picbx_add4.Click += new System.EventHandler(this.picbx_add4_Click);
+            this.picbx_Add4.BackgroundImage = global::PBL3REAL.Properties.Resources.select_none_fluent_color_96px;
+            this.picbx_Add4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.picbx_Add4.Location = new System.Drawing.Point(3, 174);
+            this.picbx_Add4.Name = "picbx_Add4";
+            this.picbx_Add4.Size = new System.Drawing.Size(131, 165);
+            this.picbx_Add4.TabIndex = 6;
+            this.picbx_Add4.TabStop = false;
+            this.picbx_Add4.Click += new System.EventHandler(this.picbx_add4_Click);
             // 
-            // picbx_add5
+            // picbx_Add5
             // 
-            this.picbx_add5.BackgroundImage = global::PBL3REAL.Properties.Resources.select_none_fluent_color_96px;
-            this.picbx_add5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.picbx_add5.Location = new System.Drawing.Point(140, 174);
-            this.picbx_add5.Name = "picbx_add5";
-            this.picbx_add5.Size = new System.Drawing.Size(131, 165);
-            this.picbx_add5.TabIndex = 7;
-            this.picbx_add5.TabStop = false;
-            this.picbx_add5.Click += new System.EventHandler(this.picbx_add5_Click);
+            this.picbx_Add5.BackgroundImage = global::PBL3REAL.Properties.Resources.select_none_fluent_color_96px;
+            this.picbx_Add5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.picbx_Add5.Location = new System.Drawing.Point(140, 174);
+            this.picbx_Add5.Name = "picbx_Add5";
+            this.picbx_Add5.Size = new System.Drawing.Size(131, 165);
+            this.picbx_Add5.TabIndex = 7;
+            this.picbx_Add5.TabStop = false;
+            this.picbx_Add5.Click += new System.EventHandler(this.picbx_add5_Click);
             // 
-            // picbx_add6
+            // picbx_Add6
             // 
-            this.picbx_add6.BackgroundImage = global::PBL3REAL.Properties.Resources.select_none_fluent_color_96px;
-            this.picbx_add6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.picbx_add6.Location = new System.Drawing.Point(277, 174);
-            this.picbx_add6.Name = "picbx_add6";
-            this.picbx_add6.Size = new System.Drawing.Size(131, 165);
-            this.picbx_add6.TabIndex = 8;
-            this.picbx_add6.TabStop = false;
-            this.picbx_add6.Click += new System.EventHandler(this.picbx_add6_Click);
+            this.picbx_Add6.BackgroundImage = global::PBL3REAL.Properties.Resources.select_none_fluent_color_96px;
+            this.picbx_Add6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.picbx_Add6.Location = new System.Drawing.Point(277, 174);
+            this.picbx_Add6.Name = "picbx_Add6";
+            this.picbx_Add6.Size = new System.Drawing.Size(131, 165);
+            this.picbx_Add6.TabIndex = 8;
+            this.picbx_Add6.TabStop = false;
+            this.picbx_Add6.Click += new System.EventHandler(this.picbx_add6_Click);
             // 
             // tbllaypn_DetailsRoomCategory
             // 
@@ -347,12 +347,12 @@ namespace PBL3REAL.View
             this.tbllaypn_ControlButtons.ResumeLayout(false);
             this.grbx_RoomTypeDetail.ResumeLayout(false);
             this.fllaypn_Images.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picbx_add1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picbx_add2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picbx_add3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picbx_add4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picbx_add5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picbx_add6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbx_Add1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbx_Add2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbx_Add3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbx_Add4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbx_Add5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picbx_Add6)).EndInit();
             this.tbllaypn_DetailsRoomCategory.ResumeLayout(false);
             this.tbllaypn_DetailsRoomCategory.PerformLayout();
             this.ResumeLayout(false);
@@ -365,14 +365,14 @@ namespace PBL3REAL.View
         private System.Windows.Forms.TableLayoutPanel tbllaypn_ControlButtons;
         private System.Windows.Forms.Button btn_Cancel;
         private System.Windows.Forms.GroupBox grbx_RoomTypeDetail;
-        private System.Windows.Forms.Button btn_del;
+        private System.Windows.Forms.Button btn_Del;
         private System.Windows.Forms.FlowLayoutPanel fllaypn_Images;
-        private System.Windows.Forms.PictureBox picbx_add1;
-        private System.Windows.Forms.PictureBox picbx_add2;
-        private System.Windows.Forms.PictureBox picbx_add3;
-        private System.Windows.Forms.PictureBox picbx_add6;
-        private System.Windows.Forms.PictureBox picbx_add5;
-        private System.Windows.Forms.PictureBox picbx_add4;
+        private System.Windows.Forms.PictureBox picbx_Add1;
+        private System.Windows.Forms.PictureBox picbx_Add2;
+        private System.Windows.Forms.PictureBox picbx_Add3;
+        private System.Windows.Forms.PictureBox picbx_Add6;
+        private System.Windows.Forms.PictureBox picbx_Add5;
+        private System.Windows.Forms.PictureBox picbx_Add4;
         private System.Windows.Forms.TableLayoutPanel tbllaypn_DetailsRoomCategory;
         private System.Windows.Forms.TextBox tb_RoomTypeCapacity;
         private System.Windows.Forms.TextBox tb_RoomTypePrice;

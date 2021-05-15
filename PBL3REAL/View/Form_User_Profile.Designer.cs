@@ -30,199 +30,199 @@ namespace PBL3REAL.View
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_User_Profile));
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.cbb_RoomType = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.fllaypn_Header = new System.Windows.Forms.FlowLayoutPanel();
+            this.picbx_Header = new System.Windows.Forms.PictureBox();
+            this.lb_Header = new System.Windows.Forms.Label();
+            this.tbllaypn_UserInfo = new System.Windows.Forms.TableLayoutPanel();
+            this.cbb_Role = new System.Windows.Forms.ComboBox();
+            this.lb_Role = new System.Windows.Forms.Label();
+            this.tbllaypn_Gender = new System.Windows.Forms.TableLayoutPanel();
+            this.rbtn_Male = new System.Windows.Forms.RadioButton();
+            this.rbtn_Female = new System.Windows.Forms.RadioButton();
+            this.lb_Gender = new System.Windows.Forms.Label();
+            this.lb_Phone = new System.Windows.Forms.Label();
+            this.tb_Password = new System.Windows.Forms.TextBox();
             this.tb_Username = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lb_Username = new System.Windows.Forms.Label();
+            this.tb_Phone = new System.Windows.Forms.TextBox();
+            this.tb_Email = new System.Windows.Forms.TextBox();
+            this.lb_Email = new System.Windows.Forms.Label();
+            this.lb_Password = new System.Windows.Forms.Label();
             this.tbllaypn_ControlButtons = new System.Windows.Forms.TableLayoutPanel();
             this.btn_Cancel = new System.Windows.Forms.Button();
             this.btn_OK = new System.Windows.Forms.Button();
             this.btn_Reset = new System.Windows.Forms.Button();
-            this.flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
+            this.fllaypn_Header.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picbx_Header)).BeginInit();
+            this.tbllaypn_UserInfo.SuspendLayout();
+            this.tbllaypn_Gender.SuspendLayout();
             this.tbllaypn_ControlButtons.SuspendLayout();
             this.SuspendLayout();
             // 
-            // flowLayoutPanel1
+            // fllaypn_Header
             // 
-            this.flowLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.flowLayoutPanel1.Controls.Add(this.pictureBox1);
-            this.flowLayoutPanel1.Controls.Add(this.label1);
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(196, 12);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(170, 134);
-            this.flowLayoutPanel1.TabIndex = 0;
+            this.fllaypn_Header.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.fllaypn_Header.Controls.Add(this.picbx_Header);
+            this.fllaypn_Header.Controls.Add(this.lb_Header);
+            this.fllaypn_Header.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.fllaypn_Header.Location = new System.Drawing.Point(196, 12);
+            this.fllaypn_Header.Name = "fllaypn_Header";
+            this.fllaypn_Header.Size = new System.Drawing.Size(170, 134);
+            this.fllaypn_Header.TabIndex = 0;
             // 
-            // pictureBox1
+            // picbx_Header
             // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pictureBox1.Image = global::PBL3REAL.Properties.Resources.male_user_fluent_color_96px;
-            this.pictureBox1.Location = new System.Drawing.Point(39, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(91, 90);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.picbx_Header.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.picbx_Header.Image = global::PBL3REAL.Properties.Resources.male_user_fluent_color_96px;
+            this.picbx_Header.Location = new System.Drawing.Point(39, 3);
+            this.picbx_Header.Name = "picbx_Header";
+            this.picbx_Header.Size = new System.Drawing.Size(91, 90);
+            this.picbx_Header.TabIndex = 0;
+            this.picbx_Header.TabStop = false;
             // 
-            // label1
+            // lb_Header
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(3, 96);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(164, 31);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "User ID: ..........";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lb_Header.AutoSize = true;
+            this.lb_Header.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lb_Header.Location = new System.Drawing.Point(3, 96);
+            this.lb_Header.Name = "lb_Header";
+            this.lb_Header.Size = new System.Drawing.Size(164, 31);
+            this.lb_Header.TabIndex = 0;
+            this.lb_Header.Text = "User ID: ..........";
+            this.lb_Header.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tableLayoutPanel1
+            // tbllaypn_UserInfo
             // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.94975F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.05025F));
-            this.tableLayoutPanel1.Controls.Add(this.cbb_RoomType, 1, 5);
-            this.tableLayoutPanel1.Controls.Add(this.label7, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.label6, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.textBox2, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.tb_Username, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label4, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.textBox3, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.textBox1, 1, 2);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(83, 172);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 6;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(398, 309);
-            this.tableLayoutPanel1.TabIndex = 1;
+            this.tbllaypn_UserInfo.ColumnCount = 2;
+            this.tbllaypn_UserInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.94975F));
+            this.tbllaypn_UserInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.05025F));
+            this.tbllaypn_UserInfo.Controls.Add(this.cbb_Role, 1, 5);
+            this.tbllaypn_UserInfo.Controls.Add(this.lb_Role, 0, 5);
+            this.tbllaypn_UserInfo.Controls.Add(this.tbllaypn_Gender, 1, 4);
+            this.tbllaypn_UserInfo.Controls.Add(this.lb_Gender, 0, 4);
+            this.tbllaypn_UserInfo.Controls.Add(this.lb_Phone, 0, 3);
+            this.tbllaypn_UserInfo.Controls.Add(this.tb_Password, 1, 1);
+            this.tbllaypn_UserInfo.Controls.Add(this.tb_Username, 1, 0);
+            this.tbllaypn_UserInfo.Controls.Add(this.lb_Username, 0, 0);
+            this.tbllaypn_UserInfo.Controls.Add(this.tb_Phone, 1, 3);
+            this.tbllaypn_UserInfo.Controls.Add(this.tb_Email, 1, 2);
+            this.tbllaypn_UserInfo.Controls.Add(this.lb_Email, 0, 2);
+            this.tbllaypn_UserInfo.Controls.Add(this.lb_Password, 0, 1);
+            this.tbllaypn_UserInfo.Location = new System.Drawing.Point(83, 172);
+            this.tbllaypn_UserInfo.Name = "tbllaypn_UserInfo";
+            this.tbllaypn_UserInfo.RowCount = 6;
+            this.tbllaypn_UserInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tbllaypn_UserInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tbllaypn_UserInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tbllaypn_UserInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tbllaypn_UserInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tbllaypn_UserInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tbllaypn_UserInfo.Size = new System.Drawing.Size(398, 309);
+            this.tbllaypn_UserInfo.TabIndex = 0;
             // 
-            // cbb_RoomType
+            // cbb_Role
             // 
-            this.cbb_RoomType.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.cbb_RoomType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.cbb_RoomType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbb_RoomType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbb_RoomType.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cbb_RoomType.FormattingEnabled = true;
-            this.cbb_RoomType.Location = new System.Drawing.Point(162, 264);
-            this.cbb_RoomType.Name = "cbb_RoomType";
-            this.cbb_RoomType.Size = new System.Drawing.Size(233, 36);
-            this.cbb_RoomType.TabIndex = 9;
+            this.cbb_Role.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbb_Role.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.cbb_Role.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbb_Role.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbb_Role.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cbb_Role.FormattingEnabled = true;
+            this.cbb_Role.Location = new System.Drawing.Point(162, 264);
+            this.cbb_Role.Name = "cbb_Role";
+            this.cbb_Role.Size = new System.Drawing.Size(233, 36);
+            this.cbb_Role.TabIndex = 7;
             // 
-            // label7
+            // lb_Role
             // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(3, 266);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(62, 31);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "Vị trí";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lb_Role.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lb_Role.AutoSize = true;
+            this.lb_Role.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lb_Role.Location = new System.Drawing.Point(3, 266);
+            this.lb_Role.Name = "lb_Role";
+            this.lb_Role.Size = new System.Drawing.Size(62, 31);
+            this.lb_Role.TabIndex = 0;
+            this.lb_Role.Text = "Vị trí";
+            this.lb_Role.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tableLayoutPanel2
+            // tbllaypn_Gender
             // 
-            this.tableLayoutPanel2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.25373F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.74627F));
-            this.tableLayoutPanel2.Controls.Add(this.radioButton2, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.radioButton1, 1, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(162, 210);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(233, 39);
-            this.tableLayoutPanel2.TabIndex = 2;
+            this.tbllaypn_Gender.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tbllaypn_Gender.ColumnCount = 2;
+            this.tbllaypn_Gender.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.25373F));
+            this.tbllaypn_Gender.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.74627F));
+            this.tbllaypn_Gender.Controls.Add(this.rbtn_Male, 0, 0);
+            this.tbllaypn_Gender.Controls.Add(this.rbtn_Female, 1, 0);
+            this.tbllaypn_Gender.Location = new System.Drawing.Point(162, 210);
+            this.tbllaypn_Gender.Name = "tbllaypn_Gender";
+            this.tbllaypn_Gender.RowCount = 1;
+            this.tbllaypn_Gender.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tbllaypn_Gender.Size = new System.Drawing.Size(233, 39);
+            this.tbllaypn_Gender.TabIndex = 0;
             // 
-            // radioButton2
+            // rbtn_Male
             // 
-            this.radioButton2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.radioButton2.Location = new System.Drawing.Point(3, 3);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(75, 32);
-            this.radioButton2.TabIndex = 4;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Nam";
-            this.radioButton2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rbtn_Male.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.rbtn_Male.AutoSize = true;
+            this.rbtn_Male.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rbtn_Male.Location = new System.Drawing.Point(3, 3);
+            this.rbtn_Male.Name = "rbtn_Male";
+            this.rbtn_Male.Size = new System.Drawing.Size(75, 32);
+            this.rbtn_Male.TabIndex = 5;
+            this.rbtn_Male.TabStop = true;
+            this.rbtn_Male.Text = "Nam";
+            this.rbtn_Male.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.rbtn_Male.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // rbtn_Female
             // 
-            this.radioButton1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.radioButton1.Location = new System.Drawing.Point(117, 3);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(60, 32);
-            this.radioButton1.TabIndex = 3;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Nữ";
-            this.radioButton1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rbtn_Female.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.rbtn_Female.AutoSize = true;
+            this.rbtn_Female.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rbtn_Female.Location = new System.Drawing.Point(117, 3);
+            this.rbtn_Female.Name = "rbtn_Female";
+            this.rbtn_Female.Size = new System.Drawing.Size(60, 32);
+            this.rbtn_Female.TabIndex = 6;
+            this.rbtn_Female.TabStop = true;
+            this.rbtn_Female.Text = "Nữ";
+            this.rbtn_Female.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.rbtn_Female.UseVisualStyleBackColor = true;
             // 
-            // label5
+            // lb_Gender
             // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(3, 214);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(102, 31);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Giới tính";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lb_Gender.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lb_Gender.AutoSize = true;
+            this.lb_Gender.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lb_Gender.Location = new System.Drawing.Point(3, 214);
+            this.lb_Gender.Name = "lb_Gender";
+            this.lb_Gender.Size = new System.Drawing.Size(102, 31);
+            this.lb_Gender.TabIndex = 0;
+            this.lb_Gender.Text = "Giới tính";
+            this.lb_Gender.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label6
+            // lb_Phone
             // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(3, 163);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(148, 31);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Số điện thoại";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lb_Phone.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lb_Phone.AutoSize = true;
+            this.lb_Phone.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lb_Phone.Location = new System.Drawing.Point(3, 163);
+            this.lb_Phone.Name = "lb_Phone";
+            this.lb_Phone.Size = new System.Drawing.Size(148, 31);
+            this.lb_Phone.TabIndex = 0;
+            this.lb_Phone.Text = "Số điện thoại";
+            this.lb_Phone.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox2
+            // tb_Password
             // 
-            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.textBox2.Location = new System.Drawing.Point(162, 59);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(233, 34);
-            this.textBox2.TabIndex = 5;
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tb_Password.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tb_Password.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.tb_Password.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tb_Password.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.tb_Password.Location = new System.Drawing.Point(162, 59);
+            this.tb_Password.Name = "tb_Password";
+            this.tb_Password.Size = new System.Drawing.Size(233, 34);
+            this.tb_Password.TabIndex = 2;
+            this.tb_Password.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tb_Username
             // 
@@ -233,68 +233,68 @@ namespace PBL3REAL.View
             this.tb_Username.Location = new System.Drawing.Point(162, 8);
             this.tb_Username.Name = "tb_Username";
             this.tb_Username.Size = new System.Drawing.Size(233, 34);
-            this.tb_Username.TabIndex = 3;
+            this.tb_Username.TabIndex = 1;
             this.tb_Username.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label2
+            // lb_Username
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(3, 10);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(149, 31);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Tên tài khoản";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lb_Username.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lb_Username.AutoSize = true;
+            this.lb_Username.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lb_Username.Location = new System.Drawing.Point(3, 10);
+            this.lb_Username.Name = "lb_Username";
+            this.lb_Username.Size = new System.Drawing.Size(149, 31);
+            this.lb_Username.TabIndex = 0;
+            this.lb_Username.Text = "Tên tài khoản";
+            this.lb_Username.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label3
+            // tb_Phone
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(3, 61);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(70, 31);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Email";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.tb_Phone.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tb_Phone.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.tb_Phone.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tb_Phone.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.tb_Phone.Location = new System.Drawing.Point(162, 161);
+            this.tb_Phone.Name = "tb_Phone";
+            this.tb_Phone.Size = new System.Drawing.Size(233, 34);
+            this.tb_Phone.TabIndex = 4;
+            this.tb_Phone.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label4
+            // tb_Email
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(3, 112);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(110, 31);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Mật khẩu";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.tb_Email.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tb_Email.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.tb_Email.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tb_Email.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.tb_Email.Location = new System.Drawing.Point(162, 110);
+            this.tb_Email.Name = "tb_Email";
+            this.tb_Email.Size = new System.Drawing.Size(233, 34);
+            this.tb_Email.TabIndex = 3;
+            this.tb_Email.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox3
+            // lb_Email
             // 
-            this.textBox3.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox3.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.textBox3.Location = new System.Drawing.Point(162, 161);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(233, 34);
-            this.textBox3.TabIndex = 7;
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.lb_Email.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lb_Email.AutoSize = true;
+            this.lb_Email.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lb_Email.Location = new System.Drawing.Point(3, 112);
+            this.lb_Email.Name = "lb_Email";
+            this.lb_Email.Size = new System.Drawing.Size(70, 31);
+            this.lb_Email.TabIndex = 0;
+            this.lb_Email.Text = "Email";
+            this.lb_Email.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox1
+            // lb_Password
             // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.textBox1.Location = new System.Drawing.Point(162, 110);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(233, 34);
-            this.textBox1.TabIndex = 4;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.lb_Password.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lb_Password.AutoSize = true;
+            this.lb_Password.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lb_Password.Location = new System.Drawing.Point(3, 61);
+            this.lb_Password.Name = "lb_Password";
+            this.lb_Password.Size = new System.Drawing.Size(110, 31);
+            this.lb_Password.TabIndex = 0;
+            this.lb_Password.Text = "Mật khẩu";
+            this.lb_Password.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tbllaypn_ControlButtons
             // 
@@ -310,7 +310,7 @@ namespace PBL3REAL.View
             this.tbllaypn_ControlButtons.RowCount = 1;
             this.tbllaypn_ControlButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tbllaypn_ControlButtons.Size = new System.Drawing.Size(273, 46);
-            this.tbllaypn_ControlButtons.TabIndex = 2;
+            this.tbllaypn_ControlButtons.TabIndex = 0;
             // 
             // btn_Cancel
             // 
@@ -322,7 +322,7 @@ namespace PBL3REAL.View
             this.btn_Cancel.Location = new System.Drawing.Point(186, 3);
             this.btn_Cancel.Name = "btn_Cancel";
             this.btn_Cancel.Size = new System.Drawing.Size(83, 40);
-            this.btn_Cancel.TabIndex = 6;
+            this.btn_Cancel.TabIndex = 0;
             this.btn_Cancel.Text = "Cancel";
             this.btn_Cancel.UseVisualStyleBackColor = false;
             this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
@@ -338,9 +338,10 @@ namespace PBL3REAL.View
             this.btn_OK.Margin = new System.Windows.Forms.Padding(4);
             this.btn_OK.Name = "btn_OK";
             this.btn_OK.Size = new System.Drawing.Size(83, 38);
-            this.btn_OK.TabIndex = 4;
+            this.btn_OK.TabIndex = 0;
             this.btn_OK.Text = "OK";
             this.btn_OK.UseVisualStyleBackColor = false;
+            this.btn_OK.Click += new System.EventHandler(this.btn_OK_Click);
             // 
             // btn_Reset
             // 
@@ -353,9 +354,10 @@ namespace PBL3REAL.View
             this.btn_Reset.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Reset.Name = "btn_Reset";
             this.btn_Reset.Size = new System.Drawing.Size(83, 38);
-            this.btn_Reset.TabIndex = 5;
+            this.btn_Reset.TabIndex = 0;
             this.btn_Reset.Text = "Reset";
             this.btn_Reset.UseVisualStyleBackColor = false;
+            this.btn_Reset.Click += new System.EventHandler(this.btn_Reset_Click);
             // 
             // Form_User_Profile
             // 
@@ -364,20 +366,20 @@ namespace PBL3REAL.View
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(230)))), ((int)(((byte)(233)))));
             this.ClientSize = new System.Drawing.Size(554, 614);
             this.Controls.Add(this.tbllaypn_ControlButtons);
-            this.Controls.Add(this.tableLayoutPanel1);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.tbllaypn_UserInfo);
+            this.Controls.Add(this.fllaypn_Header);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form_User_Profile";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form_User_Profile";
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
+            this.fllaypn_Header.ResumeLayout(false);
+            this.fllaypn_Header.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picbx_Header)).EndInit();
+            this.tbllaypn_UserInfo.ResumeLayout(false);
+            this.tbllaypn_UserInfo.PerformLayout();
+            this.tbllaypn_Gender.ResumeLayout(false);
+            this.tbllaypn_Gender.PerformLayout();
             this.tbllaypn_ControlButtons.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -385,24 +387,24 @@ namespace PBL3REAL.View
 
         #endregion
 
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.FlowLayoutPanel fllaypn_Header;
+        private System.Windows.Forms.PictureBox picbx_Header;
+        private System.Windows.Forms.Label lb_Header;
+        private System.Windows.Forms.TableLayoutPanel tbllaypn_UserInfo;
+        private System.Windows.Forms.Label lb_Username;
+        private System.Windows.Forms.Label lb_Email;
+        private System.Windows.Forms.Label lb_Password;
+        private System.Windows.Forms.TextBox tb_Password;
+        private System.Windows.Forms.TextBox tb_Email;
         private System.Windows.Forms.TextBox tb_Username;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.ComboBox cbb_RoomType;
+        private System.Windows.Forms.Label lb_Role;
+        private System.Windows.Forms.TableLayoutPanel tbllaypn_Gender;
+        private System.Windows.Forms.RadioButton rbtn_Male;
+        private System.Windows.Forms.RadioButton rbtn_Female;
+        private System.Windows.Forms.Label lb_Gender;
+        private System.Windows.Forms.Label lb_Phone;
+        private System.Windows.Forms.TextBox tb_Phone;
+        private System.Windows.Forms.ComboBox cbb_Role;
         private System.Windows.Forms.TableLayoutPanel tbllaypn_ControlButtons;
         private System.Windows.Forms.Button btn_Cancel;
         private System.Windows.Forms.Button btn_OK;

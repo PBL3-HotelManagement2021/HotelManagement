@@ -82,7 +82,7 @@ namespace PBL3REAL.View
             //Check Data
             if (CheckData())
             {
-                //Gọi hàm BLL kiểm tra & cho phép đăng nhập
+                //Gọi hàm kiểm tra & cho phép đăng nhập
                 if (CheckUser())
                 {
                     Form_Switch_Role f = new Form_Switch_Role();
