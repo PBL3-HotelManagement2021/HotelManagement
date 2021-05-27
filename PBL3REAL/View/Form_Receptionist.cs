@@ -22,6 +22,10 @@ namespace PBL3REAL.View
         private QLBookingBLL bookingBLL;
         private RoomBLL roomBLL;
         private RoomTypeBLL roomTypeBLL;
+        private readonly int ROWS = 5;
+        private int totalPages = 0;
+        private string nameSearch = "";
+        private int idRoomTypeSearch = 0;
         public Form_Receptionist(int LoggedID, string LoggedRole)
         {
             InitializeComponent();
@@ -30,7 +34,7 @@ namespace PBL3REAL.View
             bookingBLL = new QLBookingBLL();
             LoadBookingList(1);
             AddCbbRoomFilter();
-            LoadRoomList(0, "");
+          // LoadRoomList(0, "");
             LoadRoomTypeList("A", "Current Price Asc");
             addCbbRoomTypeOrder();
             if (LoggedRole != "Admin")
@@ -42,7 +46,7 @@ namespace PBL3REAL.View
                 btn_RoomTypeEdit.Enabled = false;
                 btn_RoomTypeDelete.Enabled = false;
             }
-            tb_RoomPageNumber.Text = RoomCurrentPage.ToString();
+            tb_RoomPageNumber.Text = "";
             tb_BookingPageNumber.Text = BookingCurrentPage.ToString();
         }
         //Booking Functions
@@ -61,28 +65,8 @@ namespace PBL3REAL.View
             dgv_Booking.Columns["IdBook"].Visible = false;
             dgv_Booking.Columns["BookNote"].Visible = false;
         }
-        //Room Functions
-        private void AddCbbRoomFilter()
-        {
-            List<CbbItem> list = roomTypeBLL.addCombobox();
-            list.Insert(0, new CbbItem(0, "All RoomType"));
-            List<CbbItem> res = list;
-            cbb_RoomFilter.DataSource = res;
-        }
-        private void LoadRoomList(int idRoomType, string name)
-        {
-            dgv_Room.DataSource = null;
-            dgv_Room.DataSource = roomBLL.findByProperty(1, 10, idRoomType, name);
-            dgv_Room.Columns["IdRoom"].Visible = false;
-        }
-        public void findidRoom()
-        {
-            RoomDetailVM roomDetailVM = roomBLL.findByID(1);
-        }
-        public void PaginationRoom()
-        {
-            tb_RoomPageNumber.Text = roomBLL.getPagination().ToString();
-        }
+       
+   
         //Romm Type Functions
         private void LoadRoomTypeList(string search , string orderBy)
         {
@@ -192,6 +176,50 @@ namespace PBL3REAL.View
                 tb_BookingPageNumber.Text = BookingCurrentPage.ToString();
             }
         }
+
+
+/// <summary>
+/// //////////////////////// ROOM PART
+/// </summary>
+
+        //Room Functions
+        private void AddCbbRoomFilter()
+        {
+            List<CbbItem> list = roomTypeBLL.addCombobox();
+            list.Insert(0, new CbbItem(0, "All RoomType"));
+            List<CbbItem> res = list;
+            cbb_RoomFilter.DataSource = res;
+        }
+        private void LoadRoomList(int start, int idRoomType, string name)
+        {
+            dgv_Room.DataSource = null;
+            dgv_Room.DataSource = roomBLL.findByProperty(start, ROWS, idRoomType, name);
+            dgv_Room.Columns["IdRoom"].Visible = false;
+        }
+        public void findidRoom()
+        {
+            RoomDetailVM roomDetailVM = roomBLL.findByID(1);
+        }
+
+        public void resetRoomData()
+        {
+            cbb_RoomFilter.SelectedIndex = 0;
+            idRoomTypeSearch = 0;
+            nameSearch = tb_RoomSearch.Text="";
+            searchRoomData();
+        }
+        public void searchRoomData()
+        {
+            idRoomTypeSearch = ((CbbItem)cbb_RoomFilter.SelectedItem).Value;
+            nameSearch = tb_RoomSearch.Text;
+            RoomCurrentPage = 1;
+            totalPages = roomBLL.getPagination(ROWS, idRoomTypeSearch, nameSearch);
+            LoadRoomList(RoomCurrentPage, idRoomTypeSearch, nameSearch);
+            if (totalPages != 0) tb_RoomPageNumber.Text = RoomCurrentPage + "/" + totalPages;
+            else tb_RoomPageNumber.Text = "0/0";
+        }
+
+
         //Room Events
         private void btn_RoomView_Click(object sender, EventArgs e)
         {
@@ -200,8 +228,9 @@ namespace PBL3REAL.View
             {
                 Form_Detail_Room f = new Form_Detail_Room(int.Parse(r[0].Cells["IdRoom"].Value.ToString()), false);
                 this.Hide();
+                f.myDel = new Form_Detail_Room.MyDel(resetRoomData);
                 f.ShowDialog();
-                this.ShowDialog();
+                this.Show();
             }
             else if (r.Count == 0)
             {
@@ -264,27 +293,33 @@ namespace PBL3REAL.View
         private void picbx_RoomSearch_Click(object sender, EventArgs e)
         {
             //Search 
+            searchRoomData();
+
         }
         private void picbx_RoomRefresh_Click(object sender, EventArgs e)
         {
-            LoadRoomList(0, "");
+            resetRoomData();
         }
         private void btn_RoomPrevPage_Click(object sender, EventArgs e)
         {
             if (RoomCurrentPage > 1)
             {
-                dgv_Room.DataSource = roomBLL.findByProperty(RoomCurrentPage - 1, 10, 0, "");
+                //   dgv_Room.DataSource = roomBLL.findByProperty(RoomCurrentPage - 1, 10, 0, "");
                 RoomCurrentPage -= 1;
-                tb_RoomPageNumber.Text = RoomCurrentPage.ToString();
+              
+                LoadRoomList(RoomCurrentPage, idRoomTypeSearch, nameSearch);
+                tb_RoomPageNumber.Text = RoomCurrentPage + "/" + totalPages;
             }
         }
         private void btn_RoomNextPage_Click(object sender, EventArgs e)
         {
-            if (RoomCurrentPage < roomBLL.getPagination() - 1)
+        
+            if (RoomCurrentPage < totalPages)
             {
-                dgv_Room.DataSource = roomBLL.findByProperty(RoomCurrentPage + 1, 10, 0, "");
+                // dgv_Room.DataSource = roomBLL.findByProperty(RoomCurrentPage + 1, 10, 0, "");
                 RoomCurrentPage += 1;
-                tb_RoomPageNumber.Text = RoomCurrentPage.ToString();
+                LoadRoomList(RoomCurrentPage, idRoomTypeSearch, nameSearch);              
+                tb_RoomPageNumber.Text = RoomCurrentPage+"/"+ totalPages;
             }
         }
         //Room Type Events

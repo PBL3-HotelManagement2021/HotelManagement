@@ -419,7 +419,7 @@ namespace PBL3REAL
 
         public void PaginationRoom()
         {
-            textBox1.Text = roomBLL.getPagination().ToString();
+            textBox1.Text = roomBLL.getPagination(2,0,"").ToString();
 
         }
       

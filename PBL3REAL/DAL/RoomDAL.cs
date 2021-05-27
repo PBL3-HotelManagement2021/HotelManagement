@@ -124,20 +124,19 @@ namespace HotelManagement.DAL.Implement
          
             return joinResult;
         }
-        public int getTotalRow()
+        public int getTotalRow(int idRoomType, string name)
         {
-            int rows = 0;
-            using (var command = _appDbContext.Database.GetDbConnection().CreateCommand())
-            {
-                command.CommandText = "Exec TotalRows room";
-                _appDbContext.Database.OpenConnection();
-                using (var result = command.ExecuteReader())
-                {
-                    result.Read();
-                    rows = (int)result[0];
-                }
-            }
-            return rows;
+            int totalrows = 0;
+            var predicate = PredicateBuilder.True<Room>();
+            if (idRoomType != 0) predicate = predicate.And(x => x.RoomIdroomtype == idRoomType);
+
+            if (!string.IsNullOrEmpty(name)) predicate = predicate.And(x => x.RoomName.Contains(name));
+            predicate = predicate.And(x => x.RoomActiveflag == true);
+         /*   totalrows = (from room in AppDbContext.Instance.Rooms
+                         where predicate
+                         select room).Count();*/
+            totalrows = AppDbContext.Instance.Rooms.Where(predicate).Count();
+            return totalrows;
         }
 
 

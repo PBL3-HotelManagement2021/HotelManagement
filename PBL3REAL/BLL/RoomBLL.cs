@@ -170,17 +170,17 @@ namespace HotelManagement.BLL.Implement
             return listcbb;
         }
 
-        public int getPagination()
+        public int getPagination(int rows ,int idRoomType, string name)
         {
-            int totalRows = _roomDAL.getTotalRow();
+            int totalRows = _roomDAL.getTotalRow(idRoomType,name);
             int totalpage;
-            if (totalRows % 2 == 0)
+            if (totalRows % rows == 0)
             {
-                totalpage = totalRows / 2;
+                totalpage = totalRows / rows;
             }
             else
             {
-                totalpage = totalRows / 2 + 1;
+                totalpage = totalRows / rows + 1;
             }
             return totalpage;
         }

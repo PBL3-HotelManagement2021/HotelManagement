@@ -30,7 +30,7 @@ namespace PBL3REAL.View
             FillChart();
             this.chart1.SaveImage(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + "\\chart.png", ChartImageFormat.Png);
             predictedValue = (slope * 2017) + intercept;
-            LinearRegression(xValues, yValues, out rSquared, out intercept, out slope);
+           /* LinearRegression(xValues, yValues, out rSquared, out intercept, out slope);*/
         }
         public void statistics(string query, int type)
         {
@@ -133,9 +133,9 @@ namespace PBL3REAL.View
                 var meanY = sumOfY / count;
                 var dblR = rNumerator / Math.Sqrt(rDenom);
 
-                rSquared = dblR * dblR;
+              /*  rSquared = dblR * dblR;
                 yIntercept = meanY - ((sCo / ssX) * meanX);
-                slope = sCo / ssX;
+                slope = sCo / ssX;*/
             }
         }
         public class MaxHeap
