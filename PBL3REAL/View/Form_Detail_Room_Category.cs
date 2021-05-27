@@ -22,7 +22,6 @@ namespace PBL3REAL.View
         public delegate void MyDel();
         public MyDel myDel;
         private RoomTypeBLL roomTypeBLL;
-        private QLUserBLL userBLL;
         private int idRoomType;
         private int TotalPic = 0;
         private int TotalPicAdded = 0;
@@ -33,8 +32,7 @@ namespace PBL3REAL.View
             InitializeComponent();
             roomTypeBLL = new RoomTypeBLL();
             LoadData(idRoomType,Editable);
-            this.idRoomType = idRoomType;
-            userBLL = new QLUserBLL();
+            this.idRoomType = idRoomType;   
             listdel = new List<int>();
             string tempname = tb_RoomTypeCapacity.Text;
         }
@@ -288,21 +286,7 @@ namespace PBL3REAL.View
             roomTypeVM.ListImg.Add(image2);
             roomTypeBLL.addRoomType(roomTypeVM);
         }
-        private void EditRoomType(int res)
-        {
-            string temp1 = tb_RoomTypeCapacity.Text;
-            switch (TotalPic - TotalPicAdded)
-            {
-                case 6:
-                    break;
-                default:
-                    SaveIMG();
-                    break;
-            }
-            roomTypeVM.RotyCapacity = res;
-            List<int> temp = listdel;
-            roomTypeBLL.editRoomType(roomTypeVM, temp);
-        }
+        
         //Events
         private void picbx_add1_Click(object sender, EventArgs e)
         {
@@ -426,11 +410,7 @@ namespace PBL3REAL.View
         {
             //Gọi hàm BLL xử lí nghiệp vụ
             //myDel();
-            string TEMPNAME = tb_RoomTypeCapacity.Text;
-            if (listdel.Count == 0)
-            {
-                //this.Dispose();
-            }
+           
             if (idRoomType == 0)
             {
                 //Add
@@ -439,10 +419,24 @@ namespace PBL3REAL.View
             else
             {
                 //Edit
-                int res = 0;
-                int.TryParse(tb_RoomTypeCapacity.Text, out res);
-                EditRoomType(res);
+                int capacity = 0 , price =0;
+                int.TryParse(tb_RoomTypeCapacity.Text, out capacity);
+                int.TryParse(tb_RoomTypePrice.Text, out price);
+                switch (TotalPic - TotalPicAdded)
+                {
+                    case 6:
+                        break;
+                    default:
+                        SaveIMG();
+                        break;
+                }
+                roomTypeVM.RotyCapacity = capacity;
+                roomTypeVM.RotyName = tb_RoomTypeName.Text;
+                roomTypeVM.RotyCurrentprice = price;
+                roomTypeVM.RotyDescription = tb_RoomTypeDescription.Text;
+                roomTypeBLL.editRoomType(roomTypeVM, listdel);
             }
+            myDel();
             this.Dispose();
         }
         private void btn_Reset_Click(object sender, EventArgs e)
