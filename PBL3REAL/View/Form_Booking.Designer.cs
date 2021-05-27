@@ -388,6 +388,7 @@ namespace PBL3REAL.View
             this.dgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv.ColumnHeadersVisible = false;
+            this.dgv.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dgv.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
             this.dgv.Location = new System.Drawing.Point(21, 338);
             this.dgv.Name = "dgv";

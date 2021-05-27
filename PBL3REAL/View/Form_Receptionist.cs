@@ -41,7 +41,8 @@ namespace PBL3REAL.View
             bookingBLL = new QLBookingBLL();
             LoadBookingList(1);
             AddCbbRoomFilter();
-        
+            LoadRoomList();
+            LoadRoomTypeList();
             addCbbRoomTypeOrder();
             AddCbbActive();
             if (LoggedRole != "Admin")
@@ -72,9 +73,6 @@ namespace PBL3REAL.View
             dgv_Booking.Columns["IdBook"].Visible = false;
             dgv_Booking.Columns["BookNote"].Visible = false;
         }
-       
-   
-    
         //General Events
         private void btn_Home_Click(object sender, EventArgs e)
         {
@@ -89,7 +87,7 @@ namespace PBL3REAL.View
                 Form_Booking f = new Form_Booking(int.Parse(r[0].Cells["IdBook"].Value.ToString()), false);
                 this.Hide();
                 f.ShowDialog();
-                this.ShowDialog();
+                this.Show();
             }
             else if (r.Count == 0)
             {
@@ -105,7 +103,7 @@ namespace PBL3REAL.View
             Form_Booking f = new Form_Booking(0, true);
             this.Hide();
             f.ShowDialog();
-            this.ShowDialog();
+            this.Show();
             //Reload Data
         }
         private void btn_BookingEdit_Click(object sender, EventArgs e)
@@ -116,7 +114,7 @@ namespace PBL3REAL.View
                 Form_Booking f = new Form_Booking(int.Parse(r[0].Cells["IdBook"].Value.ToString()), true);
                 this.Hide();
                 f.ShowDialog();
-                this.ShowDialog();
+                this.Show();
                 //Reload Data
             }
             else if (r.Count == 0)
