@@ -71,7 +71,7 @@ namespace PBL3REAL.View
         }
         private void LoadAvailableRoomList(int IdRoomtype, DateTime fromDate, DateTime toDate)
         {
-            roomVMs = roomBLL.findAvailableRoom(IdRoomtype, fromDate, toDate); //All price = 0 ????
+            roomVMs = roomBLL.findAvailableRoom(IdRoomtype, fromDate, toDate); //All price = 0 ????  + RoTyName = null ?
             LoadAvailableTempRoomList();
         }
         private void LoadData(int id, bool Edit)
@@ -81,6 +81,10 @@ namespace PBL3REAL.View
                 //Add new booking
                 tb_BookDate.Text = DateTime.Now.ToString();
                 tb_DueDate.Text = (DateTime.Now.AddDays(5)).ToString();
+                rbtn_NewClient.Checked = true;
+                rbtn_OldClient.Checked = false;
+                tb_ClientSearch.Enabled = false;
+                picbx_ClientSearch.Enabled = false;
             }
             else
             {
@@ -224,7 +228,7 @@ namespace PBL3REAL.View
         {
             if (rbtn_NewClient.Checked)
             {
-                cbb_ClientSearch.Enabled = false;
+                tb_ClientSearch.Enabled = false;
                 picbx_ClientSearch.Enabled = false;
             }
         }
@@ -232,16 +236,29 @@ namespace PBL3REAL.View
         {
             if (rbtn_OldClient.Checked)
             {
-                cbb_ClientSearch.Enabled = true;
+                tb_ClientSearch.Enabled = true;
                 picbx_ClientSearch.Enabled = true;
             }
         }
         private void picbx_ClientSearch_Click(object sender, EventArgs e)
         {
-            if (cbb_ClientSearch.Text != "")
+            int value;
+            if (tb_ClientSearch.Text == "")
             {
-                //Search
+                MessageBox.Show("Bạn chưa nhập dữ liệu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            else 
+            {
+                if (!int.TryParse(tb_ClientSearch.Text, out value))
+                {
+                    MessageBox.Show("Dữ liệu bạn đã nhập không hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    //Gọi hàm search & trả kết quả
+                    //Fill kết quả vào tb_ClientName + tb_ClientEmail + tb_ClientPhone
+                }   
+            }   
         }
         private void picbx_Enter_Click(object sender, EventArgs e)
         {

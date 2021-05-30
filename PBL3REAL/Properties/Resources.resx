@@ -127,6 +127,9 @@
   <data name="add_fluent_color_96px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\View\Materials\add_fluent_color_96px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="active_state_fluent_color_96px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\View\Materials\active_state_fluent_color_96px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="hotel_star_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\View\Materials\hotel_star_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -135,9 +138,6 @@
   </data>
   <data name="cancel_fluent_color_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\View\Materials\cancel_fluent_color_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="refresh_fluent_color_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\View\Materials\refresh_fluent_color_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="add_fluent-color_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\View\Materials\add_fluent-color_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -172,8 +172,8 @@
   <data name="search_fluent-color_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\View\Materials\search_fluent-color_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="refresh_fluent_color_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\View\Materials\refresh_fluent_color_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="refresh_fluent_color_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\View\Materials\refresh_fluent_color_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="shrink_fluent_color_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\View\Materials\shrink_fluent_color_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -183,6 +183,9 @@
   </data>
   <data name="sign_out_fluent_color_96px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\View\Materials\sign_out_fluent_color_96px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="nothing_found_fluent_color_96px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nothing_found_fluent_color_96px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="logout_rounded_up_windows10_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\View\Materials\logout_rounded_up_windows10_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -244,8 +247,8 @@
   <data name="popup_fluent_color_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\View\Materials\popup_fluent_color_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="next_page_windows10_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\View\Materials\next_page_windows10_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="accounting_96px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\View\Materials\accounting_96px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="show_property_96px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\View\Materials\show_property_96px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -253,8 +256,8 @@
   <data name="delete_fluent_color_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\View\Materials\delete_fluent_color_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="accounting_96px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\View\Materials\accounting_96px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="next_page_windows10_32px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\View\Materials\next_page_windows10_32px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="left_fluent_systems_regular_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\View\Materials\left_fluent_systems_regular_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -325,6 +328,9 @@
   <data name="front_desk_fluent_color_96px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\View\Materials\front_desk_fluent_color_96px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="refresh_fluent_color_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\View\Materials\refresh_fluent_color_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="hotel_fluent_color_120px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\View\Materials\hotel_fluent_color_120px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -379,7 +385,7 @@
   <data name="male_user_fluent_color_96px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\View\Materials\male_user_fluent_color_96px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="nothing_found_fluent_color_96px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\nothing_found_fluent_color_96px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="inactive_state_fluent_color_96px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\View\Materials\inactive_state_fluent_color_96px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

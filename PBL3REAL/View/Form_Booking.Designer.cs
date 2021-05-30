@@ -35,7 +35,6 @@ namespace PBL3REAL.View
             this.grbx_ClientInfo = new System.Windows.Forms.GroupBox();
             this.picbx_ClientSearch = new System.Windows.Forms.PictureBox();
             this.tbllaypn_ClientInfo = new System.Windows.Forms.TableLayoutPanel();
-            this.cbb_ClientSearch = new System.Windows.Forms.ComboBox();
             this.tbllaypn_ClientType = new System.Windows.Forms.TableLayoutPanel();
             this.rbtn_OldClient = new System.Windows.Forms.RadioButton();
             this.rbtn_NewClient = new System.Windows.Forms.RadioButton();
@@ -88,6 +87,7 @@ namespace PBL3REAL.View
             this.lb_Status = new System.Windows.Forms.Label();
             this.cbb_Status = new System.Windows.Forms.ComboBox();
             this.dgv = new System.Windows.Forms.DataGridView();
+            this.tb_ClientSearch = new System.Windows.Forms.TextBox();
             this.grbx_ClientInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picbx_ClientSearch)).BeginInit();
             this.tbllaypn_ClientInfo.SuspendLayout();
@@ -150,7 +150,7 @@ namespace PBL3REAL.View
             this.tbllaypn_ClientInfo.ColumnCount = 2;
             this.tbllaypn_ClientInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.625F));
             this.tbllaypn_ClientInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.375F));
-            this.tbllaypn_ClientInfo.Controls.Add(this.cbb_ClientSearch, 1, 1);
+            this.tbllaypn_ClientInfo.Controls.Add(this.tb_ClientSearch, 1, 1);
             this.tbllaypn_ClientInfo.Controls.Add(this.tbllaypn_ClientType, 1, 0);
             this.tbllaypn_ClientInfo.Controls.Add(this.tb_ClientName, 1, 2);
             this.tbllaypn_ClientInfo.Controls.Add(this.lb_ClientSearch, 0, 1);
@@ -170,20 +170,6 @@ namespace PBL3REAL.View
             this.tbllaypn_ClientInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tbllaypn_ClientInfo.Size = new System.Drawing.Size(484, 224);
             this.tbllaypn_ClientInfo.TabIndex = 0;
-            // 
-            // cbb_ClientSearch
-            // 
-            this.cbb_ClientSearch.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.cbb_ClientSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.cbb_ClientSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbb_ClientSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbb_ClientSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cbb_ClientSearch.FormattingEnabled = true;
-            this.cbb_ClientSearch.Location = new System.Drawing.Point(199, 48);
-            this.cbb_ClientSearch.MaxDropDownItems = 10;
-            this.cbb_ClientSearch.Name = "cbb_ClientSearch";
-            this.cbb_ClientSearch.Size = new System.Drawing.Size(275, 36);
-            this.cbb_ClientSearch.TabIndex = 0;
             // 
             // tbllaypn_ClientType
             // 
@@ -866,6 +852,19 @@ namespace PBL3REAL.View
             this.dgv.Size = new System.Drawing.Size(1058, 233);
             this.dgv.TabIndex = 0;
             // 
+            // tb_ClientSearch
+            // 
+            this.tb_ClientSearch.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.tb_ClientSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.tb_ClientSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_ClientSearch.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tb_ClientSearch.Location = new System.Drawing.Point(199, 50);
+            this.tb_ClientSearch.Multiline = true;
+            this.tb_ClientSearch.Name = "tb_ClientSearch";
+            this.tb_ClientSearch.Size = new System.Drawing.Size(275, 31);
+            this.tb_ClientSearch.TabIndex = 0;
+            this.tb_ClientSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // Form_Booking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -971,11 +970,11 @@ namespace PBL3REAL.View
         private System.Windows.Forms.Label lb_ClientSearch;
         private System.Windows.Forms.Label lb_ClientType;
         private System.Windows.Forms.PictureBox picbx_ClientSearch;
-        private System.Windows.Forms.ComboBox cbb_ClientSearch;
         private System.Windows.Forms.TableLayoutPanel tbllaypn_ClientType;
         private System.Windows.Forms.RadioButton rbtn_OldClient;
         private System.Windows.Forms.RadioButton rbtn_NewClient;
         private System.Windows.Forms.TextBox tb_ClientName;
         private System.Windows.Forms.DataGridView dgv;
+        private System.Windows.Forms.TextBox tb_ClientSearch;
     }
 }
