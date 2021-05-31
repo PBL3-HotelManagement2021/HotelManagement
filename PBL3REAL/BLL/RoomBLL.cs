@@ -147,13 +147,13 @@ namespace HotelManagement.BLL.Implement
             return roomDetailVM;
         }
 
-        public List<RoomVM> findAvailableRoom(int idRoomType , DateTime fromDate , DateTime toDate)
+        public List<AvailableRoomVM> findAvailableRoom(int idRoomType , DateTime fromDate , DateTime toDate)
         {
-            List<RoomVM> listVM = new List<RoomVM>();
+            List<AvailableRoomVM> listVM = new List<AvailableRoomVM>();
             foreach(Room room in _roomDAL.findAvailableRoom(idRoomType, fromDate, toDate))
             {
-                RoomVM roomVM = mapper.Map<RoomVM>(room);
-                listVM.Add(roomVM);
+                AvailableRoomVM availableRoomVM = mapper.Map<AvailableRoomVM>(room);
+                listVM.Add(availableRoomVM);
             }
             return listVM;
         }

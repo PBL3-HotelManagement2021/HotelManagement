@@ -12,5 +12,9 @@ namespace PBL3REAL.ViewModel
         public int BoodetIdroom { get; set; }
         public string BoodetRoTyCode { get; set; }
         public int BoodetIdbook { get; set; }
+
+        public string RoomName { get; set; }
+        public string RoomType { get; set; }
+
     }
 }

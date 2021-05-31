@@ -26,14 +26,13 @@ namespace PBL3REAL.DAL
         public List<Client> findByProperty(Dictionary<string, string> properties)
         {
             var predicate = PredicateBuilder.True<Client>();
-            if (!properties.ContainsKey("name"))
-            {
-                predicate = predicate.And(x => x.CliName.Contains(properties["name"]));
-            }
-            if (!properties.ContainsKey("code"))
-            {
+            if (properties.ContainsKey("name"))
+                predicate = predicate.And(x => x.CliName.Contains(properties["name"]));           
+            if (properties.ContainsKey("code"))            
                 predicate = predicate.And(x => x.CliCode == properties["code"]);
-            }
+            if(properties.ContainsKey("phone"))
+                predicate = predicate.And(x => x.CliPhone == properties["phone"]);
+
 
             predicate = predicate.And(x => x.CliActiveflag == true);
             List<Client> result = AppDbContext.Instance.Clients

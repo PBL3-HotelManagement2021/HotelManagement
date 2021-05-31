@@ -73,21 +73,49 @@ namespace HotelManagement.DAL.Implement
             return result;
         }
 
+      
+
         public List<Room> findAvailableRoom(int idRoomType, DateTime fromDate, DateTime toDate)
         {
+            SqlParameter parameter0 = new SqlParameter();
+            parameter0.ParameterName = "@pa0";
+            parameter0.SqlDbType = SqlDbType.Int;
+            parameter0.Value = idRoomType;
 
             SqlParameter parameter1 = new SqlParameter();
-            parameter1.ParameterName = "@fromDate";
+            parameter1.ParameterName = "@pa1";
             parameter1.SqlDbType = SqlDbType.DateTime2;
             parameter1.Value = DateTime.Parse(fromDate.ToString());
 
             SqlParameter parameter2 = new SqlParameter();
-            parameter2.ParameterName = "@toDate";
+            parameter2.ParameterName = "@pa2";
             parameter2.SqlDbType = SqlDbType.DateTime2;
             parameter2.Value = DateTime.Parse(toDate.ToString());
-
-            List<Room> result = _appDbContext.Rooms.FromSqlRaw($"GetAvailableRoom {idRoomType} , @fromDate,@toDate", parameter1, parameter2).ToList();
-            return result;
+            List<Room> list = new List<Room>();
+         
+            using (var command = _appDbContext.Database.GetDbConnection().CreateCommand())
+            {
+                command.CommandText = "exec [GetAvailableRoom] @IdRoomType=@pa0 , @fromDate =@pa1, @toDate=@pa2";
+                command.Parameters.Add(parameter0);
+                command.Parameters.Add(parameter1);
+                command.Parameters.Add(parameter2);
+                _appDbContext.Database.OpenConnection();
+                using (var result = command.ExecuteReader())
+                {
+                    while (result.Read())
+                    {
+                        Room room = new Room();
+                        room.RoomIdroomtypeNavigation = new RoomType();
+                        room.IdRoom =(int) result[0];
+                        room.RoomName = result[1].ToString();
+                        room.RoomIdroomtypeNavigation.RotyName = result[2].ToString();
+                        room.RoomIdroomtypeNavigation.RotyCurrentprice =(int) result[3];
+                        room.RoomIdroomtypeNavigation.RotyCode = result[4].ToString();
+                        list.Add(room);
+                    }
+                }
+            }
+            return list;
         }
         public List<Room> findByProperty(int start, int length, int idroomtype, string name,int isActive)
         {
@@ -134,10 +162,6 @@ namespace HotelManagement.DAL.Implement
 
             if (isActive == 1) predicate = predicate.And(x => x.RoomActiveflag == true);
             else if (isActive == 2) predicate = predicate.And(x => x.RoomActiveflag == false);
-
-            /*   totalrows = (from room in AppDbContext.Instance.Rooms
-                            where predicate
-                            select room).Count();*/
             totalrows = AppDbContext.Instance.Rooms.Where(predicate).Count();
             return totalrows;
         }
