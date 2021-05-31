@@ -19,28 +19,28 @@ namespace PBL3REAL.DAL
             _appDbContext = new AppDbContext();
         }
 
-        public List<Booking> findByProperty(int start, int length,Dictionary<string,CalendarVM>searchByDate ,string search ,string orderby)
+        public List<Booking> findByProperty(int start, int length,CalendarVM searchByDate ,string search ,string orderby)
         {
             var predicate = PredicateBuilder.True<Booking>();
             if (search != "") 
                predicate = predicate.And(x => x.BookCode == search || x.BookIdclientNavigation.CliCode == search || x.BookIduserNavigation.UserCode == search);
-            if (searchByDate.ContainsKey("Booking Date"))
+            if (searchByDate.type.Equals("Booking Date"))
             {
-                predicate = predicate.And(x => x.BookBookdate >= searchByDate["Booking Date"].fromDate && x.BookBookdate <= searchByDate["Booking Date"].toDate);
+                predicate = predicate.And(x => x.BookBookdate >= searchByDate.fromDate && x.BookBookdate <= searchByDate.toDate);
             }
            
-            if (searchByDate.ContainsKey("Due Date"))
+            if (searchByDate.type.Equals("Due Date"))
             {
-                predicate = predicate.And(x => x.BookBookdate >= searchByDate["Due Date"].fromDate && x.BookBookdate <= searchByDate["Due Date"].toDate);
+                predicate = predicate.And(x => x.BookBookdate >= searchByDate.fromDate && x.BookBookdate <= searchByDate.toDate);
             }
           
-            if (searchByDate.ContainsKey("Checkin Date"))
+            if (searchByDate.type.Equals("Checkin Date"))
             {
-                predicate = predicate.And(x => x.BookBookdate >= searchByDate["Checkin Date"].fromDate && x.BookBookdate <= searchByDate["Checkin Date"].toDate);
+                predicate = predicate.And(x => x.BookBookdate >= searchByDate.fromDate && x.BookBookdate <= searchByDate.toDate);
             }
-            if(searchByDate.ContainsKey("Checkout Date"))
+            if(searchByDate.type.Equals("Checkout Date"))
             {
-                predicate = predicate.And(x => x.BookBookdate >= searchByDate["Checkout Date"].fromDate && x.BookBookdate <= searchByDate["Checkout Date"].toDate);
+                predicate = predicate.And(x => x.BookBookdate >= searchByDate.fromDate && x.BookBookdate <= searchByDate.toDate);
             }
             IQueryable<Booking> query = _appDbContext.Bookings
                                 .Include(x => x.BookIdclientNavigation)
@@ -54,7 +54,7 @@ namespace PBL3REAL.DAL
                 default: break;
             }
             
-            List<Booking> result = query.AsNoTracking().ToList();
+            List<Booking> result = query.Skip(start).Take(length).AsNoTracking().ToList();
 
             return result;
         }
@@ -172,6 +172,36 @@ namespace PBL3REAL.DAL
             AppDbContext.Instance.SaveChanges();
             _appDbContext.Entry(booking).State = EntityState.Detached;
         }
+
+        public int getTotalRow(CalendarVM searchByDate, string orderBy , string search)
+        {
+            int totalrows = 0;
+            var predicate = PredicateBuilder.True<Booking>();
+            if (search != "")
+                predicate = predicate.And(x => x.BookCode == search || x.BookIdclientNavigation.CliCode == search || x.BookIduserNavigation.UserCode == search);
+            if (searchByDate.type.Equals("Booking Date"))
+                predicate = predicate.And(x => x.BookBookdate >= searchByDate.fromDate && x.BookBookdate <= searchByDate.toDate);
+            if (searchByDate.type.Equals("Due Date"))
+                predicate = predicate.And(x => x.BookBookdate >= searchByDate.fromDate && x.BookBookdate <= searchByDate.toDate);
+            if (searchByDate.type.Equals("Checkin Date"))
+                predicate = predicate.And(x => x.BookBookdate >= searchByDate.fromDate && x.BookBookdate <= searchByDate.toDate);
+            if (searchByDate.type.Equals("Checkout Date"))
+                predicate = predicate.And(x => x.BookBookdate >= searchByDate.fromDate && x.BookBookdate <= searchByDate.toDate);
+
+            IQueryable<Booking> query = _appDbContext.Bookings
+                              .Where(predicate);
+            switch (orderBy)
+            {
+                case "None": break;
+                case "Total Price Asc": query = query.OrderBy(x => x.BookTotalprice); break;
+                case "Total Price Desc": query = query.OrderByDescending(x => x.BookTotalprice); break;
+                default: break;
+            }
+
+           totalrows = query.Count();
+            return totalrows;
+        }
+
 
         public int getnextid()
         {

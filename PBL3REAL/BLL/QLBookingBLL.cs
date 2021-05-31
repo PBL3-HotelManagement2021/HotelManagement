@@ -20,8 +20,10 @@ namespace PBL3REAL.BLL
             clientDAL = new ClientDAL();
         }
 
-        public List<BookingVM> findByProperty(int start , int length , Dictionary<string,CalendarVM>searchDate , string search , string orderBy)
+        public List<BookingVM> findByProperty(int pages , int rows ,CalendarVM searchDate , string search , string orderBy)
         {
+            int start = (pages - 1) * rows;
+            int length = rows;
             List<BookingVM> listVM = new List<BookingVM>();
             foreach (Booking val in _bookingDAL.findByProperty(start,length,searchDate,search,orderBy))
             {
@@ -78,6 +80,21 @@ namespace PBL3REAL.BLL
             {
                 throw;
             }
+        }
+
+        public int getPagination(int rows , CalendarVM searchByDate, string orderBy, string search)
+        {
+            int totalRows = _bookingDAL.getTotalRow(searchByDate, orderBy, search);
+            int totalpage;
+            if (totalRows % rows == 0)
+            {
+                totalpage = totalRows / rows;
+            }
+            else
+            {
+                totalpage = totalRows / rows + 1;
+            }
+            return totalpage;
         }
 
         public void updateBooking(BookingDetailVM bookingDetailVM, List<int> listdel,List<int>listOld)

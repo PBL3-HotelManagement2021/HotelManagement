@@ -22,13 +22,20 @@ namespace PBL3REAL.View
         private QLBookingBLL bookingBLL;
         private RoomBLL roomBLL;
         private RoomTypeBLL roomTypeBLL;
+        private readonly int ROWS = 5;
 
         //-> Parameter for Booking
         private int BookingCurrentPage = 1;
+        private int totalBookingPages = 0;
+        private string bookingSearch = "";
+        private CalendarVM searchByDate;
+        private string bookOrderBy = "None";
+
+
+
 
         //-> Parameter for Room 
-        private readonly int ROWS = 5;
-        private int totalPages = 0;
+        private int totalRoomPages = 0;
         private string nameSearch = "";
         private int idRoomTypeSearch = 0;
         private int roomActivate = 0;
@@ -45,7 +52,6 @@ namespace PBL3REAL.View
             roomTypeBLL = new RoomTypeBLL();
             bookingBLL = new QLBookingBLL();
             /*** Load Data & Set GUI ***/
-            LoadBookingList(1);
             AddCbbRoomFilter();
             LoadRoomList();
             LoadRoomTypeList();
@@ -62,6 +68,12 @@ namespace PBL3REAL.View
             }
             tb_RoomPageNumber.Text = "";
             tb_BookingPageNumber.Text = BookingCurrentPage.ToString();
+
+
+            /****Booking****/
+            LoadCbbBookingSearch();
+            LoadBookingSort();
+            searchByDate = new CalendarVM();
         }
         /***** GENERAL *****/
         //-> General Functions
@@ -72,20 +84,51 @@ namespace PBL3REAL.View
         }
         /***** BOOKING *****/
         //-> Booking Functions
-        private void LoadBookingList(int PageIndex)
+        private void LoadBookingList()
         {
-            Dictionary<string, CalendarVM> searchByDate = new Dictionary<string, CalendarVM>();
-            CalendarVM calendarVM = new CalendarVM
-            {
-                fromDate = Convert.ToDateTime("2021-05-01"),
-                toDate = Convert.ToDateTime("2021-06-01")
-            };
-            searchByDate.Add("Checkin Date", calendarVM);
+           
             dgv_Booking.DataSource = null;
-            dgv_Booking.DataSource = bookingBLL.findByProperty(PageIndex, 10,searchByDate,"", "Total Price Desc");
+            dgv_Booking.DataSource = bookingBLL.findByProperty(BookingCurrentPage, ROWS,searchByDate, bookingSearch, bookOrderBy);
             dgv_Booking.Columns["BookDeposit"].Visible = false;
             dgv_Booking.Columns["IdBook"].Visible = false;
             dgv_Booking.Columns["BookNote"].Visible = false;
+        }
+
+        public void searchBookData()
+        {
+            bookingSearch = tb_BookingSearch.Text;
+            bookOrderBy = cbb_BookingSort.SelectedItem.ToString();
+            searchByDate.type = cbb_BookingSearchFilter.SelectedItem.ToString();
+            searchByDate.fromDate = dtp_BookingFrom.Value;
+            searchByDate.toDate = dtp_BookingTo.Value;
+            BookingCurrentPage = 1;
+            totalBookingPages = bookingBLL.getPagination(ROWS, searchByDate, bookOrderBy, bookingSearch);
+            if (totalBookingPages != 0)
+            {
+                tb_BookingPageNumber.Text = BookingCurrentPage + "/" + totalBookingPages;
+                LoadBookingList();
+            }
+            else
+            {
+                tb_BookingPageNumber.Text = "0/0";
+                dgv_Booking.DataSource = null;
+            }
+        }
+
+        private void LoadCbbBookingSearch()
+        {
+            /*cbb_BookingSearchFilter.Items.AddRange(new string[]
+                    { "Processed","Completed","Checkin","Payed" }
+            );
+            cbb_BookingSearchFilter.SelectedIndex = 1;*/
+        }
+
+        private void LoadBookingSort()
+        {
+            cbb_BookingSort.Items.AddRange(new string[]
+                    {"None", "Total Price Asc","Total Price Desc" }
+            );
+            cbb_BookingSort.SelectedIndex = 1;
         }
         private int CheckBookingData()
         {
@@ -96,10 +139,6 @@ namespace PBL3REAL.View
             if (dtp_BookingFrom.Value > dtp_BookingTo.Value)
             {
                 return 2;
-            }
-            if (tb_BookingSearch.Text == "")
-            {
-                return 3;
             }
             return 0;
         }
@@ -183,34 +222,32 @@ namespace PBL3REAL.View
                 case 2:
                     MessageBox.Show("Dữ liệu thời gian bạn nhập chưa phù hợp!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
-                case 3:
-                    MessageBox.Show("Bạn chưa nhập từ khóa tìm kiếm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    break;
                 default:
                     //Gọi hàm tìm kiếm booking
+                    searchBookData();
                     break;
             }
         }
         private void picbx_BookingRefresh_Click(object sender, EventArgs e)
         {
-            LoadBookingList(BookingCurrentPage);
+    //        searchBookData();
         }
         private void btn_BookingPrevPage_Click(object sender, EventArgs e)
         {
             if (BookingCurrentPage > 1)
             {
                 BookingCurrentPage -= 1;
-                LoadBookingList(BookingCurrentPage);
-                tb_BookingPageNumber.Text = BookingCurrentPage.ToString();
+                LoadBookingList();
+                tb_BookingPageNumber.Text = BookingCurrentPage+"/"+totalBookingPages;
             }
         }
         private void btn_BookingNextPage_Click(object sender, EventArgs e)
         {
-            if (BookingCurrentPage < 10) //Thay 10 thanh ham get total booking record 
+            if (BookingCurrentPage < totalBookingPages) //Thay 10 thanh ham get total booking record 
             {
                 BookingCurrentPage += 1;
-                LoadBookingList(BookingCurrentPage);
-                tb_BookingPageNumber.Text = BookingCurrentPage.ToString();
+                LoadBookingList();
+                tb_BookingPageNumber.Text = BookingCurrentPage + "/" + totalBookingPages;
             }
         }
         /***** ROOM *****/
@@ -253,9 +290,9 @@ namespace PBL3REAL.View
             nameSearch = tb_RoomSearch.Text;
             roomActivate = cbb_RoomActive.SelectedIndex;
             RoomCurrentPage = 1;
-            totalPages = roomBLL.getPagination(ROWS, idRoomTypeSearch, nameSearch,roomActivate);
+            totalRoomPages = roomBLL.getPagination(ROWS, idRoomTypeSearch, nameSearch,roomActivate);
             LoadRoomList();
-            if (totalPages != 0) tb_RoomPageNumber.Text = RoomCurrentPage + "/" + totalPages;
+            if (totalRoomPages != 0) tb_RoomPageNumber.Text = RoomCurrentPage + "/" + totalRoomPages;
             else tb_RoomPageNumber.Text = "0/0";
         }
         //-> Room Events
@@ -352,18 +389,18 @@ namespace PBL3REAL.View
                 RoomCurrentPage -= 1;
               
                 LoadRoomList();
-                tb_RoomPageNumber.Text = RoomCurrentPage + "/" + totalPages;
+                tb_RoomPageNumber.Text = RoomCurrentPage + "/" + totalRoomPages;
             }
         }
         private void btn_RoomNextPage_Click(object sender, EventArgs e)
         {
         
-            if (RoomCurrentPage < totalPages)
+            if (RoomCurrentPage < totalRoomPages)
             {
                 // dgv_Room.DataSource = roomBLL.findByProperty(RoomCurrentPage + 1, 10, 0, "");
                 RoomCurrentPage += 1;
                 LoadRoomList();              
-                tb_RoomPageNumber.Text = RoomCurrentPage+"/"+ totalPages;
+                tb_RoomPageNumber.Text = RoomCurrentPage+"/"+ totalRoomPages;
             }
         }
         private void dgv_Room_SelectionChanged(object sender, EventArgs e)
