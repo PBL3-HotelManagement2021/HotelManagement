@@ -275,7 +275,7 @@ namespace PBL3REAL.View
         }
         private void picbx_Enter_Click(object sender, EventArgs e)
         {
-  /*          dgv.DataSource = new List<SubBookingDetailVM>();*/
+            dgv.DataSource = new List<SubBookingDetailVM>();
             LoadAvailableTempRoomList(((CbbItem)cbb_RoomType.SelectedItem).Value,dtp_From.Value,dtp_To.Value);
         }
         private void picbx_Add_Click(object sender, EventArgs e)
@@ -288,7 +288,7 @@ namespace PBL3REAL.View
                         {
                          
                             BoodetPrice = Convert.ToInt32(result.RotyCurrentprice),
-                   /*         BooDetNote = item.RoomDescription,*/
+                            //BooDetNote = item.RoomDescription,
                             BoodetIdroom = result.IdRoom,
                             BoodetRoTyCode = result.RotyCode,
                             RoomName = result.RoomName,
@@ -297,8 +297,7 @@ namespace PBL3REAL.View
                              storeDelRoom.Add(result);
                              listForCbb.Remove(result);
                              LoadCbbRoom();
-
-                            LoadBookedRoomList();
+                             LoadBookedRoomList();
             }    
         }
         private void picbx_Delete_Click(object sender, EventArgs e)
@@ -366,14 +365,12 @@ namespace PBL3REAL.View
         {
             this.Dispose();
         }
-
         private void dtp_To_ValueChanged(object sender, EventArgs e)
         {
             subBookings.Clear();
             storeDelRoom.Clear();
             cbb_Room.DataSource = null;
         }
-
         private void dtp_From_ValueChanged(object sender, EventArgs e)
         {
             subBookings.Clear();

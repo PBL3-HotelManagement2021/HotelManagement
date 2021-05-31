@@ -136,7 +136,6 @@ namespace HotelManagement.View
             statusTimeVM.StaName = ((CbbItem)cbb_RoomStatus.SelectedItem).text;
             roomDetailVM.ListStatusTime.Add(statusTimeVM);
             addDataGridView();
-            dgv.Rows.Add(dtp_From.Value, dtp_To.Value, ((CbbItem)cbb_RoomStatus.SelectedItem).Value);
         }
 
         private void btn_Delete_Click(object sender, EventArgs e)
