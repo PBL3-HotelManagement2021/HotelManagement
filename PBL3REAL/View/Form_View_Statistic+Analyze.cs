@@ -86,9 +86,27 @@ namespace PBL3REAL.View
             public int len;
         }
         //-> Functions
-        private void StatisticExportto()
+        private void StatisticExporttoImage()
         {
+            string path = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + "\\Statistic";
+            this.chart1.SaveImage(path + "\\Image" + "\\" + DateTime.Now.Year.ToString() 
+                + "-" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Day.ToString() + "-" + DateTime.Now.Hour.ToString()
+                + "-" + DateTime.Now.Minute.ToString() + "-" + DateTime.Now.Second.ToString() + " --- chart.png", ChartImageFormat.Png);
+            //Resize DataGridView to full height.
+            int height = dgv_Statistic.Height;
+            dgv_Statistic.Height = dgv_Statistic.RowCount * dgv_Statistic.RowTemplate.Height;
 
+            //Create a Bitmap and draw the DataGridView on it.
+            Bitmap bitmap = new Bitmap(this.dgv_Statistic.Width, this.dgv_Statistic.Height);
+            dgv_Statistic.DrawToBitmap(bitmap, new System.Drawing.Rectangle(0, 0, this.dgv_Statistic.Width, this.dgv_Statistic.Height));
+
+            //Resize DataGridView back to original height.
+            dgv_Statistic.Height = height;
+
+            //Save the Bitmap to folder.
+            bitmap.Save(path + "\\Image" + "\\" + DateTime.Now.Year.ToString()
+                + "-" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Day.ToString() + "-" + DateTime.Now.Hour.ToString()
+                + "-" + DateTime.Now.Minute.ToString() + "-" + DateTime.Now.Second.ToString() + " --- DataList.png");
         }
         private void StatisticExportToExcel()
         {
@@ -160,6 +178,7 @@ namespace PBL3REAL.View
         private void btn_StatisticExportToImage_Click(object sender, EventArgs e)
         {
             //Export to Image
+            StatisticExporttoImage();
         }
 
         //---- Analyze -----//
