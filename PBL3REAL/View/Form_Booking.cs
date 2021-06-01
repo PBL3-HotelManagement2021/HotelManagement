@@ -15,7 +15,7 @@ using System.Linq;
 
 namespace PBL3REAL.View
 {
-    public partial class Form_Booking : Form
+    public partial class Form_Detail_Room : Form
     {
         //Declaration
         private QLBookingBLL BookingBLL;
@@ -29,7 +29,7 @@ namespace PBL3REAL.View
         private List<AvailableRoomVM> storeDelRoom;
         private List<AvailableRoomVM> listForCbb;
        
-        public Form_Booking(int IdBook, bool Editable)
+        public Form_Detail_Room(int IdBook, bool Editable)
         {
             InitializeComponent();
             BookingBLL = new QLBookingBLL();
@@ -318,9 +318,27 @@ namespace PBL3REAL.View
                 MessageBox.Show("Bạn chưa chọn hoặc chọn nhiều hơn một phòng để xóa khỏi đơn booking", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void dtp_To_ValueChanged(object sender, EventArgs e)
+        {
+            subBookings.Clear();
+            storeDelRoom.Clear();
+            cbb_Room.DataSource = null;
+        }
+        private void dtp_From_ValueChanged(object sender, EventArgs e)
+        {
+            subBookings.Clear();
+            storeDelRoom.Clear();
+            cbb_Room.DataSource = null;
+        }
+
+        private void btn_Cancel_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
         private void btn_OK_Click(object sender, EventArgs e)
         {
-            switch(CheckData())
+            switch (CheckData())
             {
                 case 1:
                     MessageBox.Show("Bạn chưa nhập đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -339,7 +357,7 @@ namespace PBL3REAL.View
                         if (dtp_From.Value == detailVM.BookCheckindate && dtp_To.Value == detailVM.BookCheckoutdate)
                         {
                             UpdateBooking(false);
-                        }    
+                        }
                         else
                         {
                             UpdateBooking(true);
@@ -347,35 +365,7 @@ namespace PBL3REAL.View
                         MessageBox.Show("Đã cập nhật thành công đơn booking!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     break;
-            }    
-        }
-        private void btn_Reset_Click(object sender, EventArgs e)
-        {
-            //Reset data
-        }
-        private void btn_Checkin_Click(object sender, EventArgs e)
-        {
-            //Checkin
-        }
-        private void btn_Invoice_Click(object sender, EventArgs e)
-        {
-            //Export to invoice
-        }
-        private void btn_Cancel_Click(object sender, EventArgs e)
-        {
-            this.Dispose();
-        }
-        private void dtp_To_ValueChanged(object sender, EventArgs e)
-        {
-            subBookings.Clear();
-            storeDelRoom.Clear();
-            cbb_Room.DataSource = null;
-        }
-        private void dtp_From_ValueChanged(object sender, EventArgs e)
-        {
-            subBookings.Clear();
-            storeDelRoom.Clear();
-            cbb_Room.DataSource = null;
+            }
         }
     }
 }

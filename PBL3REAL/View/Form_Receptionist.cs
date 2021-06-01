@@ -148,7 +148,7 @@ namespace PBL3REAL.View
             DataGridViewSelectedRowCollection r = dgv_Booking.SelectedRows;
             if (r.Count == 1)
             {
-                Form_Booking f = new Form_Booking(int.Parse(r[0].Cells["IdBook"].Value.ToString()), false);
+                Form_Detail_Room f = new Form_Detail_Room(int.Parse(r[0].Cells["IdBook"].Value.ToString()), false);
                 this.Hide();
                 f.ShowDialog();
                 this.Show();
@@ -164,7 +164,7 @@ namespace PBL3REAL.View
         }
         private void btn_BookingAdd_Click(object sender, EventArgs e)
         {
-            Form_Booking f = new Form_Booking(0, true);
+            Form_Detail_Room f = new Form_Detail_Room(0, true);
             this.Hide();
             f.ShowDialog();
             this.Show();
@@ -175,7 +175,7 @@ namespace PBL3REAL.View
             DataGridViewSelectedRowCollection r = dgv_Booking.SelectedRows;
             if (r.Count == 1)
             {
-                Form_Booking f = new Form_Booking(int.Parse(r[0].Cells["IdBook"].Value.ToString()), true);
+                Form_Detail_Room f = new Form_Detail_Room(int.Parse(r[0].Cells["IdBook"].Value.ToString()), true);
                 this.Hide();
                 f.ShowDialog();
                 this.Show();
@@ -301,9 +301,9 @@ namespace PBL3REAL.View
             DataGridViewSelectedRowCollection r = dgv_Room.SelectedRows;
             if (r.Count == 1)
             {
-                Form_Detail_Room f = new Form_Detail_Room(int.Parse(r[0].Cells["IdRoom"].Value.ToString()), false);
+                HotelManagement.View.Form_Detail_Room f = new HotelManagement.View.Form_Detail_Room(int.Parse(r[0].Cells["IdRoom"].Value.ToString()), false);
                 this.Hide();
-                f.myDel = new Form_Detail_Room.MyDel(ReloadRoomData);
+                f.myDel = new HotelManagement.View.Form_Detail_Room.MyDel(ReloadRoomData);
                 f.ShowDialog();
                 this.Show();
             }
@@ -318,9 +318,9 @@ namespace PBL3REAL.View
         }
         private void btn_RoomAdd_Click(object sender, EventArgs e)
         {
-            Form_Detail_Room f = new Form_Detail_Room(0, true);
+            HotelManagement.View.Form_Detail_Room f = new HotelManagement.View.Form_Detail_Room(0, true);
             this.Hide();
-            f.myDel = new Form_Detail_Room.MyDel(ReloadRoomData);
+            f.myDel = new HotelManagement.View.Form_Detail_Room.MyDel(ReloadRoomData);
             f.ShowDialog();
             this.Show();
         }
@@ -329,9 +329,9 @@ namespace PBL3REAL.View
             DataGridViewSelectedRowCollection r = dgv_Room.SelectedRows;
             if (r.Count == 1)
             {
-                Form_Detail_Room f = new Form_Detail_Room(int.Parse(r[0].Cells["IdRoom"].Value.ToString()), true);
+                HotelManagement.View.Form_Detail_Room f = new HotelManagement.View.Form_Detail_Room(int.Parse(r[0].Cells["IdRoom"].Value.ToString()), true);
                 this.Hide();
-                f.myDel = new Form_Detail_Room.MyDel(ReloadRoomData);
+                f.myDel = new HotelManagement.View.Form_Detail_Room.MyDel(ReloadRoomData);
                 f.ShowDialog();
                 this.Show();
                 //Reload Data
