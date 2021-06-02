@@ -146,9 +146,10 @@ namespace HotelManagement.DAL.Implement
                                      {
                                          RoomName = room.RoomName,
                                          RoomIdroomtypeNavigation = new RoomType() {
+                                         RotyName = roty.RotyName,
                                          RotyCurrentprice = bkdt.BoodetPrice
                                          }
-                                     }).ToList();
+                                     }).AsNoTracking().ToList();
          
             return joinResult;
         }

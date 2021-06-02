@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using HotelManagement.DAL.Implement;
 using PBL3REAL.DAL;
 using PBL3REAL.Model;
 using PBL3REAL.ViewModel;
@@ -12,12 +13,14 @@ namespace PBL3REAL.BLL
     {
         private BookingDAL _bookingDAL;
         private ClientDAL clientDAL;
+        private RoomDAL _roomDAL; 
         private Mapper mapper;
         public QLBookingBLL()
         {
             _bookingDAL = new BookingDAL();
             mapper = new Mapper(MapperVM.config);
             clientDAL = new ClientDAL();
+            _roomDAL = new RoomDAL();
         }
 
         public List<BookingVM> findByProperty(int pages , int rows ,CalendarVM searchDate , string search , string orderBy, string status)
@@ -40,15 +43,20 @@ namespace PBL3REAL.BLL
         {
             try
             {
+                int i = 0;
                 Booking booking = _bookingDAL.findById(id);
+                List<Room>listRoom =  _roomDAL.findByIdBook(id);
                 BookingDetailVM result = mapper.Map<BookingDetailVM>(booking);
                 result.clientVM = mapper.Map<ClientVM>(booking.BookIdclientNavigation);
                 foreach (BookingDetail val in booking.BookingDetails)
                 {
                     SubBookingDetailVM subBookingDetailVM = mapper.Map<SubBookingDetailVM>(val);
-/*                    subBookingDetailVM.IdRoomType = val.BoodetIdroomNavigation.RoomIdroomtype;*/
+                    subBookingDetailVM.RoomName = listRoom[i].RoomName;
+                    subBookingDetailVM.RoomType = listRoom[i].RoomIdroomtypeNavigation.RotyName;               
+                    i++;
                     result.ListSub.Add(subBookingDetailVM);
                 }
+ 
                 return result;
             }
             catch (Exception)
@@ -97,14 +105,15 @@ namespace PBL3REAL.BLL
             return totalpage;
         }
 
-        public void updateBooking(BookingDetailVM bookingDetailVM, List<int> listdel,List<int>listOld)
+        public void updateBooking1( BookingDetailVM bookingDetailVM, List<int> listDel,List<int>listOld)
         {
+            Client client = new Client();
             Booking booking = new Booking();
             mapper.Map(bookingDetailVM, booking);
+            mapper.Map(bookingDetailVM.clientVM, client);
             booking.BookIdclient = bookingDetailVM.clientVM.IdClient;
-            booking.BookIduser = 2;         //user se dc luu o tang BLL khi dang nhap 
+            booking.BookIduser = QLUserBLL.stoUser.IdUser;         //user se dc luu o tang BLL khi dang nhap 
             List<BookingDetail> listadd = new List<BookingDetail>();
-
             foreach (SubBookingDetailVM valVM in bookingDetailVM.ListSub)
             {
                 BookingDetail bookingDetail = new BookingDetail();
@@ -122,10 +131,11 @@ namespace PBL3REAL.BLL
           
             try
             {
+                clientDAL.update(client);
                 _bookingDAL.updateBooking(booking);
                 if (listOld.Count == 0)
                 {   
-                    _bookingDAL.delBookingDetail(listOld);
+                    _bookingDAL.delBookingDetail(listDel);
                     if (listadd.Count != 0) _bookingDAL.addBookingDetail(listadd);
                 }
                 else
@@ -141,14 +151,43 @@ namespace PBL3REAL.BLL
             }
         }
 
+        public void updateBooking(BookingDetailVM bookingDetailVM, List<int> listDel)
+        {
+            Client client = new Client();
+            Booking booking = new Booking();
+            mapper.Map(bookingDetailVM, booking);
+            mapper.Map(bookingDetailVM.clientVM, client);
+            booking.BookIdclient = bookingDetailVM.clientVM.IdClient;
+            booking.BookIduser = QLUserBLL.stoUser.IdUser;         //user se dc luu o tang BLL khi dang nhap 
+            List<BookingDetail> listadd = new List<BookingDetail>();
+            foreach (SubBookingDetailVM valVM in bookingDetailVM.ListSub)
+            {
+                BookingDetail bookingDetail = new BookingDetail();
+                mapper.Map(valVM, bookingDetail);
+                bookingDetail.BoodetIdbook = booking.IdBook;
+                if (bookingDetail.IdBoodet == 0) listadd.Add(bookingDetail);
+            }
 
+            try
+            {
+                clientDAL.update(client);               
+                if(listDel.Count!=0) _bookingDAL.delBookingDetail(listDel);
+                _bookingDAL.updateBooking(booking);
+                if (listadd.Count != 0) _bookingDAL.addBookingDetail(listadd);            
+            }
+            catch (Exception e)
+            {
+                /*  Console.WriteLine(e.Message);*/
+                throw;
+            }
+        }
 
         public void addBooking(BookingDetailVM result)
         {
             int idBook = _bookingDAL.getnextid();
             Booking booking = new Booking();
             mapper.Map(result, booking);
-            booking.BookIduser = 1;
+            booking.BookIduser = QLUserBLL.stoUser.IdUser;
             Client client = new Client();
             mapper.Map(result.clientVM, client);
             List<BookingDetail> listadd = new List<BookingDetail>();
@@ -162,6 +201,7 @@ namespace PBL3REAL.BLL
             try
             {
                 if (client.IdClient == 0) booking.BookIdclient = clientDAL.add(client);
+                else booking.BookIdclient = client.IdClient;
                 _bookingDAL.addBooking(booking);
                 _bookingDAL.addBookingDetail(listadd);
             }

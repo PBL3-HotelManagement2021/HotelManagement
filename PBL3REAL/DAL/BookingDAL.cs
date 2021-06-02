@@ -24,7 +24,7 @@ namespace PBL3REAL.DAL
             var predicate = PredicateBuilder.True<Booking>();
             if (search != "") 
                predicate = predicate.And(x => x.BookCode.Contains(search) || x.BookIdclientNavigation.CliCode.Contains(search) || x.BookIduserNavigation.UserCode.Contains(search));
-            if (searchByDate.type.Equals("Booking Date"))
+            if (searchByDate.type.Equals("Booked Date"))
             {
                 predicate = predicate.And(x => x.BookBookdate >= searchByDate.fromDate && x.BookBookdate <= searchByDate.toDate);
             }
@@ -124,14 +124,9 @@ namespace PBL3REAL.DAL
 
         public void delBooking(int idbook)
         {
-
-            /* List<Booking> list = new List<Booking>();
-             foreach (int id in listdel)
-             {
-
-                 list.Add(booking);
-             }*/
-            Booking booking = _appDbContext.Bookings.Find(idbook);
+            Booking booking = _appDbContext.Bookings.Where(x =>x.IdBook == idbook).Include(x => x.BookingDetails).SingleOrDefault();
+            _appDbContext.RemoveRange(booking.BookingDetails);
+            _appDbContext.SaveChanges();
             _appDbContext.Remove(booking);
             _appDbContext.SaveChanges();
           
@@ -141,9 +136,9 @@ namespace PBL3REAL.DAL
             List<BookingDetail> list = new List<BookingDetail>();
             foreach(int id in listdel_detail)
             {
-                BookingDetail bookingDetail = _appDbContext.BookingDetails.Find(id);
+                BookingDetail bookingDetail = _appDbContext.BookingDetails.Where(x =>x.IdBoodet == id).AsNoTracking().FirstOrDefault();
                 list.Add(bookingDetail);
-                _appDbContext.Entry(bookingDetail).State = EntityState.Detached;
+              
             }
             AppDbContext.Instance.BookingDetails.RemoveRange(list);
             AppDbContext.Instance.SaveChanges();

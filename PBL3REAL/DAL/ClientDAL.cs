@@ -22,6 +22,14 @@ namespace PBL3REAL.DAL
             _appDbContext.SaveChanges();
             return client.IdClient;
         }
+        public int update(Client client)
+        {
+            client.CliActiveflag = true;
+            _appDbContext.Clients.Update(client);
+            _appDbContext.SaveChanges();
+            return client.IdClient;
+        }
+
 
         public List<Client> findByProperty(Dictionary<string, string> properties)
         {

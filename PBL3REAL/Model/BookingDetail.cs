@@ -14,6 +14,7 @@ namespace PBL3REAL.Model
         [Key]
         [Column("id_boodet")]
         public int IdBoodet { get; set; }
+
         
         [Column("boodet_price")]
         public int BoodetPrice { get; set; }
@@ -25,9 +26,7 @@ namespace PBL3REAL.Model
         [Column("boodet_idroomtype")]
         public string BoodetRoTyCode { get; set; }
 
-        [Column("boodet_note")]
-        [StringLength(200)]
-        public string BooDetNote { get; set; }
+       
 
         [ForeignKey(nameof(BoodetIdbook))]
         [InverseProperty(nameof(Booking.BookingDetails))]

@@ -207,6 +207,7 @@ namespace PBL3REAL.View
             // rbtn_OldClient
             // 
             this.rbtn_OldClient.AutoSize = true;
+            this.rbtn_OldClient.Enabled = false;
             this.rbtn_OldClient.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.rbtn_OldClient.Location = new System.Drawing.Point(112, 2);
             this.rbtn_OldClient.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -216,11 +217,11 @@ namespace PBL3REAL.View
             this.rbtn_OldClient.TabStop = true;
             this.rbtn_OldClient.Text = "Từng đặt phòng";
             this.rbtn_OldClient.UseVisualStyleBackColor = true;
-            this.rbtn_OldClient.CheckedChanged += new System.EventHandler(this.rbtn_OldClient_CheckedChanged);
             // 
             // rbtn_NewClient
             // 
             this.rbtn_NewClient.AutoSize = true;
+            this.rbtn_NewClient.Enabled = false;
             this.rbtn_NewClient.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.rbtn_NewClient.Location = new System.Drawing.Point(3, 2);
             this.rbtn_NewClient.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -230,7 +231,6 @@ namespace PBL3REAL.View
             this.rbtn_NewClient.TabStop = true;
             this.rbtn_NewClient.Text = "Mới";
             this.rbtn_NewClient.UseVisualStyleBackColor = true;
-            this.rbtn_NewClient.CheckedChanged += new System.EventHandler(this.rbtn_NewClient_CheckedChanged);
             // 
             // tb_ClientName
             // 
@@ -354,7 +354,7 @@ namespace PBL3REAL.View
             this.tbllaypn_RoomList.ColumnCount = 3;
             this.tbllaypn_RoomList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.9916F));
             this.tbllaypn_RoomList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.0084F));
-            this.tbllaypn_RoomList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 52F));
+            this.tbllaypn_RoomList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 53F));
             this.tbllaypn_RoomList.Controls.Add(this.picbx_Add, 2, 1);
             this.tbllaypn_RoomList.Controls.Add(this.picbx_Enter, 2, 0);
             this.tbllaypn_RoomList.Controls.Add(this.lb_Room, 0, 1);
@@ -373,7 +373,7 @@ namespace PBL3REAL.View
             // picbx_Add
             // 
             this.picbx_Add.Image = global::PBL3REAL.Properties.Resources.add_fluent_color_48px;
-            this.picbx_Add.Location = new System.Drawing.Point(412, 40);
+            this.picbx_Add.Location = new System.Drawing.Point(411, 40);
             this.picbx_Add.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.picbx_Add.Name = "picbx_Add";
             this.picbx_Add.Size = new System.Drawing.Size(40, 34);
@@ -384,7 +384,7 @@ namespace PBL3REAL.View
             // picbx_Enter
             // 
             this.picbx_Enter.Image = global::PBL3REAL.Properties.Resources.scroll_down_fluent_color_48px;
-            this.picbx_Enter.Location = new System.Drawing.Point(412, 2);
+            this.picbx_Enter.Location = new System.Drawing.Point(411, 2);
             this.picbx_Enter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.picbx_Enter.Name = "picbx_Enter";
             this.picbx_Enter.Size = new System.Drawing.Size(40, 34);
@@ -428,7 +428,7 @@ namespace PBL3REAL.View
             this.cbb_RoomType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbb_RoomType.MaxDropDownItems = 10;
             this.cbb_RoomType.Name = "cbb_RoomType";
-            this.cbb_RoomType.Size = new System.Drawing.Size(285, 29);
+            this.cbb_RoomType.Size = new System.Drawing.Size(284, 29);
             this.cbb_RoomType.TabIndex = 6;
             // 
             // cbb_Room
@@ -443,7 +443,7 @@ namespace PBL3REAL.View
             this.cbb_Room.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbb_Room.MaxDropDownItems = 10;
             this.cbb_Room.Name = "cbb_Room";
-            this.cbb_Room.Size = new System.Drawing.Size(285, 29);
+            this.cbb_Room.Size = new System.Drawing.Size(284, 29);
             this.cbb_Room.TabIndex = 7;
             // 
             // tbllaypn_FromTo

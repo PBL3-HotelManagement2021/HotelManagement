@@ -185,8 +185,10 @@ namespace PBL3REAL.View
             DataGridViewSelectedRowCollection r = dgv_Booking.SelectedRows;
             if (r.Count == 1)
             {
-                //bookingBLL.delBooking(int.Parse(r[0].Cells["IdBook"].Value.ToString()), r[0].Cells["BookStatus"].Value.ToString());
-                //Reload Data
+                bookingBLL.delBooking(int.Parse(r[0].Cells["IdBook"].Value.ToString()), r[0].Cells["BookStatus"].Value.ToString());
+                searchBookData();
+
+
             }
             else if (r.Count == 0)
             {

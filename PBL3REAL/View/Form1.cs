@@ -192,7 +192,6 @@ namespace PBL3REAL
             List<int> listdel = new List<int>();
             SubBookingDetailVM sub1 = new SubBookingDetailVM
             {
-                BooDetNote = "Helllworllddddd",
                 BoodetPrice = 1000000,
                 BoodetIdroom = 3,
                 BoodetRoTyCode = "TYP00004" 
@@ -202,7 +201,7 @@ namespace PBL3REAL
             BookingDetailVM bookingDetailVM = bookingBLL.getDetail(1);
             bookingDetailVM.BookNote = "ProYesssVip";
             bookingDetailVM.ListSub.Add(sub1);
-            bookingBLL.updateBooking(bookingDetailVM, listdel, listOld);
+      //      bookingBLL.updateBooking(bookingDetailVM, listdel, listOld);
         }
 
         //truong hop thay doi fromDate va toDate
@@ -224,20 +223,20 @@ namespace PBL3REAL
             //b3 them SubBookingDetailVm ms vao
             SubBookingDetailVM sub1 = new SubBookingDetailVM
             {
-                BooDetNote = "TestUpdate",
+   
                 BoodetPrice = 2000000,
                 BoodetIdroom = 3,
                 BoodetRoTyCode = "TYP00004"
             };
 
             bookingDetailVM.ListSub.Add(sub1);
-            bookingBLL.updateBooking(bookingDetailVM, null, listOld);
+         //   bookingBLL.updateBooking(bookingDetailVM, null, listOld);
         }
         public void addBooking()
         {
             SubBookingDetailVM sub = new SubBookingDetailVM
             {
-                BooDetNote = "None",
+    
                 BoodetPrice =1000000,
                 BoodetIdroom =1,
                 BoodetRoTyCode = "TYP00002"
