@@ -30,6 +30,7 @@ namespace PBL3REAL.View
         private string bookingSearch = "";
         private CalendarVM searchByDate;
         private string bookOrderBy = "None";
+        private string bookStatus = "";
 
 
 
@@ -67,13 +68,15 @@ namespace PBL3REAL.View
                 btn_RoomTypeDelete.Enabled = false;
             }
             tb_RoomPageNumber.Text = "";
-            tb_BookingPageNumber.Text = BookingCurrentPage.ToString();
+            
 
 
             /****Booking****/
-            LoadCbbBookingSearch();
-            LoadBookingSort();
+            cbb_BookingSearchFilter.SelectedIndex = 0;
+            cbb_BookingSort.SelectedIndex = 0;
+            cbb_BookingStatus.SelectedIndex = 0;
             searchByDate = new CalendarVM();
+            tb_BookingPageNumber.Text = "0/0";
         }
         /***** GENERAL *****/
         //-> General Functions
@@ -88,7 +91,7 @@ namespace PBL3REAL.View
         {
            
             dgv_Booking.DataSource = null;
-            dgv_Booking.DataSource = bookingBLL.findByProperty(BookingCurrentPage, ROWS,searchByDate, bookingSearch, bookOrderBy);
+            dgv_Booking.DataSource = bookingBLL.findByProperty(BookingCurrentPage, ROWS,searchByDate, bookingSearch, bookOrderBy,bookStatus);
             dgv_Booking.Columns["BookDeposit"].Visible = false;
             dgv_Booking.Columns["IdBook"].Visible = false;
             dgv_Booking.Columns["BookNote"].Visible = false;
@@ -98,11 +101,12 @@ namespace PBL3REAL.View
         {
             bookingSearch = tb_BookingSearch.Text;
             bookOrderBy = cbb_BookingSort.SelectedItem.ToString();
+            bookStatus = cbb_BookingStatus.SelectedItem.ToString();
             searchByDate.type = cbb_BookingSearchFilter.SelectedItem.ToString();
             searchByDate.fromDate = dtp_BookingFrom.Value;
             searchByDate.toDate = dtp_BookingTo.Value;
             BookingCurrentPage = 1;
-            totalBookingPages = bookingBLL.getPagination(ROWS, searchByDate, bookOrderBy, bookingSearch);
+            totalBookingPages = bookingBLL.getPagination(ROWS, searchByDate, bookOrderBy, bookingSearch, bookStatus);
             if (totalBookingPages != 0)
             {
                 tb_BookingPageNumber.Text = BookingCurrentPage + "/" + totalBookingPages;
@@ -115,21 +119,7 @@ namespace PBL3REAL.View
             }
         }
 
-        private void LoadCbbBookingSearch()
-        {
-            /*cbb_BookingSearchFilter.Items.AddRange(new string[]
-                    { "Processed","Completed","Checkin","Payed" }
-            );
-            cbb_BookingSearchFilter.SelectedIndex = 1;*/
-        }
-
-        private void LoadBookingSort()
-        {
-            cbb_BookingSort.Items.AddRange(new string[]
-                    {"None", "Total Price Asc","Total Price Desc" }
-            );
-            cbb_BookingSort.SelectedIndex = 1;
-        }
+     
         private int CheckBookingData()
         {
             if (cbb_BookingSearchFilter.SelectedItem == null)

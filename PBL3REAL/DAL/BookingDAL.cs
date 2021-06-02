@@ -19,11 +19,11 @@ namespace PBL3REAL.DAL
             _appDbContext = new AppDbContext();
         }
 
-        public List<Booking> findByProperty(int start, int length,CalendarVM searchByDate ,string search ,string orderby)
+        public List<Booking> findByProperty(int start, int length,CalendarVM searchByDate ,string search ,string orderby,string status)
         {
             var predicate = PredicateBuilder.True<Booking>();
             if (search != "") 
-               predicate = predicate.And(x => x.BookCode == search || x.BookIdclientNavigation.CliCode == search || x.BookIduserNavigation.UserCode == search);
+               predicate = predicate.And(x => x.BookCode.Contains(search) || x.BookIdclientNavigation.CliCode.Contains(search) || x.BookIduserNavigation.UserCode.Contains(search));
             if (searchByDate.type.Equals("Booking Date"))
             {
                 predicate = predicate.And(x => x.BookBookdate >= searchByDate.fromDate && x.BookBookdate <= searchByDate.toDate);
@@ -42,6 +42,8 @@ namespace PBL3REAL.DAL
             {
                 predicate = predicate.And(x => x.BookBookdate >= searchByDate.fromDate && x.BookBookdate <= searchByDate.toDate);
             }
+            if (status != "All")
+                predicate = predicate.And(x => x.BookStatus == status);
             IQueryable<Booking> query = _appDbContext.Bookings
                                 .Include(x => x.BookIdclientNavigation)
                                 .Include(x => x.BookIduserNavigation)
@@ -173,13 +175,13 @@ namespace PBL3REAL.DAL
             _appDbContext.Entry(booking).State = EntityState.Detached;
         }
 
-        public int getTotalRow(CalendarVM searchByDate, string orderBy , string search)
+        public int getTotalRow(CalendarVM searchByDate, string orderBy , string search , string status)
         {
             int totalrows = 0;
             var predicate = PredicateBuilder.True<Booking>();
             if (search != "")
-                predicate = predicate.And(x => x.BookCode == search || x.BookIdclientNavigation.CliCode == search || x.BookIduserNavigation.UserCode == search);
-            if (searchByDate.type.Equals("Booking Date"))
+                predicate = predicate.And(x => x.BookCode.Contains(search) || x.BookIdclientNavigation.CliCode.Contains(search) || x.BookIduserNavigation.UserCode.Contains(search));
+            if (searchByDate.type.Equals("Booked Date"))
                 predicate = predicate.And(x => x.BookBookdate >= searchByDate.fromDate && x.BookBookdate <= searchByDate.toDate);
             if (searchByDate.type.Equals("Due Date"))
                 predicate = predicate.And(x => x.BookBookdate >= searchByDate.fromDate && x.BookBookdate <= searchByDate.toDate);
@@ -187,7 +189,8 @@ namespace PBL3REAL.DAL
                 predicate = predicate.And(x => x.BookBookdate >= searchByDate.fromDate && x.BookBookdate <= searchByDate.toDate);
             if (searchByDate.type.Equals("Checkout Date"))
                 predicate = predicate.And(x => x.BookBookdate >= searchByDate.fromDate && x.BookBookdate <= searchByDate.toDate);
-
+            if (status != "All")
+                predicate = predicate.And(x => x.BookStatus == status);
             IQueryable<Booking> query = _appDbContext.Bookings
                               .Where(predicate);
             switch (orderBy)
