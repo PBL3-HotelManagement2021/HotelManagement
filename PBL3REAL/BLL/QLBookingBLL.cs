@@ -69,12 +69,12 @@ namespace PBL3REAL.BLL
         {
             try
             {
-                if (!status.Equals("Finish")) _bookingDAL.delBooking(id);
-                else throw new ArgumentException("Completed booking can't be deleted");
+                if (!status.Equals("Processed")) _bookingDAL.delBooking(id);
+                else throw new ArgumentException("Only booking with status 'Processed' can delete");
             }
             catch (Exception)
             {
-                throw;
+                throw new Exception("Error while deleting");
             }
  
         }

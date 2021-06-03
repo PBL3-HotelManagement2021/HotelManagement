@@ -354,7 +354,7 @@ namespace PBL3REAL.View
             this.tbllaypn_RoomList.ColumnCount = 3;
             this.tbllaypn_RoomList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.9916F));
             this.tbllaypn_RoomList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.0084F));
-            this.tbllaypn_RoomList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 53F));
+            this.tbllaypn_RoomList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 54F));
             this.tbllaypn_RoomList.Controls.Add(this.picbx_Add, 2, 1);
             this.tbllaypn_RoomList.Controls.Add(this.picbx_Enter, 2, 0);
             this.tbllaypn_RoomList.Controls.Add(this.lb_Room, 0, 1);
@@ -373,7 +373,7 @@ namespace PBL3REAL.View
             // picbx_Add
             // 
             this.picbx_Add.Image = global::PBL3REAL.Properties.Resources.add_fluent_color_48px;
-            this.picbx_Add.Location = new System.Drawing.Point(411, 40);
+            this.picbx_Add.Location = new System.Drawing.Point(410, 40);
             this.picbx_Add.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.picbx_Add.Name = "picbx_Add";
             this.picbx_Add.Size = new System.Drawing.Size(40, 34);
@@ -384,7 +384,7 @@ namespace PBL3REAL.View
             // picbx_Enter
             // 
             this.picbx_Enter.Image = global::PBL3REAL.Properties.Resources.scroll_down_fluent_color_48px;
-            this.picbx_Enter.Location = new System.Drawing.Point(411, 2);
+            this.picbx_Enter.Location = new System.Drawing.Point(410, 2);
             this.picbx_Enter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.picbx_Enter.Name = "picbx_Enter";
             this.picbx_Enter.Size = new System.Drawing.Size(40, 34);
@@ -428,7 +428,7 @@ namespace PBL3REAL.View
             this.cbb_RoomType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbb_RoomType.MaxDropDownItems = 10;
             this.cbb_RoomType.Name = "cbb_RoomType";
-            this.cbb_RoomType.Size = new System.Drawing.Size(284, 29);
+            this.cbb_RoomType.Size = new System.Drawing.Size(283, 29);
             this.cbb_RoomType.TabIndex = 6;
             // 
             // cbb_Room
@@ -443,7 +443,7 @@ namespace PBL3REAL.View
             this.cbb_Room.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbb_Room.MaxDropDownItems = 10;
             this.cbb_Room.Name = "cbb_Room";
-            this.cbb_Room.Size = new System.Drawing.Size(284, 29);
+            this.cbb_Room.Size = new System.Drawing.Size(283, 29);
             this.cbb_Room.TabIndex = 7;
             // 
             // tbllaypn_FromTo
@@ -879,6 +879,7 @@ namespace PBL3REAL.View
             // 
             this.btn_Checkin.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Checkin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.btn_Checkin.Enabled = false;
             this.btn_Checkin.FlatAppearance.BorderSize = 0;
             this.btn_Checkin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Checkin.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -889,6 +890,7 @@ namespace PBL3REAL.View
             this.btn_Checkin.TabIndex = 0;
             this.btn_Checkin.Text = "Checkin";
             this.btn_Checkin.UseVisualStyleBackColor = false;
+            this.btn_Checkin.Click += new System.EventHandler(this.btn_Checkin_Click);
             // 
             // btn_OK
             // 

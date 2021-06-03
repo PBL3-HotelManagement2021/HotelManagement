@@ -165,11 +165,19 @@ namespace PBL3REAL.View
             DataGridViewSelectedRowCollection r = dgv_Booking.SelectedRows;
             if (r.Count == 1)
             {
-                Form_Detail_Room f = new Form_Detail_Room(int.Parse(r[0].Cells["IdBook"].Value.ToString()), true);
-                this.Hide();
-                f.ShowDialog();
-                this.Show();
-                //Reload Data
+                if(r[0].Cells["IdBook"].Value.ToString() == "Processed")
+                {
+                    Form_Detail_Room f = new Form_Detail_Room(int.Parse(r[0].Cells["IdBook"].Value.ToString()), true);
+                    this.Hide();
+                    f.ShowDialog();
+                    this.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Only booking with status 'Processed' can update");
+                }
+               
+              
             }
             else if (r.Count == 0)
             {
@@ -185,10 +193,22 @@ namespace PBL3REAL.View
             DataGridViewSelectedRowCollection r = dgv_Booking.SelectedRows;
             if (r.Count == 1)
             {
-                bookingBLL.delBooking(int.Parse(r[0].Cells["IdBook"].Value.ToString()), r[0].Cells["BookStatus"].Value.ToString());
-                searchBookData();
-
-
+                if (r[0].Cells["IdBook"].Value.ToString() == "Processed")
+                {
+                    try
+                    {
+                        bookingBLL.delBooking(int.Parse(r[0].Cells["IdBook"].Value.ToString()), r[0].Cells["BookStatus"].Value.ToString());
+                        searchBookData();
+                    }
+                    catch (Exception mes)
+                    {
+                        MessageBox.Show(mes.Message);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Only booking with status 'Processed' can delete");
+                }
             }
             else if (r.Count == 0)
             {
@@ -199,10 +219,7 @@ namespace PBL3REAL.View
                 MessageBox.Show("Chỉ có thể chọn một đơn trong một lần xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void picbx_BookingSort_Click(object sender, EventArgs e)
-        {
-            //Sort by Filter
-        }
+      
         private void picbx_BookingSearch_Click(object sender, EventArgs e)
         {
             //Search 

@@ -140,7 +140,7 @@ namespace PBL3REAL.View
                     picbx_Delete.Enabled = false;
                     btn_OK.Enabled = false;
                     btn_Invoice.Enabled = false;
-                    btn_Checkin.Enabled = false;
+                    btn_Checkin.Enabled = true;
                     btn_Reset.Enabled = false;
 
                 }
@@ -409,6 +409,11 @@ namespace PBL3REAL.View
                     }
                     break;
             }
+        }
+
+        private void btn_Checkin_Click(object sender, EventArgs e)
+        {
+            BookingBLL.completeBooking(IDBook);
         }
     }
 }

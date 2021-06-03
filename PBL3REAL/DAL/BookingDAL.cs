@@ -31,16 +31,16 @@ namespace PBL3REAL.DAL
            
             if (searchByDate.type.Equals("Due Date"))
             {
-                predicate = predicate.And(x => x.BookBookdate >= searchByDate.fromDate && x.BookBookdate <= searchByDate.toDate);
+                predicate = predicate.And(x => x.BookDuedate >= searchByDate.fromDate && x.BookDuedate <= searchByDate.toDate);
             }
           
             if (searchByDate.type.Equals("Checkin Date"))
             {
-                predicate = predicate.And(x => x.BookBookdate >= searchByDate.fromDate && x.BookBookdate <= searchByDate.toDate);
+                predicate = predicate.And(x => x.BookCheckindate >= searchByDate.fromDate && x.BookCheckindate <= searchByDate.toDate);
             }
             if(searchByDate.type.Equals("Checkout Date"))
             {
-                predicate = predicate.And(x => x.BookBookdate >= searchByDate.fromDate && x.BookBookdate <= searchByDate.toDate);
+                predicate = predicate.And(x => x.BookCheckoutdate >= searchByDate.fromDate && x.BookCheckoutdate <= searchByDate.toDate);
             }
             if (status != "All")
                 predicate = predicate.And(x => x.BookStatus == status);
@@ -163,8 +163,8 @@ namespace PBL3REAL.DAL
 
         public void completeBooking(int idbook)
         {
-            Booking booking = AppDbContext.Instance.Bookings.Find(idbook);
-            booking.BookStatus = "Finish";
+            Booking booking = AppDbContext.Instance.Bookings.Where(x =>x.IdBook == idbook).FirstOrDefault();           
+            booking.BookStatus = "Checkin";
             AppDbContext.Instance.Bookings.Update(booking);
             AppDbContext.Instance.SaveChanges();
             _appDbContext.Entry(booking).State = EntityState.Detached;
@@ -179,11 +179,11 @@ namespace PBL3REAL.DAL
             if (searchByDate.type.Equals("Booked Date"))
                 predicate = predicate.And(x => x.BookBookdate >= searchByDate.fromDate && x.BookBookdate <= searchByDate.toDate);
             if (searchByDate.type.Equals("Due Date"))
-                predicate = predicate.And(x => x.BookBookdate >= searchByDate.fromDate && x.BookBookdate <= searchByDate.toDate);
+                predicate = predicate.And(x => x.BookDuedate >= searchByDate.fromDate && x.BookDuedate <= searchByDate.toDate);
             if (searchByDate.type.Equals("Checkin Date"))
-                predicate = predicate.And(x => x.BookBookdate >= searchByDate.fromDate && x.BookBookdate <= searchByDate.toDate);
+                predicate = predicate.And(x => x.BookCheckindate >= searchByDate.fromDate && x.BookCheckindate <= searchByDate.toDate);
             if (searchByDate.type.Equals("Checkout Date"))
-                predicate = predicate.And(x => x.BookBookdate >= searchByDate.fromDate && x.BookBookdate <= searchByDate.toDate);
+                predicate = predicate.And(x => x.BookCheckoutdate >= searchByDate.fromDate && x.BookCheckoutdate <= searchByDate.toDate);
             if (status != "All")
                 predicate = predicate.And(x => x.BookStatus == status);
             IQueryable<Booking> query = _appDbContext.Bookings
