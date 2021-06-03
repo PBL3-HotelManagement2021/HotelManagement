@@ -13,6 +13,7 @@ using HotelManagement.ViewModel;
 using PBL3REAL.ViewModel;
 using PBL3REAL.BLL;
 using PBL3REAL.Extention;
+using PBL3REAL.View;
 namespace PBL3REAL.View
 {
     public partial class Form_Receptionist : Form
@@ -138,7 +139,7 @@ namespace PBL3REAL.View
             DataGridViewSelectedRowCollection r = dgv_Booking.SelectedRows;
             if (r.Count == 1)
             {
-                Form_Detail_Room f = new Form_Detail_Room(int.Parse(r[0].Cells["IdBook"].Value.ToString()), false);
+                Form_Booking f = new Form_Booking(int.Parse(r[0].Cells["IdBook"].Value.ToString()), false);
                 this.Hide();
                 f.ShowDialog();
                 this.Show();
@@ -154,7 +155,7 @@ namespace PBL3REAL.View
         }
         private void btn_BookingAdd_Click(object sender, EventArgs e)
         {
-            Form_Detail_Room f = new Form_Detail_Room(0, true);
+            Form_Booking f = new Form_Booking(0, true);
             this.Hide();
             f.ShowDialog();
             this.Show();
@@ -167,7 +168,7 @@ namespace PBL3REAL.View
             {
                 if(r[0].Cells["IdBook"].Value.ToString() == "Processed")
                 {
-                    Form_Detail_Room f = new Form_Detail_Room(int.Parse(r[0].Cells["IdBook"].Value.ToString()), true);
+                    Form_Booking f = new Form_Booking(int.Parse(r[0].Cells["IdBook"].Value.ToString()), true);
                     this.Hide();
                     f.ShowDialog();
                     this.Show();
@@ -176,8 +177,6 @@ namespace PBL3REAL.View
                 {
                     MessageBox.Show("Only booking with status 'Processed' can update");
                 }
-               
-              
             }
             else if (r.Count == 0)
             {

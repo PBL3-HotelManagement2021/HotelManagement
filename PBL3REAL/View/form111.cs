@@ -15,7 +15,7 @@ using System.Linq;
 
 namespace PBL3REAL.View
 {
-    public partial class Form_Booking : Form
+    public partial class Form_Detail_Room : Form
     {
         //Declaration
         private QLBookingBLL BookingBLL;
@@ -33,7 +33,7 @@ namespace PBL3REAL.View
         private List<int> listOld;
         private List<int> listDel;
 
-        public Form_Booking (int IdBook, bool Editable)
+        public Form_Detail_Room(int IdBook, bool Editable)
         {
             InitializeComponent();
             BookingBLL = new QLBookingBLL();
@@ -127,7 +127,7 @@ namespace PBL3REAL.View
                 tb_DueDate.Text = detailVM.BookDuedate.ToString();
                 tb_Deposit.Text = detailVM.BookDeposit.ToString();
                 tb_Total.Text = detailVM.BookTotalprice.ToString();
-                cbb_Status.Text = detailVM.BookStatus;
+                tb_Status.Text = detailVM.BookStatus;
                 tb_Note.Text = detailVM.BookNote;
 
                 if (!Edit)
@@ -160,7 +160,7 @@ namespace PBL3REAL.View
                     }
                 }
             }
-            cbb_Status.Enabled = false;
+            tb_Status.Enabled = false;
             tb_Total.Enabled = false;
             tb_Deposit.Enabled = false;
         }
@@ -230,7 +230,7 @@ namespace PBL3REAL.View
             detailVM.BookDeposit = detailVM.BookTotalprice * 3 / 10;
             detailVM.ListSub.Clear();
             foreach (SubBookingDetailVM val in subBookings)
-            {
+            {                
                 detailVM.ListSub.Add(val);
             }
             detailVM.clientVM.CliGmail = tb_ClientEmail.Text;
@@ -238,38 +238,38 @@ namespace PBL3REAL.View
             detailVM.clientVM.CliPhone = tb_ClientPhone.Text;
             BookingBLL.updateBooking(detailVM, listDel);
         }
-
+    
 
 
         //Events
-        /*    private void rbtn_NewClient_CheckedChanged(object sender, EventArgs e)
+    /*    private void rbtn_NewClient_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbtn_NewClient.Checked)
             {
-                if (rbtn_NewClient.Checked)
-                {
-                    tb_ClientSearch.Enabled = false;
-                    picbx_ClientSearch.Enabled = false;
-                }
-            }*/
-        /*     private void rbtn_OldClient_CheckedChanged(object sender, EventArgs e)
-             {
-                 if (rbtn_OldClient.Checked)
-                 {
-                     tb_ClientSearch.Enabled = true;
-                     picbx_ClientSearch.Enabled = true;
-                 }
-             }*/
+                tb_ClientSearch.Enabled = false;
+                picbx_ClientSearch.Enabled = false;
+            }
+        }*/
+   /*     private void rbtn_OldClient_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbtn_OldClient.Checked)
+            {
+                tb_ClientSearch.Enabled = true;
+                picbx_ClientSearch.Enabled = true;
+            }
+        }*/
         private void picbx_ClientSearch_Click(object sender, EventArgs e)
         {
             if (tb_ClientSearch.Text == "")
             {
                 MessageBox.Show("Bạn chưa nhập dữ liệu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else
+            else 
             {
                 Dictionary<string, string> properties = new Dictionary<string, string>();
                 properties.Add("phone", tb_ClientSearch.Text);
                 List<ClientVM> listClient = clientBLL.findByProperty(properties);
-                if (listClient != null && listClient.Count != 0)
+                if(listClient !=null && listClient.Count != 0)
                 {
                     tb_ClientEmail.Text = listClient[0].CliGmail;
                     tb_ClientName.Text = listClient[0].CliName;
@@ -291,27 +291,27 @@ namespace PBL3REAL.View
                     tb_ClientName.Enabled = true;
                     tb_ClientPhone.Enabled = true;
                 }
-            }
+            }   
         }
         private void picbx_Enter_Click(object sender, EventArgs e)
         {
             currentRoomType = ((CbbItem)cbb_RoomType.SelectedItem).text;
-            LoadAvailableTempRoomList(((CbbItem)cbb_RoomType.SelectedItem).Value, dtp_From.Value, dtp_To.Value);
+            LoadAvailableTempRoomList(((CbbItem)cbb_RoomType.SelectedItem).Value,dtp_From.Value,dtp_To.Value);
         }
         private void picbx_Add_Click(object sender, EventArgs e)
         {
             //add room
             if (dtp_From.Value != null && dtp_To.Value != null && cbb_RoomType.SelectedItem != null)
             {
-                AvailableRoomVM result = ((AvailableRoomVM)cbb_Room.SelectedItem);
-                subBookings.Add(new SubBookingDetailVM
-                {
-                    BoodetPrice = Convert.ToInt32(result.RotyCurrentprice),
-                    BoodetIdroom = result.IdRoom,
-                    BoodetRoTyCode = result.RotyCode,
-                    RoomName = result.RoomName,
-                    RoomType = result.RoTyName
-                });
+                AvailableRoomVM result = ((AvailableRoomVM)cbb_Room.SelectedItem);  
+                        subBookings.Add(new SubBookingDetailVM
+                        {                        
+                            BoodetPrice = Convert.ToInt32(result.RotyCurrentprice),              
+                            BoodetIdroom = result.IdRoom,
+                            BoodetRoTyCode = result.RotyCode,
+                            RoomName = result.RoomName,
+                            RoomType = result.RoTyName
+                        });
                 if (storeRoomDel.ContainsKey(currentRoomType))
                 {
                     storeRoomDel[currentRoomType].Add(result);
@@ -322,13 +322,13 @@ namespace PBL3REAL.View
                     temp.Add(result);
                     storeRoomDel.Add(currentRoomType, temp);
                 }
-                //     storeDelRoom.Add(result);
-                listForCbb.Remove(result);
-                LoadCbbRoom();
-                LoadBookedRoomList();
+                        //     storeDelRoom.Add(result);
+                             listForCbb.Remove(result);
+                             LoadCbbRoom();
+                             LoadBookedRoomList();
                 tb_Total.Text = calTotalPrice().ToString();
                 tb_Deposit.Text = (calTotalPrice() * 3 / 10).ToString();
-            }
+            }    
         }
         private void picbx_Delete_Click(object sender, EventArgs e)
         {
@@ -336,7 +336,7 @@ namespace PBL3REAL.View
             {
                 int selectedIdRoom = int.Parse(dgv.SelectedRows[0].Cells["BoodetIdroom"].Value.ToString());
                 //      int index = subBookings.FindIndex(x => x.BoodetIdroom == selectedIdRoom);
-                SubBookingDetailVM val = subBookings.Where(x => x.BoodetIdroom == selectedIdRoom).FirstOrDefault();
+                SubBookingDetailVM val = subBookings.Where(x =>x.BoodetIdroom == selectedIdRoom).FirstOrDefault();
                 if (val.IdBoodet != 0) listDel.Add(val.IdBoodet);
                 subBookings.Remove(val);
                 if (storeRoomDel.ContainsKey(val.RoomType))
@@ -345,14 +345,14 @@ namespace PBL3REAL.View
                     listForCbb.Add(store);
                     storeRoomDel[val.RoomType].Remove(store);
                 }
-                //         AvailableRoomVM store = storeDelRoom.Find(x =>x.IdRoom == selectedIdRoom);
-                //       storeDelRoom.Remove(store);
-                //       listForCbb.Add(store);
+       //         AvailableRoomVM store = storeDelRoom.Find(x =>x.IdRoom == selectedIdRoom);
+         //       storeDelRoom.Remove(store);
+         //       listForCbb.Add(store);
                 LoadCbbRoom();
                 LoadBookedRoomList();
                 tb_Total.Text = calTotalPrice().ToString();
                 tb_Deposit.Text = (calTotalPrice() * 3 / 10).ToString();
-            }
+            } 
             else
             {
                 MessageBox.Show("Bạn chưa chọn hoặc chọn nhiều hơn một phòng để xóa khỏi đơn booking", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
