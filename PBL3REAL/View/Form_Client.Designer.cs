@@ -152,6 +152,7 @@ namespace PBL3REAL.View
             this.btn_ClientView.Text = "Xem thông tin client đã chọn";
             this.btn_ClientView.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_ClientView.UseVisualStyleBackColor = true;
+            this.btn_ClientView.Click += new System.EventHandler(this.btn_ClientView_Click);
             // 
             // btn_ClientAdd
             // 
@@ -166,6 +167,7 @@ namespace PBL3REAL.View
             this.btn_ClientAdd.Text = "Thêm client mới";
             this.btn_ClientAdd.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_ClientAdd.UseVisualStyleBackColor = true;
+            this.btn_ClientAdd.Click += new System.EventHandler(this.btn_ClientAdd_Click);
             // 
             // btn_ClientEdit
             // 
@@ -180,6 +182,7 @@ namespace PBL3REAL.View
             this.btn_ClientEdit.Text = "Chỉnh sửa thông tin client đã chọn";
             this.btn_ClientEdit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_ClientEdit.UseVisualStyleBackColor = true;
+            this.btn_ClientEdit.Click += new System.EventHandler(this.btn_ClientEdit_Click);
             // 
             // btn_ClientDelete
             // 
@@ -194,13 +197,14 @@ namespace PBL3REAL.View
             this.btn_ClientDelete.Text = "Xóa client đã chọn";
             this.btn_ClientDelete.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_ClientDelete.UseVisualStyleBackColor = true;
+            this.btn_ClientDelete.Click += new System.EventHandler(this.btn_ClientDelete_Click);
             // 
             // tbllaypn_Client
             // 
             this.tbllaypn_Client.ColumnCount = 3;
             this.tbllaypn_Client.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.30407F));
             this.tbllaypn_Client.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.69593F));
-            this.tbllaypn_Client.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 52F));
+            this.tbllaypn_Client.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 53F));
             this.tbllaypn_Client.Controls.Add(this.picbx_ClientSearch, 2, 1);
             this.tbllaypn_Client.Controls.Add(this.picbx_ClientSort, 2, 0);
             this.tbllaypn_Client.Controls.Add(this.cbb_ClientSort, 1, 0);
@@ -218,7 +222,7 @@ namespace PBL3REAL.View
             // picbx_ClientSearch
             // 
             this.picbx_ClientSearch.Image = global::PBL3REAL.Properties.Resources.search_fluent_color_48px;
-            this.picbx_ClientSearch.Location = new System.Drawing.Point(336, 58);
+            this.picbx_ClientSearch.Location = new System.Drawing.Point(335, 58);
             this.picbx_ClientSearch.Name = "picbx_ClientSearch";
             this.picbx_ClientSearch.Size = new System.Drawing.Size(47, 48);
             this.picbx_ClientSearch.TabIndex = 10;
@@ -227,7 +231,7 @@ namespace PBL3REAL.View
             // picbx_ClientSort
             // 
             this.picbx_ClientSort.Image = global::PBL3REAL.Properties.Resources.filter_fluent_color_48px;
-            this.picbx_ClientSort.Location = new System.Drawing.Point(336, 3);
+            this.picbx_ClientSort.Location = new System.Drawing.Point(335, 3);
             this.picbx_ClientSort.Name = "picbx_ClientSort";
             this.picbx_ClientSort.Size = new System.Drawing.Size(47, 48);
             this.picbx_ClientSort.TabIndex = 9;
@@ -243,7 +247,7 @@ namespace PBL3REAL.View
             this.cbb_ClientSort.FormattingEnabled = true;
             this.cbb_ClientSort.Location = new System.Drawing.Point(127, 3);
             this.cbb_ClientSort.Name = "cbb_ClientSort";
-            this.cbb_ClientSort.Size = new System.Drawing.Size(203, 39);
+            this.cbb_ClientSort.Size = new System.Drawing.Size(202, 39);
             this.cbb_ClientSort.TabIndex = 0;
             // 
             // tb_ClientSearch
@@ -254,7 +258,7 @@ namespace PBL3REAL.View
             this.tb_ClientSearch.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tb_ClientSearch.Location = new System.Drawing.Point(127, 58);
             this.tb_ClientSearch.Name = "tb_ClientSearch";
-            this.tb_ClientSearch.Size = new System.Drawing.Size(203, 31);
+            this.tb_ClientSearch.Size = new System.Drawing.Size(202, 31);
             this.tb_ClientSearch.TabIndex = 0;
             // 
             // lb_ClientSearch
