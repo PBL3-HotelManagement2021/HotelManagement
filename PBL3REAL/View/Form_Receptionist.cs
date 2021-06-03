@@ -166,7 +166,7 @@ namespace PBL3REAL.View
             DataGridViewSelectedRowCollection r = dgv_Booking.SelectedRows;
             if (r.Count == 1)
             {
-                if(r[0].Cells["IdBook"].Value.ToString() == "Processed")
+                if(r[0].Cells["BookStatus"].Value.ToString() == "Processed")
                 {
                     Form_Booking f = new Form_Booking(int.Parse(r[0].Cells["IdBook"].Value.ToString()), true);
                     this.Hide();
@@ -192,7 +192,7 @@ namespace PBL3REAL.View
             DataGridViewSelectedRowCollection r = dgv_Booking.SelectedRows;
             if (r.Count == 1)
             {
-                if (r[0].Cells["IdBook"].Value.ToString() == "Processed")
+                if (r[0].Cells["BookStatus"].Value.ToString() == "Processed")
                 {
                     try
                     {

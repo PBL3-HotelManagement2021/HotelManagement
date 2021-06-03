@@ -380,12 +380,14 @@ namespace PBL3REAL.View
         {
             onDtbChange();
         }
-
         private void btn_Cancel_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }
-
+        private void btn_Checkin_Click(object sender, EventArgs e)
+        {
+            BookingBLL.completeBooking(IDBook);
+        }
         private void btn_OK_Click(object sender, EventArgs e)
         {
             switch (CheckData())
@@ -409,11 +411,6 @@ namespace PBL3REAL.View
                     }
                     break;
             }
-        }
-
-        private void btn_Checkin_Click(object sender, EventArgs e)
-        {
-            BookingBLL.completeBooking(IDBook);
         }
     }
 }

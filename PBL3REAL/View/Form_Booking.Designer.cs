@@ -60,12 +60,6 @@ namespace PBL3REAL.View
             this.dtp_From = new System.Windows.Forms.DateTimePicker();
             this.lb_To = new System.Windows.Forms.Label();
             this.lb_From = new System.Windows.Forms.Label();
-            this.tbllaypn_ControlButtons = new System.Windows.Forms.TableLayoutPanel();
-            this.btn_Checkin = new System.Windows.Forms.Button();
-            this.btn_Invoice = new System.Windows.Forms.Button();
-            this.btn_Cancel = new System.Windows.Forms.Button();
-            this.btn_OK = new System.Windows.Forms.Button();
-            this.btn_Reset = new System.Windows.Forms.Button();
             this.picbx_Delete = new System.Windows.Forms.PictureBox();
             this.grbx_BookingInfo = new System.Windows.Forms.GroupBox();
             this.tbllaypn_BookingInfo = new System.Windows.Forms.TableLayoutPanel();
@@ -88,6 +82,12 @@ namespace PBL3REAL.View
             this.lb_Status = new System.Windows.Forms.Label();
             this.cbb_Status = new System.Windows.Forms.ComboBox();
             this.dgv = new System.Windows.Forms.DataGridView();
+            this.tbllaypn_ControlButtons = new System.Windows.Forms.TableLayoutPanel();
+            this.btn_Cancel = new System.Windows.Forms.Button();
+            this.btn_Reset = new System.Windows.Forms.Button();
+            this.btn_Checkin = new System.Windows.Forms.Button();
+            this.btn_Invoice = new System.Windows.Forms.Button();
+            this.btn_OK = new System.Windows.Forms.Button();
             this.grbx_ClientInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picbx_ClientSearch)).BeginInit();
             this.tbllaypn_ClientInfo.SuspendLayout();
@@ -97,7 +97,6 @@ namespace PBL3REAL.View
             ((System.ComponentModel.ISupportInitialize)(this.picbx_Add)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbx_Enter)).BeginInit();
             this.tbllaypn_FromTo.SuspendLayout();
-            this.tbllaypn_ControlButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picbx_Delete)).BeginInit();
             this.grbx_BookingInfo.SuspendLayout();
             this.tbllaypn_BookingInfo.SuspendLayout();
@@ -108,6 +107,7 @@ namespace PBL3REAL.View
             this.fllaypn_DueDate.SuspendLayout();
             this.fllaypn_Status.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
+            this.tbllaypn_ControlButtons.SuspendLayout();
             this.SuspendLayout();
             // 
             // lb_Header
@@ -339,7 +339,7 @@ namespace PBL3REAL.View
             this.tbllaypn_RoomList.ColumnCount = 3;
             this.tbllaypn_RoomList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.9916F));
             this.tbllaypn_RoomList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.0084F));
-            this.tbllaypn_RoomList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 56F));
+            this.tbllaypn_RoomList.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 58F));
             this.tbllaypn_RoomList.Controls.Add(this.picbx_Add, 2, 1);
             this.tbllaypn_RoomList.Controls.Add(this.picbx_Enter, 2, 0);
             this.tbllaypn_RoomList.Controls.Add(this.lb_Room, 0, 1);
@@ -357,7 +357,7 @@ namespace PBL3REAL.View
             // picbx_Add
             // 
             this.picbx_Add.Image = global::PBL3REAL.Properties.Resources.add_fluent_color_48px;
-            this.picbx_Add.Location = new System.Drawing.Point(474, 54);
+            this.picbx_Add.Location = new System.Drawing.Point(472, 54);
             this.picbx_Add.Name = "picbx_Add";
             this.picbx_Add.Size = new System.Drawing.Size(46, 45);
             this.picbx_Add.TabIndex = 2;
@@ -367,7 +367,7 @@ namespace PBL3REAL.View
             // picbx_Enter
             // 
             this.picbx_Enter.Image = global::PBL3REAL.Properties.Resources.scroll_down_fluent_color_48px;
-            this.picbx_Enter.Location = new System.Drawing.Point(474, 3);
+            this.picbx_Enter.Location = new System.Drawing.Point(472, 3);
             this.picbx_Enter.Name = "picbx_Enter";
             this.picbx_Enter.Size = new System.Drawing.Size(46, 45);
             this.picbx_Enter.TabIndex = 1;
@@ -484,102 +484,6 @@ namespace PBL3REAL.View
             this.lb_From.Size = new System.Drawing.Size(96, 31);
             this.lb_From.TabIndex = 0;
             this.lb_From.Text = "Từ ngày";
-            // 
-            // tbllaypn_ControlButtons
-            // 
-            this.tbllaypn_ControlButtons.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.tbllaypn_ControlButtons.ColumnCount = 5;
-            this.tbllaypn_ControlButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tbllaypn_ControlButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tbllaypn_ControlButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tbllaypn_ControlButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tbllaypn_ControlButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tbllaypn_ControlButtons.Controls.Add(this.btn_Checkin, 0, 0);
-            this.tbllaypn_ControlButtons.Controls.Add(this.btn_Invoice, 0, 0);
-            this.tbllaypn_ControlButtons.Controls.Add(this.btn_Cancel, 2, 0);
-            this.tbllaypn_ControlButtons.Controls.Add(this.btn_OK, 0, 0);
-            this.tbllaypn_ControlButtons.Controls.Add(this.btn_Reset, 1, 0);
-            this.tbllaypn_ControlButtons.Location = new System.Drawing.Point(335, 861);
-            this.tbllaypn_ControlButtons.Name = "tbllaypn_ControlButtons";
-            this.tbllaypn_ControlButtons.RowCount = 1;
-            this.tbllaypn_ControlButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tbllaypn_ControlButtons.Size = new System.Drawing.Size(497, 45);
-            this.tbllaypn_ControlButtons.TabIndex = 0;
-            // 
-            // btn_Checkin
-            // 
-            this.btn_Checkin.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Checkin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.btn_Checkin.FlatAppearance.BorderSize = 0;
-            this.btn_Checkin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Checkin.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_Checkin.Location = new System.Drawing.Point(203, 3);
-            this.btn_Checkin.Name = "btn_Checkin";
-            this.btn_Checkin.Size = new System.Drawing.Size(89, 39);
-            this.btn_Checkin.TabIndex = 0;
-            this.btn_Checkin.Text = "Checkin";
-            this.btn_Checkin.UseVisualStyleBackColor = false;
-            this.btn_Checkin.Click += new System.EventHandler(this.btn_Checkin_Click);
-            // 
-            // btn_Invoice
-            // 
-            this.btn_Invoice.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Invoice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.btn_Invoice.FlatAppearance.BorderSize = 0;
-            this.btn_Invoice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Invoice.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_Invoice.Location = new System.Drawing.Point(104, 3);
-            this.btn_Invoice.Name = "btn_Invoice";
-            this.btn_Invoice.Size = new System.Drawing.Size(89, 39);
-            this.btn_Invoice.TabIndex = 0;
-            this.btn_Invoice.Text = "Invoice";
-            this.btn_Invoice.UseVisualStyleBackColor = false;
-            // 
-            // btn_Cancel
-            // 
-            this.btn_Cancel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Cancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.btn_Cancel.FlatAppearance.BorderSize = 0;
-            this.btn_Cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Cancel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_Cancel.Location = new System.Drawing.Point(402, 3);
-            this.btn_Cancel.Name = "btn_Cancel";
-            this.btn_Cancel.Size = new System.Drawing.Size(89, 39);
-            this.btn_Cancel.TabIndex = 0;
-            this.btn_Cancel.Text = "Cancel";
-            this.btn_Cancel.UseVisualStyleBackColor = false;
-            this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
-            // 
-            // btn_OK
-            // 
-            this.btn_OK.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_OK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.btn_OK.FlatAppearance.BorderSize = 0;
-            this.btn_OK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_OK.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_OK.Location = new System.Drawing.Point(5, 2);
-            this.btn_OK.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_OK.Name = "btn_OK";
-            this.btn_OK.Size = new System.Drawing.Size(89, 40);
-            this.btn_OK.TabIndex = 0;
-            this.btn_OK.Text = "OK";
-            this.btn_OK.UseVisualStyleBackColor = false;
-            this.btn_OK.Click += new System.EventHandler(this.btn_OK_Click);
-            // 
-            // btn_Reset
-            // 
-            this.btn_Reset.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Reset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.btn_Reset.FlatAppearance.BorderSize = 0;
-            this.btn_Reset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Reset.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_Reset.Location = new System.Drawing.Point(302, 2);
-            this.btn_Reset.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_Reset.Name = "btn_Reset";
-            this.btn_Reset.Size = new System.Drawing.Size(89, 40);
-            this.btn_Reset.TabIndex = 0;
-            this.btn_Reset.Text = "Reset";
-            this.btn_Reset.UseVisualStyleBackColor = false;
             // 
             // picbx_Delete
             // 
@@ -863,15 +767,114 @@ namespace PBL3REAL.View
             this.dgv.Size = new System.Drawing.Size(1058, 233);
             this.dgv.TabIndex = 0;
             // 
+            // tbllaypn_ControlButtons
+            // 
+            this.tbllaypn_ControlButtons.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbllaypn_ControlButtons.ColumnCount = 5;
+            this.tbllaypn_ControlButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tbllaypn_ControlButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tbllaypn_ControlButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tbllaypn_ControlButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tbllaypn_ControlButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tbllaypn_ControlButtons.Controls.Add(this.btn_Cancel, 4, 0);
+            this.tbllaypn_ControlButtons.Controls.Add(this.btn_Reset, 3, 0);
+            this.tbllaypn_ControlButtons.Controls.Add(this.btn_Checkin, 2, 0);
+            this.tbllaypn_ControlButtons.Controls.Add(this.btn_Invoice, 1, 0);
+            this.tbllaypn_ControlButtons.Controls.Add(this.btn_OK, 0, 0);
+            this.tbllaypn_ControlButtons.Location = new System.Drawing.Point(318, 851);
+            this.tbllaypn_ControlButtons.Name = "tbllaypn_ControlButtons";
+            this.tbllaypn_ControlButtons.RowCount = 1;
+            this.tbllaypn_ControlButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tbllaypn_ControlButtons.Size = new System.Drawing.Size(519, 46);
+            this.tbllaypn_ControlButtons.TabIndex = 0;
+            // 
+            // btn_Cancel
+            // 
+            this.btn_Cancel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Cancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.btn_Cancel.FlatAppearance.BorderSize = 0;
+            this.btn_Cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Cancel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_Cancel.Location = new System.Drawing.Point(420, 3);
+            this.btn_Cancel.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_Cancel.Name = "btn_Cancel";
+            this.btn_Cancel.Size = new System.Drawing.Size(91, 40);
+            this.btn_Cancel.TabIndex = 0;
+            this.btn_Cancel.Text = "Cancel";
+            this.btn_Cancel.UseVisualStyleBackColor = false;
+            this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
+            // 
+            // btn_Reset
+            // 
+            this.btn_Reset.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Reset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.btn_Reset.FlatAppearance.BorderSize = 0;
+            this.btn_Reset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Reset.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_Reset.Location = new System.Drawing.Point(315, 3);
+            this.btn_Reset.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_Reset.Name = "btn_Reset";
+            this.btn_Reset.Size = new System.Drawing.Size(91, 40);
+            this.btn_Reset.TabIndex = 0;
+            this.btn_Reset.Text = "Reset";
+            this.btn_Reset.UseVisualStyleBackColor = false;
+            // 
+            // btn_Checkin
+            // 
+            this.btn_Checkin.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Checkin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.btn_Checkin.FlatAppearance.BorderSize = 0;
+            this.btn_Checkin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Checkin.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_Checkin.Location = new System.Drawing.Point(212, 3);
+            this.btn_Checkin.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_Checkin.Name = "btn_Checkin";
+            this.btn_Checkin.Size = new System.Drawing.Size(91, 40);
+            this.btn_Checkin.TabIndex = 0;
+            this.btn_Checkin.Text = "Checkin";
+            this.btn_Checkin.UseVisualStyleBackColor = false;
+            this.btn_Checkin.Click += new System.EventHandler(this.btn_Checkin_Click);
+            // 
+            // btn_Invoice
+            // 
+            this.btn_Invoice.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Invoice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.btn_Invoice.FlatAppearance.BorderSize = 0;
+            this.btn_Invoice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Invoice.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_Invoice.Location = new System.Drawing.Point(109, 3);
+            this.btn_Invoice.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_Invoice.Name = "btn_Invoice";
+            this.btn_Invoice.Size = new System.Drawing.Size(91, 40);
+            this.btn_Invoice.TabIndex = 0;
+            this.btn_Invoice.Text = "Invoice";
+            this.btn_Invoice.UseVisualStyleBackColor = false;
+            // 
+            // btn_OK
+            // 
+            this.btn_OK.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_OK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.btn_OK.FlatAppearance.BorderSize = 0;
+            this.btn_OK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_OK.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_OK.Location = new System.Drawing.Point(6, 3);
+            this.btn_OK.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_OK.Name = "btn_OK";
+            this.btn_OK.Size = new System.Drawing.Size(91, 40);
+            this.btn_OK.TabIndex = 0;
+            this.btn_OK.Text = "OK";
+            this.btn_OK.UseVisualStyleBackColor = false;
+            this.btn_OK.Click += new System.EventHandler(this.btn_OK_Click);
+            // 
             // Form_Booking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(230)))), ((int)(((byte)(233)))));
             this.ClientSize = new System.Drawing.Size(1131, 909);
+            this.Controls.Add(this.tbllaypn_ControlButtons);
             this.Controls.Add(this.dgv);
             this.Controls.Add(this.grbx_BookingInfo);
-            this.Controls.Add(this.tbllaypn_ControlButtons);
             this.Controls.Add(this.grbx_PeriodTime);
             this.Controls.Add(this.grbx_ClientInfo);
             this.Controls.Add(this.lb_Header);
@@ -894,7 +897,6 @@ namespace PBL3REAL.View
             ((System.ComponentModel.ISupportInitialize)(this.picbx_Enter)).EndInit();
             this.tbllaypn_FromTo.ResumeLayout(false);
             this.tbllaypn_FromTo.PerformLayout();
-            this.tbllaypn_ControlButtons.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picbx_Delete)).EndInit();
             this.grbx_BookingInfo.ResumeLayout(false);
             this.tbllaypn_BookingInfo.ResumeLayout(false);
@@ -910,6 +912,7 @@ namespace PBL3REAL.View
             this.fllaypn_DueDate.PerformLayout();
             this.fllaypn_Status.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
+            this.tbllaypn_ControlButtons.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -938,13 +941,7 @@ namespace PBL3REAL.View
         private System.Windows.Forms.ComboBox cbb_Room;
         private System.Windows.Forms.PictureBox picbx_Add;
         private System.Windows.Forms.PictureBox picbx_Enter;
-        private System.Windows.Forms.TableLayoutPanel tbllaypn_ControlButtons;
-        private System.Windows.Forms.Button btn_Cancel;
-        private System.Windows.Forms.Button btn_OK;
-        private System.Windows.Forms.Button btn_Reset;
         private System.Windows.Forms.PictureBox picbx_Delete;
-        private System.Windows.Forms.Button btn_Invoice;
-        private System.Windows.Forms.Button btn_Checkin;
         private System.Windows.Forms.GroupBox grbx_BookingInfo;
         private System.Windows.Forms.TableLayoutPanel tbllaypn_BookingInfo;
         private System.Windows.Forms.FlowLayoutPanel fllaypn_Total;
@@ -974,5 +971,11 @@ namespace PBL3REAL.View
         private System.Windows.Forms.TextBox tb_ClientName;
         private System.Windows.Forms.DataGridView dgv;
         private System.Windows.Forms.TextBox tb_ClientSearch;
+        private System.Windows.Forms.TableLayoutPanel tbllaypn_ControlButtons;
+        private System.Windows.Forms.Button btn_Cancel;
+        private System.Windows.Forms.Button btn_Reset;
+        private System.Windows.Forms.Button btn_Checkin;
+        private System.Windows.Forms.Button btn_Invoice;
+        private System.Windows.Forms.Button btn_OK;
     }
 }
