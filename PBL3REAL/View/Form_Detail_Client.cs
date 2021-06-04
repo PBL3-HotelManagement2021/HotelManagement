@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PBL3REAL.BLL;
+using PBL3REAL.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,24 +12,36 @@ namespace PBL3REAL.View
 {
     public partial class Form_Detail_Client : Form
     {
-        private int ID_Cli;
+        private int id;
         private bool Editable_Cli;
+        private ClientVM clientVM;
+        private ClientBLL clientBLL; 
         public Form_Detail_Client(int ID, bool Editable)
         {
             InitializeComponent();
-            ID_Cli = ID;
+            id = ID;
+            clientBLL = new ClientBLL();
             Editable_Cli = Editable;
+            
         }
         //Load Data Functions
         private void LoadData()
         {
-            if (ID_Cli == 0)
+            if (id == 0)
             {
                 //Add
+                clientVM = new ClientVM();
+                tb_ClientCode.Visible = false;
             }    
             else
             {
                 //View or Edit
+                clientVM = clientBLL.findById(id);
+                tb_ClientCode.Text = clientVM.CliCode;
+                tb_ClientEmail.Text = clientVM.CliGmail;
+                tb_ClientName.Text = clientVM.CliName;
+                tb_ClientPhone.Text = clientVM.CliPhone;
+                tb_ClientCode.Enabled = false;
             }
             if (!Editable_Cli)
             {
@@ -39,18 +53,25 @@ namespace PBL3REAL.View
         //Events
         private void btn_OK_Click(object sender, EventArgs e)
         {
-            if (ID_Cli == 0)
+            clientVM.CliGmail = tb_ClientEmail.Text;
+            clientVM.CliName = tb_ClientName.Text;
+            clientVM.CliPhone = tb_ClientPhone.Text;
+            if (id == 0)
             {
                 //Add
+                clientBLL.add(clientVM);
             }    
             else
             {
-                //Edit
+                clientBLL.update(clientVM);
             }    
         }
         private void btn_Reset_Click(object sender, EventArgs e)
         {
             //Reset Data
+            tb_ClientEmail.Text = "";
+            tb_ClientName.Text = "";
+            tb_ClientPhone.Text = "";
         }
         private void btn_Cancel_Click(object sender, EventArgs e)
         {

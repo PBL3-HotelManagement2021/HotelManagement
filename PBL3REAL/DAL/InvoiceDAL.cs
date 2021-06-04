@@ -2,6 +2,7 @@
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using PBL3REAL.Model;
+using PBL3REAL.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -101,6 +102,51 @@ namespace PBL3REAL.DAL
                     while (result.Read())
                     {
                         list.Add(new Invoice { TotalPrice = (int)result[0], InvCreatedate = (DateTime)result[1] });
+                    }
+                }
+            }
+            return list;
+        }
+
+
+        public List<Statistic2> findForStatistic2(DateTime fromDate, DateTime toDate)
+        {
+            SqlParameter parameter1 = new SqlParameter();
+            parameter1.ParameterName = "@pa1";
+            parameter1.SqlDbType = SqlDbType.DateTime2;
+            parameter1.Value = DateTime.Parse(fromDate.ToString());
+
+            SqlParameter parameter2 = new SqlParameter();
+            parameter2.ParameterName = "@pa2";
+            parameter2.SqlDbType = SqlDbType.DateTime2;
+            parameter2.Value = DateTime.Parse(toDate.ToString());
+
+
+            List<Statistic2> list = new List<Statistic2>();
+            using (var command = AppDbContext.Instance.Database.GetDbConnection().CreateCommand())
+            {
+                command.CommandText = "exec [Statistic2] @fromDate =@pa1, @toDate=@pa2";
+                command.Parameters.Add(parameter1);
+                command.Parameters.Add(parameter2);
+                AppDbContext.Instance.Database.OpenConnection();
+                using (var result = command.ExecuteReader())
+                {
+                    while (result.Read())
+                    {
+                        Statistic2 statistic2 = list.Find(x => x.Date.Equals(DateTime.Parse(result[0].ToString())));
+                        if(statistic2 != null)
+                        {
+                            statistic2.TotalGroupBy.Add(result[1].ToString(), (int)result[2]);
+                        }
+                        else
+                        {
+                            statistic2 = new Statistic2();
+
+                            statistic2.Date = (DateTime)result[0];
+                            statistic2.TotalGroupBy.Add(result[1].ToString(),(int) result[2]);
+                            list.Add(statistic2);
+                        }
+                      
                     }
                 }
             }

@@ -57,7 +57,7 @@ namespace PBL3REAL.View
             this.fllaypn_Navbar.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.fllaypn_Navbar.Location = new System.Drawing.Point(0, 0);
             this.fllaypn_Navbar.Name = "fllaypn_Navbar";
-            this.fllaypn_Navbar.Size = new System.Drawing.Size(149, 731);
+            this.fllaypn_Navbar.Size = new System.Drawing.Size(149, 788);
             this.fllaypn_Navbar.TabIndex = 0;
             // 
             // picbx_Logo
@@ -197,10 +197,10 @@ namespace PBL3REAL.View
             // 
             // Form_Home_Admin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(177)))), ((int)(((byte)(160)))));
-            this.ClientSize = new System.Drawing.Size(1006, 731);
+            this.ClientSize = new System.Drawing.Size(1006, 788);
             this.ControlBox = false;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.btn_Menu);

@@ -65,9 +65,10 @@ namespace PBL3REAL.View
             this.tabControl_HRM.Dock = System.Windows.Forms.DockStyle.Left;
             this.tabControl_HRM.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tabControl_HRM.Location = new System.Drawing.Point(0, 0);
+            this.tabControl_HRM.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl_HRM.Name = "tabControl_HRM";
             this.tabControl_HRM.SelectedIndex = 0;
-            this.tabControl_HRM.Size = new System.Drawing.Size(970, 699);
+            this.tabControl_HRM.Size = new System.Drawing.Size(849, 524);
             this.tabControl_HRM.TabIndex = 0;
             // 
             // tabPage_General
@@ -75,10 +76,11 @@ namespace PBL3REAL.View
             this.tabPage_General.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(230)))), ((int)(((byte)(233)))));
             this.tabPage_General.Controls.Add(this.btn_Home);
             this.tabPage_General.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tabPage_General.Location = new System.Drawing.Point(4, 37);
+            this.tabPage_General.Location = new System.Drawing.Point(4, 30);
+            this.tabPage_General.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage_General.Name = "tabPage_General";
-            this.tabPage_General.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_General.Size = new System.Drawing.Size(962, 658);
+            this.tabPage_General.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage_General.Size = new System.Drawing.Size(841, 490);
             this.tabPage_General.TabIndex = 0;
             this.tabPage_General.Text = "Chung";
             // 
@@ -89,9 +91,10 @@ namespace PBL3REAL.View
             this.btn_Home.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Home.Image = global::PBL3REAL.Properties.Resources.home_page_fluent_color_96px;
             this.btn_Home.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_Home.Location = new System.Drawing.Point(384, 238);
+            this.btn_Home.Location = new System.Drawing.Point(336, 178);
+            this.btn_Home.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Home.Name = "btn_Home";
-            this.btn_Home.Size = new System.Drawing.Size(194, 183);
+            this.btn_Home.Size = new System.Drawing.Size(170, 137);
             this.btn_Home.TabIndex = 0;
             this.btn_Home.Text = "Return Home";
             this.btn_Home.UseVisualStyleBackColor = true;
@@ -103,10 +106,11 @@ namespace PBL3REAL.View
             this.tabPage_HRM.Controls.Add(this.fllaypn_HRMButtons);
             this.tabPage_HRM.Controls.Add(this.tbllaypn_HRM);
             this.tabPage_HRM.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tabPage_HRM.Location = new System.Drawing.Point(4, 37);
+            this.tabPage_HRM.Location = new System.Drawing.Point(4, 30);
+            this.tabPage_HRM.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage_HRM.Name = "tabPage_HRM";
-            this.tabPage_HRM.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_HRM.Size = new System.Drawing.Size(962, 658);
+            this.tabPage_HRM.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage_HRM.Size = new System.Drawing.Size(841, 490);
             this.tabPage_HRM.TabIndex = 1;
             this.tabPage_HRM.Text = "Quản lí nhân sự";
             this.tabPage_HRM.UseVisualStyleBackColor = true;
@@ -130,7 +134,8 @@ namespace PBL3REAL.View
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgv_HRM.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_HRM.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.dgv_HRM.Location = new System.Drawing.Point(3, 153);
+            this.dgv_HRM.Location = new System.Drawing.Point(3, 115);
+            this.dgv_HRM.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgv_HRM.Name = "dgv_HRM";
             this.dgv_HRM.ReadOnly = true;
             this.dgv_HRM.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -138,7 +143,7 @@ namespace PBL3REAL.View
             this.dgv_HRM.RowHeadersWidth = 51;
             this.dgv_HRM.RowTemplate.Height = 29;
             this.dgv_HRM.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_HRM.Size = new System.Drawing.Size(955, 501);
+            this.dgv_HRM.Size = new System.Drawing.Size(836, 376);
             this.dgv_HRM.TabIndex = 0;
             // 
             // fllaypn_HRMButtons
@@ -147,9 +152,10 @@ namespace PBL3REAL.View
             this.fllaypn_HRMButtons.Controls.Add(this.btn_HRMAdd);
             this.fllaypn_HRMButtons.Controls.Add(this.btn_HRMEdit);
             this.fllaypn_HRMButtons.Controls.Add(this.btn_HRMDelete);
-            this.fllaypn_HRMButtons.Location = new System.Drawing.Point(442, -3);
+            this.fllaypn_HRMButtons.Location = new System.Drawing.Point(387, -2);
+            this.fllaypn_HRMButtons.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.fllaypn_HRMButtons.Name = "fllaypn_HRMButtons";
-            this.fllaypn_HRMButtons.Size = new System.Drawing.Size(517, 147);
+            this.fllaypn_HRMButtons.Size = new System.Drawing.Size(475, 110);
             this.fllaypn_HRMButtons.TabIndex = 0;
             // 
             // btn_HRMView
@@ -158,13 +164,15 @@ namespace PBL3REAL.View
             this.btn_HRMView.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_HRMView.Image = global::PBL3REAL.Properties.Resources.show_property_96px;
             this.btn_HRMView.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_HRMView.Location = new System.Drawing.Point(3, 3);
+            this.btn_HRMView.Location = new System.Drawing.Point(3, 2);
+            this.btn_HRMView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_HRMView.Name = "btn_HRMView";
-            this.btn_HRMView.Size = new System.Drawing.Size(123, 147);
+            this.btn_HRMView.Size = new System.Drawing.Size(108, 110);
             this.btn_HRMView.TabIndex = 0;
             this.btn_HRMView.Text = "Xem thông tin người dùng đã chọn";
             this.btn_HRMView.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_HRMView.UseVisualStyleBackColor = true;
+            this.btn_HRMView.Click += new System.EventHandler(this.btn_HRMView_Click);
             // 
             // btn_HRMAdd
             // 
@@ -172,13 +180,15 @@ namespace PBL3REAL.View
             this.btn_HRMAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_HRMAdd.Image = global::PBL3REAL.Properties.Resources.add_fluent_color_96px;
             this.btn_HRMAdd.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_HRMAdd.Location = new System.Drawing.Point(132, 3);
+            this.btn_HRMAdd.Location = new System.Drawing.Point(117, 2);
+            this.btn_HRMAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_HRMAdd.Name = "btn_HRMAdd";
-            this.btn_HRMAdd.Size = new System.Drawing.Size(123, 147);
+            this.btn_HRMAdd.Size = new System.Drawing.Size(108, 110);
             this.btn_HRMAdd.TabIndex = 0;
             this.btn_HRMAdd.Text = "Thêm người dùng mới";
             this.btn_HRMAdd.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_HRMAdd.UseVisualStyleBackColor = true;
+            this.btn_HRMAdd.Click += new System.EventHandler(this.btn_HRMAdd_Click);
             // 
             // btn_HRMEdit
             // 
@@ -186,13 +196,15 @@ namespace PBL3REAL.View
             this.btn_HRMEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_HRMEdit.Image = global::PBL3REAL.Properties.Resources.edit_property_fluent_color_96px;
             this.btn_HRMEdit.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_HRMEdit.Location = new System.Drawing.Point(261, 3);
+            this.btn_HRMEdit.Location = new System.Drawing.Point(231, 2);
+            this.btn_HRMEdit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_HRMEdit.Name = "btn_HRMEdit";
-            this.btn_HRMEdit.Size = new System.Drawing.Size(123, 147);
+            this.btn_HRMEdit.Size = new System.Drawing.Size(108, 110);
             this.btn_HRMEdit.TabIndex = 0;
             this.btn_HRMEdit.Text = "Chỉnh sửa thông tin người dùng đã chọn";
             this.btn_HRMEdit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_HRMEdit.UseVisualStyleBackColor = true;
+            this.btn_HRMEdit.Click += new System.EventHandler(this.btn_HRMEdit_Click);
             // 
             // btn_HRMDelete
             // 
@@ -200,49 +212,55 @@ namespace PBL3REAL.View
             this.btn_HRMDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_HRMDelete.Image = global::PBL3REAL.Properties.Resources.waste_fluent_color_96px;
             this.btn_HRMDelete.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_HRMDelete.Location = new System.Drawing.Point(390, 3);
+            this.btn_HRMDelete.Location = new System.Drawing.Point(345, 2);
+            this.btn_HRMDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_HRMDelete.Name = "btn_HRMDelete";
-            this.btn_HRMDelete.Size = new System.Drawing.Size(123, 147);
+            this.btn_HRMDelete.Size = new System.Drawing.Size(108, 110);
             this.btn_HRMDelete.TabIndex = 0;
             this.btn_HRMDelete.Text = "Xóa người dùng đã chọn";
             this.btn_HRMDelete.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_HRMDelete.UseVisualStyleBackColor = true;
+            this.btn_HRMDelete.Click += new System.EventHandler(this.btn_HRMDelete_Click);
             // 
             // tbllaypn_HRM
             // 
             this.tbllaypn_HRM.ColumnCount = 3;
             this.tbllaypn_HRM.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.09678F));
             this.tbllaypn_HRM.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.90322F));
-            this.tbllaypn_HRM.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 53F));
+            this.tbllaypn_HRM.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tbllaypn_HRM.Controls.Add(this.picbx_HRMSearch, 2, 1);
             this.tbllaypn_HRM.Controls.Add(this.picbx_HRMSort, 2, 0);
             this.tbllaypn_HRM.Controls.Add(this.cbb_HRMSort, 1, 0);
             this.tbllaypn_HRM.Controls.Add(this.tb_HRMSearch, 1, 1);
             this.tbllaypn_HRM.Controls.Add(this.lb_HRMSearch, 0, 1);
             this.tbllaypn_HRM.Controls.Add(this.lb_HRMSort, 0, 0);
-            this.tbllaypn_HRM.Location = new System.Drawing.Point(5, 20);
+            this.tbllaypn_HRM.Location = new System.Drawing.Point(4, 15);
+            this.tbllaypn_HRM.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbllaypn_HRM.Name = "tbllaypn_HRM";
             this.tbllaypn_HRM.RowCount = 2;
             this.tbllaypn_HRM.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tbllaypn_HRM.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tbllaypn_HRM.Size = new System.Drawing.Size(386, 111);
+            this.tbllaypn_HRM.Size = new System.Drawing.Size(338, 83);
             this.tbllaypn_HRM.TabIndex = 0;
             // 
             // picbx_HRMSearch
             // 
             this.picbx_HRMSearch.Image = global::PBL3REAL.Properties.Resources.search_fluent_color_48px;
-            this.picbx_HRMSearch.Location = new System.Drawing.Point(335, 58);
+            this.picbx_HRMSearch.Location = new System.Drawing.Point(280, 43);
+            this.picbx_HRMSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.picbx_HRMSearch.Name = "picbx_HRMSearch";
-            this.picbx_HRMSearch.Size = new System.Drawing.Size(48, 48);
+            this.picbx_HRMSearch.Size = new System.Drawing.Size(42, 36);
             this.picbx_HRMSearch.TabIndex = 10;
             this.picbx_HRMSearch.TabStop = false;
+            this.picbx_HRMSearch.Click += new System.EventHandler(this.picbx_HRMSearch_Click);
             // 
             // picbx_HRMSort
             // 
             this.picbx_HRMSort.Image = global::PBL3REAL.Properties.Resources.filter_fluent_color_48px;
-            this.picbx_HRMSort.Location = new System.Drawing.Point(335, 3);
+            this.picbx_HRMSort.Location = new System.Drawing.Point(280, 2);
+            this.picbx_HRMSort.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.picbx_HRMSort.Name = "picbx_HRMSort";
-            this.picbx_HRMSort.Size = new System.Drawing.Size(48, 48);
+            this.picbx_HRMSort.Size = new System.Drawing.Size(42, 36);
             this.picbx_HRMSort.TabIndex = 9;
             this.picbx_HRMSort.TabStop = false;
             // 
@@ -254,9 +272,14 @@ namespace PBL3REAL.View
             this.cbb_HRMSort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbb_HRMSort.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbb_HRMSort.FormattingEnabled = true;
-            this.cbb_HRMSort.Location = new System.Drawing.Point(126, 3);
+            this.cbb_HRMSort.Items.AddRange(new object[] {
+            "None",
+            "Name Asc",
+            "Name Desc"});
+            this.cbb_HRMSort.Location = new System.Drawing.Point(106, 2);
+            this.cbb_HRMSort.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbb_HRMSort.Name = "cbb_HRMSort";
-            this.cbb_HRMSort.Size = new System.Drawing.Size(203, 39);
+            this.cbb_HRMSort.Size = new System.Drawing.Size(168, 33);
             this.cbb_HRMSort.TabIndex = 1;
             // 
             // tb_HRMSearch
@@ -265,18 +288,19 @@ namespace PBL3REAL.View
             this.tb_HRMSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tb_HRMSearch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tb_HRMSearch.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tb_HRMSearch.Location = new System.Drawing.Point(126, 58);
+            this.tb_HRMSearch.Location = new System.Drawing.Point(106, 43);
+            this.tb_HRMSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_HRMSearch.Name = "tb_HRMSearch";
-            this.tb_HRMSearch.Size = new System.Drawing.Size(203, 31);
+            this.tb_HRMSearch.Size = new System.Drawing.Size(168, 25);
             this.tb_HRMSearch.TabIndex = 2;
             // 
             // lb_HRMSearch
             // 
             this.lb_HRMSearch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lb_HRMSearch.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lb_HRMSearch.Location = new System.Drawing.Point(3, 55);
+            this.lb_HRMSearch.Location = new System.Drawing.Point(3, 41);
             this.lb_HRMSearch.Name = "lb_HRMSearch";
-            this.lb_HRMSearch.Size = new System.Drawing.Size(117, 56);
+            this.lb_HRMSearch.Size = new System.Drawing.Size(97, 42);
             this.lb_HRMSearch.TabIndex = 0;
             this.lb_HRMSearch.Text = "Tìm kiếm";
             // 
@@ -286,19 +310,20 @@ namespace PBL3REAL.View
             this.lb_HRMSort.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lb_HRMSort.Location = new System.Drawing.Point(3, 0);
             this.lb_HRMSort.Name = "lb_HRMSort";
-            this.lb_HRMSort.Size = new System.Drawing.Size(117, 55);
+            this.lb_HRMSort.Size = new System.Drawing.Size(97, 41);
             this.lb_HRMSort.TabIndex = 0;
             this.lb_HRMSort.Text = "Sắp xếp theo";
             // 
             // Form_HRM
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(190)))), ((int)(((byte)(195)))));
-            this.ClientSize = new System.Drawing.Size(966, 699);
+            this.ClientSize = new System.Drawing.Size(845, 524);
             this.Controls.Add(this.tabControl_HRM);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form_HRM";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form_HRM";

@@ -21,7 +21,7 @@ namespace HotelManagement.DAL.Implement
             List<ImgStorage> list = new List<ImgStorage>();
             foreach(int id in listdel)
             {
-                ImgStorage imgStorage = _appDbContext.ImgStorages.Find(id);
+                ImgStorage imgStorage = _appDbContext.ImgStorages.Where(x =>x.IdImgsto == id).SingleOrDefault();
                 _appDbContext.Entry(imgStorage).State = EntityState.Detached;
                 if (imgStorage != null) list.Add(imgStorage);
             }

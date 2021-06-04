@@ -19,7 +19,7 @@ namespace PBL3REAL.View
     public partial class Form_View_Statistic_Analyze : Form
     {
         QLInvoiceBLL invoiceBLL;
-        List<Statistic_InvoiceVM> listVM;
+        List<Statistic1> listVM;
         double rSquared, intercept, slope;
         double[] xValues;
         double[] yValues;

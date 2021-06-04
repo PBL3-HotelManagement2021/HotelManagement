@@ -38,7 +38,7 @@ namespace PBL3REAL.View
         }
         private void btn_Profile_Click(object sender, EventArgs e)
         {
-            Form_User_Profile f = new Form_User_Profile(ID, LoggedRole, false);
+            Form_User_Profile f = new Form_User_Profile(ID, LoggedRole, false,true);
             this.Hide();
             f.ShowDialog();
             this.Show();

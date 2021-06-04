@@ -22,10 +22,10 @@ namespace PBL3REAL.BLL
             imgStorageDAL = new ImgStorageDAL();
         }
 
-        public List<UserVM> getAll()
+        public List<UserVM> findByProperty(Dictionary<string , string >search , string orderBy)
         {
             List<UserVM> listVM = new List<UserVM>();
-            foreach(User user in userDAL.getall())
+            foreach(User user in userDAL.findByProperty(search,orderBy))
             {
                 UserVM userVM = mapper.Map<UserVM>(user);
                 foreach(UserRole userRole in user.UserRoles)
@@ -69,7 +69,7 @@ namespace PBL3REAL.BLL
             UserVM userVM = null;
             try
             {
-                List<User>list = userDAL.findByProperty(properties);
+                List<User>list = userDAL.findByProperty(properties,"None");
                 if(list.Count ==0) throw new ArgumentException("Access Denied");
                 User user = list[0];
                userVM = mapper.Map<UserVM>(user);

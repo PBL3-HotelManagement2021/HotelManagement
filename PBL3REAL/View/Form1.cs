@@ -40,16 +40,16 @@ namespace PBL3REAL
             userBLL = new QLUserBLL();
             roomDAL = new RoomDAL();
             qLInvoiceBLL = new QLInvoiceBLL();
-            PaginationRoom();
+          //  PaginationRoom();
             //   findidRoom();
             // addRoomType();
             // deleteRoomType();
             /*editRoomType();*/
-        //     showClient();
-         //   testCBBRoom();
+            //     showClient();
+            //   testCBBRoom();
 
             /* Booking */
-             // showBookingDetail();
+            // showBookingDetail();
             //      addBooking();
             // delBooking();
             //completeBooking();
@@ -67,8 +67,15 @@ namespace PBL3REAL
             //   cbbForRole();
 
             //   updateBooking1();
+            findForStatistic2();
         }
 
+        public void findForStatistic2()
+        {
+            var listVM = InvoiceDAL.Instance.findForStatistic2(Convert.ToDateTime("2021-03-01"), Convert.ToDateTime("2021-04-08"));
+            string json = JsonConvert.SerializeObject(listVM, Formatting.Indented);
+            richTextBox1.Text = json;
+        }
         public void Test()
         {
             Invoice listVM =InvoiceDAL.Instance.findById(1);
@@ -88,7 +95,7 @@ namespace PBL3REAL
         //show tat ca user
         public void showUser()
         {
-            List<UserVM> listVM = userBLL.getAll();
+            List<UserVM> listVM = new List<UserVM>();
             string json = JsonConvert.SerializeObject(listVM, Formatting.Indented);
             richTextBox1.Text = json;
         }
@@ -129,7 +136,7 @@ namespace PBL3REAL
         }
         public void addUser()
         {
-            UserVM userVM = userBLL.getAll()[0];
+            UserVM userVM = new UserVM();
             userVM.IdUser = 0;
             userVM.UserCode = "PhanTest";
             userVM.ListRole.RemoveAt(0);
@@ -144,12 +151,7 @@ namespace PBL3REAL
       
 
         //  PHAN CLIENT
-        public void showClient()
-        {
-            List<Client> listVM = clientDAL.getAll();
-            string json = JsonConvert.SerializeObject(listVM, Formatting.Indented);
-            richTextBox1.Text = json;
-        }
+      
         public void addClient()
         {
             ClientVM clientVM = new ClientVM

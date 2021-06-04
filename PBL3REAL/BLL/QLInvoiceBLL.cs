@@ -80,13 +80,13 @@ namespace PBL3REAL.BLL
                 throw;
             }
         }
-        public List<Statistic_InvoiceVM> findForStatistic(DateTime fromDate, DateTime toDate)
+        public List<Statistic1> findForStatistic(DateTime fromDate, DateTime toDate)
         {
-            List<Statistic_InvoiceVM> listVM = new List<Statistic_InvoiceVM>();
+            List<Statistic1> listVM = new List<Statistic1>();
             var GroupByInv = InvoiceDAL.Instance.findForStatistic(fromDate, toDate);
             foreach (var inv in GroupByInv)
             {
-                Statistic_InvoiceVM statistic_InvoiceVM = new Statistic_InvoiceVM
+                Statistic1 statistic_InvoiceVM = new Statistic1
                 {
                     Date = inv.InvCreatedate,
                     TotalByDate = inv.TotalPrice
@@ -95,5 +95,11 @@ namespace PBL3REAL.BLL
             }
             return listVM;
         }
+
+        public List<Statistic2>findForStatistic2 (DateTime fromDate, DateTime toDate)
+        {
+            return InvoiceDAL.Instance.findForStatistic2(fromDate, toDate);
+        }
+        
     }
 }

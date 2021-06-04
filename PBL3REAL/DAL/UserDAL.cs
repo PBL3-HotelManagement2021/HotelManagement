@@ -10,16 +10,7 @@ namespace PBL3REAL.DAL
 {
     public class UserDAL
     {
-        public List<User> getall()
-        {
-            List<User> result = AppDbContext.Instance.Users
-                                .Include(x => x.UserRoles)
-                                .ThenInclude(y => y.UserolIdroleNavigation)
-                                .Where(x => x.UserActiveflag == true)
-                                .ToList();
-            return result;
-        }
-            
+  
         public User findById(int id)
         {
             var user = AppDbContext.Instance.Users
@@ -31,7 +22,7 @@ namespace PBL3REAL.DAL
                        .SingleOrDefault();
             return user;
         }
-        public List<User> findByProperty(Dictionary<string, string> properties) 
+        public List<User> findByProperty(Dictionary<string, string> properties , string orderBy) 
         {
             var predicate = PredicateBuilder.True<User>();      
             if (properties.ContainsKey("code"))
@@ -42,15 +33,27 @@ namespace PBL3REAL.DAL
             {
                 predicate = predicate.And(x => x.UserPassword.Equals(properties["password"]));
             }
+            if (properties.ContainsKey("name"))
+            {
+                predicate = predicate.And(x => x.UserName.Contains(properties["name"]));
+            }
             predicate = predicate.And(x => x.UserActiveflag == true);
-            List<User> users = AppDbContext.Instance.Users
-                        .Include(x => x.UserRoles)
-                        .ThenInclude(y => y.UserolIdroleNavigation)
-                        .Include(x => x.ImgStorages)
-                        .Where(predicate)
-                        .AsNoTracking()
-                        .ToList();
-            return users;
+
+            IQueryable<User> query = AppDbContext.Instance.Users
+                                      .Include(x => x.UserRoles)
+                                      .ThenInclude(y => y.UserolIdroleNavigation)
+                                      .Include(x => x.ImgStorages)
+                                      .Where(predicate);
+            switch (orderBy)
+            {
+                case "None": break;
+                case "Name Asc": query = query.OrderBy(x => x.UserName); break;
+                case "Name Desc": query = query.OrderByDescending(x => x.UserName); break;
+                default: break;
+            }
+
+            List<User> result = query.AsNoTracking().ToList();
+            return result;
         }
 
         public void addUser(User user)
@@ -67,7 +70,7 @@ namespace PBL3REAL.DAL
         }
         public void delUser(int idUser)
         {
-            User user = AppDbContext.Instance.Users.Find(idUser);
+            User user = AppDbContext.Instance.Users.Where(x =>x.IdUser ==idUser).SingleOrDefault();
             user.UserActiveflag = false;
             AppDbContext.Instance.Update(user);
             AppDbContext.Instance.SaveChanges();
