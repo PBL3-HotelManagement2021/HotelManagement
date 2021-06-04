@@ -22,7 +22,7 @@ namespace PBL3REAL.View
             id = ID;
             clientBLL = new ClientBLL();
             Editable_Cli = Editable;
-            
+            LoadData();   
         }
         //Load Data Functions
         private void LoadData()
@@ -31,7 +31,7 @@ namespace PBL3REAL.View
             {
                 //Add
                 clientVM = new ClientVM();
-                tb_ClientCode.Visible = false;
+                tb_ClientCode.Enabled = false;
             }    
             else
             {
@@ -50,6 +50,11 @@ namespace PBL3REAL.View
                 btn_Reset.Enabled = false;
             }
         }
+        //Check Data Function
+        private void CheckData()
+        {
+
+        }
         //Events
         private void btn_OK_Click(object sender, EventArgs e)
         {
@@ -60,11 +65,14 @@ namespace PBL3REAL.View
             {
                 //Add
                 clientBLL.add(clientVM);
+                MessageBox.Show("Thêm mới khách hàng thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }    
             else
             {
                 clientBLL.update(clientVM);
-            }    
+                MessageBox.Show("Cập nhật khách hàng thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            this.Dispose();
         }
         private void btn_Reset_Click(object sender, EventArgs e)
         {

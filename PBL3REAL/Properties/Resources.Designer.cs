@@ -143,6 +143,16 @@ namespace PBL3REAL.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap client_management_fluent_color_96px {
+            get {
+                object obj = ResourceManager.GetObject("client_management_fluent_color_96px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap close_window_fluent_color_96px {
             get {
                 object obj = ResourceManager.GetObject("close_window_fluent_color_96px", resourceCulture);
@@ -716,6 +726,16 @@ namespace PBL3REAL.Properties {
         internal static System.Drawing.Bitmap refresh_fluent_color_48px {
             get {
                 object obj = ResourceManager.GetObject("refresh_fluent_color_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap restore_fluent_color_96px {
+            get {
+                object obj = ResourceManager.GetObject("restore_fluent_color_96px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -14,20 +14,30 @@ namespace PBL3REAL.View
 {
     public partial class Form_Admin : Form
     {
+        /***** GLOBAL DECLARATION *****/
+        //-> Global Parameter For Admin Account
         private int ID;
         private string LoggedRole;
+
+        /***** CONSTRUCTOR *****/
         public Form_Admin(int id, string role)
         {
             InitializeComponent();
             ID = id;
             LoggedRole = role;
         }
-        //Set GUI
-        //Events
+
+        /***** EVENTS *****/
+        //-> Form
+        private void Form_Admin_Move(object sender, EventArgs e)
+        {
+            fllaypn_Menu.Visible = false;
+        }
         private void Form_Home_Admin_VisibleChanged(object sender, EventArgs e)
         {
             fllaypn_Menu.Visible = false;
         }
+        //-> FlowLayoutPanel Menu
         private void btn_Menu_VisibleChanged(object sender, EventArgs e)
         {
             fllaypn_Menu.Visible = (!fllaypn_Menu.Visible);
@@ -43,6 +53,18 @@ namespace PBL3REAL.View
             f.ShowDialog();
             this.Show();
         }
+        private void btn_Logout_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+        //->  FlowLayoutPanel Navbar
+        private void btn_Receptionist_Click(object sender, EventArgs e)
+        {
+            Form_Receptionist f = new Form_Receptionist(ID, LoggedRole);
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
+        }
         private void btn_Accountant_Click(object sender, EventArgs e)
         {
             Form_Accountant f = new Form_Accountant();
@@ -50,9 +72,9 @@ namespace PBL3REAL.View
             f.ShowDialog();
             this.Show();
         }
-        private void btn_Receptionist_Click(object sender, EventArgs e)
+        private void btn_Client_Click(object sender, EventArgs e)
         {
-            Form_Receptionist f = new Form_Receptionist(ID,LoggedRole);
+            Form_Client f = new Form_Client();
             this.Hide();
             f.ShowDialog();
             this.Show();
@@ -63,11 +85,6 @@ namespace PBL3REAL.View
             this.Hide();
             f.ShowDialog();
             this.Show();
-        }
-
-        private void btn_Logout_Click(object sender, EventArgs e)
-        {
-            this.Dispose();
         }
     }
 }

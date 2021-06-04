@@ -9,35 +9,26 @@ using PBL3REAL.BLL;
 using PBL3REAL.DAL;
 using PBL3REAL.ViewModel;
 using PBL3REAL.Extention;
+using System.IO;
+
 namespace PBL3REAL.View
 {
     public partial class Form_User_Profile : Form
     {
-        private int ID = 0;
+        /***** GLOBAL DECLARATION *****/
+        //-> Global Parameter For User
         private QLUserBLL qLUserBLL;
         private UserVM userVM;
-        private static readonly string[] VietNamChar = new string[]
-        {
-            "aAeEoOuUiIdDyY",
-            "áàạảãâấầậẩẫăắằặẳẵ",
-            "ÁÀẠẢÃÂẤẦẬẨẪĂẮẰẶẲẴ",
-            "éèẹẻẽêếềệểễ",
-            "ÉÈẸẺẼÊẾỀỆỂỄ",
-            "óòọỏõôốồộổỗơớờợởỡ",
-            "ÓÒỌỎÕÔỐỒỘỔỖƠỚỜỢỞỠ",
-            "úùụủũưứừựửữ",
-            "ÚÙỤỦŨƯỨỪỰỬỮ",
-            "íìịỉĩ",
-            "ÍÌỊỈĨ",
-            "đ",
-            "Đ",
-            "ýỳỵỷỹ",
-            "ÝỲỴỶỸ"
-        };
+        private int ID = 0;
+        private ImageVM TempAvatar;
+        private bool Change;
+
+        /***** CONSTRUCTOR *****/
         public Form_User_Profile(int id, string role, bool Editable,bool isForLogin)
         {
             InitializeComponent();
             qLUserBLL = new QLUserBLL();
+            Change = false;
             if (isForLogin)
             {
                 loadForLogin(role);
@@ -45,12 +36,14 @@ namespace PBL3REAL.View
             else
             {
                 ID = id;
-                addToCbb();
-                LoadData( Editable);
+                AddRoleToCbb();
+                LoadDataForManage(Editable);
             }   
         }
-        //Load Data
-        private void addToCbb()
+
+        /***** PROCESSING FUNCTIONS ****/
+        //-> Load Data Functions
+        private void AddRoleToCbb()
         {
             foreach(var value in qLUserBLL.getRoleForUser())
             {
@@ -59,7 +52,6 @@ namespace PBL3REAL.View
             cbb_Role.DisplayMember = "RoleName";
             cbb_Role.SelectedIndex = 0;
         }
-
         private void loadForLogin(string role)
         {
             lb_Header.Text = "   " + QLUserBLL.stoUser.UserCode + "   ";
@@ -90,7 +82,7 @@ namespace PBL3REAL.View
             lbx_User.Visible = false;
             fllaypn_User.Visible = false;
         }
-        private void LoadData( bool Editable)
+        private void LoadDataForManage(bool Editable)
         {
             if (ID == 0)
             {
@@ -117,6 +109,24 @@ namespace PBL3REAL.View
                 {
                     lbx_User.Items.Add(value.RoleName);
                 }
+                if (userVM.ListImg.Count != 0)
+                {
+                    try
+                    {
+                        using (FileStream fs = new FileStream(userVM.ListImg[0].ImgstoUrl, FileMode.Open))
+                        {
+                            picbx_Header.Image = Image.FromStream(fs);
+                            picbx_Header.SizeMode = PictureBoxSizeMode.StretchImage;
+                            fs.Close();
+                        }
+                        TempAvatar = new ImageVM { IdImgsto = userVM.ListImg[0].IdImgsto, ImgstoUrl = userVM.ListImg[0].ImgstoUrl };
+                    }
+                    catch (Exception e) 
+                    { 
+                        picbx_Header.BackgroundImage = Properties.Resources.nothing_found_fluent_color_96px;
+                        picbx_Header.Image = null;
+                    }
+                }   
             }
             if (!Editable)
             {
@@ -133,9 +143,27 @@ namespace PBL3REAL.View
                 fllaypn_User.Visible = false;
             }
         }
-        //Check Data
+        //-> Check Data Functions
         private bool CheckVietNamChar(string s)
         {
+            string[] VietNamChar = new string[]
+            {
+            "aAeEoOuUiIdDyY",
+            "áàạảãâấầậẩẫăắằặẳẵ",
+            "ÁÀẠẢÃÂẤẦẬẨẪĂẮẰẶẲẴ",
+            "éèẹẻẽêếềệểễ",
+            "ÉÈẸẺẼÊẾỀỆỂỄ",
+            "óòọỏõôốồộổỗơớờợởỡ",
+            "ÓÒỌỎÕÔỐỒỘỔỖƠỚỜỢỞỠ",
+            "úùụủũưứừựửữ",
+            "ÚÙỤỦŨƯỨỪỰỬỮ",
+            "íìịỉĩ",
+            "ÍÌỊỈĨ",
+            "đ",
+            "Đ",
+            "ýỳỵỷỹ",
+            "ÝỲỴỶỸ"
+            };
             for (int i = 1; i < VietNamChar.Length; i++)
             {
                 for (int j = 0; j < VietNamChar[i].Length; j++)
@@ -161,7 +189,7 @@ namespace PBL3REAL.View
             { return 2; }
             return 3;
         }
-
+        //-> CRUD User Functions
         private void AddUser()
         {
             userVM.UserName = tb_Username.Text.Replace(" ",String.Empty);
@@ -177,6 +205,7 @@ namespace PBL3REAL.View
                 userVM.UserGender = false;
             }
             userVM.ListImg.Clear();
+            userVM.ListImg.Add(TempAvatar);
             qLUserBLL.addUser(userVM);
         }
         private void UpdateUserInfo()
@@ -193,12 +222,14 @@ namespace PBL3REAL.View
             {
                 userVM.UserGender = false;
             }
+            userVM.ListImg.Clear();
+            userVM.ListImg.Add(TempAvatar);
             qLUserBLL.updateUser(userVM, null);
         }
-        //Hàm tạo folder & insert ảnh
-        public Image InsertIMG()
+        //-> Create Storaging Folder
+        private void CreateStoragingFolder()
         {
-            string palettesPath = "\\Properties\\Room_Type";
+            string palettesPath = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + "\\User_Profile";
             try
             {
                 // If the directory doesn't exist, create it.
@@ -212,6 +243,11 @@ namespace PBL3REAL.View
                 // Fail silently
                 MessageBox.Show("Error!");
             }
+        }
+        //-> Insert IMG
+        private Image InsertIMG()
+        {
+            CreateStoragingFolder();
             // open file dialog   
             OpenFileDialog open = new OpenFileDialog();
             // image filters  
@@ -222,57 +258,50 @@ namespace PBL3REAL.View
             }
             return null;
         }
-        //Events
-        private void btn_Cancel_Click(object sender, EventArgs e)
+        //-> Delete IMG
+        private void DeleteIMG(string fullpath)
         {
-            this.Dispose();
-        }
-        private void btn_Reset_Click(object sender, EventArgs e)
-        {
-            //Reset Data
-            tb_Username.Text = "";
-            tb_Email.Text = "";
-            tb_Phone.Text = "";
-            tb_Password.Text = "";
-            rbtn_Male.Checked = false;
-            rbtn_Female.Checked = false;
-            cbb_Role.SelectedItem = null;
-        }
-        private void btn_OK_Click(object sender, EventArgs e)
-        {
-            //Check Data
-            switch (CheckData())
+            try
             {
-                case 0:
-                    MessageBox.Show("Bạn chưa nhập đầy đủ thông tin!","Thông báo", MessageBoxButtons.OK,MessageBoxIcon.Information);
-                    break;
-                case 1:
-                    MessageBox.Show("Số điện thoại bạn nhập không hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    break;
-                case 2:
-                    MessageBox.Show("Email hoặc mật khẩu bạn nhập không hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    break;
-                case 3:
-                    if (ID == 0)
-                    {
-                        AddUser();
-                        //Thông báo trả về thành công
-                    }   
-                    else
-                    {
-                        UpdateUserInfo();
-                        //Thông báo trả về thành công
-                    }
-                    break;
-                default:
-                    break;
+                File.Delete(fullpath);
+            }
+            catch (Exception e) { }
+        }
+        //-> Update IMG 
+        private void UpdateIMG(string Fullpath)
+        {
+            if (File.Exists(Fullpath))
+            {
+                DeleteIMG(Fullpath);
+            }
+            picbx_Header.Image.Save(Fullpath, System.Drawing.Imaging.ImageFormat.Jpeg);
+        }
+        /***** EVENTS *****/
+        //-> Form 
+        //-> TableLayoutPanel User Info
+        private void picbx_Header_Click(object sender, EventArgs e)
+        {
+            //Reset to default
+            picbx_Header.Image = Properties.Resources.male_user_fluent_color_96px;
+            TempAvatar = null;
+            if (userVM.ListImg.Count != 0) { Change = true; }
+        }
+        private void picbx_Header_DoubleClick(object sender, EventArgs e)
+        {
+            //Change avatar
+            picbx_Header.Image = InsertIMG();
+            if (picbx_Header != null)
+            {
+                picbx_Header.SizeMode = PictureBoxSizeMode.StretchImage;
+                Change = true;
+                TempAvatar = new ImageVM { };
             }
         }
         private void picbx_Add_Click(object sender, EventArgs e)
         {
             //Add role 
             RoleVM selected = (RoleVM)cbb_Role.SelectedItem;
-            if (userVM.ListRole.FindIndex(x =>x.RoleName.Equals(selected.RoleName)) !=-1)
+            if (userVM.ListRole.FindIndex(x => x.RoleName.Equals(selected.RoleName)) != -1)
             {
                 MessageBox.Show("This role has already added");
             }
@@ -288,17 +317,62 @@ namespace PBL3REAL.View
             userVM.ListRole.RemoveAt(userVM.ListRole.Count - 1);
             lbx_User.Items.RemoveAt(lbx_User.Items.Count - 1);
         }
-        private void picbx_Header_Click(object sender, EventArgs e)
+        //-> TableLayoutPanel Control Buttons
+        private void btn_Cancel_Click(object sender, EventArgs e)
         {
-            //Change avatar
-            picbx_Header.Image = InsertIMG();
-            picbx_Header.SizeMode = PictureBoxSizeMode.StretchImage;
+            this.Dispose();
         }
-        private void picbx_Header_DoubleClick(object sender, EventArgs e)
+        private void btn_Reset_Click(object sender, EventArgs e)
         {
-            //Reset to default
-            picbx_Header.Image = Properties.Resources.male_user_fluent_color_96px;
-            picbx_Header.SizeMode = PictureBoxSizeMode.StretchImage;
+            tb_Username.Text = "";
+            tb_Email.Text = "";
+            tb_Phone.Text = "";
+            tb_Password.Text = "";
+            rbtn_Male.Checked = false;
+            rbtn_Female.Checked = false;
+            cbb_Role.SelectedItem = null;
+            lbx_User.Items.Clear();
+            Change = true;
+        }
+        private void btn_OK_Click(object sender, EventArgs e)
+        {
+            switch (CheckData())
+            {
+                case 0:
+                    MessageBox.Show("Bạn chưa nhập đầy đủ thông tin!","Thông báo", MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    break;
+                case 1:
+                    MessageBox.Show("Số điện thoại bạn nhập không hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+                case 2:
+                    MessageBox.Show("Email hoặc mật khẩu bạn nhập không hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+                case 3:
+                    if (ID == 0)
+                    {
+                        if (Change)
+                        {
+                            //string Path = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + "\\User_Profile\\" + userVM.UserCode + "Jpeg";
+                            //UpdateIMG(Path);
+                        }
+                        AddUser();
+                        MessageBox.Show("Thêm tài khoản nhân viên mới thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }   
+                    else
+                    {
+                        if (Change)
+                        {
+                            string Path = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + "\\User_Profile\\" + userVM.UserCode + "Jpeg";
+                            UpdateIMG(Path);
+                        }
+                        UpdateUserInfo();
+                        MessageBox.Show("Cập nhật tài khoản nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    this.Dispose();
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

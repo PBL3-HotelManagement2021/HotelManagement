@@ -33,7 +33,7 @@ namespace PBL3REAL.View
             this.fllaypn_Navbar = new System.Windows.Forms.FlowLayoutPanel();
             this.picbx_Logo = new System.Windows.Forms.PictureBox();
             this.btn_Receptionist = new System.Windows.Forms.Button();
-            this.btn_Service = new System.Windows.Forms.Button();
+            this.btn_Client = new System.Windows.Forms.Button();
             this.btn_Accountant = new System.Windows.Forms.Button();
             this.btn_HRM = new System.Windows.Forms.Button();
             this.btn_Menu = new System.Windows.Forms.Button();
@@ -50,8 +50,8 @@ namespace PBL3REAL.View
             // 
             this.fllaypn_Navbar.Controls.Add(this.picbx_Logo);
             this.fllaypn_Navbar.Controls.Add(this.btn_Receptionist);
-            this.fllaypn_Navbar.Controls.Add(this.btn_Service);
             this.fllaypn_Navbar.Controls.Add(this.btn_Accountant);
+            this.fllaypn_Navbar.Controls.Add(this.btn_Client);
             this.fllaypn_Navbar.Controls.Add(this.btn_HRM);
             this.fllaypn_Navbar.Dock = System.Windows.Forms.DockStyle.Left;
             this.fllaypn_Navbar.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
@@ -66,7 +66,7 @@ namespace PBL3REAL.View
             this.picbx_Logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.picbx_Logo.Location = new System.Drawing.Point(3, 3);
             this.picbx_Logo.Name = "picbx_Logo";
-            this.picbx_Logo.Size = new System.Drawing.Size(144, 140);
+            this.picbx_Logo.Size = new System.Drawing.Size(144, 150);
             this.picbx_Logo.TabIndex = 4;
             this.picbx_Logo.TabStop = false;
             // 
@@ -76,28 +76,29 @@ namespace PBL3REAL.View
             this.btn_Receptionist.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Receptionist.Image = global::PBL3REAL.Properties.Resources.front_desk_fluent_color_96px;
             this.btn_Receptionist.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_Receptionist.Location = new System.Drawing.Point(3, 149);
+            this.btn_Receptionist.Location = new System.Drawing.Point(3, 159);
             this.btn_Receptionist.Name = "btn_Receptionist";
-            this.btn_Receptionist.Size = new System.Drawing.Size(144, 140);
+            this.btn_Receptionist.Size = new System.Drawing.Size(144, 150);
             this.btn_Receptionist.TabIndex = 0;
             this.btn_Receptionist.Text = "Receptionist";
             this.btn_Receptionist.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Receptionist.UseVisualStyleBackColor = true;
             this.btn_Receptionist.Click += new System.EventHandler(this.btn_Receptionist_Click);
             // 
-            // btn_Service
+            // btn_Client
             // 
-            this.btn_Service.FlatAppearance.BorderSize = 0;
-            this.btn_Service.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Service.Image = global::PBL3REAL.Properties.Resources.food_service_96px;
-            this.btn_Service.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_Service.Location = new System.Drawing.Point(3, 295);
-            this.btn_Service.Name = "btn_Service";
-            this.btn_Service.Size = new System.Drawing.Size(144, 140);
-            this.btn_Service.TabIndex = 0;
-            this.btn_Service.Text = "Service";
-            this.btn_Service.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_Service.UseVisualStyleBackColor = true;
+            this.btn_Client.FlatAppearance.BorderSize = 0;
+            this.btn_Client.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Client.Image = global::PBL3REAL.Properties.Resources.client_management_fluent_color_96px;
+            this.btn_Client.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btn_Client.Location = new System.Drawing.Point(3, 471);
+            this.btn_Client.Name = "btn_Client";
+            this.btn_Client.Size = new System.Drawing.Size(144, 150);
+            this.btn_Client.TabIndex = 0;
+            this.btn_Client.Text = "Client";
+            this.btn_Client.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Client.UseVisualStyleBackColor = true;
+            this.btn_Client.Click += new System.EventHandler(this.btn_Client_Click);
             // 
             // btn_Accountant
             // 
@@ -105,9 +106,9 @@ namespace PBL3REAL.View
             this.btn_Accountant.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Accountant.Image = global::PBL3REAL.Properties.Resources.accounting_96px;
             this.btn_Accountant.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_Accountant.Location = new System.Drawing.Point(3, 441);
+            this.btn_Accountant.Location = new System.Drawing.Point(3, 315);
             this.btn_Accountant.Name = "btn_Accountant";
-            this.btn_Accountant.Size = new System.Drawing.Size(144, 140);
+            this.btn_Accountant.Size = new System.Drawing.Size(144, 150);
             this.btn_Accountant.TabIndex = 0;
             this.btn_Accountant.Text = "Accountant";
             this.btn_Accountant.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -120,9 +121,9 @@ namespace PBL3REAL.View
             this.btn_HRM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_HRM.Image = global::PBL3REAL.Properties.Resources.staff_fluent_color_96px;
             this.btn_HRM.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_HRM.Location = new System.Drawing.Point(3, 587);
+            this.btn_HRM.Location = new System.Drawing.Point(3, 627);
             this.btn_HRM.Name = "btn_HRM";
-            this.btn_HRM.Size = new System.Drawing.Size(144, 140);
+            this.btn_HRM.Size = new System.Drawing.Size(144, 150);
             this.btn_HRM.TabIndex = 0;
             this.btn_HRM.Text = "Human Resources";
             this.btn_HRM.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -195,9 +196,9 @@ namespace PBL3REAL.View
             this.tableLayoutPanel1.Size = new System.Drawing.Size(733, 467);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // Form_Home_Admin
+            // Form_Admin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(177)))), ((int)(((byte)(160)))));
             this.ClientSize = new System.Drawing.Size(1006, 788);
@@ -209,10 +210,11 @@ namespace PBL3REAL.View
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form_Home_Admin";
+            this.Name = "Form_Admin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Welcome Admin!";
             this.VisibleChanged += new System.EventHandler(this.Form_Home_Admin_VisibleChanged);
+            this.Move += new System.EventHandler(this.Form_Admin_Move);
             this.fllaypn_Navbar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picbx_Logo)).EndInit();
             this.fllaypn_Menu.ResumeLayout(false);
@@ -224,7 +226,7 @@ namespace PBL3REAL.View
         private System.Windows.Forms.FlowLayoutPanel fllaypn_Navbar;
         private System.Windows.Forms.PictureBox picbx_Logo;
         private System.Windows.Forms.Button btn_Receptionist;
-        private System.Windows.Forms.Button btn_Service;
+        private System.Windows.Forms.Button btn_Client;
         private System.Windows.Forms.Button btn_Accountant;
         private System.Windows.Forms.Button btn_HRM;
         private System.Windows.Forms.Button btn_Menu;
