@@ -42,7 +42,7 @@ namespace PBL3REAL.View
                     {
                         if (role == "Admin")
                         { 
-                            Form_Home_Admin f = new Form_Home_Admin(QLUserBLL.stoUser.IdUser, role);
+                            Form_Admin f = new Form_Admin(QLUserBLL.stoUser.IdUser, role);
                             this.Hide();
                             f.ShowDialog();
                         }

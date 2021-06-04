@@ -1,7 +1,7 @@
 ﻿
 namespace PBL3REAL.View
 {
-    partial class Form_Home_Admin
+    partial class Form_Admin
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace PBL3REAL.View
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Home_Admin));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Admin));
             this.fllaypn_Navbar = new System.Windows.Forms.FlowLayoutPanel();
             this.picbx_Logo = new System.Windows.Forms.PictureBox();
             this.btn_Receptionist = new System.Windows.Forms.Button();

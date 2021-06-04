@@ -12,11 +12,11 @@ using PBL3REAL.BLL;
 using PBL3REAL.Extention;
 namespace PBL3REAL.View
 {
-    public partial class Form_Home_Admin : Form
+    public partial class Form_Admin : Form
     {
         private int ID;
         private string LoggedRole;
-        public Form_Home_Admin(int id, string role)
+        public Form_Admin(int id, string role)
         {
             InitializeComponent();
             ID = id;
