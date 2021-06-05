@@ -443,7 +443,7 @@ namespace PBL3REAL.View
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form_User_Profile";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form_User_Profile";
+            this.Text = "6";
             this.fllaypn_Header.ResumeLayout(false);
             this.fllaypn_Header.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picbx_Header)).EndInit();

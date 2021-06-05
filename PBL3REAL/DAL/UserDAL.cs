@@ -60,6 +60,7 @@ namespace PBL3REAL.DAL
         {
             AppDbContext.Instance.Add(user);
             AppDbContext.Instance.SaveChanges();
+            AppDbContext.Instance.Entry(user).State = EntityState.Detached;
         }
 
         
@@ -67,6 +68,7 @@ namespace PBL3REAL.DAL
         {
             AppDbContext.Instance.Update(user);
             AppDbContext.Instance.SaveChanges();
+            AppDbContext.Instance.Entry(user).State = EntityState.Detached;
         }
         public void delUser(int idUser)
         {

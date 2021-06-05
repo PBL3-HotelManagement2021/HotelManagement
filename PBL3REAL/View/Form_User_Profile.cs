@@ -13,10 +13,14 @@ using System.IO;
 
 namespace PBL3REAL.View
 {
+    
     public partial class Form_User_Profile : Form
     {
         /***** GLOBAL DECLARATION *****/
         //-> Global Parameter For User
+        public delegate void MyDel();
+        public MyDel myDel;
+
         private QLUserBLL qLUserBLL;
         private UserVM userVM;
         private int ID = 0;
@@ -180,7 +184,7 @@ namespace PBL3REAL.View
         {
             int phone = 0;
             if (tb_Username.Text == "" || tb_Email.Text == "" || tb_Password.Text == "" || tb_Phone.Text == "" 
-                || (rbtn_Male.Checked == false && rbtn_Female.Checked == false))
+                || (rbtn_Male.Checked == false && rbtn_Female.Checked == false) || lbx_User.Items.Count ==0)
             { return 0; }    
             if (int.TryParse(tb_Phone.Text,out phone) == false)
             { return 1; }

@@ -268,7 +268,7 @@ namespace PBL3REAL.View
             {
                 Dictionary<string, string> properties = new Dictionary<string, string>();
                 properties.Add("phone", tb_ClientSearch.Text);
-                List<ClientVM> listClient = clientBLL.findByProperty(properties,"");
+                List<ClientVM> listClient = clientBLL.findByProperty(1,10000,properties,"");
                 if (listClient != null && listClient.Count != 0)
                 {
                     tb_ClientEmail.Text = listClient[0].CliGmail;

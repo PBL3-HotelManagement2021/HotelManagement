@@ -44,6 +44,7 @@ namespace PBL3REAL.View
         private void btn_HRMAdd_Click(object sender, EventArgs e)
         {
             Form_User_Profile f = new Form_User_Profile(0, "", true, false);
+            f.myDel = loadDtbUser;
             this.Hide();
             f.ShowDialog();
             this.Show();
@@ -55,6 +56,7 @@ namespace PBL3REAL.View
             if (r.Count == 1)
             {
                 Form_User_Profile f = new Form_User_Profile(int.Parse(r[0].Cells["IdUser"].Value.ToString()),"", false,false);
+                f.myDel = loadDtbUser;
                 this.Hide();
                 f.ShowDialog();
                 this.Show();
@@ -77,6 +79,7 @@ namespace PBL3REAL.View
             if (r.Count == 1)
             {
                 Form_User_Profile f = new Form_User_Profile(int.Parse(r[0].Cells["IdUser"].Value.ToString()), "", true, false);
+                f.myDel = loadDtbUser;
                 this.Hide();
                 f.ShowDialog();
                 this.Show();

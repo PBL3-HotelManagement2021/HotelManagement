@@ -107,7 +107,7 @@ namespace PBL3REAL.View
             searchByDate.fromDate = dtp_BookingFrom.Value;
             searchByDate.toDate = dtp_BookingTo.Value;
             BookingCurrentPage = 1;
-            totalBookingPages = bookingBLL.getPagination(ROWS, searchByDate, bookOrderBy, bookingSearch, bookStatus);
+            totalBookingPages = bookingBLL.getPagination(ROWS, searchByDate, bookingSearch, bookStatus);
             if (totalBookingPages != 0)
             {
                 tb_BookingPageNumber.Text = BookingCurrentPage + "/" + totalBookingPages;

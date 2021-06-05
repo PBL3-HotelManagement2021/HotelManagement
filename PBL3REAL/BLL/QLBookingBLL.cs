@@ -90,9 +90,9 @@ namespace PBL3REAL.BLL
             }
         }
 
-        public int getPagination(int rows , CalendarVM searchByDate, string orderBy, string search , string status)
+        public int getPagination(int rows , CalendarVM searchByDate, string search , string status)
         {
-            int totalRows = _bookingDAL.getTotalRow(searchByDate, orderBy, search , status);
+            int totalRows = _bookingDAL.getTotalRow(searchByDate, search , status);
             int totalpage;
             if (totalRows % rows == 0)
             {

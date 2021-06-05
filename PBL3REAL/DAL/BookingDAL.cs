@@ -175,7 +175,7 @@ namespace PBL3REAL.DAL
             _appDbContext.Entry(booking).State = EntityState.Detached;
         }
 
-        public int getTotalRow(CalendarVM searchByDate, string orderBy , string search , string status)
+        public int getTotalRow(CalendarVM searchByDate, string search , string status)
         {
             int totalrows = 0;
             var predicate = PredicateBuilder.True<Booking>();
@@ -191,17 +191,9 @@ namespace PBL3REAL.DAL
                 predicate = predicate.And(x => x.BookCheckoutdate >= searchByDate.fromDate && x.BookCheckoutdate <= searchByDate.toDate);
             if (status != "All")
                 predicate = predicate.And(x => x.BookStatus == status);
-            IQueryable<Booking> query = _appDbContext.Bookings
-                              .Where(predicate);
-            switch (orderBy)
-            {
-                case "None": break;
-                case "Total Price Asc": query = query.OrderBy(x => x.BookTotalprice); break;
-                case "Total Price Desc": query = query.OrderByDescending(x => x.BookTotalprice); break;
-                default: break;
-            }
 
-           totalrows = query.Count();
+           totalrows = _appDbContext.Bookings
+                              .Where(predicate).Count();
             return totalrows;
         }
 

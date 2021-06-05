@@ -32,10 +32,25 @@ namespace PBL3REAL.BLL
             _clientDAL.update(client);
         }
 
-        public List<ClientVM> findByProperty(Dictionary<string ,string> properties, string orderBy)
+        public void restore(int id)
         {
+            try
+            {
+                _clientDAL.restore(id);
+            }
+            catch (Exception)
+            {
+
+            }
+          
+        }
+
+        public List<ClientVM> findByProperty(int pages, int rows  ,Dictionary<string ,string> properties, string orderBy)
+        {
+            int start = (pages - 1) * rows;
+            int length = rows;
             List<ClientVM> listVm = new List<ClientVM>();
-            foreach (Client client in _clientDAL.findByProperty(properties,orderBy))
+            foreach (Client client in _clientDAL.findByProperty(start, length,properties, orderBy))
             {
                 ClientVM clientVM = mapper.Map<ClientVM>(client);
                 listVm.Add(clientVM);
@@ -46,12 +61,6 @@ namespace PBL3REAL.BLL
         public bool checkexisted(Dictionary<string , string > properties , string code)
         {
             var list = _clientDAL.checkExisted(properties);
-            /*  if (list == null) return true;
-              else if (list != null && list.Find(x => x.CliCode == code) != null)
-              {
-                  var check = list.Find(x => x.CliCode == code);
-
-              }*/
             if (list.Count ==0) return true; 
             return false ;
         }
@@ -61,6 +70,21 @@ namespace PBL3REAL.BLL
             Client client = _clientDAL.findById(id);
             ClientVM clientVM = mapper.Map<ClientVM>(client);
             return clientVM;
+        }
+
+        public int getPagination(int rows , Dictionary<string , string> properties)
+        {
+            int totalRows = _clientDAL.getTotalRow(properties);
+            int totalpage ;
+            if (totalRows % rows == 0)
+            {
+                totalpage = totalRows / rows;
+            }
+            else
+            {
+                totalpage = totalRows / rows + 1;
+            }
+            return totalpage;
         }
     }
 }
