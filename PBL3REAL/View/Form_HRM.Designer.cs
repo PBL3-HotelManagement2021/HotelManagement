@@ -227,7 +227,7 @@ namespace PBL3REAL.View
             this.tbllaypn_HRM.ColumnCount = 3;
             this.tbllaypn_HRM.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.09678F));
             this.tbllaypn_HRM.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.90322F));
-            this.tbllaypn_HRM.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tbllaypn_HRM.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 72F));
             this.tbllaypn_HRM.Controls.Add(this.picbx_HRMSearch, 2, 1);
             this.tbllaypn_HRM.Controls.Add(this.picbx_HRMSort, 2, 0);
             this.tbllaypn_HRM.Controls.Add(this.cbb_HRMSort, 1, 0);
@@ -246,7 +246,7 @@ namespace PBL3REAL.View
             // picbx_HRMSearch
             // 
             this.picbx_HRMSearch.Image = global::PBL3REAL.Properties.Resources.search_fluent_color_48px;
-            this.picbx_HRMSearch.Location = new System.Drawing.Point(270, 43);
+            this.picbx_HRMSearch.Location = new System.Drawing.Point(268, 43);
             this.picbx_HRMSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.picbx_HRMSearch.Name = "picbx_HRMSearch";
             this.picbx_HRMSearch.Size = new System.Drawing.Size(42, 36);
@@ -257,7 +257,7 @@ namespace PBL3REAL.View
             // picbx_HRMSort
             // 
             this.picbx_HRMSort.Image = global::PBL3REAL.Properties.Resources.filter_fluent_color_48px;
-            this.picbx_HRMSort.Location = new System.Drawing.Point(270, 2);
+            this.picbx_HRMSort.Location = new System.Drawing.Point(268, 2);
             this.picbx_HRMSort.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.picbx_HRMSort.Name = "picbx_HRMSort";
             this.picbx_HRMSort.Size = new System.Drawing.Size(42, 36);
@@ -276,10 +276,10 @@ namespace PBL3REAL.View
             "None",
             "Name Asc",
             "Name Desc"});
-            this.cbb_HRMSort.Location = new System.Drawing.Point(102, 2);
+            this.cbb_HRMSort.Location = new System.Drawing.Point(101, 2);
             this.cbb_HRMSort.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbb_HRMSort.Name = "cbb_HRMSort";
-            this.cbb_HRMSort.Size = new System.Drawing.Size(162, 33);
+            this.cbb_HRMSort.Size = new System.Drawing.Size(161, 33);
             this.cbb_HRMSort.TabIndex = 1;
             // 
             // tb_HRMSearch
@@ -288,10 +288,10 @@ namespace PBL3REAL.View
             this.tb_HRMSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tb_HRMSearch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tb_HRMSearch.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tb_HRMSearch.Location = new System.Drawing.Point(102, 43);
+            this.tb_HRMSearch.Location = new System.Drawing.Point(101, 43);
             this.tb_HRMSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_HRMSearch.Name = "tb_HRMSearch";
-            this.tb_HRMSearch.Size = new System.Drawing.Size(162, 25);
+            this.tb_HRMSearch.Size = new System.Drawing.Size(161, 25);
             this.tb_HRMSearch.TabIndex = 2;
             // 
             // lb_HRMSearch
@@ -300,7 +300,7 @@ namespace PBL3REAL.View
             this.lb_HRMSearch.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lb_HRMSearch.Location = new System.Drawing.Point(3, 41);
             this.lb_HRMSearch.Name = "lb_HRMSearch";
-            this.lb_HRMSearch.Size = new System.Drawing.Size(93, 42);
+            this.lb_HRMSearch.Size = new System.Drawing.Size(92, 42);
             this.lb_HRMSearch.TabIndex = 0;
             this.lb_HRMSearch.Text = "Tìm kiếm";
             // 
@@ -310,7 +310,7 @@ namespace PBL3REAL.View
             this.lb_HRMSort.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lb_HRMSort.Location = new System.Drawing.Point(3, 0);
             this.lb_HRMSort.Name = "lb_HRMSort";
-            this.lb_HRMSort.Size = new System.Drawing.Size(93, 41);
+            this.lb_HRMSort.Size = new System.Drawing.Size(92, 41);
             this.lb_HRMSort.TabIndex = 0;
             this.lb_HRMSort.Text = "Sắp xếp theo";
             // 

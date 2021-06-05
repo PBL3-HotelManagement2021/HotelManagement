@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using HotelManagement.DAL.Implement;
 using PBL3REAL.DAL;
+using PBL3REAL.Extention;
 using PBL3REAL.Model;
 using PBL3REAL.ViewModel;
 using System;
@@ -73,6 +74,7 @@ namespace PBL3REAL.BLL
             UserVM userVM = null;
             try
             {
+                properties["password"] = Md5.CreateMD5Hash(properties["password"]);
                 List<User>list = userDAL.findByProperty(properties,"None");
                 if(list.Count ==0) throw new ArgumentException("Access Denied");
                 User user = list[0];
@@ -113,6 +115,7 @@ namespace PBL3REAL.BLL
         {
             User user = new User();
             mapper.Map(userVM, user);
+            user.UserPassword = Md5.CreateMD5Hash(user.UserPassword);
             List<UserRole> ListRole = new List<UserRole>();
             List<ImgStorage> ListImg = new List<ImgStorage>();
             foreach (RoleVM roleVM in userVM.ListRole)
@@ -153,6 +156,7 @@ namespace PBL3REAL.BLL
             List<UserRole> ListRole = new List<UserRole>();
             List<ImgStorage> ListImg = new List<ImgStorage>();
             mapper.Map(userVM, user);
+            user.UserPassword = Md5.CreateMD5Hash(user.UserPassword);
             foreach(RoleVM roleVM in userVM.ListRole)
             {
                 UserRole userRole = new UserRole

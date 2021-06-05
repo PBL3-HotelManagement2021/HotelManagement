@@ -31,6 +31,19 @@ namespace PBL3REAL.BLL
             mapper.Map(clientVM, client);
             _clientDAL.update(client);
         }
+        public void delete(int id)
+        {
+            try
+            {
+                _clientDAL.delete(id);
+            }
+            catch (Exception)
+            {
+
+            }
+
+        }
+
 
         public void restore(int id)
         {

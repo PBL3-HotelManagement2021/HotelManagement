@@ -32,6 +32,16 @@ namespace PBL3REAL.DAL
             _appDbContext.Entry(client).State = EntityState.Detached;
             return client.IdClient;
         }
+
+        public void delete(int id)
+        {
+            Client client = findById(id);
+            client.CliActiveflag = false;
+            _appDbContext.Clients.Update(client);
+            _appDbContext.SaveChanges();
+            _appDbContext.Entry(client).State = EntityState.Detached;
+        }
+
         public void restore(int id)
         {
             Client client = findById(id);

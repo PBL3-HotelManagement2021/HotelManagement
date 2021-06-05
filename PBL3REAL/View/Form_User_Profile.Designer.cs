@@ -193,6 +193,7 @@ namespace PBL3REAL.View
             // 
             this.rbtn_Male.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.rbtn_Male.AutoSize = true;
+            this.rbtn_Male.Checked = true;
             this.rbtn_Male.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.rbtn_Male.Location = new System.Drawing.Point(3, 2);
             this.rbtn_Male.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -214,7 +215,6 @@ namespace PBL3REAL.View
             this.rbtn_Female.Name = "rbtn_Female";
             this.rbtn_Female.Size = new System.Drawing.Size(49, 25);
             this.rbtn_Female.TabIndex = 6;
-            this.rbtn_Female.TabStop = true;
             this.rbtn_Female.Text = "Nữ";
             this.rbtn_Female.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.rbtn_Female.UseVisualStyleBackColor = true;

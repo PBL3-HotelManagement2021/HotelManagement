@@ -115,6 +115,8 @@ namespace PBL3REAL.View
             if (dgv.SelectedRows.Count == 1)
             {
                 //Delete client
+                clientBLL.delete(int.Parse(dgv.SelectedRows[0].Cells["IdClient"].Value.ToString()));
+                LoadData();
             }
             else
             {
@@ -148,6 +150,7 @@ namespace PBL3REAL.View
             if (dgv.SelectedRows.Count == 1)
             {
                 clientBLL.restore(int.Parse(dgv.SelectedRows[0].Cells["IdClient"].Value.ToString()));
+                LoadData();
             }
             else
             {
