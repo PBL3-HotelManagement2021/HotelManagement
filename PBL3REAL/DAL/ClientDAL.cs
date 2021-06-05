@@ -41,6 +41,8 @@ namespace PBL3REAL.DAL
                 predicate = predicate.And(x => x.CliCode == properties["code"]);
             if(properties.ContainsKey("phone"))
                 predicate = predicate.And(x => x.CliPhone == properties["phone"]);
+            if (properties.ContainsKey("gmail"))
+                predicate = predicate.And(x => x.CliGmail == properties["gmail"]);
 
             predicate = predicate.And(x => x.CliActiveflag == true);
 
@@ -58,9 +60,24 @@ namespace PBL3REAL.DAL
             return result;
         }
 
+        public List<Client> checkExisted(Dictionary<string , string > properties)
+        {
+            var predicate = PredicateBuilder.True<Client>();
+            var predicate2 = PredicateBuilder.True<Client>();
+            if (properties.ContainsKey("phone") && properties.ContainsKey("gmail"))
+                predicate = predicate.And(x => x.CliPhone == properties["phone"] || x.CliGmail == properties["gmail"] );
+            if (properties.ContainsKey("code") && properties["code"] !="")
+            {
+       //         predicate2 = predicate2.And(x => x.CliCode == properties["code"]);
+                predicate = predicate.And(x => x.CliCode != properties["code"]); 
+            }                
+            predicate = predicate.And(x => x.CliActiveflag == true);
+            var result = AppDbContext.Instance.Clients.Where(predicate).ToList();
+            return result;
+        }
         public Client findById(int id)
         {
-            return AppDbContext.Instance.Clients.Where(x => x.IdClient == id).SingleOrDefault();
+            return AppDbContext.Instance.Clients.Where(x => x.IdClient == id).AsNoTracking().SingleOrDefault();
         }
     }
 }

@@ -134,6 +134,33 @@ namespace PBL3REAL.View
             return 0;
         }
         //-> Booking Events
+        private void btn_BookingExport_Click(object sender, EventArgs e)
+        {
+            DataGridViewSelectedRowCollection r = dgv_Booking.SelectedRows;
+            if (r.Count == 1)
+            {
+                if(r[0].Cells["BookStatus"].Value.ToString() != "Processed")
+                {
+                    Form_Detail_Invoice f = new Form_Detail_Invoice(r[0].Cells["BookCode"].Value.ToString());
+                    this.Hide();
+                    f.ShowDialog();
+                    this.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Can't export booking with status 'Processed'", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else if (r.Count == 0)
+            {
+                MessageBox.Show("Bạn chưa chọn đơn để xem!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                MessageBox.Show("Chỉ có thể chọn một đơn trong một lần xem!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void btn_BookingView_Click(object sender, EventArgs e)
         {
             DataGridViewSelectedRowCollection r = dgv_Booking.SelectedRows;
@@ -522,5 +549,7 @@ namespace PBL3REAL.View
         {
             //Sort by Filter
         }
+
+      
     }
 }

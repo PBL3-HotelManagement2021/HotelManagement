@@ -43,6 +43,19 @@ namespace PBL3REAL.BLL
             return listVm;
         }
 
+        public bool checkexisted(Dictionary<string , string > properties , string code)
+        {
+            var list = _clientDAL.checkExisted(properties);
+            /*  if (list == null) return true;
+              else if (list != null && list.Find(x => x.CliCode == code) != null)
+              {
+                  var check = list.Find(x => x.CliCode == code);
+
+              }*/
+            if (list.Count ==0) return true; 
+            return false ;
+        }
+
         public ClientVM findById(int id)
         {
             Client client = _clientDAL.findById(id);

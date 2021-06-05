@@ -32,16 +32,7 @@ namespace PBL3REAL.DAL
         public InvoiceDAL()
         {
         }
-        public List<Invoice> getAll()
-        {
-         
-             var result = AppDbContext.Instance.Invoices
-                          .Include(x =>x.InvIdbookNavigation)
-                          .ThenInclude(y =>y.BookIdclientNavigation)
-                          .AsNoTracking()  
-                          .ToList();
-            return result;
-        }
+        
 
         public Invoice findById(int idinvoice)
         {
@@ -106,6 +97,21 @@ namespace PBL3REAL.DAL
                 }
             }
             return list;
+        }
+
+        public void add(Invoice invoice)
+        {
+            invoice.InvCreatedate = DateTime.Now;
+            invoice.InvUpdatedate = DateTime.Now;
+            AppDbContext.Instance.Invoices.Add(invoice);
+            AppDbContext.Instance.SaveChanges();
+        }
+
+        public void update(Invoice invoice)
+        {
+            invoice.InvUpdatedate = DateTime.Now;
+            AppDbContext.Instance.Invoices.Update(invoice);
+            AppDbContext.Instance.SaveChanges();
         }
 
 

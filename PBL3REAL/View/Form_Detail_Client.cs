@@ -15,7 +15,9 @@ namespace PBL3REAL.View
         private int id;
         private bool Editable_Cli;
         private ClientVM clientVM;
-        private ClientBLL clientBLL; 
+        private ClientBLL clientBLL;
+        public delegate void MyDel();
+        public MyDel myDel;
         public Form_Detail_Client(int ID, bool Editable)
         {
             InitializeComponent();
@@ -58,28 +60,41 @@ namespace PBL3REAL.View
         //Events
         private void btn_OK_Click(object sender, EventArgs e)
         {
-            clientVM.CliGmail = tb_ClientEmail.Text;
-            clientVM.CliName = tb_ClientName.Text;
-            clientVM.CliPhone = tb_ClientPhone.Text;
-            if (id == 0)
+            Dictionary<string, string> properties = new Dictionary<string, string>();
+            properties.Add("gmail", tb_ClientEmail.Text);
+            properties.Add("phone", tb_ClientPhone.Text);
+            properties.Add("code", tb_ClientCode.Text);
+            if (clientBLL.checkexisted(properties,tb_ClientCode.Text))
             {
-                //Add
-                clientBLL.add(clientVM);
-                MessageBox.Show("Thêm mới khách hàng thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }    
+                clientVM.CliGmail = tb_ClientEmail.Text;
+                clientVM.CliName = tb_ClientName.Text;
+                clientVM.CliPhone = tb_ClientPhone.Text;
+                if (id == 0)
+                {
+                    //Add
+                    clientBLL.add(clientVM);
+                    MessageBox.Show("Thêm mới khách hàng thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                        clientBLL.update(clientVM);
+                        MessageBox.Show("Cập nhật khách hàng thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);                
+                }
+                myDel();
+                this.Dispose();
+            }
             else
             {
-                clientBLL.update(clientVM);
-                MessageBox.Show("Cập nhật khách hàng thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Phone or Email has existed !!!");
             }
-            this.Dispose();
+           
         }
         private void btn_Reset_Click(object sender, EventArgs e)
         {
             //Reset Data
-            tb_ClientEmail.Text = "";
-            tb_ClientName.Text = "";
-            tb_ClientPhone.Text = "";
+            tb_ClientEmail.Text = clientVM.CliGmail;
+            tb_ClientName.Text = clientVM.CliName;
+            tb_ClientPhone.Text = clientVM.CliPhone;
         }
         private void btn_Cancel_Click(object sender, EventArgs e)
         {

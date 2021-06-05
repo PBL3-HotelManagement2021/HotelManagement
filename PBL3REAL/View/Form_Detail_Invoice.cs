@@ -12,16 +12,42 @@ using PdfSharp.Pdf;
 using PdfSharp.Drawing;
 using PdfSharp.Fonts;
 using Microsoft.Extensions.DependencyInjection;
+using PBL3REAL.BLL;
+using PBL3REAL.ViewModel;
 
 namespace PBL3REAL.View
 {
     public partial class Form_Detail_Invoice : Form
     {
-        public Form_Detail_Invoice()
+        private string bookCode;
+        private QLInvoiceBLL qLInvoiceBLL;
+        private InvoiceVM invoiceVM;
+        public Form_Detail_Invoice(string bookCode)
         {
             InitializeComponent();
             System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
             //ConfigureServices();
+            this.bookCode = bookCode;
+            qLInvoiceBLL = new QLInvoiceBLL();
+            loadData();
+        }
+
+        private void loadData()
+        {
+            invoiceVM = qLInvoiceBLL.infoAddInvoice(bookCode);
+            tb_FullName.Text = invoiceVM.CliName;
+            tb_Gmail.Text = invoiceVM.CliGmail;
+            tb_Phone.Text = invoiceVM.CliPhone;
+            tb_BookingCode.Text = bookCode;
+            tb_BookingDate.Text = invoiceVM.BookBookDate.ToString();
+            tb_PaymentDate.Text = invoiceVM.BookChecoutdate.ToString();
+            tb_CheckinDate.Text = invoiceVM.BookCheckindate.ToString();
+            tb_CreateDate.Text = DateTime.Now.ToString();
+            tb_LastUpdateDate.Text = DateTime.Now.ToString();
+            tb_Total.Text = invoiceVM.TotalPrice.ToString();
+            dgv.DataSource = invoiceVM.ListRoom;
+            dgv.Columns["RoomDescription"].Visible = false;
+            dgv.Columns["IdRoom"].Visible = false;
         }
         public void ExportToPDF(string FileName)
         {
@@ -108,12 +134,26 @@ namespace PBL3REAL.View
         //}
         private void btn_OK_Click(object sender, EventArgs e)
         {
-            ExportToPDF("Test");
+           if(invoiceVM.BookStatus != "Paid")
+            {
+                qLInvoiceBLL.addInvoice(invoiceVM);
+            }
+            else
+            {
+                MessageBox.Show("This Invoice has already been created", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+         
+       
         }
 
         private void btn_Cancel_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void btn_Export_Click(object sender, EventArgs e)
+        {
+            ExportToPDF("Test");
         }
     }
 }

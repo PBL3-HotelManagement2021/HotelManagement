@@ -56,6 +56,7 @@ namespace PBL3REAL.View
             {
                 //truyền ID_CLient 
                 Form_Detail_Client f = new Form_Detail_Client(int.Parse(dgv.SelectedRows[0].Cells["IdClient"].Value.ToString()), false);
+                f.myDel = LoadData;
                 this.Hide();
                 f.ShowDialog();
                 this.Show();
@@ -68,6 +69,7 @@ namespace PBL3REAL.View
         private void btn_ClientAdd_Click(object sender, EventArgs e)
         {
             Form_Detail_Client f = new Form_Detail_Client(0, true);
+            f.myDel = LoadData;
             this.Hide();
             f.ShowDialog();
             this.Show();
@@ -79,6 +81,7 @@ namespace PBL3REAL.View
             {
                 //truyền ID_CLient 
                 Form_Detail_Client f = new Form_Detail_Client(int.Parse(dgv.SelectedRows[0].Cells["IdClient"].Value.ToString()), true);
+                 f.myDel = LoadData;
                 this.Hide();
                 f.ShowDialog();
                 this.Show();

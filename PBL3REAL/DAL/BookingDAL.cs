@@ -80,18 +80,22 @@ namespace PBL3REAL.DAL
                               join bkdt in AppDbContext.Instance.BookingDetails on book.IdBook equals bkdt.BoodetIdbook
                             //join room in AppDbContext.Instance.Rooms on bkdt.BoodetIdroom equals room.IdRoom
                             /*  join roty in AppDbContext.Instance.RoomTypes on room.RoomIdroomtype equals roty.IdRoomtype*/
-                              where book.BookCode.Equals(code)
+                              where book.BookCode.Equals(code) && book.BookStatus != "Processed"
                               select new Booking()
                               {
                                   IdBook = book.IdBook,
+                                  BookBookdate = book.BookBookdate,
                                   BookCheckindate = book.BookCheckindate,
                                   BookCheckoutdate = book.BookCheckoutdate,
                                   BookTotalprice = book.BookTotalprice,
+                                  BookDeposit = book.BookDeposit,
+                                  BookStatus = book.BookStatus,
                                   BookIdclientNavigation = new Client
                                   {
                                        CliCode = client.CliCode,
                                        CliName =client.CliName,
-                                       CliPhone = client.CliPhone                                     
+                                       CliPhone = client.CliPhone,
+                                       CliGmail = client.CliGmail
                                   },
    
                                   

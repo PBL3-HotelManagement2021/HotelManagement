@@ -20,15 +20,7 @@ namespace PBL3REAL.BLL
             bookingDAL = new BookingDAL();
             roomDAL = new RoomDAL();
         }
-        /*  public List<InvoiceVM> getAll()
-          {
-              List<InvoiceVM> listVM = new List<InvoiceVM>();
-              foreach(Invoice invoice in InvoiceDAL.Instance.getAll())
-              {
-                  InvoiceVM invoiceVM = mapper.Map<InvoiceVM>(invoice);
 
-              }
-          }*/
         public InvoiceVM infoAddInvoice(string bookCode)
         {
             try
@@ -37,22 +29,46 @@ namespace PBL3REAL.BLL
                 if (booking == null) throw new ArgumentException("Wrong Code");
                 InvoiceVM invoiceVM = new InvoiceVM
                 {
+                    IdBook = booking.IdBook,
+                    BookStatus = booking.BookStatus,
+                    BookBookDate = booking.BookBookdate,
                     BookCheckindate = booking.BookCheckindate,
                     BookChecoutdate = booking.BookCheckoutdate,
-                    TotalPrice = booking.BookTotalprice,
                     CliCode = booking.BookIdclientNavigation.CliCode,
                     CliName = booking.BookIdclientNavigation.CliName,
                     CliPhone = booking.BookIdclientNavigation.CliPhone,
+                    CliGmail = booking.BookIdclientNavigation.CliGmail,
                 };
+                if (booking.BookStatus == "Checkout") invoiceVM.TotalPrice = booking.BookTotalprice;
+                else invoiceVM.TotalPrice = booking.BookDeposit;
                 foreach (Room room in roomDAL.findByIdBook(booking.IdBook))
                 {
-                    invoiceVM.DicRoom.Add(room.RoomName, room.RoomIdroomtypeNavigation.RotyCurrentprice);
+                    invoiceVM.ListRoom.Add(new RoomVM
+                    {
+                        RoomName = room.RoomName,
+                        RotyCurrentprice = room.RoomIdroomtypeNavigation.RotyCurrentprice,
+                        RoTyName = room.RoomIdroomtypeNavigation.RotyName
+                    });
                 }
                 return invoiceVM;
             }
             catch (Exception)
             {
                 throw; 
+            }
+        }
+
+        public void addInvoice(InvoiceVM invoiceVM)
+        {
+            Invoice invoice = new Invoice();
+            mapper.Map(invoiceVM, invoice);
+            try
+            {
+                InvoiceDAL.Instance.add(invoice);
+            }
+            catch(Exception e)
+            {
+
             }
         }
         public InvoiceVM getDetail(int idinvoice)
@@ -67,11 +83,17 @@ namespace PBL3REAL.BLL
                 invoiceVM.CliName = booking.BookIdclientNavigation.CliName;
                 invoiceVM.CliCode = booking.BookIdclientNavigation.CliCode;
                 invoiceVM.CliPhone = booking.BookIdclientNavigation.CliPhone;
+                invoiceVM.CliGmail = booking.BookIdclientNavigation.CliGmail;
                 invoiceVM.UserCode = booking.BookIduserNavigation.UserCode;
                 
                 foreach(Room room in roomDAL.findByIdBook(invoice.InvIdbook))
                 {
-                    invoiceVM.DicRoom.Add(room.RoomName , room.RoomIdroomtypeNavigation.RotyCurrentprice);
+                    invoiceVM.ListRoom.Add(new RoomVM
+                    {
+                        RoomName = room.RoomName,
+                        RotyCurrentprice = room.RoomIdroomtypeNavigation.RotyCurrentprice,
+                        RoTyName = room.RoomIdroomtypeNavigation.RotyName
+                    });
                 }
                 return invoiceVM;        
             }
