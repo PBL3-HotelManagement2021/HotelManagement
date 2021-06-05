@@ -275,6 +275,8 @@ namespace PBL3REAL.View
                 DeleteIMG(Fullpath);
             }
             picbx_Header.Image.Save(Fullpath, System.Drawing.Imaging.ImageFormat.Jpeg);
+            TempAvatar = null;
+            TempAvatar = new ImageVM { ImgstoUrl = Fullpath };
         }
         /***** EVENTS *****/
         //-> Form 
@@ -290,12 +292,16 @@ namespace PBL3REAL.View
         {
             //Change avatar
             picbx_Header.Image = InsertIMG();
-            if (picbx_Header != null)
+            if (picbx_Header.Image != null)
             {
                 picbx_Header.SizeMode = PictureBoxSizeMode.StretchImage;
                 Change = true;
-                TempAvatar = new ImageVM { };
             }
+            else
+            {
+                picbx_Header.BackgroundImage = null;
+                picbx_Header.Image = Properties.Resources.male_user_fluent_color_96px;
+            }    
         }
         private void picbx_Add_Click(object sender, EventArgs e)
         {
@@ -348,12 +354,12 @@ namespace PBL3REAL.View
                     MessageBox.Show("Email hoặc mật khẩu bạn nhập không hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
                 case 3:
+                    string Path = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + "\\User_Profile\\" + tb_Username.Text.Replace(" ", String.Empty) + ".Jpeg";
                     if (ID == 0)
                     {
                         if (Change)
                         {
-                            //string Path = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + "\\User_Profile\\" + userVM.UserCode + "Jpeg";
-                            //UpdateIMG(Path);
+                            UpdateIMG(Path);
                         }
                         AddUser();
                         MessageBox.Show("Thêm tài khoản nhân viên mới thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -362,7 +368,6 @@ namespace PBL3REAL.View
                     {
                         if (Change)
                         {
-                            string Path = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + "\\User_Profile\\" + userVM.UserCode + "Jpeg";
                             UpdateIMG(Path);
                         }
                         UpdateUserInfo();

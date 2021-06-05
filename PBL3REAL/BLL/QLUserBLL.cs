@@ -33,7 +33,11 @@ namespace PBL3REAL.BLL
                     RoleVM roleVM = mapper.Map<RoleVM>(userRole.UserolIdroleNavigation);
                     userVM.ListRole.Add(roleVM);
                 }
-              
+                foreach (ImgStorage img in user.ImgStorages)
+                {
+                    ImageVM imageVM = mapper.Map<ImageVM>(img);
+                    userVM.ListImg.Add(imageVM);
+                }
                 listVM.Add(userVM);
             }
             return listVM;
@@ -124,7 +128,7 @@ namespace PBL3REAL.BLL
                 {
                     ImgStorage imgStorage = new ImgStorage();
                     mapper.Map(imageVM, imgStorage);
-                    imgStorage.ImgstoIdrootyp = user.IdUser;
+                    imgStorage.ImgstoIduser = user.IdUser;
                     if (imageVM.IdImgsto == 0) ListImg.Add(imgStorage);
                 }
             try
