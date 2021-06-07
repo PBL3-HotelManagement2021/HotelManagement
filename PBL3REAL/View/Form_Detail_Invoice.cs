@@ -126,15 +126,10 @@ namespace PBL3REAL.View
             graph.DrawString("Invoice ID: " + FileName, font_Footer, XBrushes.Black, new XRect(3, 0, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.BottomLeft);
             pdf.Save(FileName + ".pdf");
         }
-        //public void ConfigureServices(IServiceCollection services)
-        //{
-        //    Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
-        //    // more code here
-        //}
         private void btn_OK_Click(object sender, EventArgs e)
         {
-           if(invoiceVM.BookStatus != "Paid")
+            if (invoiceVM.BookStatus != "Paid")
             {
                 qLInvoiceBLL.addInvoice(invoiceVM);
             }
@@ -142,18 +137,18 @@ namespace PBL3REAL.View
             {
                 MessageBox.Show("This Invoice has already been created", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-         
-       
         }
 
         private void btn_Cancel_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }
+        //public void ConfigureServices(IServiceCollection services)
+        //{
+        //    Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
-        private void btn_Export_Click(object sender, EventArgs e)
-        {
-            ExportToPDF("Test");
-        }
+        //    // more code here
+        //}
+
     }
 }

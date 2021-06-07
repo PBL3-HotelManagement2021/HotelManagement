@@ -166,7 +166,7 @@ namespace PBL3REAL.View
             DataGridViewSelectedRowCollection r = dgv_Booking.SelectedRows;
             if (r.Count == 1)
             {
-                Form_Booking f = new Form_Booking(int.Parse(r[0].Cells["IdBook"].Value.ToString()), false);
+                Form_Detail_Booking f = new Form_Detail_Booking(int.Parse(r[0].Cells["IdBook"].Value.ToString()), false);
                 this.Hide();
                 f.ShowDialog();
                 this.Show();
@@ -182,7 +182,7 @@ namespace PBL3REAL.View
         }
         private void btn_BookingAdd_Click(object sender, EventArgs e)
         {
-            Form_Booking f = new Form_Booking(0, true);
+            Form_Detail_Booking f = new Form_Detail_Booking(0, true);
             this.Hide();
             f.ShowDialog();
             this.Show();
@@ -195,7 +195,7 @@ namespace PBL3REAL.View
             {
                 if(r[0].Cells["BookStatus"].Value.ToString() == "Processed")
                 {
-                    Form_Booking f = new Form_Booking(int.Parse(r[0].Cells["IdBook"].Value.ToString()), true);
+                    Form_Detail_Booking f = new Form_Detail_Booking(int.Parse(r[0].Cells["IdBook"].Value.ToString()), true);
                     this.Hide();
                     f.ShowDialog();
                     this.Show();

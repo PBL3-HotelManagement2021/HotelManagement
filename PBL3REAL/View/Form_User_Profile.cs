@@ -17,10 +17,11 @@ namespace PBL3REAL.View
     public partial class Form_User_Profile : Form
     {
         /***** GLOBAL DECLARATION *****/
-        //-> Global Parameter For User
+        //-> Delegation
         public delegate void MyDel();
         public MyDel myDel;
 
+        //-> Global Parameter For User
         private QLUserBLL qLUserBLL;
         private UserVM userVM;
         private int ID = 0;
@@ -72,17 +73,11 @@ namespace PBL3REAL.View
                 rbtn_Female.Checked = true;
             }
             cbb_Role.Items.Add(role);
-            cbb_Role.SelectedIndex = 0; 
-            cbb_Role.Enabled = false;
-            tb_Username.Enabled = false;
-            tb_Password.Enabled = false;
-            tb_Email.Enabled = false;
-            tb_Phone.Enabled = false;
-            rbtn_Male.Enabled = false;
-            rbtn_Female.Enabled = false;
+            cbb_Role.SelectedIndex = 0;
+            fllaypn_Header.Enabled = false;
+            tbllaypn_UserInfo.Enabled = false;
             btn_OK.Enabled = false;
             btn_Reset.Enabled = false;
-            cbb_Role.Enabled = false;
             lbx_User.Visible = false;
             fllaypn_User.Visible = false;
         }
@@ -134,16 +129,10 @@ namespace PBL3REAL.View
             }
             if (!Editable)
             {
-                tb_Username.Enabled = false;
-                tb_Password.Enabled = false;
-                tb_Email.Enabled = false;
-                tb_Phone.Enabled = false;
-                rbtn_Male.Enabled = false;
-                rbtn_Female.Enabled = false;
+                fllaypn_Header.Enabled = false;
+                tbllaypn_UserInfo.Enabled = false;
                 btn_OK.Enabled = false;
                 btn_Reset.Enabled = false;
-                cbb_Role.Visible = false;
-                lbx_User.Enabled = false;
                 fllaypn_User.Visible = false;
             }
         }
@@ -191,7 +180,9 @@ namespace PBL3REAL.View
             if (tb_Email.Text.Contains(' ') == true || tb_Password.Text.Contains(' ') == true 
                 || CheckVietNamChar(tb_Email.Text) == true || CheckVietNamChar(tb_Password.Text) == true)
             { return 2; }
-            return 3;
+            if (TempAvatar == null)
+            { return 3; }
+            return 4;
         }
         //-> CRUD User Functions
         private void AddUser()
@@ -288,6 +279,7 @@ namespace PBL3REAL.View
         private void picbx_Header_Click(object sender, EventArgs e)
         {
             //Reset to default
+            picbx_Header.BackgroundImage = null;
             picbx_Header.Image = Properties.Resources.male_user_fluent_color_96px;
             TempAvatar = null;
             if (userVM.ListImg.Count != 0) { Change = true; }
@@ -295,11 +287,13 @@ namespace PBL3REAL.View
         private void picbx_Header_DoubleClick(object sender, EventArgs e)
         {
             //Change avatar
+            picbx_Header.BackgroundImage = null;
             picbx_Header.Image = InsertIMG();
             if (picbx_Header.Image != null)
             {
                 picbx_Header.SizeMode = PictureBoxSizeMode.StretchImage;
                 Change = true;
+                TempAvatar = new ImageVM { ImgstoUrl = "" };
             }
             else
             {
@@ -358,6 +352,9 @@ namespace PBL3REAL.View
                     MessageBox.Show("Email hoặc mật khẩu bạn nhập không hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
                 case 3:
+                    MessageBox.Show("Bạn chưa thêm ảnh đại diện!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break;
+                case 4:
                     string Path = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + "\\User_Profile\\" + tb_Username.Text.Replace(" ", String.Empty) + ".Jpeg";
                     if (ID == 0)
                     {
@@ -367,7 +364,7 @@ namespace PBL3REAL.View
                         }
                         AddUser();
                         MessageBox.Show("Thêm tài khoản nhân viên mới thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }   
+                    }
                     else
                     {
                         if (Change)

@@ -15,7 +15,7 @@ using System.Linq;
 
 namespace PBL3REAL.View
 {
-    public partial class Form_Booking : Form
+    public partial class Form_Detail_Booking : Form
     {
         //Declaration
         private QLBookingBLL BookingBLL;
@@ -33,7 +33,7 @@ namespace PBL3REAL.View
         private List<int> listOld;
         private List<int> listDel;
 
-        public Form_Booking (int IdBook, bool Editable)
+        public Form_Detail_Booking (int IdBook, bool Editable)
         {
             InitializeComponent();
             BookingBLL = new QLBookingBLL();

@@ -28,19 +28,16 @@ namespace PBL3REAL.View
             dgv_HRM.DataSource = qLUserBLL.findByProperty(properties, orderBy);
             dgv_HRM.Columns["IdUser"].Visible = false;
         }
-
         private void btn_Home_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }
-
         private void picbx_HRMSearch_Click(object sender, EventArgs e)
         {
             search = tb_HRMSearch.Text;
             orderBy = cbb_HRMSort.SelectedItem.ToString();
             loadDtbUser();
         }
-
         private void btn_HRMAdd_Click(object sender, EventArgs e)
         {
             Form_User_Profile f = new Form_User_Profile(0, "", true, false);
@@ -49,7 +46,6 @@ namespace PBL3REAL.View
             f.ShowDialog();
             this.Show();
         }
-
         private void btn_HRMView_Click(object sender, EventArgs e)
         {
             DataGridViewSelectedRowCollection r = dgv_HRM.SelectedRows;
@@ -69,10 +65,7 @@ namespace PBL3REAL.View
             {
                 MessageBox.Show("Chỉ có thể chọn một đơn trong một lần xem!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-           
         }
-
         private void btn_HRMEdit_Click(object sender, EventArgs e)
         {
             DataGridViewSelectedRowCollection r = dgv_HRM.SelectedRows;
@@ -93,7 +86,6 @@ namespace PBL3REAL.View
                 MessageBox.Show("Chỉ có thể chọn một đơn trong một lần xem!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void btn_HRMDelete_Click(object sender, EventArgs e)
         {
             DataGridViewSelectedRowCollection r = dgv_HRM.SelectedRows;
