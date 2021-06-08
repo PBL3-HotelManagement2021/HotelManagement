@@ -12,7 +12,7 @@ namespace PBL3REAL.ViewModel
         }
         public int IdInvoice { get; set; }
 
-        public int IdBook { get; set;  }
+        public int InvIdbook { get; set;  }
         public DateTime InvCreatedate { get; set; }
         public DateTime InvUpdatedate { get; set; }
         public string InvCode { get; set; }

@@ -29,7 +29,7 @@ namespace PBL3REAL.BLL
                 if (booking == null) throw new ArgumentException("Wrong Code");
                 InvoiceVM invoiceVM = new InvoiceVM
                 {
-                    IdBook = booking.IdBook,
+                    InvIdbook = booking.IdBook,
                     BookStatus = booking.BookStatus,
                     BookBookDate = booking.BookBookdate,
                     BookCheckindate = booking.BookCheckindate,
