@@ -92,6 +92,18 @@ namespace HotelManagement.BBL.Implement
             
         }
 
+        public void restoreRoomType(int idRoomType)
+        {
+            try
+            {
+                _roomTypeDAL.restoreRoomtype(idRoomType);
+            }
+            catch (Exception)
+            {
+                throw; 
+            }
+          
+        }
         public void deleteRoomType(int idRoomType)
         {
             _roomTypeDAL.deleteRoomtype(idRoomType);

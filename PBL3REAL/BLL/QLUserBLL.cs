@@ -44,6 +44,13 @@ namespace PBL3REAL.BLL
             return listVM;
         }
 
+        public bool checkexisted(Dictionary<string, string> properties)
+        {
+            var list = userDAL.checkExisted(properties);
+            if (list.Count == 0) return true;
+            return false;
+        }
+
         public UserVM findDetailUser(int id)
         {
             UserVM userVM = null;

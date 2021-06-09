@@ -19,14 +19,18 @@ namespace PBL3REAL.View
             InitializeComponent();
             qLUserBLL = new QLUserBLL();
             cbb_HRMSort.SelectedIndex = 0;
+            cbb_HRMStatus.SelectedIndex = 0;
         }
         private void loadDtbUser()
         {
             dgv_HRM.DataSource = null;
             Dictionary<string, string> properties = new Dictionary<string, string>();
             properties.Add("name", search);
+            properties.Add("status", cbb_HRMStatus.SelectedItem.ToString());
             dgv_HRM.DataSource = qLUserBLL.findByProperty(properties, orderBy);
             dgv_HRM.Columns["IdUser"].Visible = false;
+            dgv_HRM.Columns["UserPassword"].Visible = false;
+            
         }
         private void btn_Home_Click(object sender, EventArgs e)
         {
@@ -92,6 +96,7 @@ namespace PBL3REAL.View
             if (r.Count == 1)
             {
                 qLUserBLL.delUser(int.Parse(r[0].Cells["IdUser"].Value.ToString()));
+                loadDtbUser();
             }
             else if (r.Count == 0)
             {

@@ -71,7 +71,7 @@ namespace PBL3REAL.BLL
             return listVm;
         }
 
-        public bool checkexisted(Dictionary<string , string > properties , string code)
+        public bool checkexisted(Dictionary<string , string > properties)
         {
             var list = _clientDAL.checkExisted(properties);
             if (list.Count ==0) return true; 

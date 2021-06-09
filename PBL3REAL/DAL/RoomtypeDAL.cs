@@ -16,11 +16,7 @@ namespace HotelManagement.DAL.Implement
         {
             _appDbContext = new AppDbContext();
         }
-        public void Add(RoomType roomType)
-        {
-            _appDbContext.RoomTypes.Add(roomType);
-            _appDbContext.SaveChanges();
-        }
+     
 
         public List<RoomType> findByProperty(string search , string orderby)
         {
@@ -38,22 +34,35 @@ namespace HotelManagement.DAL.Implement
 
         public void addRoomtype(RoomType roomType)
         {
+            roomType.RoTyActiveflag = true;
             _appDbContext.RoomTypes.Add(roomType);
             _appDbContext.SaveChanges();
+            _appDbContext.Entry(roomType).State = EntityState.Detached;
         }
 
         public void deleteRoomtype(int idRoomtype)
         {
-            RoomType roomType = _appDbContext.RoomTypes.Find(idRoomtype);
+            RoomType roomType = _appDbContext.RoomTypes.Where(x =>x.IdRoomtype == idRoomtype).SingleOrDefault();
             if(roomType !=null) roomType.RoTyActiveflag = false;
             _appDbContext.Update(roomType);
             _appDbContext.SaveChanges();
+            _appDbContext.Entry(roomType).State = EntityState.Detached;
+        }
+
+        public void restoreRoomtype(int idRoomtype)
+        {
+            RoomType roomType = _appDbContext.RoomTypes.Where(x => x.IdRoomtype == idRoomtype).SingleOrDefault();
+            if (roomType != null) roomType.RoTyActiveflag = true;
+            _appDbContext.Update(roomType);
+            _appDbContext.SaveChanges();
+            _appDbContext.Entry(roomType).State = EntityState.Detached;
         }
 
         public void updateRoomtype(RoomType roomType)
         {
             _appDbContext.RoomTypes.Update(roomType);
             _appDbContext.SaveChanges();
+            _appDbContext.Entry(roomType).State = EntityState.Detached;
         }
 
 

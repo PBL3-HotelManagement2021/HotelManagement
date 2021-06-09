@@ -346,38 +346,7 @@ namespace PBL3REAL
 
 
         //Phan Room
-        public void addRoom()
-        {
-            RoomDetailVM roomDetailVM = new RoomDetailVM
-            {
-                RoomName = "Cuongpr",
-                RotyCurrentprice = 2000000,
-                RoomDescription = "ko co"
-            };
-           /* roomDetailVM.MapRoomtype.Add(1, "single room");*/
-            StatusTimeVM statusTimeVM1 = new StatusTimeVM
-            {
-                StatimFromdate = DateTime.Now,
-                StatimTodate = Convert.ToDateTime("01/10/2022"),
-            };
-            statusTimeVM1.statusVM = new StatusVM
-            {
-                IdStatus = 1
-            };
-            roomDetailVM.ListStatusTime.Add(statusTimeVM1);
-
-            StatusTimeVM statusTimeVM2 = new StatusTimeVM
-            {
-                StatimFromdate = DateTime.Now,
-                StatimTodate = Convert.ToDateTime("01/12/2021"),
-            };
-            statusTimeVM2.statusVM = new StatusVM
-            {
-                IdStatus = 2
-            };
-            roomDetailVM.ListStatusTime.Add(statusTimeVM2);
-            roomBLL.addRoom(roomDetailVM);
-        }
+      
         public void findidRoom()
         {
             RoomDetailVM roomDetailVM = roomBLL.findByID(1);

@@ -11,5 +11,7 @@ namespace PBL3REAL.ViewModel
         public string CliPhone { get; set; }
         public string CliCode { get; set; }
         public string CliGmail { get; set; }
+
+        public bool CliActiveflag { get; set; }
     }
 }

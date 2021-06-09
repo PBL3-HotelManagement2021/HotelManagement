@@ -34,7 +34,7 @@ namespace HotelManagement.BLL.Implement
         public void addRoom(RoomDetailVM roomDetailVM)
         {
             var test = _roomDAL.findByProperty(1, 1, 0, roomDetailVM.RoomName,0);
-            if (test != null) throw new ArgumentException("Room Name already existed");
+            if (test.Count!=0) throw new ArgumentException("Room Name already existed");
             int idRoom = _roomDAL.getnextid();
             Room room = new Room();
             mapper.Map(roomDetailVM, room);
@@ -45,7 +45,7 @@ namespace HotelManagement.BLL.Implement
             {
                 StatusTime statusTime = new StatusTime();
                 mapper.Map(statusTimeVM, statusTime);
-                statusTime.StatimIdstatus = statusTimeVM.statusVM.IdStatus;
+                statusTime.StatimIdstatus = statusTimeVM.IdStatus;
                 statusTime.StatimIdroom = idRoom;
                 listadd.Add(statusTime);
             }
@@ -62,18 +62,25 @@ namespace HotelManagement.BLL.Implement
 
         public void deleteRoom(int id)
         {
-          /*  List<int> listdel = new List<int>();
-            foreach(StatusTime statusTime in _statusTimeDAL.findByIdRoom(id))
-            {
-                listdel.Add(statusTime.IdStatim);
-            }
-            ko can boi vi no xoa lien thong lun roi
-           */
             try
             {
                 _roomDAL.delete(id);
 
             }catch(Exception e)
+            {
+                throw;
+            }
+
+        }
+
+        public void restoreRoom(int id)
+        {
+            try
+            {
+                _roomDAL.restore(id);
+
+            }
+            catch (Exception e)
             {
                 throw;
             }
@@ -94,7 +101,7 @@ namespace HotelManagement.BLL.Implement
                 // Status status = new Status();
                 // _iMapper.Map(statusTimeVM.statusVM,status);
                 // statusTime.StatimIdstatusNavigation = status;
-                statusTime.StatimIdstatus = statusTimeVM.statusVM.IdStatus;
+                statusTime.StatimIdstatus = statusTimeVM.IdStatus;
                 statusTime.StatimIdroom = room.IdRoom;
                 if (statusTime.IdStatim == 0)   listadd.Add(statusTime);
 
@@ -141,7 +148,7 @@ namespace HotelManagement.BLL.Implement
                 StatusTimeVM statusTimeVM = mapper.Map<StatusTimeVM>(statusTime);
                 statusTimeVM.IdStatus = statusTime.StatimIdstatusNavigation.IdStatus;
                 statusTimeVM.StaName = statusTime.StatimIdstatusNavigation.StaName;
-                statusTimeVM.statusVM = mapper.Map<StatusVM>(statusTime.StatimIdstatusNavigation);
+/*                statusTimeVM.statusVM = mapper.Map<StatusVM>(statusTime.StatimIdstatusNavigation);*/
                 roomDetailVM.ListStatusTime.Add(statusTimeVM);
             }  
             return roomDetailVM;

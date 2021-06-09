@@ -21,47 +21,33 @@ namespace HotelManagement.DAL.Implement
 
         public void update(Room room)
         {
-            foreach (var entityEntry in _appDbContext.ChangeTracker.Entries())
-            {
-                Console.WriteLine(entityEntry);
-            }
-            try
-            {
-                bool tracking = _appDbContext.ChangeTracker.Entries<Room>().Any(x => x.Entity.IdRoom == room.IdRoom);
-                if (tracking) throw new InvalidOperationException("Error while updating room");
-                else
-                {
-                    _appDbContext.Rooms.Update(room);
-                    _appDbContext.SaveChanges();
-                    _appDbContext.Entry(room).State = EntityState.Detached;
-                }
-            }
-            catch (Exception e)
-            {
-                throw;
-            }
+            _appDbContext.Rooms.Update(room);
+            _appDbContext.SaveChanges();
+            _appDbContext.Entry(room).State = EntityState.Detached;           
         }
 
         public void add(Room room)
         {
-            try
-            {
-                _appDbContext.Rooms.Add(room);
+            room.RoomActiveflag = true;
+            _appDbContext.Rooms.Add(room);
                 /*_appDbContext.Entry(room.StatusTimes).State = EntityState.Detached;*/
                 _appDbContext.SaveChanges();
-                _appDbContext.Entry(room).State = EntityState.Detached;
-            }
-            catch (Exception e)
-            {
-                throw;
-            }
+                _appDbContext.Entry(room).State = EntityState.Detached;         
         }
         public void delete(int id)
         {
-                 Room room = _appDbContext.Rooms.Find(id);
+                 Room room = _appDbContext.Rooms.Where(x => x.IdRoom ==id).SingleOrDefault();
                  if (room != null) room.RoomActiveflag = false;
                 _appDbContext.Rooms.Update(room);
                 _appDbContext.SaveChanges();  
+        }
+
+        public void restore(int id)
+        {
+            Room room = _appDbContext.Rooms.Where(x => x.IdRoom == id).SingleOrDefault();
+            if (room != null) room.RoomActiveflag = true;
+            _appDbContext.Rooms.Update(room);
+            _appDbContext.SaveChanges();
         }
         public Room findbyid(int id)
         {

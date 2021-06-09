@@ -16,7 +16,5 @@ namespace HotelManagement.ViewModel
 
         public int IdStatus { get; set; }
         public string StaName { get; set; }
-
-        public StatusVM statusVM { get; set; }
     }
 }

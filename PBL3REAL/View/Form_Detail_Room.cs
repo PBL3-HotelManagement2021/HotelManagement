@@ -60,7 +60,6 @@ namespace HotelManagement.View
             dgv.DataSource = null;
             dgv.DataSource = roomDetailVM.ListStatusTime;
             dgv.Columns["IdStatim"].Visible = false;
-            dgv.Columns["statusVM"].Visible = false;
             dgv.Columns["IdStatus"].Visible = false;
         }
         private void LoadData()
@@ -69,22 +68,6 @@ namespace HotelManagement.View
             tb_RoomName.Text = roomDetailVM.RoomName;
             tb_RoomDescription.Text = roomDetailVM.RoomDescription;
             addDataGridView();
-            if (dgv.Columns["Status"] == null)
-            {
-                DataGridViewColumn newcol = new DataGridViewColumn();
-                newcol.HeaderText = "Status";
-                newcol.Name = "Status";
-                DataGridViewCell cell = new DataGridViewTextBoxCell();
-                cell.ValueType = typeof(string);
-                newcol.CellTemplate = cell;
-                newcol.Visible = true;
-                dgv.Columns.Add(newcol);
-            }
-            int j = 0;
-            foreach (StatusTimeVM statusTimeVM in roomDetailVM.ListStatusTime)
-            {
-                dgv.Rows[j].Cells["Status"].Value = statusTimeVM.statusVM.StaName;
-            }
             for (int i = 0; i < cbb_RoomType.Items.Count; i++)
             {
                 CbbItem cbbItem = (CbbItem)cbb_RoomType.Items[i];
@@ -130,10 +113,9 @@ namespace HotelManagement.View
             {
                 StatimFromdate = dtp_From.Value,
                 StatimTodate = dtp_To.Value,
-                statusVM = new StatusVM()
+                IdStatus = ((CbbItem)cbb_RoomStatus.SelectedItem).Value,
+                StaName = ((CbbItem)cbb_RoomStatus.SelectedItem).text
             };
-            statusTimeVM.statusVM.IdStatus = ((CbbItem)cbb_RoomStatus.SelectedItem).Value;
-            statusTimeVM.StaName = ((CbbItem)cbb_RoomStatus.SelectedItem).text;
             roomDetailVM.ListStatusTime.Add(statusTimeVM);
             addDataGridView();
         }

@@ -113,8 +113,7 @@ namespace PBL3REAL.DAL
        //         predicate2 = predicate2.And(x => x.CliCode == properties["code"]);
                 predicate = predicate.And(x => x.CliCode != properties["code"]); 
             }                
-            predicate = predicate.And(x => x.CliActiveflag == true);
-            var result = AppDbContext.Instance.Clients.Where(predicate).ToList();
+            var result = AppDbContext.Instance.Clients.Where(predicate).AsNoTracking().ToList();
             return result;
         }
         public Client findById(int id)

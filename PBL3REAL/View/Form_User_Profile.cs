@@ -356,24 +356,51 @@ namespace PBL3REAL.View
                     break;
                 case 4:
                     string Path = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + "\\User_Profile\\" + tb_Username.Text.Replace(" ", String.Empty) + ".Jpeg";
-                    if (ID == 0)
+                    userVM.UserName = tb_Username.Text.Replace(" ", String.Empty);
+                    userVM.UserPassword = tb_Password.Text.Replace(" ", String.Empty);
+                    userVM.UserGmail = tb_Email.Text.Replace(" ", String.Empty);
+                    userVM.UserPhone = tb_Phone.Text.Replace(" ", String.Empty);
+                    if (rbtn_Male.Checked)
                     {
-                        if (Change)
-                        {
-                            UpdateIMG(Path);
-                        }
-                        AddUser();
-                        MessageBox.Show("Thêm tài khoản nhân viên mới thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        userVM.UserGender = true;
                     }
                     else
                     {
-                        if (Change)
-                        {
-                            UpdateIMG(Path);
-                        }
-                        UpdateUserInfo();
-                        MessageBox.Show("Cập nhật tài khoản nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        userVM.UserGender = false;
                     }
+                    if(Change) UpdateIMG(Path);
+                    userVM.ListImg.Clear();
+                    userVM.ListImg.Add(TempAvatar);
+                    ///properties to check existed
+                    Dictionary<string, string> properties = new Dictionary<string, string>();
+                    properties.Add("phone", userVM.UserPhone);
+                    properties.Add("gmail", userVM.UserGmail);
+                    if (ID == 0)
+                    {
+                        if(qLUserBLL.checkexisted(properties))
+                        {
+                            qLUserBLL.addUser(userVM);
+                            MessageBox.Show("Thêm tài khoản nhân viên mới thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Existed Email or Phone!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }        
+                    }
+                    else
+                    {
+                        properties.Add("code", userVM.UserCode);
+                        if (qLUserBLL.checkexisted(properties))
+                        {
+                            qLUserBLL.updateUser(userVM, null);
+                        MessageBox.Show("Cập nhật tài khoản nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Existed Email or Phone!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    myDel();
                     this.Dispose();
                     break;
                 default:

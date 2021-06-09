@@ -37,7 +37,12 @@ namespace PBL3REAL.DAL
             {
                 predicate = predicate.And(x => x.UserName.Contains(properties["name"]));
             }
-            predicate = predicate.And(x => x.UserActiveflag == true);
+            if (properties.ContainsKey("status"))
+            {
+                if (properties["status"] == "Active") predicate = predicate.And(x => x.UserActiveflag == true);
+                else predicate = predicate.And(x => x.UserActiveflag == false);
+            }
+
 
             IQueryable<User> query = AppDbContext.Instance.Users
                                       .Include(x => x.UserRoles)
@@ -58,6 +63,7 @@ namespace PBL3REAL.DAL
 
         public void addUser(User user)
         {
+            user.UserActiveflag = true;
             AppDbContext.Instance.Add(user);
             AppDbContext.Instance.SaveChanges();
             AppDbContext.Instance.Entry(user).State = EntityState.Detached;
@@ -66,6 +72,7 @@ namespace PBL3REAL.DAL
         
         public void updateUser(User user)
         {
+            user.UserActiveflag = true;
             AppDbContext.Instance.Update(user);
             AppDbContext.Instance.SaveChanges();
             AppDbContext.Instance.Entry(user).State = EntityState.Detached;
@@ -76,6 +83,7 @@ namespace PBL3REAL.DAL
             user.UserActiveflag = false;
             AppDbContext.Instance.Update(user);
             AppDbContext.Instance.SaveChanges();
+            AppDbContext.Instance.Entry(user).State = EntityState.Detached;
         }
 
         public void addUserRole(List<UserRole> list)
@@ -89,6 +97,18 @@ namespace PBL3REAL.DAL
             var listdel = AppDbContext.Instance.UserRoles.Where(x => x.UserolIduser == idUser).ToList();
             AppDbContext.Instance.RemoveRange(listdel);
             AppDbContext.Instance.SaveChanges();
+        }
+        public List<User> checkExisted(Dictionary<string, string> properties)
+        {
+            var predicate = PredicateBuilder.True<User>();
+            if (properties.ContainsKey("phone") && properties.ContainsKey("gmail"))
+                predicate = predicate.And(x => x.UserPhone == properties["phone"] || x.UserGmail == properties["gmail"]);
+            if (properties.ContainsKey("code") && properties["code"] != "")
+            {
+                predicate = predicate.And(x => x.UserCode != properties["code"]);
+            }
+            var result = AppDbContext.Instance.Users.Where(predicate).AsNoTracking().ToList();
+            return result;
         }
 
         public int getnextid()

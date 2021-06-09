@@ -55,8 +55,6 @@ namespace PBL3REAL.View
             bookingBLL = new QLBookingBLL();
             /*** Load Data & Set GUI ***/
             AddCbbRoomFilter();
-            LoadRoomList();
-            LoadRoomTypeList();
             addCbbRoomTypeOrder();
             AddCbbActive();
             if (LoggedRole != "Admin")
@@ -306,6 +304,8 @@ namespace PBL3REAL.View
             dgv_Room.DataSource = null;
             dgv_Room.DataSource = roomBLL.findByProperty(RoomCurrentPage, ROWS, idRoomTypeSearch, nameSearch, roomActivate);
             dgv_Room.Columns["IdRoom"].Visible = false;
+            dgv_Room.Columns["RoomActiveflag"].Visible = false;
+            
         }
         public void findidRoom()
         {
@@ -364,12 +364,18 @@ namespace PBL3REAL.View
             DataGridViewSelectedRowCollection r = dgv_Room.SelectedRows;
             if (r.Count == 1)
             {
-                HotelManagement.View.Form_Detail_Room f = new HotelManagement.View.Form_Detail_Room(int.Parse(r[0].Cells["IdRoom"].Value.ToString()), true);
-                this.Hide();
-                f.myDel = new HotelManagement.View.Form_Detail_Room.MyDel(ReloadRoomData);
-                f.ShowDialog();
-                this.Show();
-                //Reload Data
+                if((bool)r[0].Cells["RoomActiveflag"].Value == true)
+                {
+                    HotelManagement.View.Form_Detail_Room f = new HotelManagement.View.Form_Detail_Room(int.Parse(r[0].Cells["IdRoom"].Value.ToString()), true);
+                    this.Hide();
+                    f.myDel = new HotelManagement.View.Form_Detail_Room.MyDel(ReloadRoomData);
+                    f.ShowDialog();
+                    this.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Can't update inactive room!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else if (r.Count == 0)
             {
@@ -398,9 +404,24 @@ namespace PBL3REAL.View
                 MessageBox.Show("Chỉ có thể chọn một phòng trong một lần xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private void btn_RoomChangeActiveState_Click(object sender, EventArgs e)
         {
-            //Change active status
+            DataGridViewSelectedRowCollection r = dgv_Room.SelectedRows;
+            if (r.Count == 1)
+            {
+                roomBLL.restoreRoom(int.Parse(r[0].Cells["IdRoom"].Value.ToString()));
+                ReloadRoomData();
+                //Reload Data
+            }
+            else if (r.Count == 0)
+            {
+                MessageBox.Show("Please choose 1 row to restore!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                MessageBox.Show("Only choose 1 row to restore!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void picbx_RoomSort_Click(object sender, EventArgs e)
         {
@@ -456,12 +477,9 @@ namespace PBL3REAL.View
             dgv_RoomType.DataSource = null;
             dgv_RoomType.DataSource = roomTypeBLL.findByProperty(rotySearch,rotyOrderBy);
             dgv_RoomType.Columns["IdRoomtype"].Visible = false;
+            dgv_RoomType.Columns["RoTyActiveflag"].Visible = false;
+            
 
-        }
-        private void ReloadRoTyData()
-        {
-   
-            LoadRoomTypeList();
         }
         //-> Room Type Events
         private void addCbbRoomTypeOrder()
@@ -478,7 +496,7 @@ namespace PBL3REAL.View
             {
                 Form_Detail_Room_Category f = new Form_Detail_Room_Category(int.Parse(r[0].Cells["IdRoomtype"].Value.ToString()), false);
                 this.Hide();
-                f.myDel = new Form_Detail_Room_Category.MyDel(ReloadRoTyData);
+                f.myDel = new Form_Detail_Room_Category.MyDel(LoadRoomTypeList);
                 f.ShowDialog();
                 this.Show();
                 //Reload Data
@@ -496,7 +514,7 @@ namespace PBL3REAL.View
         {
             Form_Detail_Room_Category f = new Form_Detail_Room_Category(0, true);
             this.Hide();
-            f.myDel = new Form_Detail_Room_Category.MyDel(ReloadRoTyData);
+            f.myDel = new Form_Detail_Room_Category.MyDel(LoadRoomTypeList);
             f.ShowDialog();
             this.Show();
             //Reload data
@@ -506,12 +524,20 @@ namespace PBL3REAL.View
             DataGridViewSelectedRowCollection r = dgv_RoomType.SelectedRows;
             if (r.Count == 1)
             {
-                Form_Detail_Room_Category f = new Form_Detail_Room_Category(int.Parse(r[0].Cells["IdRoomType"].Value.ToString()), true);
-                this.Hide();
-                f.myDel = new Form_Detail_Room_Category.MyDel(ReloadRoTyData);
-                f.ShowDialog();
-                this.Show();
-                //Reload Data
+                if((bool)r[0].Cells["RoTyActiveflag"].Value == true)
+                {
+                    Form_Detail_Room_Category f = new Form_Detail_Room_Category(int.Parse(r[0].Cells["IdRoomType"].Value.ToString()), true);
+                    this.Hide();
+                    f.myDel = new Form_Detail_Room_Category.MyDel(LoadRoomTypeList);
+                    f.ShowDialog();
+                    this.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Can't update inactive roomtype!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+               
+                
             }
             else if (r.Count == 0)
             {
@@ -529,6 +555,7 @@ namespace PBL3REAL.View
             {
                 roomTypeBLL.deleteRoomType(int.Parse(r[0].Cells["IdRoomtype"].Value.ToString()));
                 //Reload Data
+                LoadRoomTypeList();
             }
             else if (r.Count == 0)
             {
@@ -550,6 +577,30 @@ namespace PBL3REAL.View
             //Sort by Filter
         }
 
-      
+        private void btn_RoomTypeRestore_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataGridViewSelectedRowCollection r = dgv_RoomType.SelectedRows;
+                if (r.Count == 1)
+                {
+                    roomTypeBLL.restoreRoomType(int.Parse(r[0].Cells["IdRoomtype"].Value.ToString()));
+                    //Reload Data
+                    LoadRoomTypeList();
+                }
+                else if (r.Count == 0)
+                {
+                    MessageBox.Show("Bạn chưa chọn loại phòng để xóa!!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show("Chỉ có thể chọn một loại phòng trong một lần xóa!!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Error while restoring!!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

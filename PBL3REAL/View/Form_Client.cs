@@ -51,6 +51,7 @@ namespace PBL3REAL.View
             {
                 dgv.DataSource = clientBLL.findByProperty(currentPage, ROWS, properties, orderBy);
                 dgv.Columns["IdClient"].Visible = false;
+                dgv.Columns["CliActiveflag"].Visible = false;              
                 tb_ClientPageNumber.Text = currentPage + "/" + totalPage;
             }
             else
@@ -98,12 +99,19 @@ namespace PBL3REAL.View
         {
             if (dgv.SelectedRows.Count == 1)
             {
-                //truyền ID_CLient 
-                Form_Detail_Client f = new Form_Detail_Client(int.Parse(dgv.SelectedRows[0].Cells["IdClient"].Value.ToString()), true);
-                 f.myDel = LoadData;
-                this.Hide();
-                f.ShowDialog();
-                this.Show();
+                
+                if ((bool)dgv.SelectedRows[0].Cells["CliActiveflag"].Value == true)
+                {
+                    Form_Detail_Client f = new Form_Detail_Client(int.Parse(dgv.SelectedRows[0].Cells["IdClient"].Value.ToString()), true);
+                    f.myDel = LoadData;
+                    this.Hide();
+                    f.ShowDialog();
+                    this.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Can't update inactive client!!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }            
             }   
             else
             {

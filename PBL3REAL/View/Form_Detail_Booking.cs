@@ -268,6 +268,7 @@ namespace PBL3REAL.View
             {
                 Dictionary<string, string> properties = new Dictionary<string, string>();
                 properties.Add("phone", tb_ClientSearch.Text);
+                properties.Add("status", "Active");
                 List<ClientVM> listClient = clientBLL.findByProperty(1,10000,properties,"");
                 if (listClient != null && listClient.Count != 0)
                 {

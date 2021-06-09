@@ -64,7 +64,7 @@ namespace PBL3REAL.View
             properties.Add("gmail", tb_ClientEmail.Text);
             properties.Add("phone", tb_ClientPhone.Text);
             properties.Add("code", tb_ClientCode.Text);
-            if (clientBLL.checkexisted(properties,tb_ClientCode.Text))
+            if (clientBLL.checkexisted(properties))
             {
                 clientVM.CliGmail = tb_ClientEmail.Text;
                 clientVM.CliName = tb_ClientName.Text;

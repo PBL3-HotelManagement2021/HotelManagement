@@ -9,6 +9,7 @@ namespace PBL3REAL.ViewModel
         public int IdRoom { get; set; }
         public string RoomName { get; set; }
         public string RoomDescription { get; set; }
+        public bool RoomActiveflag { get; set; }
         public decimal RotyCurrentprice { get; set; }
         public string RoTyName { get; set; }
 
