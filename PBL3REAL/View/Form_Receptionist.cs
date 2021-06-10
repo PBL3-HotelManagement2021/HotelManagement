@@ -33,9 +33,6 @@ namespace PBL3REAL.View
         private string bookOrderBy = "None";
         private string bookStatus = "";
 
-
-
-
         //-> Parameter for Room 
         private int totalRoomPages = 0;
         private string nameSearch = "";
@@ -49,14 +46,34 @@ namespace PBL3REAL.View
         public Form_Receptionist(int LoggedID, string LoggedRole)
         {
             InitializeComponent();
+
             /*** Initialize Parameter ***/
-            roomBLL = new RoomBLL();
-            roomTypeBLL = new RoomTypeBLL();
+            //-> Booking Parameters
             bookingBLL = new QLBookingBLL();
+            searchByDate = new CalendarVM();
+
+            //-> Room Parameters
+            roomBLL = new RoomBLL();
+            tb_RoomPageNumber.Text = "";
+
+            //-> Room Type Parameters
+            roomTypeBLL = new RoomTypeBLL();
+
             /*** Load Data & Set GUI ***/
+            //-> Tab Page Booking
+            cbb_BookingSearchFilter.SelectedIndex = 0;
+            cbb_BookingSort.SelectedIndex = 0;
+            cbb_BookingStatus.SelectedIndex = 0;
+            tb_BookingPageNumber.Text = "0/0";
+
+            //-> Tab Page Room
             AddCbbRoomFilter();
             addCbbRoomTypeOrder();
             AddCbbActive();
+
+            //-> Tab Page Room Type
+
+            //-> Check Logged Role is Admin
             if (LoggedRole != "Admin")
             {
                 btn_RoomAdd.Enabled = false;
@@ -66,24 +83,16 @@ namespace PBL3REAL.View
                 btn_RoomTypeEdit.Enabled = false;
                 btn_RoomTypeDelete.Enabled = false;
             }
-            tb_RoomPageNumber.Text = "";
-            
-
-
-            /****Booking****/
-            cbb_BookingSearchFilter.SelectedIndex = 0;
-            cbb_BookingSort.SelectedIndex = 0;
-            cbb_BookingStatus.SelectedIndex = 0;
-            searchByDate = new CalendarVM();
-            tb_BookingPageNumber.Text = "0/0";
         }
         /***** GENERAL *****/
         //-> General Functions
+
         //-> General Events
         private void btn_Home_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }
+
         /***** BOOKING *****/
         //-> Booking Functions
         private void LoadBookingList()
@@ -95,7 +104,6 @@ namespace PBL3REAL.View
             dgv_Booking.Columns["IdBook"].Visible = false;
             dgv_Booking.Columns["BookNote"].Visible = false;
         }
-
         public void searchBookData()
         {
             bookingSearch = tb_BookingSearch.Text;
@@ -117,8 +125,6 @@ namespace PBL3REAL.View
                 dgv_Booking.DataSource = null;
             }
         }
-
-     
         private int CheckBookingData()
         {
             if (cbb_BookingSearchFilter.SelectedItem == null)
@@ -131,6 +137,7 @@ namespace PBL3REAL.View
             }
             return 0;
         }
+
         //-> Booking Events
         private void btn_BookingExport_Click(object sender, EventArgs e)
         {
@@ -158,7 +165,6 @@ namespace PBL3REAL.View
                 MessageBox.Show("Chỉ có thể chọn một đơn trong một lần xem!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void btn_BookingView_Click(object sender, EventArgs e)
         {
             DataGridViewSelectedRowCollection r = dgv_Booking.SelectedRows;
@@ -243,7 +249,6 @@ namespace PBL3REAL.View
                 MessageBox.Show("Chỉ có thể chọn một đơn trong một lần xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-      
         private void picbx_BookingSearch_Click(object sender, EventArgs e)
         {
             //Search 
@@ -263,7 +268,7 @@ namespace PBL3REAL.View
         }
         private void picbx_BookingRefresh_Click(object sender, EventArgs e)
         {
-    //        searchBookData();
+            //searchBookData();
         }
         private void btn_BookingPrevPage_Click(object sender, EventArgs e)
         {
@@ -283,6 +288,7 @@ namespace PBL3REAL.View
                 tb_BookingPageNumber.Text = BookingCurrentPage + "/" + totalBookingPages;
             }
         }
+
         /***** ROOM *****/
         //-> Room Functions
         private void AddCbbRoomFilter()
@@ -301,10 +307,10 @@ namespace PBL3REAL.View
         }
         private void LoadRoomList()
         {
-            dgv_Room.DataSource = null;
-            dgv_Room.DataSource = roomBLL.findByProperty(RoomCurrentPage, ROWS, idRoomTypeSearch, nameSearch, roomActivate);
-            dgv_Room.Columns["IdRoom"].Visible = false;
-            dgv_Room.Columns["RoomActiveflag"].Visible = false;
+            fllaypn_RoomSwitchPage.DataSource = null;
+            fllaypn_RoomSwitchPage.DataSource = roomBLL.findByProperty(RoomCurrentPage, ROWS, idRoomTypeSearch, nameSearch, roomActivate);
+            fllaypn_RoomSwitchPage.Columns["IdRoom"].Visible = false;
+            fllaypn_RoomSwitchPage.Columns["RoomActiveflag"].Visible = false;
             
         }
         public void findidRoom()
@@ -330,10 +336,20 @@ namespace PBL3REAL.View
             if (totalRoomPages != 0) tb_RoomPageNumber.Text = RoomCurrentPage + "/" + totalRoomPages;
             else tb_RoomPageNumber.Text = "0/0";
         }
+
         //-> Room Events
+        private void picbx_RoomSort_Click(object sender, EventArgs e)
+        {
+            //Sort by Filter
+        }
+        private void picbx_RoomSearch_Click(object sender, EventArgs e)
+        {
+            //Search 
+            searchRoomData();
+        }
         private void btn_RoomView_Click(object sender, EventArgs e)
         {
-            DataGridViewSelectedRowCollection r = dgv_Room.SelectedRows;
+            DataGridViewSelectedRowCollection r = fllaypn_RoomSwitchPage.SelectedRows;
             if (r.Count == 1)
             {
                 HotelManagement.View.Form_Detail_Room f = new HotelManagement.View.Form_Detail_Room(int.Parse(r[0].Cells["IdRoom"].Value.ToString()), false);
@@ -361,7 +377,7 @@ namespace PBL3REAL.View
         }
         private void btn_RoomEdit_Click(object sender, EventArgs e)
         {
-            DataGridViewSelectedRowCollection r = dgv_Room.SelectedRows;
+            DataGridViewSelectedRowCollection r = fllaypn_RoomSwitchPage.SelectedRows;
             if (r.Count == 1)
             {
                 if((bool)r[0].Cells["RoomActiveflag"].Value == true)
@@ -388,11 +404,11 @@ namespace PBL3REAL.View
         }
         private void btn_RoomDelete_Click(object sender, EventArgs e)
         {
-            DataGridViewSelectedRowCollection r = dgv_Room.SelectedRows;
+            DataGridViewSelectedRowCollection r = fllaypn_RoomSwitchPage.SelectedRows;
             if (r.Count == 1)
             {
                 roomBLL.deleteRoom(int.Parse(r[0].Cells["IdRoom"].Value.ToString()));
-               ReloadRoomData();
+                ReloadRoomData();
                 //Reload Data
             }
             else if (r.Count == 0)
@@ -404,10 +420,9 @@ namespace PBL3REAL.View
                 MessageBox.Show("Chỉ có thể chọn một phòng trong một lần xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void btn_RoomChangeActiveState_Click(object sender, EventArgs e)
+        private void btn_RoomRestore_Click(object sender, EventArgs e)
         {
-            DataGridViewSelectedRowCollection r = dgv_Room.SelectedRows;
+            DataGridViewSelectedRowCollection r = fllaypn_RoomSwitchPage.SelectedRows;
             if (r.Count == 1)
             {
                 roomBLL.restoreRoom(int.Parse(r[0].Cells["IdRoom"].Value.ToString()));
@@ -423,52 +438,38 @@ namespace PBL3REAL.View
                 MessageBox.Show("Only choose 1 row to restore!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void picbx_RoomSort_Click(object sender, EventArgs e)
-        {
-            //Sort by Filter
-        }
-        private void picbx_RoomSearch_Click(object sender, EventArgs e)
-        {
-            //Search 
-            searchRoomData();
-
-        }
-        private void picbx_RoomRefresh_Click(object sender, EventArgs e)
-        {
-           ReloadRoomData();
-        }
         private void btn_RoomPrevPage_Click(object sender, EventArgs e)
         {
             if (RoomCurrentPage > 1)
             {
                 //   dgv_Room.DataSource = roomBLL.findByProperty(RoomCurrentPage - 1, 10, 0, "");
                 RoomCurrentPage -= 1;
-              
+
                 LoadRoomList();
                 tb_RoomPageNumber.Text = RoomCurrentPage + "/" + totalRoomPages;
             }
         }
         private void btn_RoomNextPage_Click(object sender, EventArgs e)
         {
-        
             if (RoomCurrentPage < totalRoomPages)
             {
                 // dgv_Room.DataSource = roomBLL.findByProperty(RoomCurrentPage + 1, 10, 0, "");
                 RoomCurrentPage += 1;
-                LoadRoomList();              
-                tb_RoomPageNumber.Text = RoomCurrentPage+"/"+ totalRoomPages;
+                LoadRoomList();
+                tb_RoomPageNumber.Text = RoomCurrentPage + "/" + totalRoomPages;
             }
+        }
+        private void picbx_RoomRefresh_Click(object sender, EventArgs e)
+        {
+            ReloadRoomData();
         }
         private void dgv_Room_SelectionChanged(object sender, EventArgs e)
         {
-            if (dgv_Room.SelectedRows.Count == 1)
-            {
-                //if (dgv_Room.SelectedRows[0].Cells[])
-            }   
-            else
-            {
-
-            }    
+            //if (fllaypn_RoomSwitchPage.SelectedRows.Count == 1)
+            //{
+            //    //if (dgv_Room.SelectedRows[0].Cells[])
+            //}   
+            //else {}    
         }
         /***** ROOM TYPE *****/
         //-> Romm Type Functions
@@ -478,10 +479,7 @@ namespace PBL3REAL.View
             dgv_RoomType.DataSource = roomTypeBLL.findByProperty(rotySearch,rotyOrderBy);
             dgv_RoomType.Columns["IdRoomtype"].Visible = false;
             dgv_RoomType.Columns["RoTyActiveflag"].Visible = false;
-            
-
         }
-        //-> Room Type Events
         private void addCbbRoomTypeOrder()
         {
             cbb_RoomTypeSort.Items.Add("None");
@@ -489,6 +487,8 @@ namespace PBL3REAL.View
             cbb_RoomTypeSort.Items.Add("Current Price Desc");
             cbb_RoomTypeSort.SelectedIndex = 0;
         }
+
+        //-> Room Type Events
         private void btn_RoomTypeView_Click(object sender, EventArgs e)
         {
             DataGridViewSelectedRowCollection r = dgv_RoomType.SelectedRows;
@@ -536,8 +536,6 @@ namespace PBL3REAL.View
                 {
                     MessageBox.Show("Can't update inactive roomtype!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-               
-                
             }
             else if (r.Count == 0)
             {
@@ -576,7 +574,6 @@ namespace PBL3REAL.View
         {
             //Sort by Filter
         }
-
         private void btn_RoomTypeRestore_Click(object sender, EventArgs e)
         {
             try

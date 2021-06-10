@@ -203,71 +203,6 @@ namespace PBL3REAL.View
             }
             return null;
         }
-        //Update IMG 
-        private void UpdatedIMG()
-        {
-            if (listdel.Count == 0)
-            {
-                if (roomTypeVM.ListImg.Count != TotalPic)
-                {
-                    //Chỉ add thêm
-                    for (int i = roomTypeVM.ListImg.Count + 1; i <= roomTypeVM.ListImg.Count + TotalPicAdded; i++)
-                    {
-                        SaveIMG(i);
-                    }   
-                }
-            }  
-            else
-            {
-                if (TotalPicAdded == 0) 
-                {
-                    //Chỉ xóa đi
-                    for (int i = roomTypeVM.ListImg.Count; i > TotalPic; i--)
-                    {
-                        DeleteIMG(i);
-                    }
-                }
-                else
-                {
-                    if (roomTypeVM.ListImg.Count < TotalPic)
-                    {
-                        //Xóa đi r add lại nhìu hơn
-                        for (int i = roomTypeVM.ListImg.Count - listdel.Count; i <= roomTypeVM.ListImg.Count; i++)
-                        {
-                            DeleteIMG(i);
-                        }    
-                        for (int i = roomTypeVM.ListImg.Count - listdel.Count; i <= TotalPic; i++)
-                        {
-                            SaveIMG(i);
-                        }    
-                    }    
-                    else if (roomTypeVM.ListImg.Count > TotalPic)
-                    {
-                        //XÓa đi r add lại ít hơn
-                        for (int i = roomTypeVM.ListImg.Count - listdel.Count; i <= roomTypeVM.ListImg.Count; i++)
-                        {
-                            DeleteIMG(i);
-                        }
-                        for (int i = roomTypeVM.ListImg.Count - listdel.Count; i <= TotalPic; i++)
-                        {
-                            SaveIMG(i);
-                        }
-                    }   
-                    else
-                    {
-                        //Xóa đi bao nhiu add lại bấy nhiu
-                        for (int i = 1; i <= roomTypeVM.ListImg.Count; i++)
-                        {
-                            DeleteIMG(i);
-                        }    
-                        for(int i = 1; i <= roomTypeVM.ListImg.Count; i++)
-                        {
-                            SaveIMG(i);
-                        }    
-                    }
-                }    
-            }    
-        }
         //Delete IMG
         private void DeleteIMG(int index)
         {
@@ -312,7 +247,7 @@ namespace PBL3REAL.View
             switch (index)
             {
                 case 6:
-                    fullpath =  fullpath + "_6.Jpeg";
+                    fullpath = fullpath + "_6.Jpeg";
                     if (picbx_Add6.Image != null)
                     {
                         picbx_Add6.Image.Save(fullpath, System.Drawing.Imaging.ImageFormat.Jpeg);
@@ -353,7 +288,7 @@ namespace PBL3REAL.View
                     break;
                 case 1:
                     fullpath = fullpath + "_1.Jpeg";
-                    if(picbx_Add1.Image != null)
+                    if (picbx_Add1.Image != null)
                     {
                         picbx_Add1.Image.Save(fullpath, System.Drawing.Imaging.ImageFormat.Png);
                         roomTypeVM.ListImg.Add(new ImageVM { ImgstoUrl = fullpath });
@@ -361,6 +296,71 @@ namespace PBL3REAL.View
                     break;
                 default:
                     break;
+            }
+        }
+        //Update IMG 
+        private void UpdatedIMG()
+        {
+            if (listdel.Count == 0)
+            {
+                if (roomTypeVM.ListImg.Count != TotalPic)
+                {
+                    //Chỉ add thêm
+                    for (int i = roomTypeVM.ListImg.Count + 1; i <= roomTypeVM.ListImg.Count + TotalPicAdded; i++)
+                    {
+                        SaveIMG(i);
+                    }   
+                }
+            }  
+            else
+            {
+                if (TotalPicAdded == 0 && roomTypeVM.ListImg.Count == TotalPic + listdel.Count) 
+                {
+                    //Chỉ xóa đi
+                    for (int i = roomTypeVM.ListImg.Count; i > TotalPic; i--)
+                    {
+                        DeleteIMG(i);
+                    }
+                }
+                else
+                {
+                    if (roomTypeVM.ListImg.Count < TotalPic)
+                    {
+                        //Xóa đi r add lại nhìu hơn
+                        for (int i = roomTypeVM.ListImg.Count - listdel.Count + 1; i <= roomTypeVM.ListImg.Count; i++)
+                        {
+                            DeleteIMG(i);
+                        }    
+                        for (int i = roomTypeVM.ListImg.Count - listdel.Count + 1; i <= TotalPic; i++)
+                        {
+                            SaveIMG(i);
+                        }    
+                    }    
+                    else if (roomTypeVM.ListImg.Count > TotalPic)
+                    {
+                        //Xóa đi r add lại ít hơn
+                        for (int i = roomTypeVM.ListImg.Count - listdel.Count + 1; i <= roomTypeVM.ListImg.Count; i++)
+                        {
+                            DeleteIMG(i);
+                        }
+                        for (int i = roomTypeVM.ListImg.Count - listdel.Count + 1; i <= TotalPic; i++)
+                        {
+                            SaveIMG(i);
+                        }
+                    }   
+                    else
+                    {
+                        //Xóa đi bao nhiu add lại bấy nhiu
+                        for (int i = roomTypeVM.ListImg.Count - listdel.Count + 1; i <= roomTypeVM.ListImg.Count; i++)
+                        {
+                            DeleteIMG(i);
+                        }    
+                        for(int i = roomTypeVM.ListImg.Count - listdel.Count + 1; i <= TotalPic; i++)
+                        {
+                            SaveIMG(i);
+                        }    
+                    }
+                }    
             }    
         }
         //Room Type Processing Functions
@@ -505,41 +505,6 @@ namespace PBL3REAL.View
                 }
             } 
         }
-        private void btn_OK_Click(object sender, EventArgs e)
-        {
-            //Gọi hàm BLL xử lí nghiệp vụ
-            //myDel();
-            if (idRoomType == 0)
-            {
-                //Add
-                AddRoomType();
-            }
-            else
-            {
-                //Edit
-                int capacity = 0 , price =0;
-                int.TryParse(tb_RoomTypeCapacity.Text, out capacity);
-                int.TryParse(tb_RoomTypePrice.Text, out price);
-                UpdatedIMG();
-                roomTypeVM.RotyCapacity = capacity;
-                roomTypeVM.RotyName = tb_RoomTypeName.Text;
-                roomTypeVM.RotyCurrentprice = price;
-                roomTypeVM.RotyDescription = tb_RoomTypeDescription.Text;
-                roomTypeBLL.editRoomType(roomTypeVM, listdel);
-            }
-            myDel();
-            this.Dispose();
-        }
-        private void btn_Reset_Click(object sender, EventArgs e)
-        {
-            //Gọi hàm xóa tất cả dữ liệu đã nhập hoặc có sẵn trước đó
-            ResetData();
-        }
-        private void btn_Cancel_Click(object sender, EventArgs e)
-        {
-            this.Dispose();
-        }
-
         private void btn_Del_Click(object sender, EventArgs e)
         {
             switch(TotalPic)
@@ -620,6 +585,40 @@ namespace PBL3REAL.View
                     }
                     break;
             }    
+        }
+        private void btn_OK_Click(object sender, EventArgs e)
+        {
+            //Gọi hàm BLL xử lí nghiệp vụ
+            //myDel();
+            if (idRoomType == 0)
+            {
+                //Add
+                AddRoomType();
+            }
+            else
+            {
+                //Edit
+                int capacity = 0, price = 0;
+                int.TryParse(tb_RoomTypeCapacity.Text, out capacity);
+                int.TryParse(tb_RoomTypePrice.Text, out price);
+                UpdatedIMG();
+                roomTypeVM.RotyCapacity = capacity;
+                roomTypeVM.RotyName = tb_RoomTypeName.Text;
+                roomTypeVM.RotyCurrentprice = price;
+                roomTypeVM.RotyDescription = tb_RoomTypeDescription.Text;
+                roomTypeBLL.editRoomType(roomTypeVM, listdel);
+            }
+            myDel();
+            this.Dispose();
+        }
+        private void btn_Reset_Click(object sender, EventArgs e)
+        {
+            //Gọi hàm xóa tất cả dữ liệu đã nhập hoặc có sẵn trước đó
+            ResetData();
+        }
+        private void btn_Cancel_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

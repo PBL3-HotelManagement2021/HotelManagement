@@ -27,6 +27,7 @@ namespace PBL3REAL.View
         private int ID = 0;
         private ImageVM TempAvatar;
         private bool Change;
+        private bool editable;
 
         /***** CONSTRUCTOR *****/
         public Form_User_Profile(int id, string role, bool Editable,bool isForLogin)
@@ -34,6 +35,7 @@ namespace PBL3REAL.View
             InitializeComponent();
             qLUserBLL = new QLUserBLL();
             Change = false;
+            editable = Editable;
             if (isForLogin)
             {
                 loadForLogin(role);
@@ -62,7 +64,7 @@ namespace PBL3REAL.View
             lb_Header.Text = "   " + QLUserBLL.stoUser.UserCode + "   ";
             tb_Username.Text = QLUserBLL.stoUser.UserName;
             tb_Email.Text = QLUserBLL.stoUser.UserGmail;
-            tb_Password.Text = QLUserBLL.stoUser.UserPassword;
+            //tb_Password.Text = QLUserBLL.stoUser.UserPassword;
             tb_Phone.Text = QLUserBLL.stoUser.UserPhone;
             if (QLUserBLL.stoUser.UserGender)
             {
@@ -94,7 +96,7 @@ namespace PBL3REAL.View
                 lb_Header.Text = "   " + userVM.UserCode + "   ";
                 tb_Username.Text = userVM.UserName;
                 tb_Email.Text = userVM.UserGmail;
-                tb_Password.Text = userVM.UserPassword;
+                //tb_Password.Text = userVM.UserPassword;
                 tb_Phone.Text = userVM.UserPhone;
                 if (userVM.UserGender)
                 {
@@ -300,6 +302,10 @@ namespace PBL3REAL.View
                 picbx_Header.BackgroundImage = null;
                 picbx_Header.Image = Properties.Resources.male_user_fluent_color_96px;
             }    
+        }
+        private void picbx_Change_Click(object sender, EventArgs e)
+        {
+            if (editable && ID != 0) { tb_Password.Enabled = true; }
         }
         private void picbx_Add_Click(object sender, EventArgs e)
         {
