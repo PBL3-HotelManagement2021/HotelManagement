@@ -16,35 +16,34 @@ namespace PBL3REAL.View
             dtp_From.Enabled = false;
             dtp_To.Enabled = false;
         }
-
         private void btn_Home_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }
-
-        private void tableLayoutPanel4_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void btn_OK_Click(object sender, EventArgs e)
         {
+            bool Statistic = false, Analyze = false, Predict = false;
+            if (chkbx_Statistic.Checked) { Statistic = true; }
+            if (chkbx_Analyze.Checked && chkbx_AnalyzeOption.Checked)
+            {
+                Analyze = true;
+            }    
             switch (cbb_PeriodTime.SelectedIndex) 
             {
                 case 0:
-                    Form_View_Statistic_Analyze f1 = new Form_View_Statistic_Analyze(DateTime.Now.AddDays(-7), DateTime.Now);
+                    Form_View_Statistic_Analyze f1 = new Form_View_Statistic_Analyze(cbb_DataType.SelectedIndex, DateTime.Now.AddDays(-7), DateTime.Now, Statistic, Analyze, Predict);
                     this.Hide();
                     f1.ShowDialog();
                     this.Show();
                     break;
                 case 1:
-                    Form_View_Statistic_Analyze f2 = new Form_View_Statistic_Analyze(DateTime.Now.AddDays(-30), DateTime.Now);
+                    Form_View_Statistic_Analyze f2 = new Form_View_Statistic_Analyze(cbb_DataType.SelectedIndex, DateTime.Now.AddDays(-30), DateTime.Now, Statistic, Analyze, Predict);
                     this.Hide();
                     f2.ShowDialog();
                     this.Show();
                     break;
                 case 2:
-                    Form_View_Statistic_Analyze f3 = new Form_View_Statistic_Analyze(dtp_From.Value,dtp_To.Value);
+                    Form_View_Statistic_Analyze f3 = new Form_View_Statistic_Analyze(cbb_DataType.SelectedIndex, dtp_From.Value,dtp_To.Value, Statistic, Analyze, Predict);
                     this.Hide();
                     f3.ShowDialog();
                     this.Show();

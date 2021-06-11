@@ -47,13 +47,22 @@ namespace PBL3REAL.View
             this.tb_InvoiceSearch = new System.Windows.Forms.TextBox();
             this.lb_InvoiceSearch = new System.Windows.Forms.Label();
             this.lb_InvoiceSort = new System.Windows.Forms.Label();
+            this.fllaypn_InvoiceSwitchPage = new System.Windows.Forms.FlowLayoutPanel();
+            this.btn_InvoicePrevPage = new System.Windows.Forms.Button();
+            this.tb_InvoicePageNumber = new System.Windows.Forms.TextBox();
+            this.btn_InvoiceNextPage = new System.Windows.Forms.Button();
+            this.picbx_InvoiceRefresh = new System.Windows.Forms.PictureBox();
             this.tabPage_StatAnalyze = new System.Windows.Forms.TabPage();
             this.grbx_AnalyzeOption = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.chkbx_AnalyzeOption = new System.Windows.Forms.CheckBox();
             this.grbx_StatisticOption = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.grbx_StatAnalyze = new System.Windows.Forms.GroupBox();
@@ -73,11 +82,6 @@ namespace PBL3REAL.View
             this.dtp_To = new System.Windows.Forms.DateTimePicker();
             this.cbb_DataType = new System.Windows.Forms.ComboBox();
             this.cbb_PeriodTime = new System.Windows.Forms.ComboBox();
-            this.fllaypn_InvoiceSwitchPage = new System.Windows.Forms.FlowLayoutPanel();
-            this.btn_InvoicePrevPage = new System.Windows.Forms.Button();
-            this.tb_InvoicePageNumber = new System.Windows.Forms.TextBox();
-            this.btn_InvoiceNextPage = new System.Windows.Forms.Button();
-            this.picbx_InvoiceRefresh = new System.Windows.Forms.PictureBox();
             this.tabControl_Accountant.SuspendLayout();
             this.tabPage_General.SuspendLayout();
             this.tabPage_Invoice.SuspendLayout();
@@ -86,6 +90,8 @@ namespace PBL3REAL.View
             this.tbllaypn_Invoice.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picbx_InvoiceSearch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbx_InvoiceSort)).BeginInit();
+            this.fllaypn_InvoiceSwitchPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picbx_InvoiceRefresh)).BeginInit();
             this.tabPage_StatAnalyze.SuspendLayout();
             this.grbx_AnalyzeOption.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -95,8 +101,6 @@ namespace PBL3REAL.View
             this.tbllaypn_ControlBar.SuspendLayout();
             this.tbllaypn_DataOption.SuspendLayout();
             this.tbllaypn_ActionOption.SuspendLayout();
-            this.fllaypn_InvoiceSwitchPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picbx_InvoiceRefresh)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl_Accountant
@@ -119,7 +123,7 @@ namespace PBL3REAL.View
             this.tabPage_General.Location = new System.Drawing.Point(4, 37);
             this.tabPage_General.Name = "tabPage_General";
             this.tabPage_General.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_General.Size = new System.Drawing.Size(972, 658);
+            this.tabPage_General.Size = new System.Drawing.Size(1139, 658);
             this.tabPage_General.TabIndex = 0;
             this.tabPage_General.Text = "Chung";
             this.tabPage_General.UseVisualStyleBackColor = true;
@@ -247,7 +251,7 @@ namespace PBL3REAL.View
             this.tbllaypn_Invoice.ColumnCount = 3;
             this.tbllaypn_Invoice.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.30407F));
             this.tbllaypn_Invoice.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.69593F));
-            this.tbllaypn_Invoice.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 54F));
+            this.tbllaypn_Invoice.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 56F));
             this.tbllaypn_Invoice.Controls.Add(this.picbx_InvoiceSearch, 2, 1);
             this.tbllaypn_Invoice.Controls.Add(this.picbx_InvoiceSort, 2, 0);
             this.tbllaypn_Invoice.Controls.Add(this.cbb_InvoiceSort, 1, 0);
@@ -265,7 +269,7 @@ namespace PBL3REAL.View
             // picbx_InvoiceSearch
             // 
             this.picbx_InvoiceSearch.Image = global::PBL3REAL.Properties.Resources.search_fluent_color_48px;
-            this.picbx_InvoiceSearch.Location = new System.Drawing.Point(334, 58);
+            this.picbx_InvoiceSearch.Location = new System.Drawing.Point(332, 58);
             this.picbx_InvoiceSearch.Name = "picbx_InvoiceSearch";
             this.picbx_InvoiceSearch.Size = new System.Drawing.Size(47, 48);
             this.picbx_InvoiceSearch.TabIndex = 10;
@@ -274,7 +278,7 @@ namespace PBL3REAL.View
             // picbx_InvoiceSort
             // 
             this.picbx_InvoiceSort.Image = global::PBL3REAL.Properties.Resources.filter_fluent_color_48px;
-            this.picbx_InvoiceSort.Location = new System.Drawing.Point(334, 3);
+            this.picbx_InvoiceSort.Location = new System.Drawing.Point(332, 3);
             this.picbx_InvoiceSort.Name = "picbx_InvoiceSort";
             this.picbx_InvoiceSort.Size = new System.Drawing.Size(47, 48);
             this.picbx_InvoiceSort.TabIndex = 9;
@@ -290,7 +294,7 @@ namespace PBL3REAL.View
             this.cbb_InvoiceSort.FormattingEnabled = true;
             this.cbb_InvoiceSort.Location = new System.Drawing.Point(126, 3);
             this.cbb_InvoiceSort.Name = "cbb_InvoiceSort";
-            this.cbb_InvoiceSort.Size = new System.Drawing.Size(202, 39);
+            this.cbb_InvoiceSort.Size = new System.Drawing.Size(200, 39);
             this.cbb_InvoiceSort.TabIndex = 0;
             // 
             // tb_InvoiceSearch
@@ -301,7 +305,7 @@ namespace PBL3REAL.View
             this.tb_InvoiceSearch.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tb_InvoiceSearch.Location = new System.Drawing.Point(126, 58);
             this.tb_InvoiceSearch.Name = "tb_InvoiceSearch";
-            this.tb_InvoiceSearch.Size = new System.Drawing.Size(202, 31);
+            this.tb_InvoiceSearch.Size = new System.Drawing.Size(200, 31);
             this.tb_InvoiceSearch.TabIndex = 0;
             // 
             // lb_InvoiceSearch
@@ -323,6 +327,65 @@ namespace PBL3REAL.View
             this.lb_InvoiceSort.Size = new System.Drawing.Size(117, 55);
             this.lb_InvoiceSort.TabIndex = 0;
             this.lb_InvoiceSort.Text = "Sắp xếp theo";
+            // 
+            // fllaypn_InvoiceSwitchPage
+            // 
+            this.fllaypn_InvoiceSwitchPage.Controls.Add(this.btn_InvoicePrevPage);
+            this.fllaypn_InvoiceSwitchPage.Controls.Add(this.tb_InvoicePageNumber);
+            this.fllaypn_InvoiceSwitchPage.Controls.Add(this.btn_InvoiceNextPage);
+            this.fllaypn_InvoiceSwitchPage.Location = new System.Drawing.Point(-3, 195);
+            this.fllaypn_InvoiceSwitchPage.Name = "fllaypn_InvoiceSwitchPage";
+            this.fllaypn_InvoiceSwitchPage.Size = new System.Drawing.Size(187, 44);
+            this.fllaypn_InvoiceSwitchPage.TabIndex = 0;
+            // 
+            // btn_InvoicePrevPage
+            // 
+            this.btn_InvoicePrevPage.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_InvoicePrevPage.FlatAppearance.BorderSize = 0;
+            this.btn_InvoicePrevPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_InvoicePrevPage.Image = global::PBL3REAL.Properties.Resources.prev_fluent_color_48px;
+            this.btn_InvoicePrevPage.Location = new System.Drawing.Point(0, 0);
+            this.btn_InvoicePrevPage.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_InvoicePrevPage.Name = "btn_InvoicePrevPage";
+            this.btn_InvoicePrevPage.Size = new System.Drawing.Size(43, 43);
+            this.btn_InvoicePrevPage.TabIndex = 0;
+            this.btn_InvoicePrevPage.UseVisualStyleBackColor = true;
+            // 
+            // tb_InvoicePageNumber
+            // 
+            this.tb_InvoicePageNumber.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tb_InvoicePageNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.tb_InvoicePageNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_InvoicePageNumber.Font = new System.Drawing.Font("Segoe UI", 16.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tb_InvoicePageNumber.Location = new System.Drawing.Point(43, 2);
+            this.tb_InvoicePageNumber.Margin = new System.Windows.Forms.Padding(0);
+            this.tb_InvoicePageNumber.Name = "tb_InvoicePageNumber";
+            this.tb_InvoicePageNumber.Size = new System.Drawing.Size(94, 38);
+            this.tb_InvoicePageNumber.TabIndex = 0;
+            this.tb_InvoicePageNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // btn_InvoiceNextPage
+            // 
+            this.btn_InvoiceNextPage.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_InvoiceNextPage.FlatAppearance.BorderSize = 0;
+            this.btn_InvoiceNextPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_InvoiceNextPage.Image = global::PBL3REAL.Properties.Resources.right_button_fluent_color_48px;
+            this.btn_InvoiceNextPage.Location = new System.Drawing.Point(137, 0);
+            this.btn_InvoiceNextPage.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_InvoiceNextPage.Name = "btn_InvoiceNextPage";
+            this.btn_InvoiceNextPage.Size = new System.Drawing.Size(43, 43);
+            this.btn_InvoiceNextPage.TabIndex = 0;
+            this.btn_InvoiceNextPage.UseVisualStyleBackColor = true;
+            // 
+            // picbx_InvoiceRefresh
+            // 
+            this.picbx_InvoiceRefresh.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.picbx_InvoiceRefresh.Image = global::PBL3REAL.Properties.Resources.refresh_fluent_color_48px;
+            this.picbx_InvoiceRefresh.Location = new System.Drawing.Point(191, 193);
+            this.picbx_InvoiceRefresh.Name = "picbx_InvoiceRefresh";
+            this.picbx_InvoiceRefresh.Size = new System.Drawing.Size(47, 45);
+            this.picbx_InvoiceRefresh.TabIndex = 14;
+            this.picbx_InvoiceRefresh.TabStop = false;
             // 
             // tabPage_StatAnalyze
             // 
@@ -351,8 +414,10 @@ namespace PBL3REAL.View
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Controls.Add(this.checkBox1, 1, 1);
             this.tableLayoutPanel3.Controls.Add(this.label8, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.label9, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.chkbx_AnalyzeOption, 1, 0);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(9, 46);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
@@ -360,6 +425,16 @@ namespace PBL3REAL.View
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(332, 169);
             this.tableLayoutPanel3.TabIndex = 0;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(169, 87);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(110, 32);
+            this.checkBox1.TabIndex = 6;
+            this.checkBox1.Text = "Dự đoán";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // label8
             // 
@@ -381,6 +456,16 @@ namespace PBL3REAL.View
             this.label9.TabIndex = 3;
             this.label9.Text = "Phân tích";
             // 
+            // chkbx_AnalyzeOption
+            // 
+            this.chkbx_AnalyzeOption.AutoSize = true;
+            this.chkbx_AnalyzeOption.Location = new System.Drawing.Point(169, 3);
+            this.chkbx_AnalyzeOption.Name = "chkbx_AnalyzeOption";
+            this.chkbx_AnalyzeOption.Size = new System.Drawing.Size(114, 32);
+            this.chkbx_AnalyzeOption.TabIndex = 5;
+            this.chkbx_AnalyzeOption.Text = "Phân tích";
+            this.chkbx_AnalyzeOption.UseVisualStyleBackColor = true;
+            // 
             // grbx_StatisticOption
             // 
             this.grbx_StatisticOption.Controls.Add(this.tableLayoutPanel2);
@@ -394,8 +479,10 @@ namespace PBL3REAL.View
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.61905F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.38095F));
+            this.tableLayoutPanel2.Controls.Add(this.comboBox2, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.comboBox1, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.label7, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.label6, 0, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(9, 46);
@@ -403,8 +490,40 @@ namespace PBL3REAL.View
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(332, 169);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(420, 169);
             this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "7 ngày gần đây",
+            "30 ngày gần đây",
+            "Tùy chỉnh"});
+            this.comboBox2.Location = new System.Drawing.Point(161, 87);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(256, 36);
+            this.comboBox2.TabIndex = 4;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "7 ngày gần đây",
+            "30 ngày gần đây",
+            "Tùy chỉnh"});
+            this.comboBox1.Location = new System.Drawing.Point(161, 3);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(256, 36);
+            this.comboBox1.TabIndex = 3;
             // 
             // label7
             // 
@@ -450,7 +569,6 @@ namespace PBL3REAL.View
             this.tbllaypn_ControlBar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tbllaypn_ControlBar.Size = new System.Drawing.Size(110, 130);
             this.tbllaypn_ControlBar.TabIndex = 0;
-            this.tbllaypn_ControlBar.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel4_Paint);
             // 
             // btn_Reset
             // 
@@ -615,6 +733,9 @@ namespace PBL3REAL.View
             this.cbb_DataType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbb_DataType.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbb_DataType.FormattingEnabled = true;
+            this.cbb_DataType.Items.AddRange(new object[] {
+            "Doanh thu",
+            "Đơn booking"});
             this.cbb_DataType.Location = new System.Drawing.Point(212, 7);
             this.cbb_DataType.Name = "cbb_DataType";
             this.cbb_DataType.Size = new System.Drawing.Size(331, 36);
@@ -638,65 +759,6 @@ namespace PBL3REAL.View
             this.cbb_PeriodTime.TabIndex = 2;
             this.cbb_PeriodTime.SelectedIndexChanged += new System.EventHandler(this.cbb_PeriodTime_SelectedIndexChanged);
             // 
-            // fllaypn_InvoiceSwitchPage
-            // 
-            this.fllaypn_InvoiceSwitchPage.Controls.Add(this.btn_InvoicePrevPage);
-            this.fllaypn_InvoiceSwitchPage.Controls.Add(this.tb_InvoicePageNumber);
-            this.fllaypn_InvoiceSwitchPage.Controls.Add(this.btn_InvoiceNextPage);
-            this.fllaypn_InvoiceSwitchPage.Location = new System.Drawing.Point(-3, 195);
-            this.fllaypn_InvoiceSwitchPage.Name = "fllaypn_InvoiceSwitchPage";
-            this.fllaypn_InvoiceSwitchPage.Size = new System.Drawing.Size(187, 44);
-            this.fllaypn_InvoiceSwitchPage.TabIndex = 0;
-            // 
-            // btn_InvoicePrevPage
-            // 
-            this.btn_InvoicePrevPage.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_InvoicePrevPage.FlatAppearance.BorderSize = 0;
-            this.btn_InvoicePrevPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_InvoicePrevPage.Image = global::PBL3REAL.Properties.Resources.prev_fluent_color_48px;
-            this.btn_InvoicePrevPage.Location = new System.Drawing.Point(0, 0);
-            this.btn_InvoicePrevPage.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_InvoicePrevPage.Name = "btn_InvoicePrevPage";
-            this.btn_InvoicePrevPage.Size = new System.Drawing.Size(43, 43);
-            this.btn_InvoicePrevPage.TabIndex = 0;
-            this.btn_InvoicePrevPage.UseVisualStyleBackColor = true;
-            // 
-            // tb_InvoicePageNumber
-            // 
-            this.tb_InvoicePageNumber.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tb_InvoicePageNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.tb_InvoicePageNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tb_InvoicePageNumber.Font = new System.Drawing.Font("Segoe UI", 16.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tb_InvoicePageNumber.Location = new System.Drawing.Point(43, 2);
-            this.tb_InvoicePageNumber.Margin = new System.Windows.Forms.Padding(0);
-            this.tb_InvoicePageNumber.Name = "tb_InvoicePageNumber";
-            this.tb_InvoicePageNumber.Size = new System.Drawing.Size(94, 38);
-            this.tb_InvoicePageNumber.TabIndex = 0;
-            this.tb_InvoicePageNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // btn_InvoiceNextPage
-            // 
-            this.btn_InvoiceNextPage.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_InvoiceNextPage.FlatAppearance.BorderSize = 0;
-            this.btn_InvoiceNextPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_InvoiceNextPage.Image = global::PBL3REAL.Properties.Resources.right_button_fluent_color_48px;
-            this.btn_InvoiceNextPage.Location = new System.Drawing.Point(137, 0);
-            this.btn_InvoiceNextPage.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_InvoiceNextPage.Name = "btn_InvoiceNextPage";
-            this.btn_InvoiceNextPage.Size = new System.Drawing.Size(43, 43);
-            this.btn_InvoiceNextPage.TabIndex = 0;
-            this.btn_InvoiceNextPage.UseVisualStyleBackColor = true;
-            // 
-            // picbx_InvoiceRefresh
-            // 
-            this.picbx_InvoiceRefresh.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.picbx_InvoiceRefresh.Image = global::PBL3REAL.Properties.Resources.refresh_fluent_color_48px;
-            this.picbx_InvoiceRefresh.Location = new System.Drawing.Point(191, 193);
-            this.picbx_InvoiceRefresh.Name = "picbx_InvoiceRefresh";
-            this.picbx_InvoiceRefresh.Size = new System.Drawing.Size(47, 45);
-            this.picbx_InvoiceRefresh.TabIndex = 14;
-            this.picbx_InvoiceRefresh.TabStop = false;
-            // 
             // Form_Accountant
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -717,6 +779,9 @@ namespace PBL3REAL.View
             this.tbllaypn_Invoice.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picbx_InvoiceSearch)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbx_InvoiceSort)).EndInit();
+            this.fllaypn_InvoiceSwitchPage.ResumeLayout(false);
+            this.fllaypn_InvoiceSwitchPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picbx_InvoiceRefresh)).EndInit();
             this.tabPage_StatAnalyze.ResumeLayout(false);
             this.grbx_AnalyzeOption.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
@@ -730,9 +795,6 @@ namespace PBL3REAL.View
             this.tbllaypn_DataOption.PerformLayout();
             this.tbllaypn_ActionOption.ResumeLayout(false);
             this.tbllaypn_ActionOption.PerformLayout();
-            this.fllaypn_InvoiceSwitchPage.ResumeLayout(false);
-            this.fllaypn_InvoiceSwitchPage.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picbx_InvoiceRefresh)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -787,5 +849,9 @@ namespace PBL3REAL.View
         private System.Windows.Forms.TextBox tb_InvoicePageNumber;
         private System.Windows.Forms.Button btn_InvoiceNextPage;
         private System.Windows.Forms.PictureBox picbx_InvoiceRefresh;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox chkbx_AnalyzeOption;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

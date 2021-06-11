@@ -20,20 +20,58 @@ namespace PBL3REAL.View
     {
         QLInvoiceBLL invoiceBLL;
         List<Statistic1> listVM;
+        List<Statistic2> listVM2;
         double rSquared, intercept, slope;
         double[] xValues;
         double[] yValues;
         double predictedValue;
-        public Form_View_Statistic_Analyze(DateTime from, DateTime to)
+        public Form_View_Statistic_Analyze(int DataType, DateTime from, DateTime to, bool Statistic, bool Analyze, bool Predict)
         {
             InitializeComponent();
             invoiceBLL = new QLInvoiceBLL();
-            //listVM = invoiceBLL.findForStatistic(Convert.ToDateTime("2021-04-28"), Convert.ToDateTime("2021-05-10"));
-            listVM = invoiceBLL.findForStatistic(from, to);
-            FillChart();
-            LoadStatisticsData();
-            predictedValue = (slope * 2017) + intercept;
-           /* LinearRegression(xValues, yValues, out rSquared, out intercept, out slope);*/
+            switch(DataType)
+            {
+                case 0:
+                    listVM = invoiceBLL.findForStatistic(from, to);
+                    if (Statistic)
+                    {
+                        FillChart();
+                        LoadStatisticsData();
+                    }
+                    if (Analyze)
+                    {
+                        rtb_Analyze.Text = invoiceBLL.AnalyzingIncome(listVM, from, to);
+                    }
+                    break;
+                case 1:
+                    listVM2 = invoiceBLL.findForStatistic2(from, to);
+                    System.Data.DataTable dt = new System.Data.DataTable();
+                    dt.Columns.AddRange(new DataColumn[]
+                    {
+                        new DataColumn("Date",typeof(DateTime)),
+                        new DataColumn("String",typeof(string)),
+                        new DataColumn("int",typeof(int))
+                    });
+                    DataRow r;
+                    foreach (Statistic2 statistic2 in listVM2)
+                    {
+                        foreach (KeyValuePair<string, int> kvp in statistic2.TotalGroupBy)
+                        {
+                            r = dt.NewRow();
+                            r["Date"] = statistic2.Date;
+                            r["String"] = kvp.Key;
+                            r["int"] = kvp.Value;
+                            dt.Rows.Add(r);
+                        }  
+                    }    
+                    dgv_Statistic.DataSource = dt;
+                    break;
+                default:
+                    break;
+            }    
+                
+            //predictedValue = (slope * 2017) + intercept;
+            //LinearRegression(xValues, yValues, out rSquared, out intercept, out slope);
         }
         /***** STATISTIC *****/
         //-> Functions
