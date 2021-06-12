@@ -104,16 +104,14 @@ namespace PBL3REAL.BLL
         }
         public List<Statistic1> findForStatistic(DateTime fromDate, DateTime toDate)
         {
-            List<Statistic1> listVM = new List<Statistic1>();
-            var GroupByInv = InvoiceDAL.Instance.findForStatistic(fromDate, toDate);
-            foreach (var inv in GroupByInv)
+            List<Statistic1> listVM = null;
+            try
             {
-                Statistic1 statistic_InvoiceVM = new Statistic1
-                {
-                    Date = inv.InvCreatedate,
-                    TotalByDate = inv.TotalPrice
-                };
-                listVM.Add(statistic_InvoiceVM);
+                listVM = InvoiceDAL.Instance.findForStatistic(fromDate, toDate);
+            }
+            catch (Exception)
+            {
+
             }
             return listVM;
         }
@@ -178,15 +176,15 @@ namespace PBL3REAL.BLL
             string res3 = "- Doanh thu trung bình: ";
             string res4 = "- Số ngày không có doanh thu: ";
             string res5 = "- Số ngày không có doanh thu liên tiếp: ";
-            int Max_Income = 0, Min_Income = statistic1s[0].TotalByDate, Total_Day = Convert.ToInt32((to.Date - from.Date).TotalDays),
+            int Max_Income = 0, Min_Income = statistic1s[0].TotalPriceByDate, Total_Day = Convert.ToInt32((to.Date - from.Date).TotalDays),
                 Day_Non_Income = Total_Day - statistic1s.Count,Day_Consecutive_Non_Income = 0, Day_Consecutive_Non_Income_Temp = 0;
             double Total_Income = 0, Avg_Income = 0;
             DateTime PrevDay = DateTime.Now;
             foreach (Statistic1 statistic1 in statistic1s)
             {
-                if (statistic1.TotalByDate > Max_Income) { Max_Income = statistic1.TotalByDate; }
-                if (statistic1.TotalByDate < Min_Income) { Min_Income = statistic1.TotalByDate; }
-                Total_Income += statistic1.TotalByDate;
+                if (statistic1.TotalPriceByDate > Max_Income) { Max_Income = statistic1.TotalPriceByDate; }
+                if (statistic1.TotalPriceByDate < Min_Income) { Min_Income = statistic1.TotalPriceByDate; }
+                Total_Income += statistic1.TotalPriceByDate;
                 if (statistic1s.IndexOf(statistic1) != 0)
                 {   
                     Day_Consecutive_Non_Income_Temp = Convert.ToInt32((statistic1.Date - PrevDay.Date).TotalDays);

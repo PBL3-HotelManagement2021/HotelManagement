@@ -68,36 +68,7 @@ namespace PBL3REAL.DAL
                           }).SingleOrDefault();
             return result;               
         }
-        public List<Invoice> findForStatistic(DateTime fromDate, DateTime toDate)
-        {
-            SqlParameter parameter1 = new SqlParameter();
-            parameter1.ParameterName = "@pa1";
-            parameter1.SqlDbType = SqlDbType.DateTime2;
-            parameter1.Value = DateTime.Parse(fromDate.ToString());
 
-            SqlParameter parameter2 = new SqlParameter();
-            parameter2.ParameterName = "@pa2";
-            parameter2.SqlDbType = SqlDbType.DateTime2;
-            parameter2.Value = DateTime.Parse(toDate.ToString());
-
-
-            List<Invoice> list = new List<Invoice>();
-            using (var command = AppDbContext.Instance.Database.GetDbConnection().CreateCommand())
-            {
-                command.CommandText = "exec [Statistic_INV] @fromDate =@pa1, @toDate=@pa2";
-                command.Parameters.Add(parameter1);
-                command.Parameters.Add(parameter2);
-                AppDbContext.Instance.Database.OpenConnection();
-                using (var result = command.ExecuteReader())
-                {
-                    while (result.Read())
-                    {
-                        list.Add(new Invoice { TotalPrice = (int)result[0], InvCreatedate = (DateTime)result[1] });
-                    }
-                }
-            }
-            return list;
-        }
 
         public void add(Invoice invoice)
         {
@@ -114,8 +85,42 @@ namespace PBL3REAL.DAL
             AppDbContext.Instance.SaveChanges();
         }
 
+        public List<Statistic1> findForStatistic(DateTime fromDate, DateTime toDate)
+        {
+            SqlParameter parameter1 = new SqlParameter();
+            parameter1.ParameterName = "@pa1";
+            parameter1.SqlDbType = SqlDbType.DateTime2;
+            parameter1.Value = DateTime.Parse(fromDate.ToString());
 
-        public List<Statistic2> findForStatistic2(DateTime fromDate, DateTime toDate)
+            SqlParameter parameter2 = new SqlParameter();
+            parameter2.ParameterName = "@pa2";
+            parameter2.SqlDbType = SqlDbType.DateTime2;
+            parameter2.Value = DateTime.Parse(toDate.ToString());
+
+
+            List<Statistic1> list = new List<Statistic1>();
+            using (var command = AppDbContext.Instance.Database.GetDbConnection().CreateCommand())
+            {
+                command.CommandText = "exec [Statistic_INV] @fromDate =@pa1, @toDate=@pa2";
+                command.Parameters.Add(parameter1);
+                command.Parameters.Add(parameter2);
+                AppDbContext.Instance.Database.OpenConnection();
+                using (var result = command.ExecuteReader())
+                {
+                    while (result.Read())
+                    {
+                        list.Add(new Statistic1 { 
+                            TotalPriceByDate = (int)result[0],
+                            TotalInvoiceByDate = (int) result[1],
+                            Date = (DateTime)result[2]
+                        }); ;
+                    }
+                }
+            }
+            return list;
+        }
+
+       public List<Statistic2> findForStatistic2(DateTime fromDate, DateTime toDate)
         {
             SqlParameter parameter1 = new SqlParameter();
             parameter1.ParameterName = "@pa1";
@@ -147,7 +152,6 @@ namespace PBL3REAL.DAL
                         else
                         {
                             statistic2 = new Statistic2();
-
                             statistic2.Date = (DateTime)result[0];
                             statistic2.TotalGroupBy.Add(result[1].ToString(),(int) result[2]);
                             list.Add(statistic2);

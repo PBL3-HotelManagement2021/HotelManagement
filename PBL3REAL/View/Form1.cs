@@ -119,21 +119,7 @@ namespace PBL3REAL
             richTextBox1.Text = json;
         }
 
-        public void updateUser()
-        {
-            UserVM userVM = userBLL.findDetailUser(2);
-            RoleVM roleVM1 = new RoleVM
-            {
-                IdRole = 2
-            };
-            RoleVM roleVM2 = new RoleVM
-            {
-                IdRole = 3
-            };
-            userVM.ListRole.Add(roleVM1);
-            userVM.ListRole.Add(roleVM2);
-            userBLL.updateUser(userVM,null);
-        }
+      
         public void addUser()
         {
             UserVM userVM = new UserVM();

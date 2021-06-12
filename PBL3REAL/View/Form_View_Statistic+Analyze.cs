@@ -12,7 +12,7 @@ using PBL3REAL.ViewModel;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.IO;
 using System.Data.SqlClient;
-using Microsoft.Office.Interop.Excel;
+/*using Microsoft.Office.Interop.Excel;*/
 using OfficeOpenXml;
 namespace PBL3REAL.View
 {
@@ -97,7 +97,7 @@ namespace PBL3REAL.View
                 + "-" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Day.ToString() + "-" + DateTime.Now.Hour.ToString()
                 + "-" + DateTime.Now.Minute.ToString() + "-" + DateTime.Now.Second.ToString() + " --- DataList.png");
         }
-        private void StatisticExportToExcel()
+      /*  private void StatisticExportToExcel()
         {
             // creating Excel Application  
             Microsoft.Office.Interop.Excel._Application app = new Microsoft.Office.Interop.Excel.Application();
@@ -131,7 +131,7 @@ namespace PBL3REAL.View
             workbook.SaveAs(path, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
             // Exit from the application  
             app.Quit();
-        }
+        }*/
         private void LoadStatisticsData()
         {
             dgv_Statistic.DataSource = listVM;
@@ -254,7 +254,7 @@ namespace PBL3REAL.View
         }
         private void btn_StatisticExportToExcel_Click(object sender, EventArgs e)
         {
-            StatisticExportToExcel();
+     /*       StatisticExportToExcel();*/
         }
 
         private void btn_StatisticExportToImage_Click(object sender, EventArgs e)

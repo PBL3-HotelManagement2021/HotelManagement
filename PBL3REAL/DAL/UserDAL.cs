@@ -86,6 +86,15 @@ namespace PBL3REAL.DAL
             AppDbContext.Instance.Entry(user).State = EntityState.Detached;
         }
 
+        public void restoreUser(int idUser)
+        {
+            User user = AppDbContext.Instance.Users.Where(x => x.IdUser == idUser).SingleOrDefault();
+            user.UserActiveflag = true;
+            AppDbContext.Instance.Update(user);
+            AppDbContext.Instance.SaveChanges();
+            AppDbContext.Instance.Entry(user).State = EntityState.Detached;
+        }
+
         public void addUserRole(List<UserRole> list)
         {
             AppDbContext.Instance.AddRange(list);

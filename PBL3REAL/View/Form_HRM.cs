@@ -30,7 +30,7 @@ namespace PBL3REAL.View
             dgv_HRM.DataSource = qLUserBLL.findByProperty(properties, orderBy);
             dgv_HRM.Columns["IdUser"].Visible = false;
             dgv_HRM.Columns["UserPassword"].Visible = false;
-            
+            dgv_HRM.Columns["UserActiveflag"].Visible = false;
         }
         private void btn_Home_Click(object sender, EventArgs e)
         {
@@ -75,11 +75,19 @@ namespace PBL3REAL.View
             DataGridViewSelectedRowCollection r = dgv_HRM.SelectedRows;
             if (r.Count == 1)
             {
-                Form_User_Profile f = new Form_User_Profile(int.Parse(r[0].Cells["IdUser"].Value.ToString()), "", true, false);
-                f.myDel = loadDtbUser;
-                this.Hide();
-                f.ShowDialog();
-                this.Show();
+                if (bool.Parse(r[0].Cells["UserActiveflag"].Value.ToString()))
+                {
+                    Form_User_Profile f = new Form_User_Profile(int.Parse(r[0].Cells["IdUser"].Value.ToString()), "", true, false);
+                    f.myDel = loadDtbUser;
+                    this.Hide();
+                    f.ShowDialog();
+                    this.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Can't update inactive user!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+               
             }
             else if (r.Count == 0)
             {
@@ -106,6 +114,25 @@ namespace PBL3REAL.View
             {
                 MessageBox.Show("Only one row can be choosed while deleting!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btn_HRMRestore_Click(object sender, EventArgs e)
+        {
+            DataGridViewSelectedRowCollection r = dgv_HRM.SelectedRows;
+            if (r.Count == 1)
+            {
+                qLUserBLL.restoreUser(int.Parse(r[0].Cells["IdUser"].Value.ToString()));
+                loadDtbUser();
+            }
+            else if (r.Count == 0)
+            {
+                MessageBox.Show("Please choose 1 row to delete", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                MessageBox.Show("Only one row can be choosed while deleting!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
     }
 }

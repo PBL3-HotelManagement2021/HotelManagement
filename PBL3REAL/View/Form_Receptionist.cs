@@ -79,9 +79,11 @@ namespace PBL3REAL.View
                 btn_RoomAdd.Enabled = false;
                 btn_RoomEdit.Enabled = false;
                 btn_RoomDelete.Enabled = false;
+                btn_RoomRestore.Enabled = false;
                 btn_RoomTypeAdd.Enabled = false;
                 btn_RoomTypeEdit.Enabled = false;
                 btn_RoomTypeDelete.Enabled = false;
+                btn_RoomTypeRestore.Enabled = false;
             }
         }
         /***** GENERAL *****/

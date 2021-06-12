@@ -118,11 +118,23 @@ namespace PBL3REAL.BLL
             }
         }
 
-        public void updateUser(UserVM userVM ,List<int>listdel)
+        public void restoreUser(int idUser)
+        {
+            try
+            {
+                userDAL.restoreUser(idUser);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public void updateUser(UserVM userVM ,List<int>listdel , bool isPassChanged)
         {
             User user = new User();
             mapper.Map(userVM, user);
-            user.UserPassword = Md5.CreateMD5Hash(user.UserPassword);
+            if(isPassChanged) user.UserPassword = Md5.CreateMD5Hash(user.UserPassword);
             List<UserRole> ListRole = new List<UserRole>();
             List<ImgStorage> ListImg = new List<ImgStorage>();
             foreach (RoleVM roleVM in userVM.ListRole)

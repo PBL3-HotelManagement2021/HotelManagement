@@ -174,7 +174,7 @@ namespace PBL3REAL.View
         private int CheckData()
         {
             int phone = 0;
-            if (tb_Username.Text == "" || tb_Email.Text == "" || tb_Password.Text == "" || tb_Phone.Text == "" 
+            if (tb_Username.Text == "" || tb_Email.Text == "" || (tb_Password.Text == "" && tb_Password.Enabled == true)|| tb_Phone.Text == "" 
                 || (rbtn_Male.Checked == false && rbtn_Female.Checked == false) || lbx_User.Items.Count ==0)
             { return 0; }    
             if (int.TryParse(tb_Phone.Text,out phone) == false)
@@ -187,42 +187,7 @@ namespace PBL3REAL.View
             return 4;
         }
         //-> CRUD User Functions
-        private void AddUser()
-        {
-            userVM.UserName = tb_Username.Text.Replace(" ",String.Empty);
-            userVM.UserPassword = tb_Password.Text.Replace(" ", String.Empty);
-            userVM.UserGmail = tb_Email.Text.Replace(" ", String.Empty);
-            userVM.UserPhone = tb_Phone.Text.Replace(" ", String.Empty);
-            if (rbtn_Male.Checked)
-            {
-                userVM.UserGender = true;
-            }
-            else
-            {
-                userVM.UserGender = false;
-            }
-            userVM.ListImg.Clear();
-            userVM.ListImg.Add(TempAvatar);
-            qLUserBLL.addUser(userVM);
-        }
-        private void UpdateUserInfo()
-        {
-            userVM.UserName = tb_Username.Text.Replace(" ", String.Empty);
-            userVM.UserPassword = tb_Password.Text.Replace(" ", String.Empty);
-            userVM.UserGmail = tb_Email.Text.Replace(" ", String.Empty);
-            userVM.UserPhone = tb_Phone.Text.Replace(" ", String.Empty);
-            if (rbtn_Male.Checked)
-            {
-                userVM.UserGender = true;
-            }
-            else
-            {
-                userVM.UserGender = false;
-            }
-            userVM.ListImg.Clear();
-            userVM.ListImg.Add(TempAvatar);
-            qLUserBLL.updateUser(userVM, null);
-        }
+      
         //-> Create Storaging Folder
         private void CreateStoragingFolder()
         {
@@ -305,7 +270,15 @@ namespace PBL3REAL.View
         }
         private void picbx_Change_Click(object sender, EventArgs e)
         {
-            if (editable && ID != 0) { tb_Password.Enabled = true; }
+            if (editable || ID == 0) { tb_Password.Enabled = true; }
+        }
+        private void picbx_Change_DoubleClick(object sender, EventArgs e)
+        {
+            if(ID !=0)
+            {
+                tb_Password.Text = "";
+                tb_Password.Enabled = false;
+            }
         }
         private void picbx_Add_Click(object sender, EventArgs e)
         {
@@ -346,6 +319,7 @@ namespace PBL3REAL.View
         }
         private void btn_OK_Click(object sender, EventArgs e)
         {
+            bool isPassChanged = false;
             switch (CheckData())
             {
                 case 0:
@@ -363,7 +337,11 @@ namespace PBL3REAL.View
                 case 4:
                     string Path = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + "\\User_Profile\\" + tb_Username.Text.Replace(" ", String.Empty) + ".Jpeg";
                     userVM.UserName = tb_Username.Text.Replace(" ", String.Empty);
-                    userVM.UserPassword = tb_Password.Text.Replace(" ", String.Empty);
+                    if (tb_Password.Enabled)
+                    {
+                        userVM.UserPassword = tb_Password.Text.Replace(" ", String.Empty);
+                        isPassChanged = true;
+                    }
                     userVM.UserGmail = tb_Email.Text.Replace(" ", String.Empty);
                     userVM.UserPhone = tb_Phone.Text.Replace(" ", String.Empty);
                     if (rbtn_Male.Checked)
@@ -398,7 +376,7 @@ namespace PBL3REAL.View
                         properties.Add("code", userVM.UserCode);
                         if (qLUserBLL.checkexisted(properties))
                         {
-                            qLUserBLL.updateUser(userVM, null);
+                            qLUserBLL.updateUser(userVM, null,isPassChanged);
                         MessageBox.Show("Cập nhật tài khoản nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
@@ -413,5 +391,7 @@ namespace PBL3REAL.View
                     break;
             }
         }
+
+        
     }
 }
