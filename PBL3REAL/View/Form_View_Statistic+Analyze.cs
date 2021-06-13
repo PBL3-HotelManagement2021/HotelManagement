@@ -14,6 +14,7 @@ using System.IO;
 using System.Data.SqlClient;
 /*using Microsoft.Office.Interop.Excel;*/
 using OfficeOpenXml;
+using PBL3REAL.Algorithm;
 namespace PBL3REAL.View
 {
     public partial class Form_View_Statistic_Analyze : Form
@@ -21,10 +22,6 @@ namespace PBL3REAL.View
         QLInvoiceBLL invoiceBLL;
         List<Statistic1> listVM;
         List<Statistic2> listVM2;
-        double rSquared, intercept, slope;
-        double[] xValues;
-        double[] yValues;
-        double predictedValue;
         public Form_View_Statistic_Analyze(int DataType, DateTime from, DateTime to, bool Statistic, bool Analyze, bool Predict)
         {
             InitializeComponent();
@@ -42,6 +39,10 @@ namespace PBL3REAL.View
                     {
                         rtb_Analyze.Text = invoiceBLL.AnalyzingIncome(listVM, from, to);
                     }
+                    if (Predict)
+                    {
+                        DrawTrendlineChart(PredictNext7Days());
+                    }    
                     break;
                 case 1:
                     listVM2 = invoiceBLL.findForStatistic2(from, to);
@@ -69,9 +70,6 @@ namespace PBL3REAL.View
                 default:
                     break;
             }    
-                
-            //predictedValue = (slope * 2017) + intercept;
-            //LinearRegression(xValues, yValues, out rSquared, out intercept, out slope);
         }
         /***** STATISTIC *****/
         //-> Functions
@@ -138,10 +136,15 @@ namespace PBL3REAL.View
         }
         private void FillChart()
         {
-            chart1.DataSource = listVM;
+            Dictionary<string, int> kvp = new Dictionary<string, int>();
+            foreach (Statistic1 statistic1 in listVM)
+            {
+                kvp.Add(statistic1.Date.ToString("dd/MM/yyyy"), statistic1.TotalPriceByDate);
+            }    
             chart1.Series.Add("Income");
             chart1.Series["Income"].XValueMember = "Date";
             chart1.Series["Income"].YValueMembers = "TotalByDate";
+            chart1.Series["Income"].Points.DataBindXY(kvp.Keys, kvp.Values);
             chart1.Series["Income"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
         }
         /***** ANALYZE *****/
@@ -194,59 +197,36 @@ namespace PBL3REAL.View
             public string pointtime;
             public int len;
         }
-        public class LinearRegression
+
+        //-> Functions
+        private Dictionary<DateTime, int> PredictNext7Days()
         {
-            public double[] xVals { get; private set; }
-            public double[] yVals { get; private set; }
-            public LinearRegression(double[] xValss, double[] yValss)
+            Dictionary<DateTime, int> kvp = new Dictionary<DateTime, int>();
+            double[] xVals = new double[listVM.Count];
+            double[] yVals = new double[listVM.Count];
+            int i = 0;
+            foreach (Statistic1 statistic1 in listVM)
             {
-                this.xVals = xValss;
-                this.yVals = yValss;
+                xVals[i] = statistic1.TotalInvoiceByDate;
+                yVals[i] = statistic1.TotalPriceByDate;
+                i++;
             }
-            public void PredictData()
+            LinearRegression linearRegression = new LinearRegression(xVals, yVals);
+            linearRegression.PredictData();
+            i = 1;
+            foreach (Statistic1 statistic11 in listVM)
             {
-                if (this.xVals.Length != this.yVals.Length)
-                {
-                    throw new Exception("Input values should be with the same length.");
-                }
-                double sumOfX = 0;
-                double sumOfY = 0;
-                double sumOfXSq = 0;
-                double sumOfYSq = 0;
-                double sumCodeviates = 0;
-                for (var i = 0; i < xVals.Length; i++)
-                {
-                    var x = xVals[i];
-                    var y = yVals[i];
-                    sumCodeviates += x * y;
-                    sumOfX += x;
-                    sumOfY += y;
-                    sumOfXSq += x * x;
-                    sumOfYSq += y * y;
-                }
-
-                var count = xVals.Length;
-                var ssX = sumOfXSq - ((sumOfX * sumOfX) / count);
-                var ssY = sumOfYSq - ((sumOfY * sumOfY) / count);
-
-                var rNumerator = (count * sumCodeviates) - (sumOfX * sumOfY);
-                var rDenom = (count * sumOfXSq - (sumOfX * sumOfX)) * (count * sumOfYSq - (sumOfY * sumOfY));
-                var sCo = sumCodeviates - ((sumOfX * sumOfY) / count);
-
-                var meanX = sumOfX / count;
-                var meanY = sumOfY / count;
-                var dblR = rNumerator / Math.Sqrt(rDenom);
-
-                //rSquared = dblR * dblR;
-                //yIntercept = meanY - ((sCo / ssX) * meanX);
-                //slope = sCo / ssX;
-            }
+                kvp.Add(DateTime.Now.Date.AddDays(i), Convert.ToInt32(linearRegression.yIntercept + linearRegression.slope * i));
+                i++;
+            }    
+            return kvp;
         }
-        private void AnalyzeIncome()
+        private void DrawTrendlineChart(Dictionary<DateTime, int> kvp)
         {
-
+            chart2.Series.Add("Income Prediction");
+            chart2.Series["Income Prediction"].Points.DataBindXY(kvp.Keys, kvp.Values);
+            chart2.Series["Income Prediction"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
         }
-        //-> 
         //-> Events
         private void btn_StatisticCancel_Click(object sender, EventArgs e)
         {
@@ -254,7 +234,7 @@ namespace PBL3REAL.View
         }
         private void btn_StatisticExportToExcel_Click(object sender, EventArgs e)
         {
-     /*       StatisticExportToExcel();*/
+            //StatisticExportToExcel();
         }
 
         private void btn_StatisticExportToImage_Click(object sender, EventArgs e)

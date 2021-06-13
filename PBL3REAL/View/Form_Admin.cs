@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using PBL3REAL.View;
 using PBL3REAL.BLL;
 using PBL3REAL.Extention;
+using PBL3REAL.ViewModel;
 namespace PBL3REAL.View
 {
     public partial class Form_Admin : Form
@@ -69,7 +70,7 @@ namespace PBL3REAL.View
         {
             Form_Accountant f = new Form_Accountant();
             this.Hide();
-            f.ShowDialog();
+            f.Show();
             this.Show();
         }
         private void btn_Client_Click(object sender, EventArgs e)

@@ -170,7 +170,8 @@ namespace PBL3REAL.BLL
         }
         public string AnalyzingIncome(List<Statistic1> statistic1s, DateTime from, DateTime to)
         {
-            if (statistic1s.Count == 0) { return ""; }
+            if (statistic1s == null) { return ""; }
+            if (statistic1s == null) { return ""; }
             string res1 = "- Ngày có doanh thu cao nhất: ";
             string res2 = "- Ngày có doanh thu thấp nhất: ";
             string res3 = "- Doanh thu trung bình: ";
