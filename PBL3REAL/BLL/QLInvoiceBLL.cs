@@ -17,13 +17,13 @@ namespace PBL3REAL.BLL
             mapper = new Mapper(MapperVM.config);
         }
 
-        public InvoiceVM infoAddInvoice(string bookCode)
+        public InvoiceDetailVM infoAddInvoice(string bookCode)
         {
             try
             {
                 Booking booking = BookingDAL.Instance.findForInvoice(bookCode);
                 if (booking == null) throw new ArgumentException("Wrong Code");
-                InvoiceVM invoiceVM = new InvoiceVM
+                InvoiceDetailVM invoiceDetailVM = new InvoiceDetailVM
                 {
                     InvIdbook = booking.IdBook,
                     BookStatus = booking.BookStatus,
@@ -35,18 +35,18 @@ namespace PBL3REAL.BLL
                     CliPhone = booking.BookIdclientNavigation.CliPhone,
                     CliGmail = booking.BookIdclientNavigation.CliGmail,
                 };
-                if (booking.BookStatus == "Checkout") invoiceVM.TotalPrice = booking.BookTotalprice;
-                else invoiceVM.TotalPrice = booking.BookDeposit;
+                if (booking.BookStatus == "Checkin") invoiceDetailVM.TotalPrice = booking.BookTotalprice;
+                else invoiceDetailVM.TotalPrice = booking.BookDeposit;
                 foreach (Room room in RoomDAL.Instance.findByIdBook(booking.IdBook))
                 {
-                    invoiceVM.ListRoom.Add(new RoomVM
+                    invoiceDetailVM.ListRoom.Add(new RoomVM
                     {
                         Name = room.RoomName,
                         Price = room.RoomIdroomtypeNavigation.RotyCurrentprice,
                         RoomType = room.RoomIdroomtypeNavigation.RotyName
                     });
                 }
-                return invoiceVM;
+                return invoiceDetailVM;
             }
             catch (Exception)
             {
@@ -54,10 +54,10 @@ namespace PBL3REAL.BLL
             }
         }
 
-        public void addInvoice(InvoiceVM invoiceVM)
+        public void addInvoice(InvoiceDetailVM invoiceDetailVM)
         {
             Invoice invoice = new Invoice();
-            mapper.Map(invoiceVM, invoice);
+            mapper.Map(invoiceDetailVM, invoice);
             try
             {
                 InvoiceDAL.Instance.add(invoice);
@@ -67,31 +67,32 @@ namespace PBL3REAL.BLL
 
             }
         }
-        public InvoiceVM getDetail(int idinvoice)
+        public InvoiceDetailVM getDetail(int idinvoice)
         {
             try
             {
                 Invoice invoice = InvoiceDAL.Instance.findById(idinvoice);
-                InvoiceVM invoiceVM = mapper.Map<InvoiceVM>(invoice);
+                InvoiceDetailVM invoiceDetailVM = mapper.Map<InvoiceDetailVM>(invoice);
                 Booking booking = invoice.InvIdbookNavigation;
-                invoiceVM.BookCheckindate = booking.BookCheckindate;
-                invoiceVM.BookChecoutdate = booking.BookCheckoutdate;
-                invoiceVM.CliName = booking.BookIdclientNavigation.CliName;
-                invoiceVM.CliCode = booking.BookIdclientNavigation.CliCode;
-                invoiceVM.CliPhone = booking.BookIdclientNavigation.CliPhone;
-                invoiceVM.CliGmail = booking.BookIdclientNavigation.CliGmail;
-                invoiceVM.UserCode = booking.BookIduserNavigation.UserCode;
+                invoiceDetailVM.BookCheckindate = booking.BookCheckindate;
+                invoiceDetailVM.BookChecoutdate = booking.BookCheckoutdate;
+                invoiceDetailVM.BookCode = booking.BookCode;
+                invoiceDetailVM.CliName = booking.BookIdclientNavigation.CliName;
+                invoiceDetailVM.CliCode = booking.BookIdclientNavigation.CliCode;
+                invoiceDetailVM.CliPhone = booking.BookIdclientNavigation.CliPhone;
+                invoiceDetailVM.CliGmail = booking.BookIdclientNavigation.CliGmail;
+                invoiceDetailVM.UserCode = booking.BookIduserNavigation.UserCode;
                 
-                foreach(Room room in RoomDAL.Instance.findByIdBook(invoice.InvIdbook))
+                foreach(Room room in RoomDAL.Instance.findByIdBook(invoice.InvIdbookNavigation.IdBook))
                 {
-                    invoiceVM.ListRoom.Add(new RoomVM
+                    invoiceDetailVM.ListRoom.Add(new RoomVM
                     {
                         Name = room.RoomName,
                         Price = room.RoomIdroomtypeNavigation.RotyCurrentprice,
                         RoomType = room.RoomIdroomtypeNavigation.RotyName
                     });
                 }
-                return invoiceVM;        
+                return invoiceDetailVM;        
             }
             catch (Exception)
             {

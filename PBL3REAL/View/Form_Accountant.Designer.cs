@@ -210,6 +210,7 @@ namespace PBL3REAL.View
             this.btn_InvoiceView.Text = "Xem thông tin đơn đã chọn";
             this.btn_InvoiceView.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_InvoiceView.UseVisualStyleBackColor = true;
+            this.btn_InvoiceView.Click += new System.EventHandler(this.btn_InvoiceView_Click);
             // 
             // btn_InvoiceAdd
             // 
@@ -261,7 +262,7 @@ namespace PBL3REAL.View
             this.tbllaypn_Invoice.ColumnCount = 3;
             this.tbllaypn_Invoice.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.30407F));
             this.tbllaypn_Invoice.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.69593F));
-            this.tbllaypn_Invoice.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 66F));
+            this.tbllaypn_Invoice.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 85F));
             this.tbllaypn_Invoice.Controls.Add(this.picbx_InvoiceSearch, 2, 1);
             this.tbllaypn_Invoice.Controls.Add(this.picbx_InvoiceSort, 2, 0);
             this.tbllaypn_Invoice.Controls.Add(this.cbb_InvoiceSort, 1, 0);
@@ -280,7 +281,7 @@ namespace PBL3REAL.View
             // picbx_InvoiceSearch
             // 
             this.picbx_InvoiceSearch.Image = global::PBL3REAL.Properties.Resources.search_fluent_color_48px;
-            this.picbx_InvoiceSearch.Location = new System.Drawing.Point(274, 43);
+            this.picbx_InvoiceSearch.Location = new System.Drawing.Point(255, 43);
             this.picbx_InvoiceSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.picbx_InvoiceSearch.Name = "picbx_InvoiceSearch";
             this.picbx_InvoiceSearch.Size = new System.Drawing.Size(41, 36);
@@ -291,7 +292,7 @@ namespace PBL3REAL.View
             // picbx_InvoiceSort
             // 
             this.picbx_InvoiceSort.Image = global::PBL3REAL.Properties.Resources.filter_fluent_color_48px;
-            this.picbx_InvoiceSort.Location = new System.Drawing.Point(274, 2);
+            this.picbx_InvoiceSort.Location = new System.Drawing.Point(255, 2);
             this.picbx_InvoiceSort.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.picbx_InvoiceSort.Name = "picbx_InvoiceSort";
             this.picbx_InvoiceSort.Size = new System.Drawing.Size(41, 36);
@@ -310,10 +311,10 @@ namespace PBL3REAL.View
             "None",
             "Total Price Asc",
             "Total Price Desc"});
-            this.cbb_InvoiceSort.Location = new System.Drawing.Point(104, 2);
+            this.cbb_InvoiceSort.Location = new System.Drawing.Point(97, 2);
             this.cbb_InvoiceSort.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbb_InvoiceSort.Name = "cbb_InvoiceSort";
-            this.cbb_InvoiceSort.Size = new System.Drawing.Size(164, 33);
+            this.cbb_InvoiceSort.Size = new System.Drawing.Size(152, 33);
             this.cbb_InvoiceSort.TabIndex = 0;
             // 
             // tb_InvoiceSearch
@@ -322,10 +323,10 @@ namespace PBL3REAL.View
             this.tb_InvoiceSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tb_InvoiceSearch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tb_InvoiceSearch.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tb_InvoiceSearch.Location = new System.Drawing.Point(104, 43);
+            this.tb_InvoiceSearch.Location = new System.Drawing.Point(97, 43);
             this.tb_InvoiceSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_InvoiceSearch.Name = "tb_InvoiceSearch";
-            this.tb_InvoiceSearch.Size = new System.Drawing.Size(164, 25);
+            this.tb_InvoiceSearch.Size = new System.Drawing.Size(152, 25);
             this.tb_InvoiceSearch.TabIndex = 0;
             // 
             // lb_InvoiceSearch
@@ -334,7 +335,7 @@ namespace PBL3REAL.View
             this.lb_InvoiceSearch.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lb_InvoiceSearch.Location = new System.Drawing.Point(3, 41);
             this.lb_InvoiceSearch.Name = "lb_InvoiceSearch";
-            this.lb_InvoiceSearch.Size = new System.Drawing.Size(95, 42);
+            this.lb_InvoiceSearch.Size = new System.Drawing.Size(88, 42);
             this.lb_InvoiceSearch.TabIndex = 0;
             this.lb_InvoiceSearch.Text = "Tìm kiếm";
             // 
@@ -344,7 +345,7 @@ namespace PBL3REAL.View
             this.lb_InvoiceSort.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lb_InvoiceSort.Location = new System.Drawing.Point(3, 0);
             this.lb_InvoiceSort.Name = "lb_InvoiceSort";
-            this.lb_InvoiceSort.Size = new System.Drawing.Size(95, 41);
+            this.lb_InvoiceSort.Size = new System.Drawing.Size(88, 41);
             this.lb_InvoiceSort.TabIndex = 0;
             this.lb_InvoiceSort.Text = "Sắp xếp theo";
             // 

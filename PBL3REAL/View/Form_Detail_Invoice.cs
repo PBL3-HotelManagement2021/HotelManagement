@@ -18,35 +18,53 @@ namespace PBL3REAL.View
 {
     public partial class Form_Detail_Invoice : Form
     {
-        private string bookCode;
+        private string bookCode="";
+        private int idInvoice=0;
         private QLInvoiceBLL qLInvoiceBLL;
-        private InvoiceVM invoiceVM;
-        public Form_Detail_Invoice(string bookCode)
+        private InvoiceDetailVM invoiceDetailVM;
+        public delegate void MyDel();
+        public MyDel myDel;
+        public Form_Detail_Invoice(string bookCode, int idInvoice)
         {
             InitializeComponent();
             System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
             //ConfigureServices();
             this.bookCode = bookCode;
+            this.idInvoice = idInvoice;
             qLInvoiceBLL = new QLInvoiceBLL();
+            if (bookCode != "")
+            {
+                invoiceDetailVM = qLInvoiceBLL.infoAddInvoice(bookCode);
+                tb_CreateDate.Text = DateTime.Now.ToString();
+                tb_LastUpdateDate.Text = DateTime.Now.ToString();
+                lb_InvoiceID.Text = "";
+                tb_BookingCode.Text = bookCode;
+            }
+            else if (idInvoice != 0)
+            {
+                invoiceDetailVM = qLInvoiceBLL.getDetail(idInvoice);
+                tb_CreateDate.Text = invoiceDetailVM.InvCreatedate.ToString();
+                tb_LastUpdateDate.Text = invoiceDetailVM.InvUpdatedate.ToString();
+                lb_InvoiceID.Text = invoiceDetailVM.InvCode.ToString();
+                tb_BookingCode.Text = invoiceDetailVM.BookCode;
+            }
             loadData();
         }
 
         private void loadData()
         {
-            invoiceVM = qLInvoiceBLL.infoAddInvoice(bookCode);
-            tb_FullName.Text = invoiceVM.CliName;
-            tb_Gmail.Text = invoiceVM.CliGmail;
-            tb_Phone.Text = invoiceVM.CliPhone;
-            tb_BookingCode.Text = bookCode;
-            tb_BookingDate.Text = invoiceVM.BookBookDate.ToString();
-            tb_PaymentDate.Text = invoiceVM.BookChecoutdate.ToString();
-            tb_CheckinDate.Text = invoiceVM.BookCheckindate.ToString();
-            tb_CreateDate.Text = DateTime.Now.ToString();
-            tb_LastUpdateDate.Text = DateTime.Now.ToString();
-            tb_Total.Text = invoiceVM.TotalPrice.ToString();
-            dgv.DataSource = invoiceVM.ListRoom;
+            tb_FullName.Text = invoiceDetailVM.CliName;
+            tb_Gmail.Text = invoiceDetailVM.CliGmail;
+            tb_Phone.Text = invoiceDetailVM.CliPhone;            
+            tb_BookingDate.Text = invoiceDetailVM.BookBookDate.ToString();
+            tb_PaymentDate.Text = invoiceDetailVM.BookChecoutdate.ToString();
+            tb_CheckinDate.Text = invoiceDetailVM.BookCheckindate.ToString();
+            tb_Total.Text = invoiceDetailVM.TotalPrice.ToString();
+            dgv.DataSource = invoiceDetailVM.ListRoom;
             dgv.Columns["Description"].Visible = false;
             dgv.Columns["IdRoom"].Visible = false;
+            dgv.Columns["RoomActiveflag"].Visible = false;
+            
         }
         private void ExportToPDF(string FileName)
         {
@@ -139,9 +157,10 @@ namespace PBL3REAL.View
 
         private void btn_OK_Click(object sender, EventArgs e)
         {
-            if (invoiceVM.BookStatus != "Paid")
+            if (invoiceDetailVM.BookStatus != "Paid")
             {
-                qLInvoiceBLL.addInvoice(invoiceVM);
+                qLInvoiceBLL.addInvoice(invoiceDetailVM);
+                myDel();
             }
             else
             {

@@ -120,5 +120,22 @@ namespace PBL3REAL.View
                 tb_InvoicePageNumber.Text = currentPage + "/" + totalPage;
             }
         }
+
+        private void btn_InvoiceView_Click(object sender, EventArgs e)
+        {
+            if (dgv_Invoice.SelectedRows.Count == 1)
+            {
+                //truyền ID_CLient 
+                Form_Detail_Invoice f = new Form_Detail_Invoice("",int.Parse(dgv_Invoice.SelectedRows[0].Cells["IdInvoice"].Value.ToString()));
+                f.myDel = LoadData;
+                this.Hide();
+                f.ShowDialog();
+                this.Show();
+            }
+            else
+            {
+                MessageBox.Show("Please choose only 1 rows to view !!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

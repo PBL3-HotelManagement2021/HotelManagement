@@ -55,35 +55,38 @@ namespace PBL3REAL.DAL
         public Invoice findById(int idinvoice)
         {
             Invoice result = (from inv in AppDbContext.Instance.Invoices
-                          join book in AppDbContext.Instance.Bookings on inv.InvIdbook equals book.IdBook
-                          join client in AppDbContext.Instance.Clients on book.BookIdclient equals client.IdClient
-                          join user in AppDbContext.Instance.Users on book.BookIdclient equals user.IdUser
-                          where inv.IdInvoice == idinvoice
-                          select new Invoice()
-                          {
-                              IdInvoice = inv.IdInvoice,
-                              InvCreatedate = inv.InvCreatedate,
-                              InvUpdatedate = inv.InvUpdatedate,
-                              TotalPrice = inv.TotalPrice,                             
-                              InvIdbookNavigation = new Booking
-                              {
-                                  IdBook = book.IdBook,
-                                  BookCheckindate = book.BookCheckindate,
-                                  BookCheckoutdate = book.BookCheckoutdate,
-                                  BookIdclientNavigation = new Client()
+                                  join book in AppDbContext.Instance.Bookings on inv.InvIdbook equals book.IdBook
+                                  join client in AppDbContext.Instance.Clients on book.BookIdclient equals client.IdClient
+                                  join user in AppDbContext.Instance.Users on book.BookIduser equals user.IdUser
+                                  where inv.IdInvoice == idinvoice
+                                  select new Invoice()
                                   {
-                                    /*  IdClient = client.IdClient,*/
-                                      CliCode = client.CliCode,
-                                      CliName = client.CliName,
-                                      CliPhone =client.CliPhone
-                                  },
-                              BookIduserNavigation = new User()
-                              {
-                                /*  IdUser = user.IdUser,*/
-                                  UserCode = user.UserCode
-                              }
-                              }
-                          }).SingleOrDefault();
+                                      IdInvoice = inv.IdInvoice,
+                                      InvCreatedate = inv.InvCreatedate,
+                                      InvUpdatedate = inv.InvUpdatedate,
+                                      TotalPrice = inv.TotalPrice,
+                                      InvCode = inv.InvCode,
+                                      InvIdbookNavigation = new Booking
+                                      {
+                                          IdBook = book.IdBook,
+                                          BookCheckindate = book.BookCheckindate,
+                                          BookCheckoutdate = book.BookCheckoutdate,
+                                          BookCode = book.BookCode,
+                                          BookIdclientNavigation = new Client()
+                                          {
+                                              /*  IdClient = client.IdClient,*/
+                                              CliCode = client.CliCode,
+                                              CliName = client.CliName,
+                                              CliGmail = client.CliGmail,
+                                              CliPhone = client.CliPhone
+                                          },
+                                          BookIduserNavigation = new User()
+                                          {
+                                              /*  IdUser = user.IdUser,*/
+                                              UserCode = user.UserCode
+                                          }
+                                      }
+                                  }).AsNoTracking().FirstOrDefault();
             return result;               
         }
 
@@ -94,6 +97,7 @@ namespace PBL3REAL.DAL
             invoice.InvUpdatedate = DateTime.Now;
             AppDbContext.Instance.Invoices.Add(invoice);
             AppDbContext.Instance.SaveChanges();
+            AppDbContext.Instance.Entry(invoice).State = EntityState.Detached;
         }
 
         public void update(Invoice invoice)
@@ -101,6 +105,7 @@ namespace PBL3REAL.DAL
             invoice.InvUpdatedate = DateTime.Now;
             AppDbContext.Instance.Invoices.Update(invoice);
             AppDbContext.Instance.SaveChanges();
+            AppDbContext.Instance.Entry(invoice).State = EntityState.Detached;
         }
 
         public int getTotalRow(string code , CalendarVM searchByDate)

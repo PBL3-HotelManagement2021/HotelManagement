@@ -413,7 +413,7 @@ namespace PBL3REAL.View
 
         private void btn_Checkin_Click(object sender, EventArgs e)
         {
-            BookingBLL.completeBooking(IDBook);
+           /* BookingBLL.completeBooking(IDBook);*/
         }
     }
 }

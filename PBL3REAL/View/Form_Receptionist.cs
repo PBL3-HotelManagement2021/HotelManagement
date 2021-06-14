@@ -150,7 +150,8 @@ namespace PBL3REAL.View
             {
                 if(r[0].Cells["Status"].Value.ToString() != "Processed")
                 {
-                    Form_Detail_Invoice f = new Form_Detail_Invoice(r[0].Cells["Code"].Value.ToString());                    
+                    Form_Detail_Invoice f = new Form_Detail_Invoice(r[0].Cells["Code"].Value.ToString(),0);
+                    f.myDel = searchBookData;
                     this.Hide();
                     f.ShowDialog();
                     this.Show();

@@ -73,11 +73,11 @@ namespace PBL3REAL.BLL
  
         }
 
-        public void completeBooking(int idbook)
+        public void CheckinBooking(int idbook)
         {
             try
             {
-                BookingDAL.Instance.completeBooking(idbook);
+                BookingDAL.Instance.CheckinBooking(idbook);
             }catch(Exception)
             {
                 throw;

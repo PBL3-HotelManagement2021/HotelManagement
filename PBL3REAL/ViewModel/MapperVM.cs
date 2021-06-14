@@ -56,6 +56,7 @@ namespace PBL3REAL.ViewModel
             cfg.CreateMap<User, UserVM>().ReverseMap();
             cfg.CreateMap<Role, RoleVM>().ReverseMap();
             cfg.CreateMap<Invoice, InvoiceVM>().ReverseMap();
+            cfg.CreateMap<Invoice, InvoiceDetailVM>().ReverseMap();
             cfg.CreateMap<Room, AvailableRoomVM>()
                 .ForMember(dest => dest.RoTyName, act => act.MapFrom(src => src.RoomIdroomtypeNavigation.RotyName))
                 .ForMember(dest => dest.RotyCode, act => act.MapFrom(src => src.RoomIdroomtypeNavigation.RotyCode))

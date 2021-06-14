@@ -155,10 +155,7 @@ namespace PBL3REAL
 
         ///tk nay se goi khi client ts lay phong khach san ,luc do le tan bam nut check --->hoan tat thu tuc booking
         ///Luu y khi complete xong thi ko con chuc nang update nx (unable di)
-        public void completeBooking()
-        {
-            bookingBLL.completeBooking(2);
-        }
+     
 
         public void delBooking()
         {
@@ -373,13 +370,13 @@ namespace PBL3REAL
             textBox1.Text = ((RoomTypeVM)comboBox1.SelectedItem).Price.ToString();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+      /*  private void button1_Click(object sender, EventArgs e)
         {
             string code = textBox2.Text;
             InvoiceVM invoiceVM = qLInvoiceBLL.infoAddInvoice(code);
             string json = JsonConvert.SerializeObject(invoiceVM, Formatting.Indented);
             richTextBox1.Text = json;
 
-        }
+        }*/
     }
 }

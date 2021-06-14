@@ -138,11 +138,20 @@ namespace PBL3REAL.DAL
 
             AppDbContext.Instance.Add(booking);
             AppDbContext.Instance.SaveChanges();
-     
+            AppDbContext.Instance.Entry(booking).State = EntityState.Detached;
+
         }
 
         public void delBooking(int idbook)
         {
+            Booking result = AppDbContext.Instance.Bookings
+                           .Include(x => x.BookingDetails)
+                           .ThenInclude(y => y.BoodetIdroomNavigation)
+                           .Include(x => x.BookIdclientNavigation)
+                           .Include(x => x.BookIduserNavigation)
+                           .Where(x => x.IdBook == idbook)
+                           .SingleOrDefault();
+
             Booking booking = AppDbContext.Instance.Bookings.Where(x =>x.IdBook == idbook).Include(x => x.BookingDetails).SingleOrDefault();
             AppDbContext.Instance.RemoveRange(booking.BookingDetails);
             AppDbContext.Instance.SaveChanges();
@@ -181,7 +190,7 @@ namespace PBL3REAL.DAL
 
         
 
-        public void completeBooking(int idbook)
+        public void CheckinBooking(int idbook)
         {
             Booking booking = AppDbContext.Instance.Bookings.Where(x =>x.IdBook == idbook).FirstOrDefault();           
             booking.BookStatus = "Checkin";
