@@ -1,4 +1,5 @@
 ﻿
+using HotelManagement.Extention;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using PBL3REAL.Model;
@@ -33,6 +34,23 @@ namespace PBL3REAL.DAL
         {
         }
         
+        public List<Invoice> findByProperties(int start , int length ,string code, CalendarVM searchByDate , string orderBy)
+        {
+            var predicate = PredicateBuilder.True<Invoice>();
+            if (!string.IsNullOrEmpty(code)) predicate = predicate.And(x => x.InvCode.Contains(code));
+            IQueryable<Invoice> query = AppDbContext.Instance.Invoices
+                               .Where(predicate);
+            switch (orderBy)
+            {
+                case "None": break;
+                case "Total Price Asc": query = query.OrderBy(x => x.TotalPrice); break;
+                case "Total Price Desc": query = query.OrderByDescending(x => x.TotalPrice); break;
+                default: break;
+            }
+
+            List<Invoice> list = query.Skip(start).Take(length).AsNoTracking().ToList();
+            return list;
+        }
 
         public Invoice findById(int idinvoice)
         {
@@ -83,6 +101,16 @@ namespace PBL3REAL.DAL
             invoice.InvUpdatedate = DateTime.Now;
             AppDbContext.Instance.Invoices.Update(invoice);
             AppDbContext.Instance.SaveChanges();
+        }
+
+        public int getTotalRow(string code , CalendarVM searchByDate)
+        {
+            var predicate = PredicateBuilder.True<Invoice>();
+            if (!string.IsNullOrEmpty(code)) predicate = predicate.And(x => x.InvCode.Contains(code));
+
+            /*           predicate = predicate.And(x => x.InvCreatedate >= searchByDate.fromDate && x.InvCreatedate <= searchByDate.toDate);*/
+            int result = AppDbContext.Instance.Invoices.Where(predicate).Count();
+            return result;
         }
 
         public List<Statistic1> findForStatistic(DateTime fromDate, DateTime toDate)

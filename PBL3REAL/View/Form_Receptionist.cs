@@ -43,6 +43,7 @@ namespace PBL3REAL.View
         //-> Parameter for RoomType
         private string rotySearch ="";
         private string rotyOrderBy = "None";
+        private string rotyStatus = "";
         public Form_Receptionist(int LoggedID, string LoggedRole)
         {
             InitializeComponent();
@@ -58,6 +59,7 @@ namespace PBL3REAL.View
 
             //-> Room Type Parameters
             roomTypeBLL = new RoomTypeBLL();
+            cbb_RoomTypeStatus.SelectedIndex = 0;
 
             /*** Load Data & Set GUI ***/
             //-> Tab Page Booking
@@ -302,6 +304,7 @@ namespace PBL3REAL.View
             list.Insert(0, new CbbItem(0, "All RoomType"));
             List<CbbItem> res = list;
             cbb_RoomFilter.DataSource = res;
+            cbb_RoomFilter.SelectedIndex = 0;
         }
         private void AddCbbActive()
         {
@@ -481,7 +484,7 @@ namespace PBL3REAL.View
         private void LoadRoomTypeList()
         {
             dgv_RoomType.DataSource = null;
-            dgv_RoomType.DataSource = roomTypeBLL.findByProperty(rotySearch,rotyOrderBy);
+            dgv_RoomType.DataSource = roomTypeBLL.findByProperty(rotySearch,rotyOrderBy,rotyStatus);
             dgv_RoomType.Columns["IdRoomtype"].Visible = false;
             dgv_RoomType.Columns["RoTyActiveflag"].Visible = false;
         }
@@ -556,9 +559,16 @@ namespace PBL3REAL.View
             DataGridViewSelectedRowCollection r = dgv_RoomType.SelectedRows;
             if (r.Count == 1)
             {
-                roomTypeBLL.deleteRoomType(int.Parse(r[0].Cells["IdRoomtype"].Value.ToString()));
-                //Reload Data
-                LoadRoomTypeList();
+                try
+                {
+                    roomTypeBLL.deleteRoomType(int.Parse(r[0].Cells["IdRoomtype"].Value.ToString()));
+                    AddCbbRoomFilter();
+                    LoadRoomTypeList();
+                }
+                catch(Exception )
+                {
+                    MessageBox.Show("Error while deleting!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else if (r.Count == 0)
             {
@@ -569,16 +579,7 @@ namespace PBL3REAL.View
                 MessageBox.Show("Chỉ có thể chọn một loại phòng trong một lần xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void picbx_RoomTypeSearch_Click(object sender, EventArgs e)
-        {
-            rotySearch = tb_RoomTypeSearch.Text;
-            rotyOrderBy = cbb_RoomTypeSort.SelectedItem.ToString();
-            LoadRoomTypeList();
-        }
-        private void picbx_RoomTypeSort_Click(object sender, EventArgs e)
-        {
-            //Sort by Filter
-        }
+
         private void btn_RoomTypeRestore_Click(object sender, EventArgs e)
         {
             try
@@ -586,9 +587,16 @@ namespace PBL3REAL.View
                 DataGridViewSelectedRowCollection r = dgv_RoomType.SelectedRows;
                 if (r.Count == 1)
                 {
-                    roomTypeBLL.restoreRoomType(int.Parse(r[0].Cells["IdRoomtype"].Value.ToString()));
-                    //Reload Data
-                    LoadRoomTypeList();
+                    try
+                    {
+                        roomTypeBLL.restoreRoomType(int.Parse(r[0].Cells["IdRoomtype"].Value.ToString()));
+                        AddCbbRoomFilter();
+                        LoadRoomTypeList();
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Error while restoring!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else if (r.Count == 0)
                 {
@@ -599,10 +607,23 @@ namespace PBL3REAL.View
                     MessageBox.Show("Chỉ có thể chọn một loại phòng trong một lần xóa!!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            catch(Exception)
+            catch (Exception)
             {
                 MessageBox.Show("Error while restoring!!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void picbx_RoomTypeSearch_Click(object sender, EventArgs e)
+        {
+            rotySearch = tb_RoomTypeSearch.Text;
+            rotyOrderBy = cbb_RoomTypeSort.SelectedItem.ToString();
+            rotyStatus = cbb_RoomTypeStatus.SelectedItem.ToString();
+            LoadRoomTypeList();
+        }
+        private void picbx_RoomTypeSort_Click(object sender, EventArgs e)
+        {
+            //Sort by Filter
+        }
+       
     }
 }

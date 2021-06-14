@@ -33,9 +33,16 @@ namespace HotelManagement.DAL.Implement
         }
 
 
-        public List<RoomType> findByProperty(string search , string orderby)
+        public List<RoomType> findByProperty(string search , string orderby,string status)
         {
-            var query = AppDbContext.Instance.RoomTypes.Where(x => x.RotyName.Contains(search) || x.RotyCode.Contains(search));
+            var predicate = PredicateBuilder.True<RoomType>();
+
+            if (!string.IsNullOrEmpty(search)) predicate = predicate.And(x => x.RotyName.Contains(search) || x.RotyCode.Contains(search));
+
+            if (status == "Active") predicate = predicate.And(x => x.RoTyActiveflag == true);
+            else  predicate = predicate.And(x => x.RoTyActiveflag == false);
+
+            var query = AppDbContext.Instance.RoomTypes.Where(predicate);
             switch (orderby)
             {
                 case "None": break;
@@ -58,19 +65,27 @@ namespace HotelManagement.DAL.Implement
         public void deleteRoomtype(int idRoomtype)
         {
             RoomType roomType = AppDbContext.Instance.RoomTypes.Where(x =>x.IdRoomtype == idRoomtype).SingleOrDefault();
-            if(roomType !=null) roomType.RoTyActiveflag = false;
-            AppDbContext.Instance.Update(roomType);
-            AppDbContext.Instance.SaveChanges();
-            AppDbContext.Instance.Entry(roomType).State = EntityState.Detached;
+            if (roomType != null)
+            {
+                roomType.RoTyActiveflag = false;
+                AppDbContext.Instance.Update(roomType);
+                AppDbContext.Instance.SaveChanges();
+                AppDbContext.Instance.Entry(roomType).State = EntityState.Detached;
+            }
+            else throw new ArgumentException("Error while deleting roomtype");
         }
 
         public void restoreRoomtype(int idRoomtype)
         {
             RoomType roomType = AppDbContext.Instance.RoomTypes.Where(x => x.IdRoomtype == idRoomtype).SingleOrDefault();
-            if (roomType != null) roomType.RoTyActiveflag = true;
-            AppDbContext.Instance.Update(roomType);
-            AppDbContext.Instance.SaveChanges();
-            AppDbContext.Instance.Entry(roomType).State = EntityState.Detached;
+            if (roomType != null)
+            {
+                roomType.RoTyActiveflag = true;
+                AppDbContext.Instance.Update(roomType);
+                AppDbContext.Instance.SaveChanges();
+                AppDbContext.Instance.Entry(roomType).State = EntityState.Detached;               
+            }
+            else throw new ArgumentException("Error while restoring roomtype");
         }
 
         public void updateRoomtype(RoomType roomType)

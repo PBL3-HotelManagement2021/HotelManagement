@@ -1,3 +1,7 @@
+-Bỏ cái nút reset trong InvoiceDetail
+-Form Receiptionist dong 556 
+-Thêm 2 cái DTB fromDate vs toDate chỗ FormAccountant 
+-bỏ 2 cái button add vs edit đi 
 hello
 -----------------------
 Mục đích activeflag là khóa một đối tượng nào đó nhưng vẫn giữ thông tin lại cái các đối tượng khác truy vấn 

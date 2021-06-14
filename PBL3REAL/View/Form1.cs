@@ -268,11 +268,7 @@ namespace PBL3REAL
         }*/
 
         //2 cai combobox ni cho roomtype va room ,o day combobox ta truyen vao RoomTypeVM va RoomVM
-        public void testCBB()
-        {
-            comboBox1.DataSource = roomTypeBLL.findByProperty("","");
-            comboBox1.DisplayMember = "Name";
-        }
+       
         public void testCBBRoom()
         {
 
@@ -282,12 +278,7 @@ namespace PBL3REAL
 
 
         ///     PHAN ROOMTYPE
-        public void showroomtype()
-        {
-            List<RoomTypeVM> listVM = roomTypeBLL.findByProperty("","");
-            string json = JsonConvert.SerializeObject(listVM, Formatting.Indented);
-            richTextBox1.Text = json;
-        }
+     
 
         public void addRoomType()
         {
@@ -325,10 +316,7 @@ namespace PBL3REAL
             roomTypeVM.ListImg.Add(imageVM);
             roomTypeBLL.editRoomType(roomTypeVM, listdel);
         }
-        public void deleteRoomType()
-        {
-            roomTypeBLL.deleteRoomType(7);
-        }
+     
 
 
         //Phan Room

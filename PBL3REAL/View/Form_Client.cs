@@ -16,7 +16,6 @@ namespace PBL3REAL.View
         private ClientBLL clientBLL;
         private string search = "";
         private string orderBy = "";
-        private bool status;
         private readonly int ROWS = 5;
         private int currentPage = 1;
         private int totalPage = 0;
@@ -65,8 +64,6 @@ namespace PBL3REAL.View
         {
             search = tb_ClientSearch.Text;
             orderBy = cbb_ClientSort.SelectedItem.ToString();
-            if (cbb_ClientStatus.SelectedItem.ToString() == "Active") status = true;
-            else status = false;
             currentPage = 1;
             LoadData();
         }

@@ -98,6 +98,36 @@ namespace PBL3REAL.BLL
                 throw;
             }
         }
+
+        public List<InvoiceVM>findByProperties(int pages , int rows , string code , string orderBy){
+            CalendarVM searchByDate = new CalendarVM();
+            int start = (pages - 1) * rows;
+            int length = rows;
+            List<InvoiceVM> listVm = new List<InvoiceVM>();
+            foreach (var value in InvoiceDAL.Instance.findByProperties(start, length,code, searchByDate, orderBy))
+            {
+                InvoiceVM invoiceVM = mapper.Map<InvoiceVM>(value);
+                listVm.Add(invoiceVM);
+            }
+            return listVm;
+        }
+
+        public int getPagination(int rows, string code)
+        {
+            CalendarVM searchByDate = new CalendarVM();
+            int totalRows = InvoiceDAL.Instance.getTotalRow(code, searchByDate);
+            int totalpage;
+            if (totalRows % rows == 0)
+            {
+                totalpage = totalRows / rows;
+            }
+            else
+            {
+                totalpage = totalRows / rows + 1;
+            }
+            return totalpage;
+        }
+
         public List<Statistic1> findForStatistic(DateTime fromDate, DateTime toDate)
         {
             List<Statistic1> listVM = null;

@@ -21,10 +21,10 @@ namespace HotelManagement.BBL.Implement
             mapper = new Mapper(MapperVM.config);
         }
 
-        public List<RoomTypeVM> findByProperty(string search , string orderBy)
+        public List<RoomTypeVM> findByProperty(string search , string orderBy,string status)
         {
             List<RoomTypeVM> listVM = new List<RoomTypeVM>();
-            foreach (RoomType roomType in RoomtypeDAL.Instance.findByProperty(search,orderBy))
+            foreach (RoomType roomType in RoomtypeDAL.Instance.findByProperty(search,orderBy,status))
             {
                 RoomTypeVM roomTypeVM = mapper.Map<RoomTypeVM>(roomType);
                 listVM.Add(roomTypeVM);
@@ -90,19 +90,11 @@ namespace HotelManagement.BBL.Implement
 
         public void restoreRoomType(int idRoomType)
         {
-            try
-            {
-                RoomtypeDAL.Instance.restoreRoomtype(idRoomType);
-            }
-            catch (Exception)
-            {
-                throw; 
-            }
-          
+                RoomtypeDAL.Instance.restoreRoomtype(idRoomType);         
         }
         public void deleteRoomType(int idRoomType)
         {
-            RoomtypeDAL.Instance.deleteRoomtype(idRoomType);
+             RoomtypeDAL.Instance.deleteRoomtype(idRoomType);
         }
 
         public RoomTypeVM findbyid(int id)
@@ -121,7 +113,7 @@ namespace HotelManagement.BBL.Implement
         {
 
             List<CbbItem> listcbb = new List<CbbItem>();
-            foreach(RoomType roomType in RoomtypeDAL.Instance.findByProperty("",""))
+            foreach(RoomType roomType in RoomtypeDAL.Instance.findByProperty("","","Active"))
             {
                 CbbItem cbbItem = new CbbItem
                 {
