@@ -125,12 +125,12 @@ namespace PBL3REAL.DAL
             SqlParameter parameter1 = new SqlParameter();
             parameter1.ParameterName = "@pa1";
             parameter1.SqlDbType = SqlDbType.DateTime2;
-            parameter1.Value = DateTime.Parse(fromDate.ToString());
+            parameter1.Value = DateTime.Parse(fromDate.ToString("yyyy/MM/dd"));
 
             SqlParameter parameter2 = new SqlParameter();
             parameter2.ParameterName = "@pa2";
             parameter2.SqlDbType = SqlDbType.DateTime2;
-            parameter2.Value = DateTime.Parse(toDate.ToString());
+            parameter2.Value = DateTime.Parse(toDate.ToString("yyyy/MM/dd"));
 
 
             List<Statistic2> list = new List<Statistic2>();

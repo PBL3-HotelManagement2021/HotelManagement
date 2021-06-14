@@ -70,7 +70,7 @@ namespace PBL3REAL.View
         {
             Form_Accountant f = new Form_Accountant();
             this.Hide();
-            f.Show();
+            f.ShowDialog();
             this.Show();
         }
         private void btn_Client_Click(object sender, EventArgs e)

@@ -11,16 +11,10 @@ namespace PBL3REAL.BLL
 {
     class QLBookingBLL
     {
-        private BookingDAL _bookingDAL;
-        private ClientDAL clientDAL;
-        private RoomDAL _roomDAL; 
         private Mapper mapper;
         public QLBookingBLL()
         {
-            _bookingDAL = new BookingDAL();
             mapper = new Mapper(MapperVM.config);
-            clientDAL = new ClientDAL();
-            _roomDAL = new RoomDAL();
         }
 
         public List<BookingVM> findByProperty(int pages , int rows ,CalendarVM searchDate , string search , string orderBy, string status)
@@ -28,7 +22,7 @@ namespace PBL3REAL.BLL
             int start = (pages - 1) * rows;
             int length = rows;
             List<BookingVM> listVM = new List<BookingVM>();
-            foreach (Booking val in _bookingDAL.findByProperty(start,length,searchDate,search,orderBy,status))
+            foreach (Booking val in BookingDAL.Instance.findByProperty(start,length,searchDate,search,orderBy,status))
             {
                 BookingVM bookingVm = mapper.Map<BookingVM>(val);
                 bookingVm.Index = start++;
@@ -44,8 +38,8 @@ namespace PBL3REAL.BLL
             try
             {
                 int i = 0;
-                Booking booking = _bookingDAL.findById(id);
-                List<Room>listRoom =  _roomDAL.findByIdBook(id);
+                Booking booking = BookingDAL.Instance.findById(id);
+                List<Room>listRoom =  RoomDAL.Instance.findByIdBook(id);
                 BookingDetailVM result = mapper.Map<BookingDetailVM>(booking);
                 result.clientVM = mapper.Map<ClientVM>(booking.BookIdclientNavigation);
                 foreach (BookingDetail val in booking.BookingDetails)
@@ -69,7 +63,7 @@ namespace PBL3REAL.BLL
         {
             try
             {
-                if (!status.Equals("Processed")) _bookingDAL.delBooking(id);
+                if (!status.Equals("Processed")) BookingDAL.Instance.delBooking(id);
                 else throw new ArgumentException("Only booking with status 'Processed' can delete");
             }
             catch (Exception)
@@ -83,7 +77,7 @@ namespace PBL3REAL.BLL
         {
             try
             {
-                _bookingDAL.completeBooking(idbook);
+                BookingDAL.Instance.completeBooking(idbook);
             }catch(Exception)
             {
                 throw;
@@ -92,7 +86,7 @@ namespace PBL3REAL.BLL
 
         public int getPagination(int rows , CalendarVM searchByDate, string search , string status)
         {
-            int totalRows = _bookingDAL.getTotalRow(searchByDate, search , status);
+            int totalRows = BookingDAL.Instance.getTotalRow(searchByDate, search , status);
             int totalpage;
             if (totalRows % rows == 0)
             {
@@ -131,17 +125,17 @@ namespace PBL3REAL.BLL
           
             try
             {
-                clientDAL.update(client);
-                _bookingDAL.updateBooking(booking);
+                ClientDAL.Instance.update(client);
+                BookingDAL.Instance.updateBooking(booking);
                 if (listOld.Count == 0)
-                {   
-                    _bookingDAL.delBookingDetail(listDel);
-                    if (listadd.Count != 0) _bookingDAL.addBookingDetail(listadd);
+                {
+                    BookingDAL.Instance.delBookingDetail(listDel);
+                    if (listadd.Count != 0) BookingDAL.Instance.addBookingDetail(listadd);
                 }
                 else
                 {
-                    _bookingDAL.delBookingDetail(listOld);
-                    if (listadd.Count != 0) _bookingDAL.addBookingDetail(listadd);
+                    BookingDAL.Instance.delBookingDetail(listOld);
+                    if (listadd.Count != 0) BookingDAL.Instance.addBookingDetail(listadd);
                 }
             }
             catch (Exception e)
@@ -170,10 +164,10 @@ namespace PBL3REAL.BLL
 
             try
             {
-                clientDAL.update(client);               
-                if(listDel.Count!=0) _bookingDAL.delBookingDetail(listDel);
-                _bookingDAL.updateBooking(booking);
-                if (listadd.Count != 0) _bookingDAL.addBookingDetail(listadd);            
+                ClientDAL.Instance.update(client);               
+                if(listDel.Count!=0) BookingDAL.Instance.delBookingDetail(listDel);
+                BookingDAL.Instance.updateBooking(booking);
+                if (listadd.Count != 0) BookingDAL.Instance.addBookingDetail(listadd);            
             }
             catch (Exception e)
             {
@@ -184,7 +178,7 @@ namespace PBL3REAL.BLL
 
         public void addBooking(BookingDetailVM result)
         {
-            int idBook = _bookingDAL.getnextid();
+            int idBook = BookingDAL.Instance.getnextid();
             Booking booking = new Booking();
             mapper.Map(result, booking);
             booking.BookIduser = QLUserBLL.stoUser.IdUser;
@@ -200,10 +194,10 @@ namespace PBL3REAL.BLL
             }
             try
             {
-                if (client.IdClient == 0) booking.BookIdclient = clientDAL.add(client);
+                if (client.IdClient == 0) booking.BookIdclient = ClientDAL.Instance.add(client);
                 else booking.BookIdclient = client.IdClient;
-                _bookingDAL.addBooking(booking);
-                _bookingDAL.addBookingDetail(listadd);
+                BookingDAL.Instance.addBooking(booking);
+                BookingDAL.Instance.addBookingDetail(listadd);
             }
             catch (Exception)
             {

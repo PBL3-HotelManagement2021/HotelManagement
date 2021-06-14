@@ -10,16 +10,32 @@ namespace HotelManagement.DAL.Impl
 {
     public class StatusTimeDAL 
     {
-            private AppDbContext _appDbContext;
-            public StatusTimeDAL(){
-                _appDbContext = new AppDbContext();
+        public static StatusTimeDAL Instance
+        {
+            get
+            {
+                if (_Instance == null)
+                {
+                    _Instance = new StatusTimeDAL();
+                }
+                return _Instance;
             }
+            private set
+            {
+
+            }
+        }
+
+        private static StatusTimeDAL _Instance;
+        public StatusTimeDAL()
+        {
+        }
 
         public void add(List<StatusTime> listadd)
         {
             try{
-                _appDbContext.StatusTimes.AddRange(listadd);
-                _appDbContext.SaveChanges();
+                AppDbContext.Instance.StatusTimes.AddRange(listadd);
+                AppDbContext.Instance.SaveChanges();
             }catch(Exception e){
                 throw ;
             }
@@ -29,36 +45,23 @@ namespace HotelManagement.DAL.Impl
 
         public List<StatusTime> findByIdRoom(int idroom)
         {
-            return _appDbContext.StatusTimes.Where(x => x.StatimIdroom == idroom).AsNoTracking().ToList();
+            return AppDbContext.Instance.StatusTimes.Where(x => x.StatimIdroom == idroom).AsNoTracking().ToList();
         }
         public void delete(List<int> listdel)
         {
             List<StatusTime>list = new List<StatusTime>();
             foreach(int id in listdel){
-                StatusTime statusTime = _appDbContext.StatusTimes.Find(id);
-                _appDbContext.Entry(statusTime).State = EntityState.Detached;
+                StatusTime statusTime = AppDbContext.Instance.StatusTimes.Find(id);
+                AppDbContext.Instance.Entry(statusTime).State = EntityState.Detached;
                 if(statusTime !=null) list.Add(statusTime);
             }
-            _appDbContext.RemoveRange(list);
-            _appDbContext.SaveChanges();
+            AppDbContext.Instance.RemoveRange(list);
+            AppDbContext.Instance.SaveChanges();
         }
 
         public void update(List<StatusTime>listedit){
-//             foreach (var entityEntry in _appDbContext.ChangeTracker.Entries())
-// {
-//     Console.WriteLine(entityEntry);
-// }
-_appDbContext.ChangeTracker.DetectChanges();
-Console.WriteLine(_appDbContext.ChangeTracker.DebugView.LongView);
-        //   var transaction = _appDbContext.Database.UseTransaction(_appDbContext.transaction.GetDbTransaction());
-            try{
-                _appDbContext.StatusTimes.UpdateRange(listedit);
-                _appDbContext.SaveChanges();
-                // _appDbContext.transaction.Commit();
-            }catch(Exception e){
-                throw ;
-                // _appDbContext.transaction.RollbackToSavepoint("Before update StatusTime");
-            }
+                AppDbContext.Instance.StatusTimes.UpdateRange(listedit);
+                AppDbContext.Instance.SaveChanges();           
         }
     }
 }

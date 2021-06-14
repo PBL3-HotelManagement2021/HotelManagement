@@ -69,7 +69,6 @@ namespace PBL3REAL.View
                 UserVM userVM = qLUserBLL.checkUser(properties);
                 if (userVM != null)
                 {
-                    QLUserBLL.stoUser = userVM;
                     check = true;
                 }
             }

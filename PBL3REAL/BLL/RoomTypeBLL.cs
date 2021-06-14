@@ -12,23 +12,19 @@ namespace HotelManagement.BBL.Implement
 {
     public class RoomTypeBLL
     {
-        private RoomtypeDAL _roomTypeDAL;
-        private ImgStorageDAL _imgStorageDAL;
      
         private Mapper mapper;
 
        
         public RoomTypeBLL()
         {
-            _roomTypeDAL = new RoomtypeDAL();
-            _imgStorageDAL = new ImgStorageDAL();
             mapper = new Mapper(MapperVM.config);
         }
 
         public List<RoomTypeVM> findByProperty(string search , string orderBy)
         {
             List<RoomTypeVM> listVM = new List<RoomTypeVM>();
-            foreach (RoomType roomType in _roomTypeDAL.findByProperty(search,orderBy))
+            foreach (RoomType roomType in RoomtypeDAL.Instance.findByProperty(search,orderBy))
             {
                 RoomTypeVM roomTypeVM = mapper.Map<RoomTypeVM>(roomType);
                 listVM.Add(roomTypeVM);
@@ -42,7 +38,7 @@ namespace HotelManagement.BBL.Implement
 
         public void addRoomType(RoomTypeVM roomTypeVM)
         {
-            int idRoomType = _roomTypeDAL.getnextid();
+            int idRoomType = RoomtypeDAL.Instance.getnextid();
             RoomType roomType = new RoomType();
             List<ImgStorage> imgstolist = new List<ImgStorage>();
             mapper.Map(roomTypeVM, roomType);
@@ -57,8 +53,8 @@ namespace HotelManagement.BBL.Implement
             roomType.ImgStorages = imgstolist;
             try
             {
-                _roomTypeDAL.addRoomtype(roomType);
-                _imgStorageDAL.add(imgstolist);
+                RoomtypeDAL.Instance.addRoomtype(roomType);
+                ImgStorageDAL.Instance.add(imgstolist);
             }
             catch(Exception e)
             {
@@ -81,9 +77,9 @@ namespace HotelManagement.BBL.Implement
            
             try
             {
-                if (listdel != null) { _imgStorageDAL.delete(listdel); }
-                _roomTypeDAL.updateRoomtype(roomType);
-                _imgStorageDAL.add(listadd);
+                if (listdel != null) { ImgStorageDAL.Instance.delete(listdel); }
+                RoomtypeDAL.Instance.updateRoomtype(roomType);
+                ImgStorageDAL.Instance.add(listadd);
             }
             catch(Exception e)
             {
@@ -96,7 +92,7 @@ namespace HotelManagement.BBL.Implement
         {
             try
             {
-                _roomTypeDAL.restoreRoomtype(idRoomType);
+                RoomtypeDAL.Instance.restoreRoomtype(idRoomType);
             }
             catch (Exception)
             {
@@ -106,12 +102,12 @@ namespace HotelManagement.BBL.Implement
         }
         public void deleteRoomType(int idRoomType)
         {
-            _roomTypeDAL.deleteRoomtype(idRoomType);
+            RoomtypeDAL.Instance.deleteRoomtype(idRoomType);
         }
 
         public RoomTypeVM findbyid(int id)
         {
-            RoomType roomType = _roomTypeDAL.findbyid(id);
+            RoomType roomType = RoomtypeDAL.Instance.findbyid(id);
             RoomTypeVM roomTypeVM = mapper.Map<RoomTypeVM>(roomType);
             foreach (ImgStorage img in roomType.ImgStorages)
             {
@@ -125,7 +121,7 @@ namespace HotelManagement.BBL.Implement
         {
 
             List<CbbItem> listcbb = new List<CbbItem>();
-            foreach(RoomType roomType in _roomTypeDAL.findByProperty("",""))
+            foreach(RoomType roomType in RoomtypeDAL.Instance.findByProperty("",""))
             {
                 CbbItem cbbItem = new CbbItem
                 {

@@ -11,16 +11,31 @@ namespace HotelManagement.DAL.Implement
 {
    public class RoomtypeDAL 
     {
-        private AppDbContext _appDbContext;
+        public static RoomtypeDAL Instance
+        {
+            get
+            {
+                if (_Instance == null)
+                {
+                    _Instance = new RoomtypeDAL();
+                }
+                return _Instance;
+            }
+            private set
+            {
+
+            }
+        }
+
+        private static RoomtypeDAL _Instance;
         public RoomtypeDAL()
         {
-            _appDbContext = new AppDbContext();
         }
-     
+
 
         public List<RoomType> findByProperty(string search , string orderby)
         {
-            var query = _appDbContext.RoomTypes.Where(x => x.RotyName.Contains(search) || x.RotyCode.Contains(search));
+            var query = AppDbContext.Instance.RoomTypes.Where(x => x.RotyName.Contains(search) || x.RotyCode.Contains(search));
             switch (orderby)
             {
                 case "None": break;
@@ -35,44 +50,44 @@ namespace HotelManagement.DAL.Implement
         public void addRoomtype(RoomType roomType)
         {
             roomType.RoTyActiveflag = true;
-            _appDbContext.RoomTypes.Add(roomType);
-            _appDbContext.SaveChanges();
-            _appDbContext.Entry(roomType).State = EntityState.Detached;
+            AppDbContext.Instance.RoomTypes.Add(roomType);
+            AppDbContext.Instance.SaveChanges();
+            AppDbContext.Instance.Entry(roomType).State = EntityState.Detached;
         }
 
         public void deleteRoomtype(int idRoomtype)
         {
-            RoomType roomType = _appDbContext.RoomTypes.Where(x =>x.IdRoomtype == idRoomtype).SingleOrDefault();
+            RoomType roomType = AppDbContext.Instance.RoomTypes.Where(x =>x.IdRoomtype == idRoomtype).SingleOrDefault();
             if(roomType !=null) roomType.RoTyActiveflag = false;
-            _appDbContext.Update(roomType);
-            _appDbContext.SaveChanges();
-            _appDbContext.Entry(roomType).State = EntityState.Detached;
+            AppDbContext.Instance.Update(roomType);
+            AppDbContext.Instance.SaveChanges();
+            AppDbContext.Instance.Entry(roomType).State = EntityState.Detached;
         }
 
         public void restoreRoomtype(int idRoomtype)
         {
-            RoomType roomType = _appDbContext.RoomTypes.Where(x => x.IdRoomtype == idRoomtype).SingleOrDefault();
+            RoomType roomType = AppDbContext.Instance.RoomTypes.Where(x => x.IdRoomtype == idRoomtype).SingleOrDefault();
             if (roomType != null) roomType.RoTyActiveflag = true;
-            _appDbContext.Update(roomType);
-            _appDbContext.SaveChanges();
-            _appDbContext.Entry(roomType).State = EntityState.Detached;
+            AppDbContext.Instance.Update(roomType);
+            AppDbContext.Instance.SaveChanges();
+            AppDbContext.Instance.Entry(roomType).State = EntityState.Detached;
         }
 
         public void updateRoomtype(RoomType roomType)
         {
-            _appDbContext.RoomTypes.Update(roomType);
-            _appDbContext.SaveChanges();
-            _appDbContext.Entry(roomType).State = EntityState.Detached;
+            AppDbContext.Instance.RoomTypes.Update(roomType);
+            AppDbContext.Instance.SaveChanges();
+            AppDbContext.Instance.Entry(roomType).State = EntityState.Detached;
         }
 
 
         public int getnextid()
         {
             int id;
-            using (var command = _appDbContext.Database.GetDbConnection().CreateCommand())
+            using (var command = AppDbContext.Instance.Database.GetDbConnection().CreateCommand())
             {
                 command.CommandText = "SELECT IDENT_CURRENT('room_type')+1";
-                _appDbContext.Database.OpenConnection();
+                AppDbContext.Instance.Database.OpenConnection();
                 using (var result = command.ExecuteReader())
                 {
                     result.Read();
@@ -84,8 +99,8 @@ namespace HotelManagement.DAL.Implement
 
         public RoomType findbyid(int id)
         {
-            RoomType roomType = (RoomType)_appDbContext.RoomTypes.Where(x => x.IdRoomtype == id).Include(x => x.ImgStorages).SingleOrDefault();
-            if (roomType != null) _appDbContext.Entry(roomType).State = EntityState.Detached;
+            RoomType roomType = (RoomType)AppDbContext.Instance.RoomTypes.Where(x => x.IdRoomtype == id).Include(x => x.ImgStorages).SingleOrDefault();
+            if (roomType != null) AppDbContext.Instance.Entry(roomType).State = EntityState.Detached;
             return roomType;
         }
     }

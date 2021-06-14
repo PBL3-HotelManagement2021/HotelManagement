@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.EntityFrameworkCore;
 using PBL3REAL.Model;
 using System;
 using System.Collections.Generic;
@@ -9,14 +10,29 @@ namespace HotelManagement.DAL.Implement
 {
     public class StatusDAL
     {
-        private AppDbContext _appDbContext;
+        public static StatusDAL Instance
+        {
+            get
+            {
+                if (_Instance == null)
+                {
+                    _Instance = new StatusDAL();
+                }
+                return _Instance;
+            }
+            private set
+            {
+
+            }
+        }
+
+        private static StatusDAL _Instance;
         public StatusDAL()
         {
-            _appDbContext = new AppDbContext();
         }
         public List<Status> getAll()
         {
-            var result = _appDbContext.Statuses.ToList();
+            var result = AppDbContext.Instance.Statuses.AsNoTracking().ToList();
             return result;
         }
     }

@@ -10,26 +10,41 @@ namespace PBL3REAL.DAL
 {
     class ClientDAL
     {
-        private AppDbContext _appDbContext;
+        public static ClientDAL Instance
+        {
+            get
+            {
+                if (_Instance == null)
+                {
+                    _Instance = new ClientDAL();
+                }
+                return _Instance;
+            }
+            private set
+            {
+
+            }
+        }
+
+        private static ClientDAL _Instance;
         public ClientDAL()
         {
-            _appDbContext = new AppDbContext(); 
         }
 
         public int add(Client client)
         {
             client.CliActiveflag = true;
-            _appDbContext.Clients.Add(client);
-            _appDbContext.SaveChanges();
-            _appDbContext.Entry(client).State = EntityState.Detached;
+            AppDbContext.Instance.Clients.Add(client);
+            AppDbContext.Instance.SaveChanges();
+            AppDbContext.Instance.Entry(client).State = EntityState.Detached;
             return client.IdClient;
         }
         public int update(Client client)
         {
             client.CliActiveflag = true;
-            _appDbContext.Clients.Update(client);
-            _appDbContext.SaveChanges();
-            _appDbContext.Entry(client).State = EntityState.Detached;
+            AppDbContext.Instance.Clients.Update(client);
+            AppDbContext.Instance.SaveChanges();
+            AppDbContext.Instance.Entry(client).State = EntityState.Detached;
             return client.IdClient;
         }
 
@@ -37,18 +52,18 @@ namespace PBL3REAL.DAL
         {
             Client client = findById(id);
             client.CliActiveflag = false;
-            _appDbContext.Clients.Update(client);
-            _appDbContext.SaveChanges();
-            _appDbContext.Entry(client).State = EntityState.Detached;
+            AppDbContext.Instance.Clients.Update(client);
+            AppDbContext.Instance.SaveChanges();
+            AppDbContext.Instance.Entry(client).State = EntityState.Detached;
         }
 
         public void restore(int id)
         {
             Client client = findById(id);
             client.CliActiveflag = true;
-            _appDbContext.Clients.Update(client);
-            _appDbContext.SaveChanges();
-            _appDbContext.Entry(client).State = EntityState.Detached;
+            AppDbContext.Instance.Clients.Update(client);
+            AppDbContext.Instance.SaveChanges();
+            AppDbContext.Instance.Entry(client).State = EntityState.Detached;
         }
 
 

@@ -37,19 +37,19 @@ namespace PBL3REAL.View
                 case 0:
                     Form_View_Statistic_Analyze f1 = new Form_View_Statistic_Analyze(cbb_DataType.SelectedIndex, DateTime.Now.AddDays(-7).Date, DateTime.Now.Date, Statistic, Analyze, Predict);
                     this.Hide();
-                    f1.Show();
+                    f1.ShowDialog();
                     this.Show();
                     break;
                 case 1:
                     Form_View_Statistic_Analyze f2 = new Form_View_Statistic_Analyze(cbb_DataType.SelectedIndex, DateTime.Now.AddDays(-30).Date, DateTime.Now.Date, Statistic, Analyze, Predict);
                     this.Hide();
-                    f2.Show();
+                    f2.ShowDialog();
                     this.Show();
                     break;
                 case 2:
                     Form_View_Statistic_Analyze f3 = new Form_View_Statistic_Analyze(cbb_DataType.SelectedIndex, dtp_From.Value.Date,dtp_To.Value.Date, Statistic, Analyze, Predict);
                     this.Hide();
-                    f3.Show();
+                    f3.ShowDialog();
                     this.Show();
                     break;
                 default:

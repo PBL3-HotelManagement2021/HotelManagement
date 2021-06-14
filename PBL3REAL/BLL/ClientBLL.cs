@@ -9,33 +9,30 @@ using System.Text;
 namespace PBL3REAL.BLL
 {
     public class ClientBLL
-    {
-        private ClientDAL _clientDAL;
-        
+    {        
         private Mapper mapper;
         public ClientBLL()
         {
             mapper = new Mapper(MapperVM.config);
-            _clientDAL = new ClientDAL();
         }
         public void add(ClientVM clientVM)
         {
             Client client = new Client();
             mapper.Map(clientVM, client);
-            _clientDAL.add(client);
+            ClientDAL.Instance.add(client);
         }
 
         public void update(ClientVM clientVM)
         {
             Client client = new Client();
             mapper.Map(clientVM, client);
-            _clientDAL.update(client);
+            ClientDAL.Instance.update(client);
         }
         public void delete(int id)
         {
             try
             {
-                _clientDAL.delete(id);
+                ClientDAL.Instance.delete(id);
             }
             catch (Exception)
             {
@@ -49,13 +46,12 @@ namespace PBL3REAL.BLL
         {
             try
             {
-                _clientDAL.restore(id);
+                ClientDAL.Instance.restore(id);
             }
             catch (Exception)
             {
 
-            }
-          
+            }          
         }
 
         public List<ClientVM> findByProperty(int pages, int rows  ,Dictionary<string ,string> properties, string orderBy)
@@ -63,7 +59,7 @@ namespace PBL3REAL.BLL
             int start = (pages - 1) * rows;
             int length = rows;
             List<ClientVM> listVm = new List<ClientVM>();
-            foreach (Client client in _clientDAL.findByProperty(start, length,properties, orderBy))
+            foreach (Client client in ClientDAL.Instance.findByProperty(start, length,properties, orderBy))
             {
                 ClientVM clientVM = mapper.Map<ClientVM>(client);
                 listVm.Add(clientVM);
@@ -73,21 +69,21 @@ namespace PBL3REAL.BLL
 
         public bool checkexisted(Dictionary<string , string > properties)
         {
-            var list = _clientDAL.checkExisted(properties);
+            var list = ClientDAL.Instance.checkExisted(properties);
             if (list.Count ==0) return true; 
             return false ;
         }
 
         public ClientVM findById(int id)
         {
-            Client client = _clientDAL.findById(id);
+            Client client = ClientDAL.Instance.findById(id);
             ClientVM clientVM = mapper.Map<ClientVM>(client);
             return clientVM;
         }
 
         public int getPagination(int rows , Dictionary<string , string> properties)
         {
-            int totalRows = _clientDAL.getTotalRow(properties);
+            int totalRows = ClientDAL.Instance.getTotalRow(properties);
             int totalpage ;
             if (totalRows % rows == 0)
             {

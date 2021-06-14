@@ -10,36 +10,52 @@ namespace HotelManagement.DAL.Implement
 {
     public class ImgStorageDAL
     {
-        private AppDbContext _appDbContext;
+        public static ImgStorageDAL Instance
+        {
+            get
+            {
+                if (_Instance == null)
+                {
+                    _Instance = new ImgStorageDAL();
+                }
+                return _Instance;
+            }
+            private set
+            {
+
+            }
+        }
+
+        private static ImgStorageDAL _Instance;
         public ImgStorageDAL()
         {
-            _appDbContext = new AppDbContext();
-
         }
+
+       
         public void delete(List<int> listdel)
         {
             List<ImgStorage> list = new List<ImgStorage>();
             foreach(int id in listdel)
             {
-                ImgStorage imgStorage = _appDbContext.ImgStorages.Where(x =>x.IdImgsto == id).SingleOrDefault();
-                _appDbContext.Entry(imgStorage).State = EntityState.Detached;
+                ImgStorage imgStorage = AppDbContext.Instance.ImgStorages.Where(x =>x.IdImgsto == id).SingleOrDefault();
+                AppDbContext.Instance.Entry(imgStorage).State = EntityState.Detached;
                 if (imgStorage != null) list.Add(imgStorage);
             }
-            
-            _appDbContext.ImgStorages.RemoveRange(list);
-            _appDbContext.SaveChanges();
+
+            AppDbContext.Instance.ImgStorages.RemoveRange(list);
+            AppDbContext.Instance.SaveChanges();
         }
         public void add(List<ImgStorage> listadd)
         {
 
-                _appDbContext.ImgStorages.AddRange(listadd);
-                _appDbContext.SaveChanges();
+            AppDbContext.Instance.ImgStorages.AddRange(listadd);
+            AppDbContext.Instance.SaveChanges();
 
         }
 
         public List<ImgStorage> findByIDRoomtype(int id)
         {
-            List< ImgStorage> result = _appDbContext.ImgStorages.Where(x => x.ImgstoIdrootyp ==id).ToList();
+            List< ImgStorage> result = AppDbContext.Instance.ImgStorages.Where(x => x.ImgstoIdrootyp ==id).ToList();
             return result;
         }
     }

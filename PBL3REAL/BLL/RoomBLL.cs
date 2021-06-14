@@ -13,29 +13,17 @@ using System.Text;
 namespace HotelManagement.BLL.Implement
 {
     public class RoomBLL
-    {
-        private RoomDAL _roomDAL;
-        private StatusTimeDAL _statusTimeDAL;
-        private StatusDAL _statusDAL;
-     
-        private Mapper mapper;
-
-       
+    { 
+        private Mapper mapper;    
         public RoomBLL()
         {
-            _roomDAL = new RoomDAL();
-            _statusTimeDAL = new StatusTimeDAL();
-            _statusDAL = new StatusDAL();
             mapper = new Mapper(MapperVM.config);
         }
-
-       
-
         public void addRoom(RoomDetailVM roomDetailVM)
         {
-            var test = _roomDAL.findByProperty(1, 1, 0, roomDetailVM.RoomName,0);
+            var test = RoomDAL.Instance.findByProperty(1, 1, 0, roomDetailVM.RoomName,0);
             if (test.Count!=0) throw new ArgumentException("Room Name already existed");
-            int idRoom = _roomDAL.getnextid();
+            int idRoom = RoomDAL.Instance.getnextid();
             Room room = new Room();
             mapper.Map(roomDetailVM, room);
             room.RoomIdroomtype = roomDetailVM.IdRoomType;
@@ -51,8 +39,8 @@ namespace HotelManagement.BLL.Implement
             }
             try
             {
-                    _roomDAL.add(room);
-                _statusTimeDAL.add(listadd);
+                RoomDAL.Instance.add(room);
+                StatusTimeDAL.Instance.add(listadd);
             }
             catch (Exception e)
             {
@@ -64,7 +52,7 @@ namespace HotelManagement.BLL.Implement
         {
             try
             {
-                _roomDAL.delete(id);
+                RoomDAL.Instance.delete(id);
 
             }catch(Exception e)
             {
@@ -77,7 +65,7 @@ namespace HotelManagement.BLL.Implement
         {
             try
             {
-                _roomDAL.restore(id);
+                RoomDAL.Instance.restore(id);
 
             }
             catch (Exception e)
@@ -108,9 +96,9 @@ namespace HotelManagement.BLL.Implement
             }
             try
             {
-                _roomDAL.update(room);
-                if (listdel != null) _statusTimeDAL.delete(listdel);
-                if (listadd.Count != 0) _statusTimeDAL.add(listadd);
+                RoomDAL.Instance.update(room);
+                if (listdel != null) StatusTimeDAL.Instance.delete(listdel);
+                if (listadd.Count != 0) StatusTimeDAL.Instance.add(listadd);
                 
             }
             catch (Exception e)
@@ -122,7 +110,7 @@ namespace HotelManagement.BLL.Implement
         {
             int start = (pages - 1) * rows;
             int length = rows;
-            List<Room> listRoom = _roomDAL.findByProperty(start, length, idroomtype ,name,isActive);
+            List<Room> listRoom = RoomDAL.Instance.findByProperty(start, length, idroomtype ,name,isActive);
             List<RoomVM> listRoomVM = new List<RoomVM>();
             foreach (Room room in listRoom)
             {
@@ -135,7 +123,7 @@ namespace HotelManagement.BLL.Implement
         }
         public RoomDetailVM findByID(int idroom)
         {
-            Room room = _roomDAL.findbyid(idroom);
+            Room room = RoomDAL.Instance.findbyid(idroom);
             RoomDetailVM roomDetailVM = mapper.Map<RoomDetailVM>(room);
             int id = room.RoomIdroomtypeNavigation.IdRoomtype;
             string rotyname = room.RoomIdroomtypeNavigation.RotyName;
@@ -157,7 +145,7 @@ namespace HotelManagement.BLL.Implement
         public List<AvailableRoomVM> findAvailableRoom(int idRoomType , DateTime fromDate , DateTime toDate)
         {
             List<AvailableRoomVM> listVM = new List<AvailableRoomVM>();
-            foreach(Room room in _roomDAL.findAvailableRoom(idRoomType, fromDate, toDate))
+            foreach(Room room in RoomDAL.Instance.findAvailableRoom(idRoomType, fromDate, toDate))
             {
                 AvailableRoomVM availableRoomVM = mapper.Map<AvailableRoomVM>(room);
                 listVM.Add(availableRoomVM);
@@ -167,7 +155,7 @@ namespace HotelManagement.BLL.Implement
         public List<CbbItem> addComboboxStatus()
         {
             List<CbbItem> listcbb = new List<CbbItem>();
-            foreach(Status status in _statusDAL.getAll())
+            foreach(Status status in StatusDAL.Instance.getAll())
             {
                 CbbItem cbbItem = new CbbItem
                 {
@@ -181,7 +169,7 @@ namespace HotelManagement.BLL.Implement
 
         public int getPagination(int rows ,int idRoomType, string name,int isActive)
         {
-            int totalRows = _roomDAL.getTotalRow(idRoomType,name,isActive);
+            int totalRows = RoomDAL.Instance.getTotalRow(idRoomType,name,isActive);
             int totalpage;
             if (totalRows % rows == 0)
             {

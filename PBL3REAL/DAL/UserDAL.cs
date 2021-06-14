@@ -10,7 +10,27 @@ namespace PBL3REAL.DAL
 {
     public class UserDAL
     {
-  
+        public static UserDAL Instance
+        {
+            get
+            {
+                if (_Instance == null)
+                {
+                    _Instance = new UserDAL();
+                }
+                return _Instance;
+            }
+            private set
+            {
+
+            }
+        }
+
+        private static UserDAL _Instance;
+        public UserDAL()
+        {
+        }
+
         public User findById(int id)
         {
             var user = AppDbContext.Instance.Users

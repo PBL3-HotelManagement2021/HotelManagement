@@ -13,45 +13,60 @@ namespace HotelManagement.DAL.Implement
 {
     public class RoomDAL
     {
-        private AppDbContext _appDbContext;
+        public static RoomDAL Instance
+        {
+            get
+            {
+                if (_Instance == null)
+                {
+                    _Instance = new RoomDAL();
+                }
+                return _Instance;
+            }
+            private set
+            {
+
+            }
+        }
+
+        private static RoomDAL _Instance;
         public RoomDAL()
         {
-            _appDbContext = new AppDbContext();
         }
 
         public void update(Room room)
         {
-            _appDbContext.Rooms.Update(room);
-            _appDbContext.SaveChanges();
-            _appDbContext.Entry(room).State = EntityState.Detached;           
+            AppDbContext.Instance.Rooms.Update(room);
+            AppDbContext.Instance.SaveChanges();
+            AppDbContext.Instance.Entry(room).State = EntityState.Detached;           
         }
 
         public void add(Room room)
         {
             room.RoomActiveflag = true;
-            _appDbContext.Rooms.Add(room);
-                /*_appDbContext.Entry(room.StatusTimes).State = EntityState.Detached;*/
-                _appDbContext.SaveChanges();
-                _appDbContext.Entry(room).State = EntityState.Detached;         
+            AppDbContext.Instance.Rooms.Add(room);
+            /*_appDbContext.Entry(room.StatusTimes).State = EntityState.Detached;*/
+            AppDbContext.Instance.SaveChanges();
+            AppDbContext.Instance.Entry(room).State = EntityState.Detached;         
         }
         public void delete(int id)
         {
-                 Room room = _appDbContext.Rooms.Where(x => x.IdRoom ==id).SingleOrDefault();
+                 Room room = AppDbContext.Instance.Rooms.Where(x => x.IdRoom ==id).SingleOrDefault();
                  if (room != null) room.RoomActiveflag = false;
-                _appDbContext.Rooms.Update(room);
-                _appDbContext.SaveChanges();  
+            AppDbContext.Instance.Rooms.Update(room);
+            AppDbContext.Instance.SaveChanges();  
         }
 
         public void restore(int id)
         {
-            Room room = _appDbContext.Rooms.Where(x => x.IdRoom == id).SingleOrDefault();
+            Room room = AppDbContext.Instance.Rooms.Where(x => x.IdRoom == id).SingleOrDefault();
             if (room != null) room.RoomActiveflag = true;
-            _appDbContext.Rooms.Update(room);
-            _appDbContext.SaveChanges();
+            AppDbContext.Instance.Rooms.Update(room);
+            AppDbContext.Instance.SaveChanges();
         }
         public Room findbyid(int id)
         {
-            var result = _appDbContext.Rooms.Where(x => x.IdRoom == id).Include(x => x.RoomIdroomtypeNavigation)
+            var result = AppDbContext.Instance.Rooms.Where(x => x.IdRoom == id).Include(x => x.RoomIdroomtypeNavigation)
                                            .Include(x => x.StatusTimes)
                                            .ThenInclude(y => y.StatimIdstatusNavigation)
                                            .AsNoTracking()
@@ -79,13 +94,13 @@ namespace HotelManagement.DAL.Implement
             parameter2.Value = DateTime.Parse(toDate.ToString());
             List<Room> list = new List<Room>();
          
-            using (var command = _appDbContext.Database.GetDbConnection().CreateCommand())
+            using (var command = AppDbContext.Instance.Database.GetDbConnection().CreateCommand())
             {
                 command.CommandText = "exec [GetAvailableRoom] @IdRoomType=@pa0 , @fromDate =@pa1, @toDate=@pa2";
                 command.Parameters.Add(parameter0);
                 command.Parameters.Add(parameter1);
                 command.Parameters.Add(parameter2);
-                _appDbContext.Database.OpenConnection();
+                AppDbContext.Instance.Database.OpenConnection();
                 using (var result = command.ExecuteReader())
                 {
                     while (result.Read())
@@ -114,7 +129,7 @@ namespace HotelManagement.DAL.Implement
             if (isActive == 1) predicate = predicate.And(x => x.RoomActiveflag == true);
             else if (isActive == 2) predicate = predicate.And(x => x.RoomActiveflag == false);
 
-            var result = _appDbContext.Rooms.Where(predicate).Include(x => x.RoomIdroomtypeNavigation)
+            var result = AppDbContext.Instance.Rooms.Where(predicate).Include(x => x.RoomIdroomtypeNavigation)
                                             .Skip(start).Take(length)
                                             .AsNoTracking()
                                             .ToList();
@@ -157,10 +172,10 @@ namespace HotelManagement.DAL.Implement
         public int getnextid()
         {
             int id;
-            using (var command = _appDbContext.Database.GetDbConnection().CreateCommand())
+            using (var command = AppDbContext.Instance.Database.GetDbConnection().CreateCommand())
             {
                 command.CommandText = "SELECT IDENT_CURRENT('room')+1";
-                _appDbContext.Database.OpenConnection();
+                AppDbContext.Instance.Database.OpenConnection();
                 using (var result = command.ExecuteReader())
                 {
                     result.Read();

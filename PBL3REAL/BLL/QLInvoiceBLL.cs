@@ -12,20 +12,16 @@ namespace PBL3REAL.BLL
     public class QLInvoiceBLL
     {
         private Mapper mapper;
-        private RoomDAL roomDAL;
-        private BookingDAL bookingDAL;
         public QLInvoiceBLL()
         {
             mapper = new Mapper(MapperVM.config);
-            bookingDAL = new BookingDAL();
-            roomDAL = new RoomDAL();
         }
 
         public InvoiceVM infoAddInvoice(string bookCode)
         {
             try
             {
-                Booking booking = bookingDAL.findForInvoice(bookCode);
+                Booking booking = BookingDAL.Instance.findForInvoice(bookCode);
                 if (booking == null) throw new ArgumentException("Wrong Code");
                 InvoiceVM invoiceVM = new InvoiceVM
                 {
@@ -41,7 +37,7 @@ namespace PBL3REAL.BLL
                 };
                 if (booking.BookStatus == "Checkout") invoiceVM.TotalPrice = booking.BookTotalprice;
                 else invoiceVM.TotalPrice = booking.BookDeposit;
-                foreach (Room room in roomDAL.findByIdBook(booking.IdBook))
+                foreach (Room room in RoomDAL.Instance.findByIdBook(booking.IdBook))
                 {
                     invoiceVM.ListRoom.Add(new RoomVM
                     {
@@ -86,7 +82,7 @@ namespace PBL3REAL.BLL
                 invoiceVM.CliGmail = booking.BookIdclientNavigation.CliGmail;
                 invoiceVM.UserCode = booking.BookIduserNavigation.UserCode;
                 
-                foreach(Room room in roomDAL.findByIdBook(invoice.InvIdbook))
+                foreach(Room room in RoomDAL.Instance.findByIdBook(invoice.InvIdbook))
                 {
                     invoiceVM.ListRoom.Add(new RoomVM
                     {
