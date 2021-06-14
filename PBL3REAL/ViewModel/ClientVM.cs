@@ -7,10 +7,10 @@ namespace PBL3REAL.ViewModel
    public class ClientVM
     { 
         public int IdClient { get; set; }
-        public string CliName { get; set; }
-        public string CliPhone { get; set; }
-        public string CliCode { get; set; }
-        public string CliGmail { get; set; }
+        public string Name { get; set; }
+        public string Phone { get; set; }
+        public string Code { get; set; }
+        public string Gmail { get; set; }
 
         public bool CliActiveflag { get; set; }
     }

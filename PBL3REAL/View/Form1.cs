@@ -142,10 +142,10 @@ namespace PBL3REAL
         {
             ClientVM clientVM = new ClientVM
             {
-                CliCode = "asdfgqwe",
-                CliGmail = "cuonggggggg@",
-                CliName = "Hello",
-                CliPhone = "0912345678"
+                Code = "asdfgqwe",
+                Gmail = "cuonggggggg@",
+                Name = "Hello",
+                Phone = "0912345678"
             };
          
             clientBLL.add(clientVM);
@@ -199,8 +199,8 @@ namespace PBL3REAL
             List<int> listdel = new List<int>();
             BookingDetailVM bookingDetailVM = bookingBLL.getDetail(1);
             bookingDetailVM.BookNote = "ProYesssVip";
-            bookingDetailVM.BookCheckindate = Convert.ToDateTime("2021-03-18");
-            bookingDetailVM.BookCheckoutdate = Convert.ToDateTime("2021-03-25");
+            bookingDetailVM.CheckinDate = Convert.ToDateTime("2021-03-18");
+            bookingDetailVM.CheckoutDate = Convert.ToDateTime("2021-03-25");
             //b1 luu tat ca id cua SubBookingDetailVm qua listOld
             foreach (SubBookingDetailVM val in bookingDetailVM.ListSub)
             {
@@ -233,18 +233,18 @@ namespace PBL3REAL
             BookingDetailVM result = new BookingDetailVM
             {
                 BookNote = "Ko bk",
-                BookCheckindate = DateTime.Now,
-                BookCheckoutdate = DateTime.Now,
-                BookBookdate = DateTime.Now,
-                BookStatus = "Proccess",
-                BookTotalprice = 10000000,
-                BookDeposit = 20000,
+                CheckinDate = DateTime.Now,
+                CheckoutDate = DateTime.Now,
+                BookDate = DateTime.Now,
+                Status = "Proccess",
+                TotalPrice = 10000000,
+                Deposit = 20000,
                 clientVM = new ClientVM
                 {
-                    CliCode = "PROVIP01",
-                    CliName = "dadsa",
-                    CliGmail = "dasdasdas",
-                    CliPhone = "0981234567"
+                    Code = "PROVIP01",
+                    Name = "dadsa",
+                    Gmail = "dasdasdas",
+                    Phone = "0981234567"
                 }
             };
             result.ListSub.Add(sub);
@@ -271,13 +271,13 @@ namespace PBL3REAL
         public void testCBB()
         {
             comboBox1.DataSource = roomTypeBLL.findByProperty("","");
-            comboBox1.DisplayMember = "RotyName";
+            comboBox1.DisplayMember = "Name";
         }
         public void testCBBRoom()
         {
 
             comboBox2.DataSource = roomBLL.findAvailableRoom(1, Convert.ToDateTime("2021-03-01"), Convert.ToDateTime("2021-03-08"));
-            comboBox2.DisplayMember = "RoomName";
+            comboBox2.DisplayMember = "Name";
         }
 
 
@@ -293,10 +293,10 @@ namespace PBL3REAL
         {
             RoomTypeVM roomTypeVM = new RoomTypeVM
             {
-                RotyCapacity = 3,
-                RotyCurrentprice = 10000,
-                RotyDescription = "ko co",
-                RotyName = "Cuongpor",
+                Capacity = 3,
+                Price = 10000,
+                Description = "ko co",
+                Name = "Cuongpor",
             };
             ImageVM image1 = new ImageVM
             {
@@ -313,7 +313,7 @@ namespace PBL3REAL
         public void editRoomType()
         {
             RoomTypeVM roomTypeVM = roomTypeBLL.findbyid(1);
-            roomTypeVM.RotyCapacity = 4;
+            roomTypeVM.Capacity = 4;
             List<int> listdel = new List<int>();
             ImageVM imageVM1 = roomTypeVM.ListImg[1];
             listdel.Add(imageVM1.IdImgsto);
@@ -382,7 +382,7 @@ namespace PBL3REAL
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            textBox1.Text = ((RoomTypeVM)comboBox1.SelectedItem).RotyCurrentprice.ToString();
+            textBox1.Text = ((RoomTypeVM)comboBox1.SelectedItem).Price.ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)

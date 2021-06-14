@@ -17,6 +17,8 @@ namespace PBL3REAL.View
 {
     public partial class Form_Detail_Booking : Form
     {
+        public delegate void MyDel();
+        public MyDel myDel;
         //Declaration
         private QLBookingBLL BookingBLL;
         private RoomTypeBLL roomTypeBLL;
@@ -82,7 +84,6 @@ namespace PBL3REAL.View
                 foreach (var delRoom in storeRoomDel[rotyname])
                 {
                     listForCbb.RemoveAll(x => x.IdRoom == delRoom.IdRoom);
-
                 }
             }
             LoadCbbRoom();
@@ -116,18 +117,18 @@ namespace PBL3REAL.View
                 //View or Edit
                 rbtn_OldClient.Checked = true;
                 idClient = detailVM.clientVM.IdClient;
-                tb_ClientName.Text = detailVM.clientVM.CliName;
-                tb_ClientEmail.Text = detailVM.clientVM.CliGmail;
-                tb_ClientPhone.Text = detailVM.clientVM.CliPhone;
-                dtp_From.Value = detailVM.BookCheckindate;
-                dtp_To.Value = detailVM.BookCheckoutdate;
+                tb_ClientName.Text = detailVM.clientVM.Name;
+                tb_ClientEmail.Text = detailVM.clientVM.Gmail;
+                tb_ClientPhone.Text = detailVM.clientVM.Phone;
+                dtp_From.Value = detailVM.CheckinDate;
+                dtp_To.Value = detailVM.CheckoutDate;
                 foreach (SubBookingDetailVM item in detailVM.ListSub) { subBookings.Add(item); }
                 LoadBookedRoomList();
-                tb_BookDate.Text = detailVM.BookBookdate.ToString();
-                tb_DueDate.Text = detailVM.BookDuedate.ToString();
-                tb_Deposit.Text = detailVM.BookDeposit.ToString();
-                tb_Total.Text = detailVM.BookTotalprice.ToString();
-                cbb_Status.Text = detailVM.BookStatus;
+                tb_BookDate.Text = detailVM.BookDate.ToString();
+                tb_DueDate.Text = detailVM.DueDate.ToString();
+                tb_Deposit.Text = detailVM.Deposit.ToString();
+                tb_Total.Text = detailVM.TotalPrice.ToString();
+                cbb_Status.Text = detailVM.Status;
                 tb_Note.Text = detailVM.BookNote;
 
                 if (!Edit)
@@ -152,10 +153,10 @@ namespace PBL3REAL.View
                         /* BookedRoomVMs.Add(new RoomVM
                          {
                              IdRoom = temproom.IdRoom,
-                             RoomName = temproom.RoomName,
-                             RoomDescription = temproom.RoomDescription,
-                             RotyCurrentprice = temproom.RotyCurrentprice,
-                             RoTyName = temproom.RoTyName
+                             Name = temproom.Name,
+                             Description = temproom.Description,
+                             Price = temproom.Price,
+                             RoomType = temproom.RoomType
                          });*/
                     }
                 }
@@ -190,22 +191,22 @@ namespace PBL3REAL.View
             detailVM = new BookingDetailVM
             {
                 BookNote = tb_Note.Text,
-                BookCheckindate = dtp_From.Value,
-                BookCheckoutdate = dtp_To.Value,
-                BookBookdate = Convert.ToDateTime(tb_BookDate.Text),
-                BookDuedate = Convert.ToDateTime(tb_DueDate.Text),
+                CheckinDate = dtp_From.Value,
+                CheckoutDate = dtp_To.Value,
+                BookDate = Convert.ToDateTime(tb_BookDate.Text),
+                DueDate = Convert.ToDateTime(tb_DueDate.Text),
                 //   BookStatus = cbb_Status.Text.Replace(" ", String.Empty),
-                BookStatus = "Processed",
-                BookTotalprice = Int32.Parse(tb_Total.Text),
-                BookDeposit = Int32.Parse(tb_Deposit.Text)
+                Status = "Processed",
+                TotalPrice = Int32.Parse(tb_Total.Text),
+                Deposit = Int32.Parse(tb_Deposit.Text)
             };
             if (rbtn_NewClient.Checked)
             {
                 detailVM.clientVM = new ClientVM
                 {
-                    CliName = tb_ClientName.Text,
-                    CliPhone = tb_ClientPhone.Text,
-                    CliGmail = tb_ClientEmail.Text
+                    Name = tb_ClientName.Text,
+                    Phone = tb_ClientPhone.Text,
+                    Gmail = tb_ClientEmail.Text
                 };
             }
             else
@@ -224,18 +225,18 @@ namespace PBL3REAL.View
         private void UpdateBooking()
         {
             detailVM.BookNote = tb_Note.Text;
-            detailVM.BookCheckindate = dtp_From.Value;
-            detailVM.BookCheckoutdate = dtp_To.Value;
-            detailVM.BookTotalprice = calTotalPrice();
-            detailVM.BookDeposit = detailVM.BookTotalprice * 3 / 10;
+            detailVM.CheckinDate = dtp_From.Value;
+            detailVM.CheckoutDate = dtp_To.Value;
+            detailVM.TotalPrice = calTotalPrice();
+            detailVM.Deposit = detailVM.TotalPrice * 3 / 10;
             detailVM.ListSub.Clear();
             foreach (SubBookingDetailVM val in subBookings)
             {
                 detailVM.ListSub.Add(val);
             }
-            detailVM.clientVM.CliGmail = tb_ClientEmail.Text;
-            detailVM.clientVM.CliName = tb_ClientName.Text;
-            detailVM.clientVM.CliPhone = tb_ClientPhone.Text;
+            detailVM.clientVM.Gmail = tb_ClientEmail.Text;
+            detailVM.clientVM.Name = tb_ClientName.Text;
+            detailVM.clientVM.Phone = tb_ClientPhone.Text;
             BookingBLL.updateBooking(detailVM, listDel);
         }
 
@@ -272,9 +273,9 @@ namespace PBL3REAL.View
                 List<ClientVM> listClient = clientBLL.findByProperty(1,10000,properties,"");
                 if (listClient != null && listClient.Count != 0)
                 {
-                    tb_ClientEmail.Text = listClient[0].CliGmail;
-                    tb_ClientName.Text = listClient[0].CliName;
-                    tb_ClientPhone.Text = listClient[0].CliPhone;
+                    tb_ClientEmail.Text = listClient[0].Gmail;
+                    tb_ClientName.Text = listClient[0].Name;
+                    tb_ClientPhone.Text = listClient[0].Phone;
                     idClient = listClient[0].IdClient;
                     rbtn_OldClient.Checked = true;
                     tb_ClientEmail.Enabled = false;
@@ -388,6 +389,8 @@ namespace PBL3REAL.View
         private void btn_Checkin_Click(object sender, EventArgs e)
         {
             BookingBLL.completeBooking(IDBook);
+            myDel();
+            this.Dispose();
         }
         private void btn_OK_Click(object sender, EventArgs e)
         {
@@ -410,6 +413,8 @@ namespace PBL3REAL.View
                         UpdateBooking();
                         MessageBox.Show("Đã cập nhật thành công đơn booking!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
+                    myDel();
+                    this.Dispose();
                     break;
             }
         }

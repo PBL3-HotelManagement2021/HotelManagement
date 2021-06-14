@@ -63,7 +63,7 @@ namespace PBL3REAL.BLL
         {
             try
             {
-                if (!status.Equals("Processed")) BookingDAL.Instance.delBooking(id);
+                if (status.Equals("Processed")) BookingDAL.Instance.delBooking(id);
                 else throw new ArgumentException("Only booking with status 'Processed' can delete");
             }
             catch (Exception)

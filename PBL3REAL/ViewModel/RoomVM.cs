@@ -7,11 +7,11 @@ namespace PBL3REAL.ViewModel
     public class RoomVM
     {
         public int IdRoom { get; set; }
-        public string RoomName { get; set; }
-        public string RoomDescription { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
         public bool RoomActiveflag { get; set; }
-        public decimal RotyCurrentprice { get; set; }
-        public string RoTyName { get; set; }
+        public decimal Price { get; set; }
+        public string RoomType { get; set; }
 
     }
 }

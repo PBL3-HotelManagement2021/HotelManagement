@@ -125,7 +125,7 @@ namespace PBL3REAL.DAL
                 predicate = predicate.And(x => x.CliPhone == properties["phone"] || x.CliGmail == properties["gmail"] );
             if (properties.ContainsKey("code") && properties["code"] !="")
             {
-       //         predicate2 = predicate2.And(x => x.CliCode == properties["code"]);
+       //         predicate2 = predicate2.And(x => x.Code == properties["code"]);
                 predicate = predicate.And(x => x.CliCode != properties["code"]); 
             }                
             var result = AppDbContext.Instance.Clients.Where(predicate).AsNoTracking().ToList();

@@ -102,7 +102,7 @@ namespace PBL3REAL.View
            
             dgv_Booking.DataSource = null;
             dgv_Booking.DataSource = bookingBLL.findByProperty(BookingCurrentPage, ROWS,searchByDate, bookingSearch, bookOrderBy,bookStatus);
-            dgv_Booking.Columns["BookDeposit"].Visible = false;
+            dgv_Booking.Columns["Deposit"].Visible = false;
             dgv_Booking.Columns["IdBook"].Visible = false;
             dgv_Booking.Columns["BookNote"].Visible = false;
         }
@@ -146,9 +146,9 @@ namespace PBL3REAL.View
             DataGridViewSelectedRowCollection r = dgv_Booking.SelectedRows;
             if (r.Count == 1)
             {
-                if(r[0].Cells["BookStatus"].Value.ToString() != "Processed")
+                if(r[0].Cells["Status"].Value.ToString() != "Processed")
                 {
-                    Form_Detail_Invoice f = new Form_Detail_Invoice(r[0].Cells["BookCode"].Value.ToString());
+                    Form_Detail_Invoice f = new Form_Detail_Invoice(r[0].Cells["Code"].Value.ToString());                    
                     this.Hide();
                     f.ShowDialog();
                     this.Show();
@@ -173,6 +173,7 @@ namespace PBL3REAL.View
             if (r.Count == 1)
             {
                 Form_Detail_Booking f = new Form_Detail_Booking(int.Parse(r[0].Cells["IdBook"].Value.ToString()), false);
+                f.myDel = searchBookData;
                 this.Hide();
                 f.ShowDialog();
                 this.Show();
@@ -189,6 +190,7 @@ namespace PBL3REAL.View
         private void btn_BookingAdd_Click(object sender, EventArgs e)
         {
             Form_Detail_Booking f = new Form_Detail_Booking(0, true);
+            f.myDel = searchBookData;
             this.Hide();
             f.ShowDialog();
             this.Show();
@@ -199,9 +201,10 @@ namespace PBL3REAL.View
             DataGridViewSelectedRowCollection r = dgv_Booking.SelectedRows;
             if (r.Count == 1)
             {
-                if(r[0].Cells["BookStatus"].Value.ToString() == "Processed")
+                if(r[0].Cells["Status"].Value.ToString() == "Processed")
                 {
                     Form_Detail_Booking f = new Form_Detail_Booking(int.Parse(r[0].Cells["IdBook"].Value.ToString()), true);
+                    f.myDel = searchBookData;
                     this.Hide();
                     f.ShowDialog();
                     this.Show();
@@ -225,11 +228,11 @@ namespace PBL3REAL.View
             DataGridViewSelectedRowCollection r = dgv_Booking.SelectedRows;
             if (r.Count == 1)
             {
-                if (r[0].Cells["BookStatus"].Value.ToString() == "Processed")
+                if (r[0].Cells["Status"].Value.ToString() == "Processed")
                 {
                     try
                     {
-                        bookingBLL.delBooking(int.Parse(r[0].Cells["IdBook"].Value.ToString()), r[0].Cells["BookStatus"].Value.ToString());
+                        bookingBLL.delBooking(int.Parse(r[0].Cells["IdBook"].Value.ToString()), r[0].Cells["Status"].Value.ToString());
                         searchBookData();
                     }
                     catch (Exception mes)

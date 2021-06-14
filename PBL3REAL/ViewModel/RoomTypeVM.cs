@@ -13,12 +13,12 @@ namespace HotelManagement.ViewModel
            /* MapImgUrl = new Dictionary<int, string>();*/
         }
         public int IdRoomtype { get; set; }
-        public string RotyName { get; set; }
-        public string RotyDescription { get; set; }
-        public int RotyCurrentprice { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public int Price { get; set; }
         public bool RoTyActiveflag { get; set; }
-        public int RotyCapacity { get; set; }
-        public string RotyCode { get; set; }
+        public int Capacity { get; set; }
+        public string Code { get; set; }
 
         /* public IDictionary<int, string> MapImgUrl { get; set; }*/
         public List<ImageVM> ListImg { get; set; }

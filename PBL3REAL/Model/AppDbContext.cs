@@ -129,13 +129,13 @@ namespace PBL3REAL.Model
 
                *//* entity.Property(e => e.IdClient).ValueGeneratedNever();*//*
 
-                entity.Property(e => e.CliGmail).IsUnicode(false);
+                entity.Property(e => e.Gmail).IsUnicode(false);
 
-                entity.Property(e => e.CliName).IsUnicode(false);
+                entity.Property(e => e.Name).IsUnicode(false);
 
-                entity.Property(e => e.CliPhone).IsUnicode(false);
+                entity.Property(e => e.Phone).IsUnicode(false);
 
-                entity.Property(e => e.CliCode).IsUnicode(false);
+                entity.Property(e => e.Code).IsUnicode(false);
                 entity.Property(e => e.CliActiveflag)
                     .HasDefaultValueSql("true");
             });
@@ -196,9 +196,9 @@ namespace PBL3REAL.Model
                 entity.HasKey(e => e.IdRoom)
                     .HasName("Pk_room_id_room");
 
-                entity.Property(e => e.RoomDescription).IsUnicode(false);
+                entity.Property(e => e.Description).IsUnicode(false);
 
-                entity.Property(e => e.RoomName).IsUnicode(false);
+                entity.Property(e => e.Name).IsUnicode(false);
 
                 entity.HasOne(d => d.RoomIdroomtypeNavigation)
                     .WithMany(p => p.Rooms)
@@ -211,11 +211,11 @@ namespace PBL3REAL.Model
                 entity.HasKey(e => e.IdRoomtype)
                     .HasName("Pk_room_type_id_roomtype");
 
-                entity.Property(e => e.RotyDescription)
+                entity.Property(e => e.Description)
                     .IsUnicode(false)
                     .HasDefaultValueSql("('none')");
 
-                entity.Property(e => e.RotyName).IsUnicode(false);
+                entity.Property(e => e.Name).IsUnicode(false);
             });
 
             modelBuilder.Entity<Status>(entity =>

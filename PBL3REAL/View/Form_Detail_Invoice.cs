@@ -45,7 +45,7 @@ namespace PBL3REAL.View
             tb_LastUpdateDate.Text = DateTime.Now.ToString();
             tb_Total.Text = invoiceVM.TotalPrice.ToString();
             dgv.DataSource = invoiceVM.ListRoom;
-            dgv.Columns["RoomDescription"].Visible = false;
+            dgv.Columns["Description"].Visible = false;
             dgv.Columns["IdRoom"].Visible = false;
         }
         private void ExportToPDF(string FileName)

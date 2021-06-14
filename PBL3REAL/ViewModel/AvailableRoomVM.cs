@@ -12,7 +12,5 @@ namespace PBL3REAL.ViewModel
         public decimal RotyCurrentprice { get; set; }
         public string RoTyName { get; set; }
         public string RotyCode { get; set; }
-
-      
     }
 }

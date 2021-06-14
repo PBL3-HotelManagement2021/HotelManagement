@@ -46,10 +46,10 @@ namespace PBL3REAL.View
             {
                 //View or edit
                 roomTypeVM = roomTypeBLL.findbyid(idroomtype);
-                tb_RoomTypeName.Text = roomTypeVM.RotyName;
-                tb_RoomTypeDescription.Text = roomTypeVM.RotyDescription;
-                tb_RoomTypePrice.Text = roomTypeVM.RotyCurrentprice.ToString();
-                tb_RoomTypeCapacity.Text = roomTypeVM.RotyCapacity.ToString();
+                tb_RoomTypeName.Text = roomTypeVM.Name;
+                tb_RoomTypeDescription.Text = roomTypeVM.Description;
+                tb_RoomTypePrice.Text = roomTypeVM.Price.ToString();
+                tb_RoomTypeCapacity.Text = roomTypeVM.Capacity.ToString();
                 TotalPic = roomTypeVM.ListImg.Count;
                 int TotalLoadedPic = TotalPic;
                 switch (TotalLoadedPic)
@@ -368,10 +368,10 @@ namespace PBL3REAL.View
         {
             RoomTypeVM roomTypeVM = new RoomTypeVM
             {
-                RotyCapacity = 3,
-                RotyCurrentprice = 10000,
-                RotyDescription = "ko co",
-                RotyName = "Cuongpor",
+                Capacity = 3,
+                Price = 10000,
+                Description = "ko co",
+                Name = "Cuongpor",
             };
             ImageVM image1 = new ImageVM
             {
@@ -602,10 +602,10 @@ namespace PBL3REAL.View
                 int.TryParse(tb_RoomTypeCapacity.Text, out capacity);
                 int.TryParse(tb_RoomTypePrice.Text, out price);
                 UpdatedIMG();
-                roomTypeVM.RotyCapacity = capacity;
-                roomTypeVM.RotyName = tb_RoomTypeName.Text;
-                roomTypeVM.RotyCurrentprice = price;
-                roomTypeVM.RotyDescription = tb_RoomTypeDescription.Text;
+                roomTypeVM.Capacity = capacity;
+                roomTypeVM.Name = tb_RoomTypeName.Text;
+                roomTypeVM.Price = price;
+                roomTypeVM.Description = tb_RoomTypeDescription.Text;
                 roomTypeBLL.editRoomType(roomTypeVM, listdel);
             }
             myDel();

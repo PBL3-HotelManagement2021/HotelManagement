@@ -41,9 +41,9 @@ namespace PBL3REAL.BLL
                 {
                     invoiceVM.ListRoom.Add(new RoomVM
                     {
-                        RoomName = room.RoomName,
-                        RotyCurrentprice = room.RoomIdroomtypeNavigation.RotyCurrentprice,
-                        RoTyName = room.RoomIdroomtypeNavigation.RotyName
+                        Name = room.RoomName,
+                        Price = room.RoomIdroomtypeNavigation.RotyCurrentprice,
+                        RoomType = room.RoomIdroomtypeNavigation.RotyName
                     });
                 }
                 return invoiceVM;
@@ -86,9 +86,9 @@ namespace PBL3REAL.BLL
                 {
                     invoiceVM.ListRoom.Add(new RoomVM
                     {
-                        RoomName = room.RoomName,
-                        RotyCurrentprice = room.RoomIdroomtypeNavigation.RotyCurrentprice,
-                        RoTyName = room.RoomIdroomtypeNavigation.RotyName
+                        Name = room.RoomName,
+                        Price = room.RoomIdroomtypeNavigation.RotyCurrentprice,
+                        RoomType = room.RoomIdroomtypeNavigation.RotyName
                     });
                 }
                 return invoiceVM;        

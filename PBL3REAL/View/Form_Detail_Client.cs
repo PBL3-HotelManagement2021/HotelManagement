@@ -39,10 +39,10 @@ namespace PBL3REAL.View
             {
                 //View or Edit
                 clientVM = clientBLL.findById(id);
-                tb_ClientCode.Text = clientVM.CliCode;
-                tb_ClientEmail.Text = clientVM.CliGmail;
-                tb_ClientName.Text = clientVM.CliName;
-                tb_ClientPhone.Text = clientVM.CliPhone;
+                tb_ClientCode.Text = clientVM.Code;
+                tb_ClientEmail.Text = clientVM.Gmail;
+                tb_ClientName.Text = clientVM.Name;
+                tb_ClientPhone.Text = clientVM.Phone;
                 tb_ClientCode.Enabled = false;
             }
             if (!Editable_Cli)
@@ -66,9 +66,9 @@ namespace PBL3REAL.View
             properties.Add("code", tb_ClientCode.Text);
             if (clientBLL.checkexisted(properties))
             {
-                clientVM.CliGmail = tb_ClientEmail.Text;
-                clientVM.CliName = tb_ClientName.Text;
-                clientVM.CliPhone = tb_ClientPhone.Text;
+                clientVM.Gmail = tb_ClientEmail.Text;
+                clientVM.Name = tb_ClientName.Text;
+                clientVM.Phone = tb_ClientPhone.Text;
                 if (id == 0)
                 {
                     //Add
@@ -92,9 +92,9 @@ namespace PBL3REAL.View
         private void btn_Reset_Click(object sender, EventArgs e)
         {
             //Reset Data
-            tb_ClientEmail.Text = clientVM.CliGmail;
-            tb_ClientName.Text = clientVM.CliName;
-            tb_ClientPhone.Text = clientVM.CliPhone;
+            tb_ClientEmail.Text = clientVM.Gmail;
+            tb_ClientName.Text = clientVM.Name;
+            tb_ClientPhone.Text = clientVM.Phone;
         }
         private void btn_Cancel_Click(object sender, EventArgs e)
         {
