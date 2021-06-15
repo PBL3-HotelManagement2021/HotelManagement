@@ -128,7 +128,7 @@ namespace PBL3REAL.View
                 tb_DueDate.Text = detailVM.DueDate.ToString();
                 tb_Deposit.Text = detailVM.Deposit.ToString();
                 tb_Total.Text = detailVM.TotalPrice.ToString();
-                cbb_Status.Text = detailVM.Status;
+                tb_Status.Text = detailVM.Status;
                 tb_Note.Text = detailVM.BookNote;
 
                 if (!Edit)
@@ -140,9 +140,7 @@ namespace PBL3REAL.View
                     picbx_Add.Enabled = false;
                     picbx_Delete.Enabled = false;
                     btn_OK.Enabled = false;
-                    btn_Invoice.Enabled = false;
                     btn_Checkin.Enabled = true;
-                    btn_Reset.Enabled = false;
 
                 }
                 else
@@ -161,7 +159,6 @@ namespace PBL3REAL.View
                     }
                 }
             }
-            cbb_Status.Enabled = false;
             tb_Total.Enabled = false;
             tb_Deposit.Enabled = false;
         }

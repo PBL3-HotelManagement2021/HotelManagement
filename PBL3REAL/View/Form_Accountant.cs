@@ -126,7 +126,7 @@ namespace PBL3REAL.View
             if (dgv_Invoice.SelectedRows.Count == 1)
             {
                 //truyền ID_CLient 
-                Form_Detail_Invoice f = new Form_Detail_Invoice("",int.Parse(dgv_Invoice.SelectedRows[0].Cells["IdInvoice"].Value.ToString()));
+                Form_Detail_Invoice f = new Form_Detail_Invoice("",int.Parse(dgv_Invoice.SelectedRows[0].Cells["IdInvoice"].Value.ToString()),false);
                 f.myDel = LoadData;
                 this.Hide();
                 f.ShowDialog();

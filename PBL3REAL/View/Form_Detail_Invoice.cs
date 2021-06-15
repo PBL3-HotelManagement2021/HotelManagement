@@ -18,13 +18,16 @@ namespace PBL3REAL.View
 {
     public partial class Form_Detail_Invoice : Form
     {
+        /***** GLOBAL PARAMETERS *****/
         private string bookCode="";
         private int idInvoice=0;
         private QLInvoiceBLL qLInvoiceBLL;
         private InvoiceDetailVM invoiceDetailVM;
         public delegate void MyDel();
         public MyDel myDel;
-        public Form_Detail_Invoice(string bookCode, int idInvoice)
+
+        /***** CONSTRUCTOR *****/
+        public Form_Detail_Invoice(string bookCode, int idInvoice, bool Editable)
         {
             InitializeComponent();
             System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
@@ -37,7 +40,7 @@ namespace PBL3REAL.View
                 invoiceDetailVM = qLInvoiceBLL.infoAddInvoice(bookCode);
                 tb_CreateDate.Text = DateTime.Now.ToString();
                 tb_LastUpdateDate.Text = DateTime.Now.ToString();
-                lb_InvoiceID.Text = "";
+                lb_InvoiceID.Text = "Invoice ID: ...";
                 tb_BookingCode.Text = bookCode;
             }
             else if (idInvoice != 0)
@@ -45,14 +48,22 @@ namespace PBL3REAL.View
                 invoiceDetailVM = qLInvoiceBLL.getDetail(idInvoice);
                 tb_CreateDate.Text = invoiceDetailVM.InvCreatedate.ToString();
                 tb_LastUpdateDate.Text = invoiceDetailVM.InvUpdatedate.ToString();
-                lb_InvoiceID.Text = invoiceDetailVM.InvCode.ToString();
+                lb_InvoiceID.Text = "Invoice ID: " + invoiceDetailVM.InvCode.ToString();
                 tb_BookingCode.Text = invoiceDetailVM.BookCode;
             }
-            loadData();
+            LoadData(Editable);
         }
 
-        private void loadData()
+        /***** FUNCTIONS *****/
+        //-> Load Data Function
+        private void LoadData(bool Editable)
         {
+            if (!Editable)
+            {
+                tbllaypn_InvoiceFromToInfo.Enabled = false;
+                tbllaypn_BookingDateInfo.Enabled = false;
+                btn_OK.Enabled = false;
+            }
             tb_FullName.Text = invoiceDetailVM.CliName;
             tb_Gmail.Text = invoiceDetailVM.CliGmail;
             tb_Phone.Text = invoiceDetailVM.CliPhone;            
@@ -64,76 +75,20 @@ namespace PBL3REAL.View
             dgv.Columns["Description"].Visible = false;
             dgv.Columns["IdRoom"].Visible = false;
             dgv.Columns["RoomActiveflag"].Visible = false;
-            
+            lb_Usercode.Text += " " /* + [Truyền Usercode vào đây] */;
         }
+
+        //-> Set Service
+        //public void ConfigureServices(IServiceCollection services)
+        //{
+        //    Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+
+        //    // more code here
+        //}
+
+        //-> Export to PDF Function
         private void ExportToPDF(string FileName)
         {
-            //if (dataGridView1.Rows.Count > 0)
-            //{
-            //    SaveFileDialog sfd = new SaveFileDialog();
-            //    sfd.Filter = "PDF (*.pdf)|*.pdf";
-            //    sfd.FileName = "Output.pdf";
-            //    bool fileError = false;
-            //    if (sfd.ShowDialog() == DialogResult.OK)
-            //    {
-            //        if (File.Exists(sfd.FileName))
-            //        {
-            //            try
-            //            {
-            //                File.Delete(sfd.FileName);
-            //            }
-            //            catch (IOException ex)
-            //            {
-            //                fileError = true;
-            //                MessageBox.Show("It wasn't possible to write the data to the disk." + ex.Message);
-            //            }
-            //        }
-            //        if (!fileError)
-            //        {
-            //            try
-            //            {
-            //                PdfPTable pdfTable = new PdfPTable(dataGridView1.Columns.Count);
-            //                pdfTable.DefaultCell.Padding = 3;
-            //                pdfTable.WidthPercentage = 100;
-            //                pdfTable.HorizontalAlignment = Element.ALIGN_LEFT;
-
-            //                foreach (DataGridViewColumn column in dataGridView1.Columns)
-            //                {
-            //                    PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText));
-            //                    pdfTable.AddCell(cell);
-            //                }
-
-            //                foreach (DataGridViewRow row in dataGridView1.Rows)
-            //                {
-            //                    foreach (DataGridViewCell cell in row.Cells)
-            //                    {
-            //                        pdfTable.AddCell(cell.Value.ToString());
-            //                    }
-            //                }
-
-            //                using (FileStream stream = new FileStream(sfd.FileName, FileMode.Create))
-            //                {
-            //                    Document pdfDoc = new Document(PageSize.A4, 10f, 20f, 20f, 10f);
-            //                    PdfWriter.GetInstance(pdfDoc, stream);
-            //                    pdfDoc.Open();
-            //                    pdfDoc.Add(pdfTable);
-            //                    pdfDoc.Close();
-            //                    stream.Close();
-            //                }
-
-            //                MessageBox.Show("Data Exported Successfully !!!", "Info");
-            //            }
-            //            catch (Exception ex)
-            //            {
-            //                MessageBox.Show("Error :" + ex.Message);
-            //            }
-            //        }
-            //    }
-            //}
-            //else
-            //{
-            //    MessageBox.Show("No Record To Export !!!", "Info");
-            //}
             PdfDocument pdf = new PdfDocument();
             PdfPage pdfPage = pdf.AddPage();
             XGraphics graph = XGraphics.FromPdfPage(pdfPage);
@@ -155,6 +110,7 @@ namespace PBL3REAL.View
             pdf.Save(FileName + ".pdf");
         }
 
+        /***** EVENTS *****/
         private void btn_OK_Click(object sender, EventArgs e)
         {
             if (invoiceDetailVM.BookStatus != "Paid")
@@ -167,17 +123,9 @@ namespace PBL3REAL.View
                 MessageBox.Show("This Invoice has already been created", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void btn_Cancel_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }
-        //public void ConfigureServices(IServiceCollection services)
-        //{
-        //    Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
-
-        //    // more code here
-        //}
-
     }
 }
