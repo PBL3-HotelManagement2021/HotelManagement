@@ -179,7 +179,7 @@ namespace PBL3REAL.View
             this.grbx_Analyze.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.grbx_Analyze.Location = new System.Drawing.Point(14, 640);
             this.grbx_Analyze.Name = "grbx_Analyze";
-            this.grbx_Analyze.Size = new System.Drawing.Size(1324, 336);
+            this.grbx_Analyze.Size = new System.Drawing.Size(1324, 450);
             this.grbx_Analyze.TabIndex = 0;
             this.grbx_Analyze.TabStop = false;
             this.grbx_Analyze.Text = "Phân tích";
@@ -190,7 +190,7 @@ namespace PBL3REAL.View
             this.fllaypn_Analyze.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.fllaypn_Analyze.Location = new System.Drawing.Point(9, 33);
             this.fllaypn_Analyze.Name = "fllaypn_Analyze";
-            this.fllaypn_Analyze.Size = new System.Drawing.Size(1151, 297);
+            this.fllaypn_Analyze.Size = new System.Drawing.Size(1151, 411);
             this.fllaypn_Analyze.TabIndex = 0;
             // 
             // rtb_Analyze
@@ -202,7 +202,7 @@ namespace PBL3REAL.View
             this.rtb_Analyze.Margin = new System.Windows.Forms.Padding(0);
             this.rtb_Analyze.Name = "rtb_Analyze";
             this.rtb_Analyze.ReadOnly = true;
-            this.rtb_Analyze.Size = new System.Drawing.Size(404, 297);
+            this.rtb_Analyze.Size = new System.Drawing.Size(404, 411);
             this.rtb_Analyze.TabIndex = 0;
             this.rtb_Analyze.Text = "";
             // 
@@ -317,7 +317,7 @@ namespace PBL3REAL.View
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(230)))), ((int)(((byte)(233)))));
-            this.ClientSize = new System.Drawing.Size(1350, 979);
+            this.ClientSize = new System.Drawing.Size(1350, 1102);
             this.Controls.Add(this.grbx_Analyze);
             this.Controls.Add(this.grbx_Statistic);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
