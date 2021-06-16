@@ -34,6 +34,7 @@ namespace PBL3REAL.View
         private string currentRoomType;
         private List<int> listOld;
         private List<int> listDel;
+        private int duration; 
 
         public Form_Detail_Booking (int IdBook, bool Editable)
         {
@@ -106,7 +107,6 @@ namespace PBL3REAL.View
                 rbtn_NewClient.Checked = true;
                 rbtn_OldClient.Checked = false;
                 tb_ClientSearch.Enabled = true;
-
                 dgv.DataSource = null;
             }
             else
@@ -130,10 +130,10 @@ namespace PBL3REAL.View
                 tb_Total.Text = detailVM.TotalPrice.ToString();
                 tb_Status.Text = detailVM.Status;
                 tb_Note.Text = detailVM.BookNote;
-
+                grbx_ClientInfo.Enabled = false;
                 if (!Edit)
                 {
-                    grbx_ClientInfo.Enabled = false;
+                 
                     grbx_PeriodTime.Enabled = false;
                     grbx_BookingInfo.Enabled = false;
                     picbx_Enter.Enabled = false;
@@ -180,7 +180,7 @@ namespace PBL3REAL.View
             {
                 result += val.BoodetPrice;
             }
-            return result;
+            return result * duration;
         }
         //Booking Functions
         private void AddBooking()
@@ -300,7 +300,7 @@ namespace PBL3REAL.View
         private void picbx_Add_Click(object sender, EventArgs e)
         {
             //add room
-            if (dtp_From.Value != null && dtp_To.Value != null && cbb_RoomType.SelectedItem != null)
+            if (dtp_From.Value != null && dtp_To.Value != null && cbb_RoomType.SelectedItem != null && cbb_Room.SelectedItem!=null)
             {
                 AvailableRoomVM result = ((AvailableRoomVM)cbb_Room.SelectedItem);
                 subBookings.Add(new SubBookingDetailVM
@@ -309,7 +309,9 @@ namespace PBL3REAL.View
                     BoodetIdroom = result.IdRoom,
                     BoodetRoTyCode = result.RotyCode,
                     RoomName = result.RoomName,
-                    RoomType = result.RoTyName
+                    RoomType = result.RoTyName,
+                    Duration = duration,
+                    Amount = Convert.ToInt32(result.RotyCurrentprice) * duration
                 });
                 if (storeRoomDel.ContainsKey(currentRoomType))
                 {
@@ -360,6 +362,7 @@ namespace PBL3REAL.View
 
         private void onDtbChange()
         {
+            duration = dtp_To.Value.Date.Subtract(dtp_From.Value.Date).Days+1;
             foreach (var value in subBookings)
             {
                 if (value.IdBoodet != 0) listDel.Add(value.IdBoodet);

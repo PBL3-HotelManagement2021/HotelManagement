@@ -84,6 +84,7 @@ namespace PBL3REAL.DAL
                             .Include(x => x.BookIdclientNavigation)
                             .Include(x => x.BookIduserNavigation)
                             .Where(x => x.IdBook == idbook)
+                            .AsNoTracking()
                             .SingleOrDefault();
              return result;     
         }
@@ -115,7 +116,7 @@ namespace PBL3REAL.DAL
    
                                   
                               }
-                              ).FirstOrDefault();
+                              ).AsNoTracking().FirstOrDefault();
             return result;
         }
        
@@ -157,7 +158,7 @@ namespace PBL3REAL.DAL
             AppDbContext.Instance.SaveChanges();
             AppDbContext.Instance.Remove(booking);
             AppDbContext.Instance.SaveChanges();
-          
+            AppDbContext.Instance.Entry(booking).State = EntityState.Detached;
         }
         public void delBookingDetail(List<int> listdel_detail)
         {
@@ -165,8 +166,7 @@ namespace PBL3REAL.DAL
             foreach(int id in listdel_detail)
             {
                 BookingDetail bookingDetail = AppDbContext.Instance.BookingDetails.Where(x =>x.IdBoodet == id).AsNoTracking().FirstOrDefault();
-                list.Add(bookingDetail);
-              
+                list.Add(bookingDetail);              
             }
             AppDbContext.Instance.BookingDetails.RemoveRange(list);
             AppDbContext.Instance.SaveChanges();
@@ -181,6 +181,10 @@ namespace PBL3REAL.DAL
             {
                 AppDbContext.Instance.BookingDetails.AddRange(list);
                 AppDbContext.Instance.SaveChanges();
+                foreach (BookingDetail bookingDetail1 in list)
+                {
+                    AppDbContext.Instance.Entry(bookingDetail1).State = EntityState.Detached;
+                }
             }
             catch (Exception)
             {

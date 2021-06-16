@@ -23,6 +23,12 @@ namespace PBL3REAL.Model
         [Column("inv_code")]
         [StringLength(8)]
         public string InvCode { get; set; }
+
+        [Required]
+        [Column("inv_status")]
+        [StringLength(10)]
+        public string InvStatus { get; set; }
+
         [Column("inv_idbook")]
         public int InvIdbook { get; set; }
 

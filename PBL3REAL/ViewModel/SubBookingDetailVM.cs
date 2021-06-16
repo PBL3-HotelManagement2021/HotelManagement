@@ -15,6 +15,8 @@ namespace PBL3REAL.ViewModel
         public string RoomName { get; set; }
         public string RoomType { get; set; }
         public int BoodetPrice { get; set; }
+        public int Duration { get; set; }
+        public int Amount { get; set; }
 
     }
 }

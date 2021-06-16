@@ -42,6 +42,7 @@ namespace PBL3REAL.View
                 tb_LastUpdateDate.Text = DateTime.Now.ToString();
                 lb_InvoiceID.Text = "Invoice ID: ...";
                 tb_BookingCode.Text = bookCode;
+                lb_Usercode.Text += QLUserBLL.stoUser.UserCode;
             }
             else if (idInvoice != 0)
             {
@@ -50,6 +51,8 @@ namespace PBL3REAL.View
                 tb_LastUpdateDate.Text = invoiceDetailVM.InvUpdatedate.ToString();
                 lb_InvoiceID.Text = "Invoice ID: " + invoiceDetailVM.InvCode.ToString();
                 tb_BookingCode.Text = invoiceDetailVM.BookCode;
+                lb_Usercode.Text += invoiceDetailVM.UserCode;
+              
             }
             LoadData(Editable);
         }
@@ -66,16 +69,15 @@ namespace PBL3REAL.View
             }
             tb_FullName.Text = invoiceDetailVM.CliName;
             tb_Gmail.Text = invoiceDetailVM.CliGmail;
-            tb_Phone.Text = invoiceDetailVM.CliPhone;            
+            tb_Phone.Text = invoiceDetailVM.CliPhone;
+            tb_ClientCode.Text = invoiceDetailVM.CliCode;
             tb_BookingDate.Text = invoiceDetailVM.BookBookDate.ToString();
             tb_PaymentDate.Text = invoiceDetailVM.BookChecoutdate.ToString();
             tb_CheckinDate.Text = invoiceDetailVM.BookCheckindate.ToString();
             tb_Total.Text = invoiceDetailVM.TotalPrice.ToString();
+            tb_InvStatus.Text = invoiceDetailVM.InvStatus;
             dgv.DataSource = invoiceDetailVM.ListRoom;
-            dgv.Columns["Description"].Visible = false;
-            dgv.Columns["IdRoom"].Visible = false;
-            dgv.Columns["RoomActiveflag"].Visible = false;
-            lb_Usercode.Text += " " /* + [Truyền Usercode vào đây] */;
+          
         }
 
         //-> Set Service
@@ -126,7 +128,7 @@ namespace PBL3REAL.View
         /***** EVENTS *****/
         private void btn_OK_Click(object sender, EventArgs e)
         {
-            if (invoiceDetailVM.BookStatus != "Paid")
+            if (invoiceDetailVM.IdInvoice != 0)
             {
                 qLInvoiceBLL.addInvoice(invoiceDetailVM);
                 myDel();

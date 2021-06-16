@@ -26,7 +26,6 @@ namespace PBL3REAL.BLL
                 InvoiceDetailVM invoiceDetailVM = new InvoiceDetailVM
                 {
                     InvIdbook = booking.IdBook,
-                    BookStatus = booking.BookStatus,
                     BookBookDate = booking.BookBookdate,
                     BookCheckindate = booking.BookCheckindate,
                     BookChecoutdate = booking.BookCheckoutdate,
@@ -35,15 +34,27 @@ namespace PBL3REAL.BLL
                     CliPhone = booking.BookIdclientNavigation.CliPhone,
                     CliGmail = booking.BookIdclientNavigation.CliGmail,
                 };
-                if (booking.BookStatus == "Checkin") invoiceDetailVM.TotalPrice = booking.BookTotalprice;
-                else invoiceDetailVM.TotalPrice = booking.BookDeposit;
+                if (booking.BookStatus == "Checkin")
+                {
+                    invoiceDetailVM.TotalPrice = booking.BookTotalprice;
+                    invoiceDetailVM.InvStatus = "Total";
+                }
+                else
+                {
+                    invoiceDetailVM.TotalPrice = booking.BookDeposit;
+                    invoiceDetailVM.InvStatus = "Deposit";
+                }
+                TimeSpan durationDate = invoiceDetailVM.BookChecoutdate.Subtract(invoiceDetailVM.BookCheckindate);
                 foreach (Room room in RoomDAL.Instance.findByIdBook(booking.IdBook))
                 {
-                    invoiceDetailVM.ListRoom.Add(new RoomVM
+                    invoiceDetailVM.ListRoom.Add(new Invoice_RoomVM
                     {
                         Name = room.RoomName,
                         Price = room.RoomIdroomtypeNavigation.RotyCurrentprice,
-                        RoomType = room.RoomIdroomtypeNavigation.RotyName
+                        RoomType = room.RoomIdroomtypeNavigation.RotyName,
+                        Duration = durationDate.Days,
+                        Amount = room.RoomIdroomtypeNavigation.RotyCurrentprice * durationDate.Days
+
                     });
                 }
                 return invoiceDetailVM;
@@ -70,26 +81,31 @@ namespace PBL3REAL.BLL
         public InvoiceDetailVM getDetail(int idinvoice)
         {
             try
-            {
+            {                
                 Invoice invoice = InvoiceDAL.Instance.findById(idinvoice);
                 InvoiceDetailVM invoiceDetailVM = mapper.Map<InvoiceDetailVM>(invoice);
                 Booking booking = invoice.InvIdbookNavigation;
                 invoiceDetailVM.BookCheckindate = booking.BookCheckindate;
                 invoiceDetailVM.BookChecoutdate = booking.BookCheckoutdate;
+                invoiceDetailVM.BookBookDate = booking.BookBookdate;
                 invoiceDetailVM.BookCode = booking.BookCode;
                 invoiceDetailVM.CliName = booking.BookIdclientNavigation.CliName;
                 invoiceDetailVM.CliCode = booking.BookIdclientNavigation.CliCode;
                 invoiceDetailVM.CliPhone = booking.BookIdclientNavigation.CliPhone;
                 invoiceDetailVM.CliGmail = booking.BookIdclientNavigation.CliGmail;
                 invoiceDetailVM.UserCode = booking.BookIduserNavigation.UserCode;
-                
-                foreach(Room room in RoomDAL.Instance.findByIdBook(invoice.InvIdbookNavigation.IdBook))
+
+                TimeSpan durationDate = invoiceDetailVM.BookChecoutdate.Subtract(invoiceDetailVM.BookCheckindate);
+                foreach (Room room in RoomDAL.Instance.findByIdBook(invoice.InvIdbookNavigation.IdBook))
                 {
-                    invoiceDetailVM.ListRoom.Add(new RoomVM
+                    invoiceDetailVM.ListRoom.Add(new Invoice_RoomVM
                     {
                         Name = room.RoomName,
                         Price = room.RoomIdroomtypeNavigation.RotyCurrentprice,
-                        RoomType = room.RoomIdroomtypeNavigation.RotyName
+                        RoomType = room.RoomIdroomtypeNavigation.RotyName,
+                        Duration = durationDate.Days,
+                        Amount = room.RoomIdroomtypeNavigation.RotyCurrentprice * durationDate.Days
+
                     });
                 }
                 return invoiceDetailVM;        
