@@ -539,6 +539,7 @@ namespace PBL3REAL.View
             this.btn_ExportToPDF.TabIndex = 0;
             this.btn_ExportToPDF.Text = "Export to PDF";
             this.btn_ExportToPDF.UseVisualStyleBackColor = false;
+            this.btn_ExportToPDF.Click += new System.EventHandler(this.btn_ExportToPDF_Click);
             // 
             // btn_OK
             // 

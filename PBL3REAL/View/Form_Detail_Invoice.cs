@@ -96,18 +96,31 @@ namespace PBL3REAL.View
             XFont font_Footer = new XFont("Arial", 8, XFontStyle.Bold);
             graph.DrawString("INVOICE", font_Header, XBrushes.Black,new XRect(0, 30, pdfPage.Width.Point, 0), XStringFormats.BaseLineCenter);
             graph.DrawString("Invoice ID: " + FileName, font_Footer, XBrushes.Black, new XRect(3, 0, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.BottomLeft);
-            graph.DrawLine(XPens.Azure, 20, 20, 20, 20);
+            graph.DrawLine(XPens.Azure, 5, 160, 100, 160);
             //Layout
             //P1: 
             //Left: Hotel Info
-            //Right: Hotel Logo
+            XFont font_P1_Left = new XFont("Arial", 12, XFontStyle.Regular);
+            graph.DrawString("Hotel Name", font_P1_Left, XBrushes.Black, new XRect(5, 120, pdfPage.Width.Point, 0), XStringFormats.Default);
+            graph.DrawString("Address", font_P1_Left, XBrushes.Black, new XRect(5, 140, pdfPage.Width.Point, 0), XStringFormats.Default);
+            graph.DrawLine(XPens.Black, 5, 160, 300, 160);
+            //Right: Hotel Logo -> Chèn ảnh
             //P2: 
             //Left: Booking Info
+            XFont font_P2_Left = new XFont("Arial", 12, XFontStyle.Regular);
+            graph.DrawString("Booking Code", font_P2_Left, XBrushes.Black, new XRect(5, 190, pdfPage.Width.Point, 0), XStringFormats.Default);
+            graph.DrawString("Booking Date", font_P2_Left, XBrushes.Black, new XRect(5, 220, pdfPage.Width.Point, 0), XStringFormats.Default);
+            graph.DrawString("Booking Status", font_P2_Left, XBrushes.Black, new XRect(5, 250, pdfPage.Width.Point, 0), XStringFormats.Default);
             //Right: Payer Info
+            XFont font_P2_Right = new XFont("Arial", 12, XFontStyle.Regular);
+            graph.DrawString("Booking Code", font_P2_Right, XBrushes.Black, new XRect(320, 180, pdfPage.Width.Point, 0), XStringFormats.Default);
+            graph.DrawString("Booking Date", font_P2_Right, XBrushes.Black, new XRect(320, 205, pdfPage.Width.Point, 0), XStringFormats.Default);
+            graph.DrawString("Booking Status", font_P2_Right, XBrushes.Black, new XRect(320, 230, pdfPage.Width.Point, 0), XStringFormats.Default);
+            graph.DrawString("Booking Status", font_P2_Right, XBrushes.Black, new XRect(320, 255, pdfPage.Width.Point, 0), XStringFormats.Default);
             //P3: Items Table
             //P4: Total money
             //P5: Signature
-            pdf.Save(FileName + ".pdf");
+            pdf.Save(FileName);
         }
 
         /***** EVENTS *****/
@@ -126,6 +139,12 @@ namespace PBL3REAL.View
         private void btn_Cancel_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void btn_ExportToPDF_Click(object sender, EventArgs e)
+        {
+            string path = System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + "\\Invoices\\" + invoiceDetailVM.InvCode + ".pdf";
+            ExportToPDF(path);
         }
     }
 }
