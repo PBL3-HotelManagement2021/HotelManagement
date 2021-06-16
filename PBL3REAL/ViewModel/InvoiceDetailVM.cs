@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace PBL3REAL.ViewModel
 {
@@ -8,7 +7,7 @@ namespace PBL3REAL.ViewModel
     {
         public InvoiceDetailVM()
         {
-            ListRoom = new List<RoomVM>();
+            ListRoom = new List<Invoice_RoomVM>();
         }
         public int IdInvoice { get; set; }
 
@@ -16,6 +15,7 @@ namespace PBL3REAL.ViewModel
         public DateTime InvCreatedate { get; set; }
         public DateTime InvUpdatedate { get; set; }
         public string InvCode { get; set; }
+        public string InvStatus { get; set; }
         public int TotalPrice { get; set; }
 
         //     public int InvIdbook { get; set; }
@@ -24,7 +24,7 @@ namespace PBL3REAL.ViewModel
 
         public DateTime BookChecoutdate { get; set; }
 
-        public string BookStatus { get; set; }
+
         public string BookCode { get; set; }
 
         /*   public int InvIdUser { get; set; }*/
@@ -35,6 +35,6 @@ namespace PBL3REAL.ViewModel
         public string CliPhone { get; set; }
         public string CliGmail { get; set; }
 
-        public List<RoomVM> ListRoom { get; set; }
+        public List<Invoice_RoomVM> ListRoom { get; set; }
     }
 }

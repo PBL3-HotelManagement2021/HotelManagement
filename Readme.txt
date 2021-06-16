@@ -1,9 +1,3 @@
--Bỏ cái nút reset trong InvoiceDetail , nếu mà vô để view(trong FormAccoutant) thì bỏ nút OKE đi + cho t thêm cai label để hiện UserCode(hiện ở góc màn hình hay chi đó )
--Form Receiptionist dong 556 
--Thêm 2 cái DTB fromDate vs toDate + bỏ 2 cái button add vs edit đi chỗ FormAccountant 
--bỏ nút Invoice chỗ view,add,edit BookingDetail đi + nút checkin chỉ hiện chỗ update thôi +BookDate vs DueDate đừng hiện giờ
- 
-
 hello
 -----------------------
 Mục đích activeflag là khóa một đối tượng nào đó nhưng vẫn giữ thông tin lại cái các đối tượng khác truy vấn 

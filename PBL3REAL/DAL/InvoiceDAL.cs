@@ -66,10 +66,12 @@ namespace PBL3REAL.DAL
                                       InvUpdatedate = inv.InvUpdatedate,
                                       TotalPrice = inv.TotalPrice,
                                       InvCode = inv.InvCode,
+                                      InvStatus = inv.InvStatus,
                                       InvIdbookNavigation = new Booking
                                       {
                                           IdBook = book.IdBook,
                                           BookCheckindate = book.BookCheckindate,
+                                          BookBookdate = book.BookBookdate,
                                           BookCheckoutdate = book.BookCheckoutdate,
                                           BookCode = book.BookCode,
                                           BookIdclientNavigation = new Client()

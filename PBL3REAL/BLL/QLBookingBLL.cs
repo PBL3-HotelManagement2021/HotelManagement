@@ -46,7 +46,9 @@ namespace PBL3REAL.BLL
                 {
                     SubBookingDetailVM subBookingDetailVM = mapper.Map<SubBookingDetailVM>(val);
                     subBookingDetailVM.RoomName = listRoom[i].RoomName;
-                    subBookingDetailVM.RoomType = listRoom[i].RoomIdroomtypeNavigation.RotyName;               
+                    subBookingDetailVM.RoomType = listRoom[i].RoomIdroomtypeNavigation.RotyName;
+                    subBookingDetailVM.Duration = result.CheckoutDate.Subtract(result.CheckinDate).Days+1;
+                    subBookingDetailVM.Amount = subBookingDetailVM.Duration * subBookingDetailVM.BoodetPrice;
                     i++;
                     result.ListSub.Add(subBookingDetailVM);
                 }
@@ -147,10 +149,8 @@ namespace PBL3REAL.BLL
 
         public void updateBooking(BookingDetailVM bookingDetailVM, List<int> listDel)
         {
-            Client client = new Client();
             Booking booking = new Booking();
             mapper.Map(bookingDetailVM, booking);
-            mapper.Map(bookingDetailVM.clientVM, client);
             booking.BookIdclient = bookingDetailVM.clientVM.IdClient;
             booking.BookIduser = QLUserBLL.stoUser.IdUser;         //user se dc luu o tang BLL khi dang nhap 
             List<BookingDetail> listadd = new List<BookingDetail>();
@@ -163,8 +163,7 @@ namespace PBL3REAL.BLL
             }
 
             try
-            {
-                ClientDAL.Instance.update(client);               
+            {              
                 if(listDel.Count!=0) BookingDAL.Instance.delBookingDetail(listDel);
                 BookingDAL.Instance.updateBooking(booking);
                 if (listadd.Count != 0) BookingDAL.Instance.addBookingDetail(listadd);            

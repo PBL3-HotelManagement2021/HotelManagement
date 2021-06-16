@@ -16,5 +16,6 @@ namespace PBL3REAL.ViewModel
         public DateTime InvUpdatedate { get; set; }
         public string InvCode { get; set; }
         public int TotalPrice { get; set; }
+        public string InvStatus { get; set; }
     }
 }
