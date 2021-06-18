@@ -5,23 +5,26 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
+using System.IO;
+using System.Data.SqlClient;
 using PBL3REAL.Extention;
 using PBL3REAL.BLL;
 using PBL3REAL.DAL;
 using PBL3REAL.ViewModel;
-using System.Windows.Forms.DataVisualization.Charting;
-using System.IO;
-using System.Data.SqlClient;
-/*using Microsoft.Office.Interop.Excel;*/
-using OfficeOpenXml;
 using PBL3REAL.Algorithm;
+using Microsoft.Office.Interop.Excel;
+using OfficeOpenXml;
 namespace PBL3REAL.View
 {
     public partial class Form_View_Statistic_Analyze : Form
     {
+        /***** GLOBAL DECLARATION *****/
         QLInvoiceBLL invoiceBLL;
-        List<Statistic1> listVM;
+        List<Statistic1> listVM1;
         List<Statistic2> listVM2;
+
+        /***** CONSTRUCTOR *****/
         public Form_View_Statistic_Analyze(int DataType, DateTime from, DateTime to, bool Statistic, bool Analyze, bool Predict)
         {
             InitializeComponent();
@@ -29,20 +32,72 @@ namespace PBL3REAL.View
             switch(DataType)
             {
                 case 0:
-                    listVM = invoiceBLL.findForStatistic(from, to);
                     if (Statistic)
                     {
-                        FillChart();
-                        LoadStatisticsData();
+                        try
+                        {
+                            LoadStatisticsData(0, from, to);
+                            DrawStatisticChart(0);
+                        }
+                        catch (Exception e1) { }
                     }
                     if (Analyze)
                     {
-                        rtb_Analyze.Text = invoiceBLL.AnalyzingIncome(listVM, from, to);
+                        try
+                        {
+                            rtb_Analyze.Text = invoiceBLL.AnalyzingIncome(listVM1, from, to);
+                        }
+                        catch (Exception e2) { }
                     }
                     if (Predict)
                     {
-                        DrawTrendlineChart(PredictNext7Days());
+                        try
+                        {
+                            DrawTrendlineChart(0,PredictNext7Days(0));
+                        }
+                        catch (Exception e3) { }
                     }    
+                    break;
+                case 1:
+                    if (Statistic)
+                    {
+                        try
+                        {
+                            LoadStatisticsData(1, from, to);
+                            DrawStatisticChart(1);
+                        }
+                        catch (Exception e1) { }
+                    }
+                    if (Analyze)
+                    {
+                        try
+                        {
+                            rtb_Analyze.Text = invoiceBLL.AnalyzingIncome(listVM1, from, to);
+                        }
+                        catch (Exception e2) { }
+                    }
+                    if (Predict)
+                    {
+                        try
+                        {
+                            DrawTrendlineChart(1,PredictNext7Days(1));
+                        }
+                        catch (Exception e3) { }
+                    }
+                    break;
+                default:
+                    break;
+            }    
+        }
+        /***** STATISTIC *****/
+        //-> Functions
+        private void LoadStatisticsData(int DataType, DateTime from, DateTime to)
+        {
+            switch(DataType)
+            {
+                case 0:
+                    listVM1 = invoiceBLL.findForStatistic(from, to);
+                    dgv_Statistic.DataSource = listVM1;
                     break;
                 case 1:
                     listVM2 = invoiceBLL.findForStatistic2(from, to);
@@ -63,16 +118,36 @@ namespace PBL3REAL.View
                             r["String"] = kvp.Key;
                             r["int"] = kvp.Value;
                             dt.Rows.Add(r);
-                        }  
-                    }    
+                        }
+                    }
                     dgv_Statistic.DataSource = dt;
                     break;
                 default:
                     break;
             }    
         }
-        /***** STATISTIC *****/
-        //-> Functions
+        private void DrawStatisticChart(int DataType)
+        {
+            switch(DataType)
+            {
+                case 0:
+                    Dictionary<string, int> kvp = new Dictionary<string, int>();
+                    foreach (Statistic1 statistic1 in listVM1)
+                    {
+                        kvp.Add(statistic1.Date.ToString("dd/MM/yyyy"), statistic1.TotalPriceByDate);
+                    }
+                    chart1.Series.Add("Income");
+                    chart1.Series["Income"].XValueMember = "Date";
+                    chart1.Series["Income"].YValueMembers = "TotalByDate";
+                    chart1.Series["Income"].Points.DataBindXY(kvp.Keys, kvp.Values);
+                    chart1.Series["Income"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
+                    break;
+                case 1:
+                    break;
+                default:
+                    break;
+            } 
+        }
         private void StatisticExporttoImage()
         {
             string path = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + "\\Statistic";
@@ -95,7 +170,7 @@ namespace PBL3REAL.View
                 + "-" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Day.ToString() + "-" + DateTime.Now.Hour.ToString()
                 + "-" + DateTime.Now.Minute.ToString() + "-" + DateTime.Now.Second.ToString() + " --- DataList.png");
         }
-      /*  private void StatisticExportToExcel()
+        private void StatisticExportToExcel()
         {
             // creating Excel Application  
             Microsoft.Office.Interop.Excel._Application app = new Microsoft.Office.Interop.Excel.Application();
@@ -129,123 +204,113 @@ namespace PBL3REAL.View
             workbook.SaveAs(path, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
             // Exit from the application  
             app.Quit();
-        }*/
-        private void LoadStatisticsData()
-        {
-            dgv_Statistic.DataSource = listVM;
-        }
-        private void FillChart()
-        {
-            Dictionary<string, int> kvp = new Dictionary<string, int>();
-            foreach (Statistic1 statistic1 in listVM)
-            {
-                kvp.Add(statistic1.Date.ToString("dd/MM/yyyy"), statistic1.TotalPriceByDate);
-            }    
-            chart1.Series.Add("Income");
-            chart1.Series["Income"].XValueMember = "Date";
-            chart1.Series["Income"].YValueMembers = "TotalByDate";
-            chart1.Series["Income"].Points.DataBindXY(kvp.Keys, kvp.Values);
-            chart1.Series["Income"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
-        }
-        /***** ANALYZE *****/
-        //-> Class implement
-        public class MaxHeap
-        {
-            public MaxHeap(double[] input, int length)
-            {
-                this.Length = length;
-                this.Array = input;
-                BuildMaxHeap();
-            }
-            public double[] Array { get; private set; }
-            public int Length { get; private set; }
-            private void BuildMaxHeap()
-            {
-                for (int i = this.Length / 2; i > 0; i--)
-                {
-                    MaxHeapify(i);
-                }
-                return;
-            }
-            public void MaxHeapify(int index)
-            {
-                var left = 2 * index;
-                var right = 2 * index + 1;
-                int max = index;
-                if (left <= this.Length && this.Array[left - 1] > this.Array[index - 1])
-                {
-                    max = left;
-                }
-                if (right <= this.Length && this.Array[right - 1] > this.Array[max - 1])
-                {
-                    max = right;
-                }
-                if (max != index)
-                {
-                    double temp = this.Array[max - 1];
-                    this.Array[max - 1] = this.Array[index - 1];
-                    this.Array[index - 1] = temp;
-                    MaxHeapify(max);
-                }
-                return;
-            }
-            public double Maximum()
-            {
-                return this.Array[0];
-            }
-            public string rs;
-            public string pointtime;
-            public int len;
-        }
-
-        //-> Functions
-        private Dictionary<DateTime, int> PredictNext7Days()
-        {
-            Dictionary<DateTime, int> kvp = new Dictionary<DateTime, int>();
-            double[] xVals = new double[listVM.Count];
-            double[] yVals = new double[listVM.Count];
-            int i = 0;
-            foreach (Statistic1 statistic1 in listVM)
-            {
-                xVals[i] = statistic1.TotalInvoiceByDate;
-                yVals[i] = statistic1.TotalPriceByDate;
-                i++;
-            }
-            LinearRegression linearRegression = new LinearRegression(xVals, yVals);
-            linearRegression.PredictData();
-            i = 1;
-            foreach (Statistic1 statistic11 in listVM)
-            {
-                kvp.Add(DateTime.Now.Date.AddDays(i), Convert.ToInt32(linearRegression.yIntercept + linearRegression.slope * i));
-                i++;
-            }    
-            return kvp;
-        }
-        private void DrawTrendlineChart(Dictionary<DateTime, int> kvp)
-        {
-            chart2.Series.Add("Income Prediction");
-            chart2.Series["Income Prediction"].Points.DataBindXY(kvp.Keys, kvp.Values);
-            chart2.Series["Income Prediction"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
         }
         //-> Events
+        private void btn_StatisticExportToImage_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                StatisticExporttoImage();
+                MessageBox.Show("Xuất file thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception e1) { }
+        }
+        private void btn_StatisticExportToExcel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                StatisticExportToExcel();
+                MessageBox.Show("Xuất file thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception e1) { }
+        }
         private void btn_StatisticCancel_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }
-        private void btn_StatisticExportToExcel_Click(object sender, EventArgs e)
-        {
-            //StatisticExportToExcel();
-        }
 
-        private void btn_StatisticExportToImage_Click(object sender, EventArgs e)
+        /***** ANALYZE *****/
+        //-> Functions
+        private Dictionary<DateTime, int> PredictNext7Days(int DataType)
         {
-            //Export to Image
-            StatisticExporttoImage();
+            Dictionary<DateTime, int> kvp = new Dictionary<DateTime, int>();
+            switch (DataType)
+            {
+                case 0:
+                    //Dictionary<DateTime, int> kvp = new Dictionary<DateTime, int>();
+                    double[] xVals = new double[listVM1.Count];
+                    double[] yVals = new double[listVM1.Count];
+                    int i = 0;
+                    foreach (Statistic1 statistic1 in listVM1)
+                    {
+                        xVals[i] = statistic1.TotalInvoiceByDate;
+                        yVals[i] = statistic1.TotalPriceByDate;
+                        i++;
+                    }
+                    LinearRegression linearRegression = new LinearRegression(xVals, yVals);
+                    linearRegression.PredictData();
+                    i = 1;
+                    foreach (Statistic1 statistic11 in listVM1)
+                    {
+                        kvp.Add(DateTime.Now.Date.AddDays(i), Convert.ToInt32(linearRegression.yIntercept + linearRegression.slope * i));
+                        i++;
+                    }
+                    break;
+                case 1:
+                    break;
+                default:
+                    break;
+            }
+            return kvp;
         }
-        //---- Form ----//
-        private void Form_View_Statistic_Analyze_Load(object sender, EventArgs e)
+        private void DrawTrendlineChart(int DataType, Dictionary<DateTime, int> kvp)
         {
-
+            switch(DataType)
+            {
+                case 0:
+                    chart2.Series.Add("Income Prediction");
+                    chart2.Series["Income Prediction"].Points.DataBindXY(kvp.Keys, kvp.Values);
+                    chart2.Series["Income Prediction"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
+                    break;
+                case 1:
+                    break;
+                default:
+                    break;
+            }  
+        }
+        private void AnalyzeExportToImage()
+        {
+            string path = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + "\\Analyze";
+            this.chart2.SaveImage(path + "\\Image" + "\\" + DateTime.Now.Year.ToString()
+                + "-" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Day.ToString() + "-" + DateTime.Now.Hour.ToString()
+                + "-" + DateTime.Now.Minute.ToString() + "-" + DateTime.Now.Second.ToString() + " --- chart.png", ChartImageFormat.Png);
+        }
+        private void AnalyzeExportToExcel()
+        {
+            
+        }
+        //-> Events
+        private void btn_AnalyzeExportToImage_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                AnalyzeExportToImage();
+                MessageBox.Show("Xuất file thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception e1) { }
+        }
+        private void btn_AnalyzeExportToExcel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                AnalyzeExportToExcel();
+                MessageBox.Show("Xuất file thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception e1) { }
+        }
+        private void btn_AnalyzeCancel_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

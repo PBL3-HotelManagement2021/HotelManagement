@@ -24,7 +24,8 @@ namespace PBL3REAL.View
             dtp_To.Enabled = false;
             qLInvoiceBLL = new QLInvoiceBLL();
             cbb_InvoiceSort.SelectedIndex = 0;
-            
+            grbx_StatisticOption.Enabled = false;
+            grbx_AnalyzeOption.Enabled = false;
         }
 
         /***** Invoice MANAGEMENT *****/
@@ -60,7 +61,7 @@ namespace PBL3REAL.View
             {
                 Analyze = true;
             }
-            if (chkbx_Analyze.Checked && chkbx_Predict.Checked )
+            if (chkbx_Analyze.Checked && chkbx_PredictOption.Checked )
             {
                 Predict = true;
             }    
@@ -136,6 +137,30 @@ namespace PBL3REAL.View
             {
                 MessageBox.Show("Please choose only 1 rows to view !!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void chkbx_Statistic_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkbx_Statistic.Checked)
+            {
+                grbx_StatisticOption.Enabled = true;
+            }
+            else
+            {
+                grbx_StatisticOption.Enabled = false;
+            }    
+        }
+
+        private void chkbx_Analyze_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkbx_Analyze.Checked)
+            {
+                grbx_AnalyzeOption.Enabled = true;
+            }    
+            else
+            {
+                grbx_AnalyzeOption.Enabled = false;
+            }    
         }
     }
 }
