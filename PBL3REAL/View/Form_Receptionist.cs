@@ -21,6 +21,7 @@ namespace PBL3REAL.View
         /***** GLOBAL DECLARATION *****/
         //-> Global BLL Parameter
         private QLBookingBLL bookingBLL;
+        private QLInvoiceBLL qLInvoiceBLL;
         private RoomBLL roomBLL;
         private RoomTypeBLL roomTypeBLL;
         private readonly int ROWS = 5;
@@ -51,6 +52,7 @@ namespace PBL3REAL.View
             /*** Initialize Parameter ***/
             //-> Booking Parameters
             bookingBLL = new QLBookingBLL();
+            qLInvoiceBLL = new QLInvoiceBLL();
             searchByDate = new CalendarVM();
 
             //-> Room Parameters
@@ -150,7 +152,10 @@ namespace PBL3REAL.View
             {
                 if(r[0].Cells["Status"].Value.ToString() != "Processed")
                 {
-                    Form_Detail_Invoice f = new Form_Detail_Invoice(r[0].Cells["Code"].Value.ToString(),0,false);
+                    Form_Detail_Invoice f = null;
+                    var list = qLInvoiceBLL.findByProperties(1, 1, r[0].Cells["Code"].Value.ToString(), "", "",null);
+                    if(list.Count!=0) f = new Form_Detail_Invoice("",list[0].IdInvoice);
+                    else  f = new Form_Detail_Invoice(r[0].Cells["Code"].Value.ToString(),0);
                     f.myDel = searchBookData;
                     this.Hide();
                     f.ShowDialog();

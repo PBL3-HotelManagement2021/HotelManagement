@@ -108,6 +108,7 @@ namespace PBL3REAL.View
                 rbtn_OldClient.Checked = false;
                 tb_ClientSearch.Enabled = true;
                 dgv.DataSource = null;
+                tb_Status.Text = "Processed";
             }
             else
             {
@@ -193,7 +194,7 @@ namespace PBL3REAL.View
                 BookDate = Convert.ToDateTime(tb_BookDate.Text),
                 DueDate = Convert.ToDateTime(tb_DueDate.Text),
                 //   BookStatus = cbb_Status.Text.Replace(" ", String.Empty),
-                Status = "Processed",
+                Status = tb_Status.Text,
                 TotalPrice = Int32.Parse(tb_Total.Text),
                 Deposit = Int32.Parse(tb_Deposit.Text)
             };
@@ -362,7 +363,7 @@ namespace PBL3REAL.View
 
         private void onDtbChange()
         {
-            duration = dtp_To.Value.Date.Subtract(dtp_From.Value.Date).Days+1;
+            duration = dtp_To.Value.Date.Subtract(dtp_From.Value.Date).Days;
             foreach (var value in subBookings)
             {
                 if (value.IdBoodet != 0) listDel.Add(value.IdBoodet);

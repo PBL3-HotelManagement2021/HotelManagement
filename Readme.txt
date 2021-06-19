@@ -1,3 +1,4 @@
+
 hello
 -----------------------
 Mục đích activeflag là khóa một đối tượng nào đó nhưng vẫn giữ thông tin lại cái các đối tượng khác truy vấn 

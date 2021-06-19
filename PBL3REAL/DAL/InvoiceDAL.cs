@@ -34,10 +34,12 @@ namespace PBL3REAL.DAL
         {
         }
         
-        public List<Invoice> findByProperties(int start , int length ,string code, CalendarVM searchByDate , string orderBy)
+        public List<Invoice> findByProperties(int start , int length ,string bookCode, string invCode, CalendarVM searchByDate , string orderBy)
         {
             var predicate = PredicateBuilder.True<Invoice>();
-            if (!string.IsNullOrEmpty(code)) predicate = predicate.And(x => x.InvCode.Contains(code));
+            if (!string.IsNullOrEmpty(invCode)) predicate = predicate.And(x => x.InvCode.Contains(invCode));
+            if (!string.IsNullOrEmpty(bookCode)) predicate = predicate.And(x => x.InvIdbookNavigation.BookCode.Contains(bookCode));
+            if(searchByDate!=null) predicate = predicate.And(x => x.InvCreatedate >= searchByDate.fromDate && x.InvCreatedate <= searchByDate.toDate);
             IQueryable<Invoice> query = AppDbContext.Instance.Invoices
                                .Where(predicate);
             switch (orderBy)
@@ -102,20 +104,20 @@ namespace PBL3REAL.DAL
             AppDbContext.Instance.Entry(invoice).State = EntityState.Detached;
         }
 
-        public void update(Invoice invoice)
+        public void delete(int idInvoice)
         {
-            invoice.InvUpdatedate = DateTime.Now;
-            AppDbContext.Instance.Invoices.Update(invoice);
+            Invoice invoice = AppDbContext.Instance.Invoices.AsNoTracking().SingleOrDefault(x => x.IdInvoice == idInvoice);
+            AppDbContext.Instance.Remove(invoice);
             AppDbContext.Instance.SaveChanges();
             AppDbContext.Instance.Entry(invoice).State = EntityState.Detached;
         }
+
 
         public int getTotalRow(string code , CalendarVM searchByDate)
         {
             var predicate = PredicateBuilder.True<Invoice>();
             if (!string.IsNullOrEmpty(code)) predicate = predicate.And(x => x.InvCode.Contains(code));
-
-            /*           predicate = predicate.And(x => x.InvCreatedate >= searchByDate.fromDate && x.InvCreatedate <= searchByDate.toDate);*/
+            predicate = predicate.And(x => x.InvCreatedate >= searchByDate.fromDate && x.InvCreatedate <= searchByDate.toDate);
             int result = AppDbContext.Instance.Invoices.Where(predicate).Count();
             return result;
         }

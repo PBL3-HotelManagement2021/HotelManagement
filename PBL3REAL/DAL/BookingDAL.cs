@@ -94,8 +94,6 @@ namespace PBL3REAL.DAL
             Booking result = (from book in AppDbContext.Instance.Bookings
                               join client in AppDbContext.Instance.Clients on book.BookIdclient equals client.IdClient
                               join bkdt in AppDbContext.Instance.BookingDetails on book.IdBook equals bkdt.BoodetIdbook
-                            //join room in AppDbContext.Instance.Rooms on bkdt.BoodetIdroom equals room.IdRoom
-                            /*  join roty in AppDbContext.Instance.RoomTypes on room.RoomIdroomtype equals roty.IdRoomtype*/
                               where book.BookCode.Equals(code) && book.BookStatus != "Processed"
                               select new Booking()
                               {
@@ -112,9 +110,7 @@ namespace PBL3REAL.DAL
                                        CliName =client.CliName,
                                        CliPhone = client.CliPhone,
                                        CliGmail = client.CliGmail
-                                  },
-   
-                                  
+                                  },                                  
                               }
                               ).AsNoTracking().FirstOrDefault();
             return result;

@@ -13,7 +13,7 @@ using PBL3REAL.BLL;
 using PBL3REAL.DAL;
 using PBL3REAL.ViewModel;
 using PBL3REAL.Algorithm;
-using Microsoft.Office.Interop.Excel;
+//using Microsoft.Office.Interop.Excel;
 using OfficeOpenXml;
 namespace PBL3REAL.View
 {
@@ -170,6 +170,7 @@ namespace PBL3REAL.View
                 + "-" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Day.ToString() + "-" + DateTime.Now.Hour.ToString()
                 + "-" + DateTime.Now.Minute.ToString() + "-" + DateTime.Now.Second.ToString() + " --- DataList.png");
         }
+        /*
         private void StatisticExportToExcel()
         {
             // creating Excel Application  
@@ -204,7 +205,9 @@ namespace PBL3REAL.View
             workbook.SaveAs(path, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
             // Exit from the application  
             app.Quit();
-        }
+        } 
+        */
+
         //-> Events
         private void btn_StatisticExportToImage_Click(object sender, EventArgs e)
         {
@@ -219,7 +222,7 @@ namespace PBL3REAL.View
         {
             try
             {
-                StatisticExportToExcel();
+              //  StatisticExportToExcel();
                 MessageBox.Show("Xuất file thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception e1) { }

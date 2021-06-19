@@ -25,7 +25,7 @@ namespace PBL3REAL.View
         public MyDel myDel;
 
         /***** CONSTRUCTOR *****/
-        public Form_Detail_Invoice(string bookCode, int idInvoice, bool Editable)
+        public Form_Detail_Invoice(string bookCode, int idInvoice)
         {
             InitializeComponent();
             System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
@@ -52,19 +52,15 @@ namespace PBL3REAL.View
                 lb_Usercode.Text += invoiceDetailVM.UserCode;
               
             }
-            LoadData(Editable);
+            LoadData();
         }
 
         /***** FUNCTIONS *****/
         //-> Load Data Function
-        private void LoadData(bool Editable)
+        private void LoadData()
         {
-            if (!Editable)
-            {
-                tbllaypn_InvoiceFromToInfo.Enabled = false;
-                tbllaypn_BookingDateInfo.Enabled = false;
-                btn_OK.Enabled = false;
-            }
+            tbllaypn_InvoiceFromToInfo.Enabled = false;
+            tbllaypn_BookingDateInfo.Enabled = false;
             tb_FullName.Text = invoiceDetailVM.CliName;
             tb_Gmail.Text = invoiceDetailVM.CliGmail;
             tb_Phone.Text = invoiceDetailVM.CliPhone;
@@ -75,7 +71,8 @@ namespace PBL3REAL.View
             tb_Total.Text = invoiceDetailVM.TotalPrice.ToString();
             tb_InvStatus.Text = invoiceDetailVM.InvStatus;
             dgv.DataSource = invoiceDetailVM.ListRoom;
-          
+            if(invoiceDetailVM.IdInvoice==0) btn_OK.Enabled = true;
+            else btn_OK.Enabled = false;
         }
 
         //-> Set Service
@@ -150,10 +147,12 @@ namespace PBL3REAL.View
         /***** EVENTS *****/
         private void btn_OK_Click(object sender, EventArgs e)
         {
-            if (invoiceDetailVM.IdInvoice != 0)
+            if (invoiceDetailVM.IdInvoice == 0)
             {
                 qLInvoiceBLL.addInvoice(invoiceDetailVM);
+                MessageBox.Show("Đã tạo thành công đơn invoice mới!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 myDel();
+                this.Dispose();
             }
             else
             {
@@ -169,6 +168,8 @@ namespace PBL3REAL.View
         {
             string path = System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + "\\Invoices\\" + invoiceDetailVM.InvCode + ".pdf";
             ExportToPDF(path);
+            myDel();
+            this.Dispose();
         }
     }
 }

@@ -25,7 +25,7 @@ namespace PBL3REAL.BLL
             foreach (Booking val in BookingDAL.Instance.findByProperty(start,length,searchDate,search,orderBy,status))
             {
                 BookingVM bookingVm = mapper.Map<BookingVM>(val);
-                bookingVm.Index = start++;
+                bookingVm.Index = ++start;
                 bookingVm.CliCode = val.BookIdclientNavigation.CliCode;
                 bookingVm.UserCode = val.BookIduserNavigation.UserCode;
                 listVM.Add(bookingVm);

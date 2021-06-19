@@ -1,4 +1,5 @@
 ﻿using PBL3REAL.BLL;
+using PBL3REAL.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,7 @@ namespace PBL3REAL.View
         private readonly int ROWS = 5;
         private int currentPage = 1;
         private int totalPage = 0;
+        private CalendarVM calendarVM;
         public Form_Accountant()
         {
             InitializeComponent();
@@ -26,6 +28,7 @@ namespace PBL3REAL.View
             cbb_InvoiceSort.SelectedIndex = 0;
             grbx_StatisticOption.Enabled = false;
             grbx_AnalyzeOption.Enabled = false;
+            calendarVM = new CalendarVM();
         }
 
         /***** Invoice MANAGEMENT *****/
@@ -33,10 +36,10 @@ namespace PBL3REAL.View
         private void LoadData()
         {
             dgv_Invoice.DataSource = null;
-            totalPage = qLInvoiceBLL.getPagination(ROWS, search);
+            totalPage = qLInvoiceBLL.getPagination(ROWS, search , calendarVM);
             if (totalPage != 0)
             {
-                dgv_Invoice.DataSource = qLInvoiceBLL.findByProperties(currentPage, ROWS, search, orderBy);
+                dgv_Invoice.DataSource = qLInvoiceBLL.findByProperties(currentPage, ROWS,"", search, orderBy, calendarVM);
                 dgv_Invoice.Columns["InvIdbook"].Visible = false;
                 tb_InvoicePageNumber.Text = currentPage + "/" + totalPage;
             }
@@ -99,6 +102,8 @@ namespace PBL3REAL.View
             search = tb_InvoiceSearch.Text;
             orderBy = cbb_InvoiceSort.SelectedItem.ToString();
             currentPage = 1;
+            calendarVM.fromDate = dtp_InvoiceFrom.Value;
+            calendarVM.toDate = dtp_InvoiceTo.Value;
             LoadData();
         }
 
@@ -127,7 +132,7 @@ namespace PBL3REAL.View
             if (dgv_Invoice.SelectedRows.Count == 1)
             {
                 //truyền ID_CLient 
-                Form_Detail_Invoice f = new Form_Detail_Invoice("",int.Parse(dgv_Invoice.SelectedRows[0].Cells["IdInvoice"].Value.ToString()),false);
+                Form_Detail_Invoice f = new Form_Detail_Invoice("",int.Parse(dgv_Invoice.SelectedRows[0].Cells["IdInvoice"].Value.ToString()));
                 f.myDel = LoadData;
                 this.Hide();
                 f.ShowDialog();
@@ -161,6 +166,19 @@ namespace PBL3REAL.View
             {
                 grbx_AnalyzeOption.Enabled = false;
             }    
+        }
+
+        private void btn_InvoiceDelete_Click(object sender, EventArgs e)
+        {
+            if (dgv_Invoice.SelectedRows.Count == 1)
+            {
+                qLInvoiceBLL.deleteInvoice(int.Parse(dgv_Invoice.SelectedRows[0].Cells["IdInvoice"].Value.ToString()));
+                LoadData();
+            }
+            else
+            {
+                MessageBox.Show("Please choose only 1 rows to view !!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

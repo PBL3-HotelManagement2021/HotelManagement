@@ -44,7 +44,7 @@ namespace PBL3REAL.BLL
                     invoiceDetailVM.TotalPrice = booking.BookDeposit;
                     invoiceDetailVM.InvStatus = "Deposit";
                 }
-                TimeSpan durationDate = invoiceDetailVM.BookChecoutdate.Subtract(invoiceDetailVM.BookCheckindate);
+                int durationDate = invoiceDetailVM.BookChecoutdate.Subtract(invoiceDetailVM.BookCheckindate).Days;
                 foreach (Room room in RoomDAL.Instance.findByIdBook(booking.IdBook))
                 {
                     invoiceDetailVM.ListRoom.Add(new Invoice_RoomVM
@@ -52,8 +52,8 @@ namespace PBL3REAL.BLL
                         Name = room.RoomName,
                         Price = room.RoomIdroomtypeNavigation.RotyCurrentprice,
                         RoomType = room.RoomIdroomtypeNavigation.RotyName,
-                        Duration = durationDate.Days,
-                        Amount = room.RoomIdroomtypeNavigation.RotyCurrentprice * durationDate.Days
+                        Duration = durationDate,
+                        Amount = room.RoomIdroomtypeNavigation.RotyCurrentprice * durationDate
 
                     });
                 }
@@ -78,6 +78,12 @@ namespace PBL3REAL.BLL
 
             }
         }
+
+        public void deleteInvoice(int  idInvoice)
+        {
+            InvoiceDAL.Instance.delete(idInvoice);
+        }
+
         public InvoiceDetailVM getDetail(int idinvoice)
         {
             try
@@ -95,7 +101,7 @@ namespace PBL3REAL.BLL
                 invoiceDetailVM.CliGmail = booking.BookIdclientNavigation.CliGmail;
                 invoiceDetailVM.UserCode = booking.BookIduserNavigation.UserCode;
 
-                TimeSpan durationDate = invoiceDetailVM.BookChecoutdate.Subtract(invoiceDetailVM.BookCheckindate);
+                int durationDate = invoiceDetailVM.BookChecoutdate.Subtract(invoiceDetailVM.BookCheckindate).Days;
                 foreach (Room room in RoomDAL.Instance.findByIdBook(invoice.InvIdbookNavigation.IdBook))
                 {
                     invoiceDetailVM.ListRoom.Add(new Invoice_RoomVM
@@ -103,8 +109,8 @@ namespace PBL3REAL.BLL
                         Name = room.RoomName,
                         Price = room.RoomIdroomtypeNavigation.RotyCurrentprice,
                         RoomType = room.RoomIdroomtypeNavigation.RotyName,
-                        Duration = durationDate.Days,
-                        Amount = room.RoomIdroomtypeNavigation.RotyCurrentprice * durationDate.Days
+                        Duration = durationDate,
+                        Amount = room.RoomIdroomtypeNavigation.RotyCurrentprice * durationDate
 
                     });
                 }
@@ -116,12 +122,12 @@ namespace PBL3REAL.BLL
             }
         }
 
-        public List<InvoiceVM>findByProperties(int pages , int rows , string code , string orderBy){
-            CalendarVM searchByDate = new CalendarVM();
+        public List<InvoiceVM>findByProperties(int pages , int rows ,string bookCode, string invCode , string orderBy , CalendarVM searchByDate)
+        {
             int start = (pages - 1) * rows;
             int length = rows;
             List<InvoiceVM> listVm = new List<InvoiceVM>();
-            foreach (var value in InvoiceDAL.Instance.findByProperties(start, length,code, searchByDate, orderBy))
+            foreach (var value in InvoiceDAL.Instance.findByProperties(start, length, bookCode, invCode, searchByDate, orderBy))
             {
                 InvoiceVM invoiceVM = mapper.Map<InvoiceVM>(value);
                 listVm.Add(invoiceVM);
@@ -129,9 +135,8 @@ namespace PBL3REAL.BLL
             return listVm;
         }
 
-        public int getPagination(int rows, string code)
+        public int getPagination(int rows, string code , CalendarVM searchByDate)
         {
-            CalendarVM searchByDate = new CalendarVM();
             int totalRows = InvoiceDAL.Instance.getTotalRow(code, searchByDate);
             int totalpage;
             if (totalRows % rows == 0)
