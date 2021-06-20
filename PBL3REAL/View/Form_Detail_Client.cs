@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
+// Khi them client mới ko tu dong update cli_Code
 namespace PBL3REAL.View
 {
     public partial class Form_Detail_Client : Form

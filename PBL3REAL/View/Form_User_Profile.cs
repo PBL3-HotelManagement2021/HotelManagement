@@ -11,6 +11,8 @@ using PBL3REAL.ViewModel;
 using PBL3REAL.Extention;
 using System.IO;
 
+// Ảnh không cập nhật cho user co anh hinh kinh lup?
+
 namespace PBL3REAL.View
 {
     
