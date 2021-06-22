@@ -30,9 +30,7 @@ namespace PBL3REAL.DAL
         }
 
         private static InvoiceDAL _Instance;
-        public InvoiceDAL()
-        {
-        }
+        public InvoiceDAL() {}
         
         public List<Invoice> findByProperties(int start , int length ,string bookCode, string invCode, CalendarVM searchByDate , string orderBy)
         {

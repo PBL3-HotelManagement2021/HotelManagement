@@ -116,7 +116,8 @@ namespace PBL3REAL.View
                 {
                     try
                     {
-                        using (FileStream fs = new FileStream(userVM.ListImg[0].ImgstoUrl, FileMode.Open))
+                        string FullPath = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + "\\User_Profile\\" + userVM.ListImg[0].ImgstoUrl;
+                        using (FileStream fs = new FileStream(FullPath, FileMode.Open))
                         {
                             picbx_Header.Image = Image.FromStream(fs);
                             picbx_Header.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -232,18 +233,19 @@ namespace PBL3REAL.View
             catch (Exception e) { }
         }
         //-> Update IMG 
-        private void UpdateIMG(string Fullpath)
+        private void UpdateIMG(string FileName)
         {
+            string Fullpath = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + "\\User_Profile\\" + FileName;
             if (File.Exists(Fullpath))
             {
                 DeleteIMG(Fullpath);
             }
             picbx_Header.Image.Save(Fullpath, System.Drawing.Imaging.ImageFormat.Jpeg);
             TempAvatar = null;
-            TempAvatar = new ImageVM { ImgstoUrl = Fullpath };
+            TempAvatar = new ImageVM { ImgstoUrl = FileName };
         }
         /***** EVENTS *****/
-        //-> Form 
+        //-> Form   
         //-> TableLayoutPanel User Info
         private void picbx_Header_Click(object sender, EventArgs e)
         {
@@ -337,8 +339,7 @@ namespace PBL3REAL.View
                     MessageBox.Show("Bạn chưa thêm ảnh đại diện!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     break;
                 case 4:
-                    string Path = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + "\\User_Profile\\" + tb_Username.Text.Replace(" ", String.Empty) + ".Jpeg";
-                    userVM.UserName = tb_Username.Text.Replace(" ", String.Empty);
+                    string FileName = tb_Username.Text.Replace(" ", String.Empty) + ".Jpeg";
                     if (tb_Password.Enabled)
                     {
                         userVM.UserPassword = tb_Password.Text.Replace(" ", String.Empty);
@@ -354,7 +355,7 @@ namespace PBL3REAL.View
                     {
                         userVM.UserGender = false;
                     }
-                    if(Change) UpdateIMG(Path);
+                    if(Change) UpdateIMG(FileName);
                     userVM.ListImg.Clear();
                     userVM.ListImg.Add(TempAvatar);
                     ///properties to check existed
