@@ -36,8 +36,8 @@ namespace PBL3REAL.View
             if (bookCode != "")
             {
                 invoiceDetailVM = qLInvoiceBLL.infoAddInvoice(bookCode);
-                tb_CreateDate.Text = DateTime.Now.ToString();
-                tb_LastUpdateDate.Text = DateTime.Now.ToString();
+                tb_CreateDate.Text = DateTime.Now.ToString("dd/MM/yyyy");
+                tb_LastUpdateDate.Text = DateTime.Now.ToString("dd/MM/yyyy");
                 lb_InvoiceID.Text = "Invoice ID: ...";
                 tb_BookingCode.Text = bookCode;
                 lb_Usercode.Text += QLUserBLL.stoUser.UserCode;
@@ -45,8 +45,8 @@ namespace PBL3REAL.View
             else if (idInvoice != 0)
             {
                 invoiceDetailVM = qLInvoiceBLL.getDetail(idInvoice);
-                tb_CreateDate.Text = invoiceDetailVM.InvCreatedate.ToString();
-                tb_LastUpdateDate.Text = invoiceDetailVM.InvUpdatedate.ToString();
+                tb_CreateDate.Text = invoiceDetailVM.InvCreatedate.ToString("dd/MM/yyyy");
+                tb_LastUpdateDate.Text = invoiceDetailVM.InvUpdatedate.ToString("dd/MM/yyyy");
                 lb_InvoiceID.Text = "Invoice ID: " + invoiceDetailVM.InvCode.ToString();
                 tb_BookingCode.Text = invoiceDetailVM.BookCode;
                 lb_Usercode.Text += invoiceDetailVM.UserCode;
@@ -65,9 +65,9 @@ namespace PBL3REAL.View
             tb_Gmail.Text = invoiceDetailVM.CliGmail;
             tb_Phone.Text = invoiceDetailVM.CliPhone;
             tb_ClientCode.Text = invoiceDetailVM.CliCode;
-            tb_BookingDate.Text = invoiceDetailVM.BookBookDate.ToString();
-            tb_PaymentDate.Text = invoiceDetailVM.BookChecoutdate.ToString();
-            tb_CheckinDate.Text = invoiceDetailVM.BookCheckindate.ToString();
+            tb_BookingDate.Text = invoiceDetailVM.BookBookDate.ToString("dd/MM/yyyy");
+            tb_PaymentDate.Text = invoiceDetailVM.BookChecoutdate.ToString("dd/MM/yyyy");
+            tb_CheckinDate.Text = invoiceDetailVM.BookCheckindate.ToString("dd/MM/yyyy");
             tb_Total.Text = invoiceDetailVM.TotalPrice.ToString();
             tb_InvStatus.Text = invoiceDetailVM.InvStatus;
             dgv.DataSource = invoiceDetailVM.ListRoom;
@@ -92,55 +92,69 @@ namespace PBL3REAL.View
             XFont font_Header = new XFont("Arial", 30, XFontStyle.Bold);
             XFont font_Footer = new XFont("Arial", 8, XFontStyle.Bold);
             graph.DrawString("INVOICE", font_Header, XBrushes.Black,new XRect(0, 30, pdfPage.Width.Point, 0), XStringFormats.BaseLineCenter);
-            graph.DrawString("Invoice ID: " + FileName, font_Footer, XBrushes.Black, new XRect(3, 0, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.BottomLeft);
+            graph.DrawString(lb_InvoiceID.Text, font_Footer, XBrushes.Black, new XRect(3, 0, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.BottomLeft);
             graph.DrawLine(XPens.Azure, 5, 160, 100, 160);
             //Layout
             //P1: 
             //Left: Hotel Info
             XFont font_P1_Left = new XFont("Arial", 12, XFontStyle.Regular);
-            graph.DrawString("Hotel Name", font_P1_Left, XBrushes.Black, new XRect(5, 120, pdfPage.Width.Point, 0), XStringFormats.Default);
-            graph.DrawString("Address", font_P1_Left, XBrushes.Black, new XRect(5, 140, pdfPage.Width.Point, 0), XStringFormats.Default);
-            graph.DrawLine(XPens.Black, 5, 160, 300, 160);
+            graph.DrawString("Hotel Name: ......................", font_P1_Left, XBrushes.Black, new XRect(20, 120, pdfPage.Width.Point, 0), XStringFormats.Default);
+            graph.DrawString("Address      : ......................", font_P1_Left, XBrushes.Black, new XRect(20, 150, pdfPage.Width.Point, 0), XStringFormats.Default);
+            graph.DrawLine(XPens.Black, 10, 160, 300, 160);
             //Right: Hotel Logo -> Chèn ảnh
             //P2: 
             //Left: Booking Info
             XFont font_P2_Left_Header = new XFont("Arial", 15, XFontStyle.Regular);
-            graph.DrawString("Booking Info", font_P2_Left_Header, XBrushes.Black, new XRect(5, 190, pdfPage.Width.Point, 0), XStringFormats.Default);
+            graph.DrawString("Booking Info", font_P2_Left_Header, XBrushes.Black, new XRect(15, 190, pdfPage.Width.Point, 0), XStringFormats.Default);
             XFont font_P2_Left = new XFont("Arial", 12, XFontStyle.Regular);
-            graph.DrawString("Booking Code", font_P2_Left, XBrushes.Black, new XRect(5, 220, pdfPage.Width.Point, 0), XStringFormats.Default);
-            graph.DrawString("Booking Date", font_P2_Left, XBrushes.Black, new XRect(5, 250, pdfPage.Width.Point, 0), XStringFormats.Default);
-            graph.DrawString("Booking Status", font_P2_Left, XBrushes.Black, new XRect(5, 280, pdfPage.Width.Point, 0), XStringFormats.Default);
+            graph.DrawString("Booking Code :   " + tb_BookingCode.Text, font_P2_Left, XBrushes.Black, new XRect(15, 230, pdfPage.Width.Point, 0), XStringFormats.Default);
+            graph.DrawString("Booking Date  :   " + tb_BookingDate.Text, font_P2_Left, XBrushes.Black, new XRect(15, 260, pdfPage.Width.Point, 0), XStringFormats.Default);
+            graph.DrawString("Booking Status:   " + tb_InvStatus.Text, font_P2_Left, XBrushes.Black, new XRect(15, 290, pdfPage.Width.Point, 0), XStringFormats.Default);
             //Right: Payer Info
             XFont font_P2_Right_Header = new XFont("Arial", 15, XFontStyle.Regular);
             graph.DrawString("Client Info", font_P2_Right_Header, XBrushes.Black, new XRect(320, 190, pdfPage.Width.Point, 0), XStringFormats.Default);
             XFont font_P2_Right = new XFont("Arial", 12, XFontStyle.Regular);
-            graph.DrawString("Fullname", font_P2_Right, XBrushes.Black, new XRect(320, 210, pdfPage.Width.Point, 0), XStringFormats.Default);
-            graph.DrawString("Phone", font_P2_Right, XBrushes.Black, new XRect(320, 235, pdfPage.Width.Point, 0), XStringFormats.Default);
-            graph.DrawString("Email", font_P2_Right, XBrushes.Black, new XRect(320, 260, pdfPage.Width.Point, 0), XStringFormats.Default);
-            graph.DrawString("Client Code", font_P2_Right, XBrushes.Black, new XRect(320, 285, pdfPage.Width.Point, 0), XStringFormats.Default);
+            graph.DrawString("Fullname    :   " + tb_FullName.Text, font_P2_Right, XBrushes.Black, new XRect(320, 220, pdfPage.Width.Point, 0), XStringFormats.Default);
+            graph.DrawString("Phone        :   " + tb_Phone.Text, font_P2_Right, XBrushes.Black, new XRect(320, 245, pdfPage.Width.Point, 0), XStringFormats.Default);
+            graph.DrawString("Email          :   " + tb_Gmail.Text, font_P2_Right, XBrushes.Black, new XRect(320, 270, pdfPage.Width.Point, 0), XStringFormats.Default);
+            graph.DrawString("Client Code:   " + tb_ClientCode.Text, font_P2_Right, XBrushes.Black, new XRect(320, 295, pdfPage.Width.Point, 0), XStringFormats.Default);
             //P3: Booking Time Table
-            graph.DrawLine(XPens.Black, 20, 295, 1000, 295);
-            XFont font_P3 = new XFont("Arial", 12, XFontStyle.Regular);
-            graph.DrawString("Payment Date", font_P3, XBrushes.Black, new XRect(30, 300, pdfPage.Width.Point, 0), XStringFormats.Default);
-            graph.DrawString("Checkin Date", font_P3, XBrushes.Black, new XRect(80, 300, pdfPage.Width.Point, 0), XStringFormats.Default);
-            graph.DrawString("Create Date", font_P3, XBrushes.Black, new XRect(130, 300, pdfPage.Width.Point, 0), XStringFormats.Default);
-            graph.DrawString("Last Updated Date", font_P3, XBrushes.Black, new XRect(180, 300, pdfPage.Width.Point, 0), XStringFormats.Default);
+            graph.DrawLine(XPens.Black, 10, 315, 600, 315);
+            XFont font_P3_1 = new XFont("Arial", 13, XFontStyle.Bold);
+            XFont font_P3_2 = new XFont("Arial", 12, XFontStyle.Regular);
+            graph.DrawString("Payment Date", font_P3_1, XBrushes.Black, new XRect(30, 345, pdfPage.Width.Point, 0), XStringFormats.Default);
+            graph.DrawString("Checkin Date", font_P3_1, XBrushes.Black, new XRect(180, 345, pdfPage.Width.Point, 0), XStringFormats.Default);
+            graph.DrawString("Create Date", font_P3_1, XBrushes.Black, new XRect(330, 345, pdfPage.Width.Point, 0), XStringFormats.Default);
+            graph.DrawString("Last Updated Date", font_P3_1, XBrushes.Black, new XRect(480, 345, pdfPage.Width.Point, 0), XStringFormats.Default);
+            graph.DrawString(tb_PaymentDate.Text, font_P3_2, XBrushes.Black, new XRect(45, 365, pdfPage.Width.Point, 0), XStringFormats.Default);
+            graph.DrawString(tb_CheckinDate.Text, font_P3_2, XBrushes.Black, new XRect(192, 365, pdfPage.Width.Point, 0), XStringFormats.Default);
+            graph.DrawString(tb_CreateDate.Text, font_P3_2, XBrushes.Black, new XRect(337, 365, pdfPage.Width.Point, 0), XStringFormats.Default);
+            graph.DrawString(tb_LastUpdateDate.Text, font_P3_2, XBrushes.Black, new XRect(510, 365, pdfPage.Width.Point, 0), XStringFormats.Default);
             //P4: Items Table
-            XFont font_P4 = new XFont("Arial", 13, XFontStyle.Regular);
-            graph.DrawLine(XPens.Aquamarine, 40, 320, 800, 320);
-            graph.DrawString("Item[1] Column[1]", font_P3, XBrushes.Black, new XRect(40, 330, pdfPage.Width.Point, 0), XStringFormats.Default);
-            graph.DrawString("Item[1] Column[2]", font_P3, XBrushes.Black, new XRect(100, 330, pdfPage.Width.Point, 0), XStringFormats.Default);
-            graph.DrawString("Item[1] Column[3]", font_P3, XBrushes.Black, new XRect(160, 330, pdfPage.Width.Point, 0), XStringFormats.Default);
-            graph.DrawLine(XPens.Aquamarine, 40, 340, 800, 340);
-            graph.DrawString("Item[2] Column[2]", font_P3, XBrushes.Black, new XRect(40, 350, pdfPage.Width.Point, 0), XStringFormats.Default);
-            graph.DrawString("Item[2] Column[2]", font_P3, XBrushes.Black, new XRect(100, 350, pdfPage.Width.Point, 0), XStringFormats.Default);
-            graph.DrawString("Item[2] Column[2]", font_P3, XBrushes.Black, new XRect(160, 350, pdfPage.Width.Point, 0), XStringFormats.Default);
+            XFont font_P4_1 = new XFont("Arial", 13, XFontStyle.Bold);
+            XFont font_P4_2 = new XFont("Arial", 12, XFontStyle.Regular);
+            graph.DrawLine(XPens.Black, 10, 380, 600, 380);
+            graph.DrawString("Room Name", font_P4_1, XBrushes.Black, new XRect(40, 400, pdfPage.Width.Point, 0), XStringFormats.Default);
+            graph.DrawString("Room Type", font_P4_1, XBrushes.Black, new XRect(190, 400, pdfPage.Width.Point, 0), XStringFormats.Default);
+            graph.DrawString("Price", font_P4_1, XBrushes.Black, new XRect(340, 400, pdfPage.Width.Point, 0), XStringFormats.Default);
+            graph.DrawString("Amount", font_P4_1, XBrushes.Black, new XRect(490, 400, pdfPage.Width.Point, 0), XStringFormats.Default);
+            int a = 0;
+            for (int i = 0; i < invoiceDetailVM.ListRoom.Count; i++)
+            {
+                graph.DrawLine(XPens.Aquamarine, 25, 30 * i + 410, 550, 30 * i + 410);
+                graph.DrawString(invoiceDetailVM.ListRoom[i].Name, font_P4_2, XBrushes.Black, new XRect(40, 30 * i + 430, pdfPage.Width.Point, 0), XStringFormats.Default);
+                a = 30 * i + 430;
+                graph.DrawString(invoiceDetailVM.ListRoom[i].RoomType, font_P4_2, XBrushes.Black, new XRect(190, a, pdfPage.Width.Point, 0), XStringFormats.Default);
+                graph.DrawString(invoiceDetailVM.ListRoom[i].Price.ToString(), font_P4_2, XBrushes.Black, new XRect(340, a, pdfPage.Width.Point, 0), XStringFormats.Default);
+                graph.DrawString(invoiceDetailVM.ListRoom[i].Amount.ToString(), font_P4_2, XBrushes.Black, new XRect(490, a, pdfPage.Width.Point, 0), XStringFormats.Default);
+            }
+            graph.DrawLine(XPens.Aquamarine, 25, a + 10, 550, a + 10);
             //P5: Total money
-            XFont font_Total_Money = new XFont("Arial", 14, XFontStyle.Regular);
-            graph.DrawString("Total", font_Total_Money, XBrushes.Black, new XRect(1000, 700, pdfPage.Width.Point, 0), XStringFormats.Default);
+            XFont font_Total_Money = new XFont("Arial", 12, XFontStyle.Bold);
+            graph.DrawString("Total: " + tb_Total.Text, font_Total_Money, XBrushes.Black, new XRect(450, a + 30, pdfPage.Width.Point, 0), XStringFormats.Default);
             //P6: Signature
-            XFont font_Signature = new XFont("Arial", 14, XFontStyle.Regular);
-            graph.DrawString("Client Signature", font_Signature, XBrushes.Black, new XRect(1000, 800, pdfPage.Width.Point, 0), XStringFormats.Default);
+            XFont font_Signature = new XFont("Arial", 13, XFontStyle.Regular);
+            graph.DrawString("Client Signature", font_Signature, XBrushes.Black, new XRect(500, 700, pdfPage.Width.Point, 0), XStringFormats.Default);
             pdf.Save(FileName);
         }
 
