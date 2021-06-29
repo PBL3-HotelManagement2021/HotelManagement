@@ -26,6 +26,7 @@ namespace PBL3REAL.Model
         [Column("user_name")]
         [StringLength(100)]
         public string UserName { get; set; }
+
       
         [Required]
         [Column("user_gmail")]

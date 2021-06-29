@@ -62,6 +62,7 @@ namespace PBL3REAL.BLL
             foreach (Client client in ClientDAL.Instance.findByProperty(start, length,properties, orderBy))
             {
                 ClientVM clientVM = mapper.Map<ClientVM>(client);
+                clientVM.Index = ++start;
                 listVm.Add(clientVM);
             }
             return listVm;

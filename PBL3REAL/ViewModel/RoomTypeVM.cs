@@ -10,8 +10,8 @@ namespace HotelManagement.ViewModel
         public RoomTypeVM()
         {
             ListImg = new List<ImageVM>();
-           /* MapImgUrl = new Dictionary<int, string>();*/
         }
+   
         public int IdRoomtype { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
@@ -20,7 +20,6 @@ namespace HotelManagement.ViewModel
         public int Capacity { get; set; }
         public string Code { get; set; }
 
-        /* public IDictionary<int, string> MapImgUrl { get; set; }*/
         public List<ImageVM> ListImg { get; set; }
     }
 }

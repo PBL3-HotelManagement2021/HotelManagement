@@ -30,6 +30,7 @@ namespace PBL3REAL.View
         private ImageVM TempAvatar;
         private bool Change;
         private bool editable;
+        private List<int> listDel = new List<int>();
 
         /***** CONSTRUCTOR *****/
         public Form_User_Profile(int id, string role, bool Editable,bool isForLogin)
@@ -235,6 +236,7 @@ namespace PBL3REAL.View
         //-> Update IMG 
         private void UpdateIMG(string FileName)
         {
+
             string Fullpath = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + "\\User_Profile\\" + FileName;
             if (File.Exists(Fullpath))
             {
@@ -253,7 +255,10 @@ namespace PBL3REAL.View
             picbx_Header.BackgroundImage = null;
             picbx_Header.Image = Properties.Resources.male_user_fluent_color_96px;
             TempAvatar = null;
-            if (userVM.ListImg.Count != 0) { Change = true; }
+            if (userVM.ListImg.Count != 0) {
+                listDel.Add(userVM.ListImg[0].IdImgsto);
+                Change = true; 
+            }
         }
         private void picbx_Header_DoubleClick(object sender, EventArgs e)
         {
@@ -340,6 +345,7 @@ namespace PBL3REAL.View
                     break;
                 case 4:
                     string FileName = tb_Username.Text.Replace(" ", String.Empty) + ".Jpeg";
+                    userVM.UserName = tb_Username.Text.Replace(" ", String.Empty);
                     if (tb_Password.Enabled)
                     {
                         userVM.UserPassword = tb_Password.Text.Replace(" ", String.Empty);
@@ -379,7 +385,7 @@ namespace PBL3REAL.View
                         properties.Add("code", userVM.UserCode);
                         if (qLUserBLL.checkexisted(properties))
                         {
-                            qLUserBLL.updateUser(userVM, null,isPassChanged);
+                            qLUserBLL.updateUser(userVM, listDel,isPassChanged);
                         MessageBox.Show("Cập nhật tài khoản nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else

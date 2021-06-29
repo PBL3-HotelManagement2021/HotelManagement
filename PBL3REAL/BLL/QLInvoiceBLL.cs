@@ -130,6 +130,7 @@ namespace PBL3REAL.BLL
             foreach (var value in InvoiceDAL.Instance.findByProperties(start, length, bookCode, invCode, searchByDate, orderBy))
             {
                 InvoiceVM invoiceVM = mapper.Map<InvoiceVM>(value);
+                invoiceVM.Index = ++start;
                 listVm.Add(invoiceVM);
             }
             return listVm;

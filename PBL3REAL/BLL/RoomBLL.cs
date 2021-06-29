@@ -115,6 +115,7 @@ namespace HotelManagement.BLL.Implement
             foreach (Room room in listRoom)
             {
                 RoomVM roomVM = mapper.Map<RoomVM>(room);
+                roomVM.Index = ++start;
                 roomVM.RoomType= room.RoomIdroomtypeNavigation.RotyName;
                 roomVM.Price = room.RoomIdroomtypeNavigation.RotyCurrentprice;
                 listRoomVM.Add(roomVM);

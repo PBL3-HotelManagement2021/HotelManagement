@@ -9,6 +9,7 @@ namespace PBL3REAL.ViewModel
         public InvoiceVM()
         {
         }
+        public int Index { get; set; }
         public int IdInvoice { get; set; }
 
         public int InvIdbook { get; set;  }
