@@ -11,8 +11,6 @@ using PBL3REAL.ViewModel;
 using PBL3REAL.Extention;
 using System.IO;
 
-// Ảnh không cập nhật cho user co anh hinh kinh lup?
-
 namespace PBL3REAL.View
 {
     
@@ -175,6 +173,18 @@ namespace PBL3REAL.View
             }
             return false;
         }
+        private bool IsValidEmail(string email)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
+        }
         private int CheckData()
         {
             int phone = 0;
@@ -184,7 +194,7 @@ namespace PBL3REAL.View
             if (int.TryParse(tb_Phone.Text,out phone) == false)
             { return 1; }
             if (tb_Email.Text.Contains(' ') == true || tb_Password.Text.Contains(' ') == true 
-                || CheckVietNamChar(tb_Email.Text) == true || CheckVietNamChar(tb_Password.Text) == true)
+                || CheckVietNamChar(tb_Email.Text) == true || CheckVietNamChar(tb_Password.Text) == true || IsValidEmail(tb_Email.Text) == false)
             { return 2; }
             if (TempAvatar == null)
             { return 3; }
