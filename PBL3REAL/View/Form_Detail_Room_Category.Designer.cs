@@ -51,8 +51,8 @@ namespace PBL3REAL.View
             this.lb_RoomTypePrice = new System.Windows.Forms.Label();
             this.lb_RoomTypeID = new System.Windows.Forms.Label();
             this.lb_RoomTypeName = new System.Windows.Forms.Label();
-            this.tb_RoomTypeCapacity = new System.Windows.Forms.TextBox();
             this.lb_Header = new System.Windows.Forms.Label();
+            this.tb_RoomTypeCapacity = new System.Windows.Forms.TextBox();
             this.tbllaypn_ControlButtons.SuspendLayout();
             this.grbx_RoomTypeDetail.SuspendLayout();
             this.fllaypn_Images.SuspendLayout();
@@ -240,6 +240,7 @@ namespace PBL3REAL.View
             this.tbllaypn_DetailsRoomCategory.ColumnCount = 2;
             this.tbllaypn_DetailsRoomCategory.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.73254F));
             this.tbllaypn_DetailsRoomCategory.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.26746F));
+            this.tbllaypn_DetailsRoomCategory.Controls.Add(this.tb_RoomTypeCapacity, 1, 3);
             this.tbllaypn_DetailsRoomCategory.Controls.Add(this.tb_RoomTypePrice, 1, 2);
             this.tbllaypn_DetailsRoomCategory.Controls.Add(this.tb_RoomTypeDescription, 1, 1);
             this.tbllaypn_DetailsRoomCategory.Controls.Add(this.tb_RoomTypeName, 1, 0);
@@ -247,7 +248,6 @@ namespace PBL3REAL.View
             this.tbllaypn_DetailsRoomCategory.Controls.Add(this.lb_RoomTypePrice, 0, 2);
             this.tbllaypn_DetailsRoomCategory.Controls.Add(this.lb_RoomTypeID, 0, 3);
             this.tbllaypn_DetailsRoomCategory.Controls.Add(this.lb_RoomTypeName, 0, 0);
-            this.tbllaypn_DetailsRoomCategory.Controls.Add(this.tb_RoomTypeCapacity, 1, 3);
             this.tbllaypn_DetailsRoomCategory.Location = new System.Drawing.Point(10, 69);
             this.tbllaypn_DetailsRoomCategory.Name = "tbllaypn_DetailsRoomCategory";
             this.tbllaypn_DetailsRoomCategory.RowCount = 4;
@@ -328,13 +328,6 @@ namespace PBL3REAL.View
             this.lb_RoomTypeName.TabIndex = 0;
             this.lb_RoomTypeName.Text = "Tên loại phòng";
             // 
-            // tb_RoomTypeCapacity
-            // 
-            this.tb_RoomTypeCapacity.Location = new System.Drawing.Point(160, 204);
-            this.tb_RoomTypeCapacity.Name = "tb_RoomTypeCapacity";
-            this.tb_RoomTypeCapacity.Size = new System.Drawing.Size(125, 34);
-            this.tb_RoomTypeCapacity.TabIndex = 4;
-            // 
             // lb_Header
             // 
             this.lb_Header.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -345,6 +338,16 @@ namespace PBL3REAL.View
             this.lb_Header.Size = new System.Drawing.Size(279, 38);
             this.lb_Header.TabIndex = 0;
             this.lb_Header.Text = "ROOM TYPE DETAIL";
+            // 
+            // tb_RoomTypeCapacity
+            // 
+            this.tb_RoomTypeCapacity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.tb_RoomTypeCapacity.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_RoomTypeCapacity.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tb_RoomTypeCapacity.Location = new System.Drawing.Point(160, 204);
+            this.tb_RoomTypeCapacity.Name = "tb_RoomTypeCapacity";
+            this.tb_RoomTypeCapacity.Size = new System.Drawing.Size(297, 27);
+            this.tb_RoomTypeCapacity.TabIndex = 4;
             // 
             // Form_Detail_Room_Category
             // 

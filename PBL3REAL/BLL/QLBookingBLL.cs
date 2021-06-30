@@ -47,7 +47,7 @@ namespace PBL3REAL.BLL
                     SubBookingDetailVM subBookingDetailVM = mapper.Map<SubBookingDetailVM>(val);
                     subBookingDetailVM.RoomName = listRoom[i].RoomName;
                     subBookingDetailVM.RoomType = listRoom[i].RoomIdroomtypeNavigation.RotyName;
-                    subBookingDetailVM.Duration = result.CheckoutDate.Subtract(result.CheckinDate).Days+1;
+                    subBookingDetailVM.Duration = result.CheckoutDate.Subtract(result.CheckinDate).Days;
                     subBookingDetailVM.Amount = subBookingDetailVM.Duration * subBookingDetailVM.BoodetPrice;
                     i++;
                     result.ListSub.Add(subBookingDetailVM);

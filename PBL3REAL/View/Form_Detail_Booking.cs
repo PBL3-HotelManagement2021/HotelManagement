@@ -109,6 +109,7 @@ namespace PBL3REAL.View
                 tb_ClientSearch.Enabled = true;
                 dgv.DataSource = null;
                 tb_Status.Text = "Processed";
+                btn_Checkin.Enabled = false;
             }
             else
             {
@@ -134,15 +135,13 @@ namespace PBL3REAL.View
                 grbx_ClientInfo.Enabled = false;
                 if (!Edit)
                 {
-                 
                     grbx_PeriodTime.Enabled = false;
                     grbx_BookingInfo.Enabled = false;
                     picbx_Enter.Enabled = false;
                     picbx_Add.Enabled = false;
                     picbx_Delete.Enabled = false;
                     btn_OK.Enabled = false;
-                    btn_Checkin.Enabled = true;
-
+                    btn_Checkin.Enabled = false;
                 }
                 else
                 {

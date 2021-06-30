@@ -114,8 +114,7 @@ namespace HotelManagement.DAL.Implement
 
         public RoomType findbyid(int id)
         {
-            RoomType roomType = (RoomType)AppDbContext.Instance.RoomTypes.Where(x => x.IdRoomtype == id).Include(x => x.ImgStorages).SingleOrDefault();
-            if (roomType != null) AppDbContext.Instance.Entry(roomType).State = EntityState.Detached;
+            RoomType roomType = AppDbContext.Instance.RoomTypes.Include(x => x.ImgStorages).Where(x => x.IdRoomtype == id).AsNoTracking().SingleOrDefault();
             return roomType;
         }
     }

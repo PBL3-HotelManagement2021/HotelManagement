@@ -109,7 +109,7 @@ namespace PBL3REAL.View
             XFont font_P2_Left = new XFont("Arial", 12, XFontStyle.Regular);
             graph.DrawString("Booking Code :   " + tb_BookingCode.Text, font_P2_Left, XBrushes.Black, new XRect(15, 230, pdfPage.Width.Point, 0), XStringFormats.Default);
             graph.DrawString("Booking Date  :   " + tb_BookingDate.Text, font_P2_Left, XBrushes.Black, new XRect(15, 260, pdfPage.Width.Point, 0), XStringFormats.Default);
-            graph.DrawString("Booking Status:   " + tb_InvStatus.Text, font_P2_Left, XBrushes.Black, new XRect(15, 290, pdfPage.Width.Point, 0), XStringFormats.Default);
+            graph.DrawString("Status:   " + tb_InvStatus.Text, font_P2_Left, XBrushes.Black, new XRect(15, 290, pdfPage.Width.Point, 0), XStringFormats.Default);
             //Right: Payer Info
             XFont font_P2_Right_Header = new XFont("Arial", 15, XFontStyle.Regular);
             graph.DrawString("Client Info", font_P2_Right_Header, XBrushes.Black, new XRect(320, 190, pdfPage.Width.Point, 0), XStringFormats.Default);

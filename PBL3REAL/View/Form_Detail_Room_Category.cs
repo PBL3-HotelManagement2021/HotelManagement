@@ -234,7 +234,10 @@ namespace PBL3REAL.View
             }
             try
             {
-                File.Delete(fullpath);
+                if (File.Exists(fullpath))
+                {
+                    File.Delete(fullpath);
+                }   
             }
             catch (Exception e) { }
         }
