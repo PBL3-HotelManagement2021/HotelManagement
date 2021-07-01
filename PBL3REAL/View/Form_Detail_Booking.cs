@@ -102,8 +102,8 @@ namespace PBL3REAL.View
             {
                 //Add new booking
                 detailVM = new BookingDetailVM();
-                tb_BookDate.Text = DateTime.Now.ToString();
-                tb_DueDate.Text = (DateTime.Now.AddDays(4)).ToString();
+                tb_BookDate.Text = DateTime.Now.ToString("dd/MM/yyyy");
+                tb_DueDate.Text = (DateTime.Now.AddDays(4)).ToString("dd/MM/yyyy");
                 rbtn_NewClient.Checked = true;
                 rbtn_OldClient.Checked = false;
                 tb_ClientSearch.Enabled = true;
@@ -126,8 +126,8 @@ namespace PBL3REAL.View
                 dtp_To.Value = detailVM.CheckoutDate;
                 foreach (SubBookingDetailVM item in detailVM.ListSub) { subBookings.Add(item); }
                 LoadBookedRoomList();
-                tb_BookDate.Text = detailVM.BookDate.ToString();
-                tb_DueDate.Text = detailVM.DueDate.ToString();
+                tb_BookDate.Text = detailVM.BookDate.ToString("dd/MM/yyyy");
+                tb_DueDate.Text = detailVM.DueDate.ToString("dd/MM/yyyy");
                 tb_Deposit.Text = detailVM.Deposit.ToString();
                 tb_Total.Text = detailVM.TotalPrice.ToString();
                 tb_Status.Text = detailVM.Status;

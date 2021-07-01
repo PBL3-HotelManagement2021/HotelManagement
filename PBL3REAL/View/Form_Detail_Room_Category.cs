@@ -521,7 +521,7 @@ namespace PBL3REAL.View
                     picbx_Add2.BackgroundImage = Properties.Resources.select_none_fluent_color_96px;
                     TotalPic -= 1;
                     if (TotalPicAdded > 0) { TotalPicAdded -= 1; }
-                    if (picbx_Add1.AccessibleName != null) 
+                    if (picbx_Add1.AccessibleName != null && roomTypeVM.ListImg.Count > 0) 
                     { 
                         listdel.Add(roomTypeVM.ListImg[0].IdImgsto);
                         picbx_Add1.AccessibleName = null;
@@ -534,7 +534,7 @@ namespace PBL3REAL.View
                     picbx_Add3.BackgroundImage = Properties.Resources.select_none_fluent_color_96px;
                     TotalPic -= 1;
                     if (TotalPicAdded > 0) { TotalPicAdded -= 1; }
-                    if (picbx_Add2.AccessibleName != null)
+                    if (picbx_Add2.AccessibleName != null && roomTypeVM.ListImg.Count > 0)
                     {
                         listdel.Add(roomTypeVM.ListImg[1].IdImgsto);
                         picbx_Add2.AccessibleName = null;
@@ -546,7 +546,7 @@ namespace PBL3REAL.View
                     picbx_Add4.BackgroundImage = Properties.Resources.select_none_fluent_color_96px;
                     TotalPic -= 1;
                     if (TotalPicAdded > 0) { TotalPicAdded -= 1; }
-                    if (picbx_Add3.AccessibleName != null)
+                    if (picbx_Add3.AccessibleName != null && roomTypeVM.ListImg.Count > 0)
                     {
                         listdel.Add(roomTypeVM.ListImg[2].IdImgsto);
                         picbx_Add3.AccessibleName = null;
@@ -558,7 +558,7 @@ namespace PBL3REAL.View
                     picbx_Add5.BackgroundImage = Properties.Resources.select_none_fluent_color_96px;
                     TotalPic -= 1;
                     if (TotalPicAdded > 0) { TotalPicAdded -= 1; }
-                    if (picbx_Add4.AccessibleName != null)
+                    if (picbx_Add4.AccessibleName != null && roomTypeVM.ListImg.Count > 0)
                     {
                         listdel.Add(roomTypeVM.ListImg[3].IdImgsto);
                         picbx_Add4.AccessibleName = null;
@@ -570,7 +570,7 @@ namespace PBL3REAL.View
                     picbx_Add6.BackgroundImage = Properties.Resources.select_none_fluent_color_96px;
                     TotalPic -= 1;
                     if (TotalPicAdded > 0) { TotalPicAdded -= 1; }
-                    if (picbx_Add5.AccessibleName != null)
+                    if (picbx_Add5.AccessibleName != null && roomTypeVM.ListImg.Count > 0)
                     {
                         listdel.Add(roomTypeVM.ListImg[4].IdImgsto);
                         picbx_Add5.AccessibleName = null;
@@ -581,7 +581,7 @@ namespace PBL3REAL.View
                     picbx_Add6.BackgroundImage = Properties.Resources.add_fluent_color_96px;
                     TotalPic -= 1;
                     if (TotalPicAdded > 0) { TotalPicAdded -= 1; }
-                    if (picbx_Add6.AccessibleName != null)
+                    if (picbx_Add6.AccessibleName != null && roomTypeVM.ListImg.Count > 0)
                     {
                         listdel.Add(roomTypeVM.ListImg[5].IdImgsto);
                         picbx_Add6.AccessibleName = null;
