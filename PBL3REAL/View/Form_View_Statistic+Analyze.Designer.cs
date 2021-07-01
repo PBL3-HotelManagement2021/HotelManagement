@@ -100,6 +100,7 @@ namespace PBL3REAL.View
             // 
             // tbllaypn_Statistic
             // 
+            this.tbllaypn_Statistic.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbllaypn_Statistic.ColumnCount = 3;
             this.tbllaypn_Statistic.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.22467F));
             this.tbllaypn_Statistic.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.88546F));
@@ -107,7 +108,7 @@ namespace PBL3REAL.View
             this.tbllaypn_Statistic.Controls.Add(this.btn_StatisticExportToImage, 0, 0);
             this.tbllaypn_Statistic.Controls.Add(this.btn_StatisticCancel, 2, 0);
             this.tbllaypn_Statistic.Controls.Add(this.btn_StatisticExportToExcel, 1, 0);
-            this.tbllaypn_Statistic.Location = new System.Drawing.Point(487, 728);
+            this.tbllaypn_Statistic.Location = new System.Drawing.Point(484, 711);
             this.tbllaypn_Statistic.Name = "tbllaypn_Statistic";
             this.tbllaypn_Statistic.RowCount = 1;
             this.tbllaypn_Statistic.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.14815F));
