@@ -28,27 +28,36 @@ namespace HotelManagement.BBL.Implement
                 RoomTypeVM roomTypeVM = mapper.Map<RoomTypeVM>(roomType);
                 listVM.Add(roomTypeVM);
             }
-            return listVM;
+            return listVM;  
         }
 
 
 
-        /*public void addRoomType1(RoomTypeVM roomTypeVM)
+        public void addRoomType(RoomTypeVM roomTypeVM)
         {
-            int idRoomType = _roomTypeDAL.getnextid();
+            int idRoomType = RoomtypeDAL.Instance.getnextid();
             RoomType roomType = new RoomType();
             List<ImgStorage> imgstolist = new List<ImgStorage>();
             mapper.Map(roomTypeVM, roomType);
-            foreach (KeyValuePair<int, string> kvp in roomTypeVM.MapImgUrl)
+            roomType.RoTyActiveflag = true;
+            foreach (ImageVM imageVM in roomTypeVM.ListImg)
             {
                 ImgStorage imgStorage = new ImgStorage();
-                imgStorage.ImgstoUrl = kvp.Value;
+                mapper.Map(imageVM, imgStorage);
                 imgStorage.ImgstoIdrootyp = idRoomType;
                 imgstolist.Add(imgStorage);
             }
             roomType.ImgStorages = imgstolist;
-            _roomTypeDAL.addRoomtype(roomType);
-        }*/
+            try
+            {
+                RoomtypeDAL.Instance.addRoomtype(roomType);
+                ImgStorageDAL.Instance.add(imgstolist);
+            }
+            catch (Exception e)
+            {
+
+            }
+        }
 
         public void addRoomType(RoomTypeVM roomTypeVM)
         {
