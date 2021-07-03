@@ -20,18 +20,10 @@ namespace HotelManagement.BBL.Implement
             mapper = new Mapper(MapperVM.config);
         }
 
-
-        public RoomTypeBLL()
-        {
-            _roomTypeDAL = new RoomtypeDAL();
-            _imgStorageDAL = new ImgStorageDAL();
-            mapper = new Mapper(config);
-        }
-
-        public List<RoomTypeVM> getAll()
+        public List<RoomTypeVM> findByProperty(string search, string orderBy, string status)
         {
             List<RoomTypeVM> listVM = new List<RoomTypeVM>();
-            foreach (RoomType roomType in _roomTypeDAL.getAll())
+            foreach (RoomType roomType in RoomtypeDAL.Instance.findByProperty(search, orderBy, status))
             {
                 RoomTypeVM roomTypeVM = mapper.Map<RoomTypeVM>(roomType);
                 listVM.Add(roomTypeVM);
@@ -39,7 +31,7 @@ namespace HotelManagement.BBL.Implement
             return listVM;
         }
 
-       
+
 
         /*public void addRoomType1(RoomTypeVM roomTypeVM)
         {
