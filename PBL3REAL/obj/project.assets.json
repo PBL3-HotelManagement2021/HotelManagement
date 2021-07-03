@@ -6681,11 +6681,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Code\\Visual Studio 2019\\WinForm\\testQLKS\\HotelManagement\\HotelManagement\\PBL3REAL\\PBL3REAL.csproj",
+      "projectUniqueName": "C:\\Users\\MSI GF63\\Desktop\\a\\HotelManagement\\PBL3REAL\\PBL3REAL.csproj",
       "projectName": "PBL3REAL",
-      "projectPath": "E:\\Code\\Visual Studio 2019\\WinForm\\testQLKS\\HotelManagement\\HotelManagement\\PBL3REAL\\PBL3REAL.csproj",
+      "projectPath": "C:\\Users\\MSI GF63\\Desktop\\a\\HotelManagement\\PBL3REAL\\PBL3REAL.csproj",
       "packagesPath": "C:\\Users\\MSI GF63\\.nuget\\packages\\",
-      "outputPath": "E:\\Code\\Visual Studio 2019\\WinForm\\testQLKS\\HotelManagement\\HotelManagement\\PBL3REAL\\obj\\",
+      "outputPath": "C:\\Users\\MSI GF63\\Desktop\\a\\HotelManagement\\PBL3REAL\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\MSI GF63\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -6769,7 +6769,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
       }
     }
   }

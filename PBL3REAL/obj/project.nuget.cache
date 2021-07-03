@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kSzEeGMNeRAsbpqviAwoM7eNskDjtiwFB92BokNFPtvekP4qPFsHY8iZaztKmZZoUXRwN7kDA3vZjN5mRyU5jA==",
+  "dgSpecHash": "aYg9wkNZpY/oVcIb0Sd0qv/uCV3O3GMtwDwdfFt6KvC+YpipO9y4nVlNiJHRVMcF/8F6qzYv7o0h8CbhodLMhQ==",
   "success": true,
-  "projectFilePath": "E:\\Code\\Visual Studio 2019\\WinForm\\testQLKS\\HotelManagement\\HotelManagement\\PBL3REAL\\PBL3REAL.csproj",
+  "projectFilePath": "C:\\Users\\MSI GF63\\Desktop\\a\\HotelManagement\\PBL3REAL\\PBL3REAL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\MSI GF63\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\MSI GF63\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

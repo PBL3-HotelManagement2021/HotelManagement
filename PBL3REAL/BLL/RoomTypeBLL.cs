@@ -12,17 +12,15 @@ namespace HotelManagement.BBL.Implement
 {
     public class RoomTypeBLL
     {
-        public delegate bool Compare(RoomTypeVM rt1, RoomTypeVM rt2);
-        private RoomtypeDAL _roomTypeDAL;
-        private ImgStorageDAL _imgStorageDAL;
-        private MapperConfiguration config = new MapperConfiguration(cfg => {
-            cfg.CreateMap<RoomType, RoomTypeVM>().ReverseMap();
-            cfg.CreateMap<ImgStorage, ImageVM>().ReverseMap();
-            }
-                   );
         private Mapper mapper;
 
-       
+
+        public RoomTypeBLL()
+        {
+            mapper = new Mapper(MapperVM.config);
+        }
+
+
         public RoomTypeBLL()
         {
             _roomTypeDAL = new RoomtypeDAL();
