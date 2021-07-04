@@ -115,7 +115,6 @@ namespace PBL3REAL.View
                 string idbutton = button.Name.ToString();
                 if (listAction.Contains(idbutton)) button.Enabled = true;
             }
-            Console.WriteLine("sad");
         }
         /***** GENERAL *****/
         //-> General Functions

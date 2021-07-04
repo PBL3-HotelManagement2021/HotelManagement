@@ -37,8 +37,8 @@ namespace PBL3REAL.View
             this.tabPage_Invoice = new System.Windows.Forms.TabPage();
             this.dgv_Invoice = new System.Windows.Forms.DataGridView();
             this.fllaypn_InvoiceButtons = new System.Windows.Forms.FlowLayoutPanel();
-            this.btn_InvoiceView = new System.Windows.Forms.Button();
-            this.btn_InvoiceDelete = new System.Windows.Forms.Button();
+            this.INVO_VIEW = new System.Windows.Forms.Button();
+            this.INVO_DELETE = new System.Windows.Forms.Button();
             this.tbllaypn_Invoice = new System.Windows.Forms.TableLayoutPanel();
             this.dtp_InvoiceTo = new System.Windows.Forms.DateTimePicker();
             this.dtp_InvoiceFrom = new System.Windows.Forms.DateTimePicker();
@@ -55,7 +55,7 @@ namespace PBL3REAL.View
             this.tb_InvoicePageNumber = new System.Windows.Forms.TextBox();
             this.btn_InvoiceNextPage = new System.Windows.Forms.Button();
             this.picbx_InvoiceRefresh = new System.Windows.Forms.PictureBox();
-            this.tabPage_StatAnalyze = new System.Windows.Forms.TabPage();
+            this.STATAB_USE = new System.Windows.Forms.TabPage();
             this.grbx_AnalyzeOption = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.chkbx_PredictOption = new System.Windows.Forms.CheckBox();
@@ -95,7 +95,7 @@ namespace PBL3REAL.View
             ((System.ComponentModel.ISupportInitialize)(this.picbx_InvoiceSearch)).BeginInit();
             this.fllaypn_InvoiceSwitchPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picbx_InvoiceRefresh)).BeginInit();
-            this.tabPage_StatAnalyze.SuspendLayout();
+            this.STATAB_USE.SuspendLayout();
             this.grbx_AnalyzeOption.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.grbx_StatisticOption.SuspendLayout();
@@ -110,7 +110,7 @@ namespace PBL3REAL.View
             // 
             this.tabControl_Accountant.Controls.Add(this.tabPage_General);
             this.tabControl_Accountant.Controls.Add(this.tabPage_Invoice);
-            this.tabControl_Accountant.Controls.Add(this.tabPage_StatAnalyze);
+            this.tabControl_Accountant.Controls.Add(this.STATAB_USE);
             this.tabControl_Accountant.Dock = System.Windows.Forms.DockStyle.Left;
             this.tabControl_Accountant.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tabControl_Accountant.Location = new System.Drawing.Point(0, 0);
@@ -200,52 +200,54 @@ namespace PBL3REAL.View
             // 
             // fllaypn_InvoiceButtons
             // 
-            this.fllaypn_InvoiceButtons.Controls.Add(this.btn_InvoiceView);
-            this.fllaypn_InvoiceButtons.Controls.Add(this.btn_InvoiceDelete);
+            this.fllaypn_InvoiceButtons.Controls.Add(this.INVO_VIEW);
+            this.fllaypn_InvoiceButtons.Controls.Add(this.INVO_DELETE);
             this.fllaypn_InvoiceButtons.Location = new System.Drawing.Point(609, 14);
             this.fllaypn_InvoiceButtons.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.fllaypn_InvoiceButtons.Name = "fllaypn_InvoiceButtons";
             this.fllaypn_InvoiceButtons.Size = new System.Drawing.Size(370, 147);
             this.fllaypn_InvoiceButtons.TabIndex = 0;
             // 
-            // btn_InvoiceView
+            // INVO_VIEW
             // 
-            this.btn_InvoiceView.FlatAppearance.BorderSize = 0;
-            this.btn_InvoiceView.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_InvoiceView.Image = global::PBL3REAL.Properties.Resources.show_property_96px;
-            this.btn_InvoiceView.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_InvoiceView.Location = new System.Drawing.Point(3, 2);
-            this.btn_InvoiceView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_InvoiceView.Name = "btn_InvoiceView";
-            this.btn_InvoiceView.Size = new System.Drawing.Size(170, 144);
-            this.btn_InvoiceView.TabIndex = 0;
-            this.btn_InvoiceView.Text = "Xem thông tin đơn đã chọn";
-            this.btn_InvoiceView.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_InvoiceView.UseVisualStyleBackColor = true;
-            this.btn_InvoiceView.Click += new System.EventHandler(this.btn_InvoiceView_Click);
+            this.INVO_VIEW.Enabled = false;
+            this.INVO_VIEW.FlatAppearance.BorderSize = 0;
+            this.INVO_VIEW.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.INVO_VIEW.Image = global::PBL3REAL.Properties.Resources.show_property_96px;
+            this.INVO_VIEW.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.INVO_VIEW.Location = new System.Drawing.Point(3, 2);
+            this.INVO_VIEW.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.INVO_VIEW.Name = "INVO_VIEW";
+            this.INVO_VIEW.Size = new System.Drawing.Size(170, 144);
+            this.INVO_VIEW.TabIndex = 0;
+            this.INVO_VIEW.Text = "Xem thông tin đơn đã chọn";
+            this.INVO_VIEW.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.INVO_VIEW.UseVisualStyleBackColor = true;
+            this.INVO_VIEW.Click += new System.EventHandler(this.btn_InvoiceView_Click);
             // 
-            // btn_InvoiceDelete
+            // INVO_DELETE
             // 
-            this.btn_InvoiceDelete.FlatAppearance.BorderSize = 0;
-            this.btn_InvoiceDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_InvoiceDelete.Image = global::PBL3REAL.Properties.Resources.waste_fluent_color_96px;
-            this.btn_InvoiceDelete.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_InvoiceDelete.Location = new System.Drawing.Point(179, 2);
-            this.btn_InvoiceDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_InvoiceDelete.Name = "btn_InvoiceDelete";
-            this.btn_InvoiceDelete.Size = new System.Drawing.Size(170, 144);
-            this.btn_InvoiceDelete.TabIndex = 0;
-            this.btn_InvoiceDelete.Text = "Xóa đơn đã chọn";
-            this.btn_InvoiceDelete.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_InvoiceDelete.UseVisualStyleBackColor = true;
-            this.btn_InvoiceDelete.Click += new System.EventHandler(this.btn_InvoiceDelete_Click);
+            this.INVO_DELETE.Enabled = false;
+            this.INVO_DELETE.FlatAppearance.BorderSize = 0;
+            this.INVO_DELETE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.INVO_DELETE.Image = global::PBL3REAL.Properties.Resources.waste_fluent_color_96px;
+            this.INVO_DELETE.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.INVO_DELETE.Location = new System.Drawing.Point(179, 2);
+            this.INVO_DELETE.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.INVO_DELETE.Name = "INVO_DELETE";
+            this.INVO_DELETE.Size = new System.Drawing.Size(170, 144);
+            this.INVO_DELETE.TabIndex = 0;
+            this.INVO_DELETE.Text = "Xóa đơn đã chọn";
+            this.INVO_DELETE.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.INVO_DELETE.UseVisualStyleBackColor = true;
+            this.INVO_DELETE.Click += new System.EventHandler(this.btn_InvoiceDelete_Click);
             // 
             // tbllaypn_Invoice
             // 
             this.tbllaypn_Invoice.ColumnCount = 3;
             this.tbllaypn_Invoice.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.63241F));
             this.tbllaypn_Invoice.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69.36759F));
-            this.tbllaypn_Invoice.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 49F));
+            this.tbllaypn_Invoice.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tbllaypn_Invoice.Controls.Add(this.dtp_InvoiceTo, 1, 2);
             this.tbllaypn_Invoice.Controls.Add(this.dtp_InvoiceFrom, 1, 1);
             this.tbllaypn_Invoice.Controls.Add(this.lb_InvoiceTo, 0, 2);
@@ -270,7 +272,7 @@ namespace PBL3REAL.View
             // dtp_InvoiceTo
             // 
             this.dtp_InvoiceTo.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.dtp_InvoiceTo.Location = new System.Drawing.Point(138, 83);
+            this.dtp_InvoiceTo.Location = new System.Drawing.Point(137, 83);
             this.dtp_InvoiceTo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtp_InvoiceTo.Name = "dtp_InvoiceTo";
             this.dtp_InvoiceTo.Size = new System.Drawing.Size(299, 29);
@@ -279,7 +281,7 @@ namespace PBL3REAL.View
             // dtp_InvoiceFrom
             // 
             this.dtp_InvoiceFrom.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.dtp_InvoiceFrom.Location = new System.Drawing.Point(138, 44);
+            this.dtp_InvoiceFrom.Location = new System.Drawing.Point(137, 44);
             this.dtp_InvoiceFrom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtp_InvoiceFrom.Name = "dtp_InvoiceFrom";
             this.dtp_InvoiceFrom.Size = new System.Drawing.Size(299, 29);
@@ -310,7 +312,7 @@ namespace PBL3REAL.View
             // picbx_InvoiceSort
             // 
             this.picbx_InvoiceSort.Image = global::PBL3REAL.Properties.Resources.filter_fluent_color_48px;
-            this.picbx_InvoiceSort.Location = new System.Drawing.Point(443, 2);
+            this.picbx_InvoiceSort.Location = new System.Drawing.Point(442, 2);
             this.picbx_InvoiceSort.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.picbx_InvoiceSort.Name = "picbx_InvoiceSort";
             this.picbx_InvoiceSort.Size = new System.Drawing.Size(41, 35);
@@ -329,7 +331,7 @@ namespace PBL3REAL.View
             "None",
             "Total Price Asc",
             "Total Price Desc"});
-            this.cbb_InvoiceSort.Location = new System.Drawing.Point(138, 3);
+            this.cbb_InvoiceSort.Location = new System.Drawing.Point(137, 3);
             this.cbb_InvoiceSort.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbb_InvoiceSort.Name = "cbb_InvoiceSort";
             this.cbb_InvoiceSort.Size = new System.Drawing.Size(299, 33);
@@ -363,7 +365,7 @@ namespace PBL3REAL.View
             this.tb_InvoiceSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
             this.tb_InvoiceSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tb_InvoiceSearch.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tb_InvoiceSearch.Location = new System.Drawing.Point(138, 125);
+            this.tb_InvoiceSearch.Location = new System.Drawing.Point(137, 125);
             this.tb_InvoiceSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_InvoiceSearch.Name = "tb_InvoiceSearch";
             this.tb_InvoiceSearch.Size = new System.Drawing.Size(299, 25);
@@ -372,7 +374,7 @@ namespace PBL3REAL.View
             // picbx_InvoiceSearch
             // 
             this.picbx_InvoiceSearch.Image = global::PBL3REAL.Properties.Resources.search_fluent_color_48px;
-            this.picbx_InvoiceSearch.Location = new System.Drawing.Point(443, 119);
+            this.picbx_InvoiceSearch.Location = new System.Drawing.Point(442, 119);
             this.picbx_InvoiceSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.picbx_InvoiceSearch.Name = "picbx_InvoiceSearch";
             this.picbx_InvoiceSearch.Size = new System.Drawing.Size(41, 35);
@@ -443,18 +445,18 @@ namespace PBL3REAL.View
             this.picbx_InvoiceRefresh.TabIndex = 14;
             this.picbx_InvoiceRefresh.TabStop = false;
             // 
-            // tabPage_StatAnalyze
+            // STATAB_USE
             // 
-            this.tabPage_StatAnalyze.Controls.Add(this.grbx_AnalyzeOption);
-            this.tabPage_StatAnalyze.Controls.Add(this.grbx_StatisticOption);
-            this.tabPage_StatAnalyze.Controls.Add(this.grbx_StatAnalyze);
-            this.tabPage_StatAnalyze.Location = new System.Drawing.Point(4, 30);
-            this.tabPage_StatAnalyze.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage_StatAnalyze.Name = "tabPage_StatAnalyze";
-            this.tabPage_StatAnalyze.Size = new System.Drawing.Size(996, 490);
-            this.tabPage_StatAnalyze.TabIndex = 2;
-            this.tabPage_StatAnalyze.Text = "Thống kê & Phân tích số liệu";
-            this.tabPage_StatAnalyze.UseVisualStyleBackColor = true;
+            this.STATAB_USE.Controls.Add(this.grbx_AnalyzeOption);
+            this.STATAB_USE.Controls.Add(this.grbx_StatisticOption);
+            this.STATAB_USE.Controls.Add(this.grbx_StatAnalyze);
+            this.STATAB_USE.Location = new System.Drawing.Point(4, 30);
+            this.STATAB_USE.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.STATAB_USE.Name = "STATAB_USE";
+            this.STATAB_USE.Size = new System.Drawing.Size(996, 490);
+            this.STATAB_USE.TabIndex = 2;
+            this.STATAB_USE.Text = "Thống kê & Phân tích số liệu";
+            this.STATAB_USE.UseVisualStyleBackColor = true;
             // 
             // grbx_AnalyzeOption
             // 
@@ -862,7 +864,7 @@ namespace PBL3REAL.View
             this.fllaypn_InvoiceSwitchPage.ResumeLayout(false);
             this.fllaypn_InvoiceSwitchPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picbx_InvoiceRefresh)).EndInit();
-            this.tabPage_StatAnalyze.ResumeLayout(false);
+            this.STATAB_USE.ResumeLayout(false);
             this.grbx_AnalyzeOption.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
@@ -885,8 +887,8 @@ namespace PBL3REAL.View
         private System.Windows.Forms.TabPage tabPage_General;
         private System.Windows.Forms.TabPage tabPage_Invoice;
         private System.Windows.Forms.FlowLayoutPanel fllaypn_InvoiceButtons;
-        private System.Windows.Forms.Button btn_InvoiceView;
-        private System.Windows.Forms.Button btn_InvoiceDelete;
+        private System.Windows.Forms.Button INVO_VIEW;
+        private System.Windows.Forms.Button INVO_DELETE;
         private System.Windows.Forms.TableLayoutPanel tbllaypn_Invoice;
         private System.Windows.Forms.PictureBox picbx_InvoiceSearch;
         private System.Windows.Forms.PictureBox picbx_InvoiceSort;
@@ -894,7 +896,7 @@ namespace PBL3REAL.View
         private System.Windows.Forms.TextBox tb_InvoiceSearch;
         private System.Windows.Forms.Label lb_InvoiceSearch;
         private System.Windows.Forms.Label lb_InvoiceSort;
-        private System.Windows.Forms.TabPage tabPage_StatAnalyze;
+        private System.Windows.Forms.TabPage STATAB_USE;
         private System.Windows.Forms.GroupBox grbx_StatAnalyze;
         private System.Windows.Forms.TableLayoutPanel tbllaypn_DataOption;
         private System.Windows.Forms.GroupBox grbx_AnalyzeOption;

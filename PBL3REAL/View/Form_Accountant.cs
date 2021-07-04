@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
@@ -19,6 +20,8 @@ namespace PBL3REAL.View
         private int currentPage = 1;
         private int totalPage = 0;
         private CalendarVM calendarVM;
+        private TabPage tp;
+        private List<Button> listButton;
         public Form_Accountant()
         {
             InitializeComponent();
@@ -29,6 +32,26 @@ namespace PBL3REAL.View
             grbx_StatisticOption.Enabled = false;
             grbx_AnalyzeOption.Enabled = false;
             calendarVM = new CalendarVM();
+            tp = STATAB_USE;
+            if (tabControl_Accountant.TabPages.Contains(tp))  tabControl_Accountant.TabPages.Remove(tp);
+            listButton = new List<Button>()
+            {
+                INVO_VIEW,INVO_DELETE
+            };
+            Authorization();
+        }
+
+        private void Authorization()
+        {
+            List<string> listAction = QLUserBLL.stoUser.ListRole.Where(x => x.IsSelected == true).FirstOrDefault().ActionList;
+            foreach (var button in listButton)
+            {
+                string idbutton = button.Name.ToString();
+                if (listAction.Contains(idbutton)) button.Enabled = true;
+            }
+            if (tabControl_Accountant.TabPages.Contains(tp)) return;
+            string idTabPage = tp.Name.ToString();
+            if (listAction.Contains(idTabPage)) tabControl_Accountant.TabPages.Add(tp);
         }
 
         /***** Invoice MANAGEMENT *****/

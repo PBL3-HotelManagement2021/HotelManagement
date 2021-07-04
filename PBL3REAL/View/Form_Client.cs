@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
@@ -20,6 +21,8 @@ namespace PBL3REAL.View
         private int currentPage = 1;
         private int totalPage = 0;
 
+
+        private List<Button> listButton;
         /***** CONSTRUCTOR *****/
         public Form_Client()
         {
@@ -27,6 +30,22 @@ namespace PBL3REAL.View
             clientBLL = new ClientBLL();
             cbb_ClientSort.SelectedIndex = 0;
             cbb_ClientStatus.SelectedIndex = 0;
+
+            listButton = new List<Button>()
+            {
+                CLIE_ACTIVE,CLIE_ADD,CLIE_INACTIVE,CLIE_UPDATE,CLIE_VIEW
+            };
+            Authorization();
+        }
+
+        private void Authorization()
+        {
+            List<string> listAction = QLUserBLL.stoUser.ListRole.Where(x => x.IsSelected == true).FirstOrDefault().ActionList;
+            foreach (var button in listButton)
+            {
+                string idbutton = button.Name.ToString();
+                if (listAction.Contains(idbutton)) button.Enabled = true;
+            }
         }
 
         /***** GENERAL *****/

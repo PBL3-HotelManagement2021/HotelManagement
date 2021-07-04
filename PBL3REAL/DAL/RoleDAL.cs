@@ -37,7 +37,12 @@ namespace PBL3REAL.DAL
 
         public Role getDetail(int idRole)
         {
-            var result = AppDbContext.Instance.Roles.Include(x=>x.Permissions).ThenInclude(y =>y.PerIdactionNavigation).Where(x=>x.IdRole == idRole).AsNoTracking().FirstOrDefault();
+            Role result = AppDbContext.Instance.Roles.Include(x=>x.Permissions).ThenInclude(y =>y.PerIdactionNavigation).Where(x=>x.IdRole == idRole).AsNoTracking().FirstOrDefault();
+            foreach (var permission in result.Permissions.ToList())
+            {
+                if (permission.PerActiveflag == false) result.Permissions.Remove(permission);
+            }
+
             return result;
         }
     }

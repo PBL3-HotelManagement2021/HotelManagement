@@ -37,11 +37,11 @@ namespace PBL3REAL.View
             this.tabPage_HRM = new System.Windows.Forms.TabPage();
             this.dgv_HRM = new System.Windows.Forms.DataGridView();
             this.fllaypn_HRMButtons = new System.Windows.Forms.FlowLayoutPanel();
-            this.btn_HRMView = new System.Windows.Forms.Button();
-            this.btn_HRMAdd = new System.Windows.Forms.Button();
-            this.btn_HRMEdit = new System.Windows.Forms.Button();
-            this.btn_HRMDelete = new System.Windows.Forms.Button();
-            this.btn_HRMRestore = new System.Windows.Forms.Button();
+            this.USER_VIEW = new System.Windows.Forms.Button();
+            this.USER_ADD = new System.Windows.Forms.Button();
+            this.USER_UPDATE = new System.Windows.Forms.Button();
+            this.USER_INACTIVE = new System.Windows.Forms.Button();
+            this.USER_ACTIVE = new System.Windows.Forms.Button();
             this.tbllaypn_HRM = new System.Windows.Forms.TableLayoutPanel();
             this.cbb_HRMStatus = new System.Windows.Forms.ComboBox();
             this.lb_HRMStatus = new System.Windows.Forms.Label();
@@ -151,103 +151,108 @@ namespace PBL3REAL.View
             // 
             // fllaypn_HRMButtons
             // 
-            this.fllaypn_HRMButtons.Controls.Add(this.btn_HRMView);
-            this.fllaypn_HRMButtons.Controls.Add(this.btn_HRMAdd);
-            this.fllaypn_HRMButtons.Controls.Add(this.btn_HRMEdit);
-            this.fllaypn_HRMButtons.Controls.Add(this.btn_HRMDelete);
-            this.fllaypn_HRMButtons.Controls.Add(this.btn_HRMRestore);
+            this.fllaypn_HRMButtons.Controls.Add(this.USER_VIEW);
+            this.fllaypn_HRMButtons.Controls.Add(this.USER_ADD);
+            this.fllaypn_HRMButtons.Controls.Add(this.USER_UPDATE);
+            this.fllaypn_HRMButtons.Controls.Add(this.USER_INACTIVE);
+            this.fllaypn_HRMButtons.Controls.Add(this.USER_ACTIVE);
             this.fllaypn_HRMButtons.Location = new System.Drawing.Point(392, -2);
             this.fllaypn_HRMButtons.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.fllaypn_HRMButtons.Name = "fllaypn_HRMButtons";
             this.fllaypn_HRMButtons.Size = new System.Drawing.Size(811, 154);
             this.fllaypn_HRMButtons.TabIndex = 0;
             // 
-            // btn_HRMView
+            // USER_VIEW
             // 
-            this.btn_HRMView.FlatAppearance.BorderSize = 0;
-            this.btn_HRMView.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_HRMView.Image = global::PBL3REAL.Properties.Resources.show_property_96px;
-            this.btn_HRMView.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_HRMView.Location = new System.Drawing.Point(3, 2);
-            this.btn_HRMView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_HRMView.Name = "btn_HRMView";
-            this.btn_HRMView.Size = new System.Drawing.Size(152, 152);
-            this.btn_HRMView.TabIndex = 0;
-            this.btn_HRMView.Text = "Xem thông tin người dùng đã chọn";
-            this.btn_HRMView.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_HRMView.UseVisualStyleBackColor = true;
-            this.btn_HRMView.Click += new System.EventHandler(this.btn_HRMView_Click);
+            this.USER_VIEW.Enabled = false;
+            this.USER_VIEW.FlatAppearance.BorderSize = 0;
+            this.USER_VIEW.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.USER_VIEW.Image = global::PBL3REAL.Properties.Resources.show_property_96px;
+            this.USER_VIEW.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.USER_VIEW.Location = new System.Drawing.Point(3, 2);
+            this.USER_VIEW.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.USER_VIEW.Name = "USER_VIEW";
+            this.USER_VIEW.Size = new System.Drawing.Size(152, 152);
+            this.USER_VIEW.TabIndex = 0;
+            this.USER_VIEW.Text = "View User";
+            this.USER_VIEW.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.USER_VIEW.UseVisualStyleBackColor = true;
+            this.USER_VIEW.Click += new System.EventHandler(this.btn_HRMView_Click);
             // 
-            // btn_HRMAdd
+            // USER_ADD
             // 
-            this.btn_HRMAdd.FlatAppearance.BorderSize = 0;
-            this.btn_HRMAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_HRMAdd.Image = global::PBL3REAL.Properties.Resources.add_fluent_color_96px;
-            this.btn_HRMAdd.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_HRMAdd.Location = new System.Drawing.Point(161, 2);
-            this.btn_HRMAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_HRMAdd.Name = "btn_HRMAdd";
-            this.btn_HRMAdd.Size = new System.Drawing.Size(152, 152);
-            this.btn_HRMAdd.TabIndex = 0;
-            this.btn_HRMAdd.Text = "Thêm người dùng mới";
-            this.btn_HRMAdd.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_HRMAdd.UseVisualStyleBackColor = true;
-            this.btn_HRMAdd.Click += new System.EventHandler(this.btn_HRMAdd_Click);
+            this.USER_ADD.Enabled = false;
+            this.USER_ADD.FlatAppearance.BorderSize = 0;
+            this.USER_ADD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.USER_ADD.Image = global::PBL3REAL.Properties.Resources.add_fluent_color_96px;
+            this.USER_ADD.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.USER_ADD.Location = new System.Drawing.Point(161, 2);
+            this.USER_ADD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.USER_ADD.Name = "USER_ADD";
+            this.USER_ADD.Size = new System.Drawing.Size(152, 152);
+            this.USER_ADD.TabIndex = 0;
+            this.USER_ADD.Text = "Add User";
+            this.USER_ADD.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.USER_ADD.UseVisualStyleBackColor = true;
+            this.USER_ADD.Click += new System.EventHandler(this.btn_HRMAdd_Click);
             // 
-            // btn_HRMEdit
+            // USER_UPDATE
             // 
-            this.btn_HRMEdit.FlatAppearance.BorderSize = 0;
-            this.btn_HRMEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_HRMEdit.Image = global::PBL3REAL.Properties.Resources.edit_property_fluent_color_96px;
-            this.btn_HRMEdit.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_HRMEdit.Location = new System.Drawing.Point(319, 2);
-            this.btn_HRMEdit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_HRMEdit.Name = "btn_HRMEdit";
-            this.btn_HRMEdit.Size = new System.Drawing.Size(152, 152);
-            this.btn_HRMEdit.TabIndex = 0;
-            this.btn_HRMEdit.Text = "Chỉnh sửa thông tin người dùng đã chọn";
-            this.btn_HRMEdit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_HRMEdit.UseVisualStyleBackColor = true;
-            this.btn_HRMEdit.Click += new System.EventHandler(this.btn_HRMEdit_Click);
+            this.USER_UPDATE.Enabled = false;
+            this.USER_UPDATE.FlatAppearance.BorderSize = 0;
+            this.USER_UPDATE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.USER_UPDATE.Image = global::PBL3REAL.Properties.Resources.edit_property_fluent_color_96px;
+            this.USER_UPDATE.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.USER_UPDATE.Location = new System.Drawing.Point(319, 2);
+            this.USER_UPDATE.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.USER_UPDATE.Name = "USER_UPDATE";
+            this.USER_UPDATE.Size = new System.Drawing.Size(152, 152);
+            this.USER_UPDATE.TabIndex = 0;
+            this.USER_UPDATE.Text = "Update User";
+            this.USER_UPDATE.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.USER_UPDATE.UseVisualStyleBackColor = true;
+            this.USER_UPDATE.Click += new System.EventHandler(this.btn_HRMEdit_Click);
             // 
-            // btn_HRMDelete
+            // USER_INACTIVE
             // 
-            this.btn_HRMDelete.FlatAppearance.BorderSize = 0;
-            this.btn_HRMDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_HRMDelete.Image = global::PBL3REAL.Properties.Resources.waste_fluent_color_96px;
-            this.btn_HRMDelete.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_HRMDelete.Location = new System.Drawing.Point(477, 2);
-            this.btn_HRMDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_HRMDelete.Name = "btn_HRMDelete";
-            this.btn_HRMDelete.Size = new System.Drawing.Size(152, 152);
-            this.btn_HRMDelete.TabIndex = 0;
-            this.btn_HRMDelete.Text = "Xóa người dùng đã chọn";
-            this.btn_HRMDelete.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_HRMDelete.UseVisualStyleBackColor = true;
-            this.btn_HRMDelete.Click += new System.EventHandler(this.btn_HRMDelete_Click);
+            this.USER_INACTIVE.Enabled = false;
+            this.USER_INACTIVE.FlatAppearance.BorderSize = 0;
+            this.USER_INACTIVE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.USER_INACTIVE.Image = global::PBL3REAL.Properties.Resources.waste_fluent_color_96px;
+            this.USER_INACTIVE.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.USER_INACTIVE.Location = new System.Drawing.Point(477, 2);
+            this.USER_INACTIVE.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.USER_INACTIVE.Name = "USER_INACTIVE";
+            this.USER_INACTIVE.Size = new System.Drawing.Size(152, 152);
+            this.USER_INACTIVE.TabIndex = 0;
+            this.USER_INACTIVE.Text = "Inactive User";
+            this.USER_INACTIVE.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.USER_INACTIVE.UseVisualStyleBackColor = true;
+            this.USER_INACTIVE.Click += new System.EventHandler(this.btn_HRMDelete_Click);
             // 
-            // btn_HRMRestore
+            // USER_ACTIVE
             // 
-            this.btn_HRMRestore.FlatAppearance.BorderSize = 0;
-            this.btn_HRMRestore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_HRMRestore.Image = global::PBL3REAL.Properties.Resources.restore_fluent_color_96px;
-            this.btn_HRMRestore.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_HRMRestore.Location = new System.Drawing.Point(635, 2);
-            this.btn_HRMRestore.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_HRMRestore.Name = "btn_HRMRestore";
-            this.btn_HRMRestore.Size = new System.Drawing.Size(152, 152);
-            this.btn_HRMRestore.TabIndex = 0;
-            this.btn_HRMRestore.Text = "Khôi phục người dùng đã chọn";
-            this.btn_HRMRestore.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_HRMRestore.UseVisualStyleBackColor = true;
-            this.btn_HRMRestore.Click += new System.EventHandler(this.btn_HRMRestore_Click);
+            this.USER_ACTIVE.Enabled = false;
+            this.USER_ACTIVE.FlatAppearance.BorderSize = 0;
+            this.USER_ACTIVE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.USER_ACTIVE.Image = global::PBL3REAL.Properties.Resources.restore_fluent_color_96px;
+            this.USER_ACTIVE.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.USER_ACTIVE.Location = new System.Drawing.Point(635, 2);
+            this.USER_ACTIVE.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.USER_ACTIVE.Name = "USER_ACTIVE";
+            this.USER_ACTIVE.Size = new System.Drawing.Size(152, 152);
+            this.USER_ACTIVE.TabIndex = 0;
+            this.USER_ACTIVE.Text = "Active User";
+            this.USER_ACTIVE.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.USER_ACTIVE.UseVisualStyleBackColor = true;
+            this.USER_ACTIVE.Click += new System.EventHandler(this.btn_HRMRestore_Click);
             // 
             // tbllaypn_HRM
             // 
             this.tbllaypn_HRM.ColumnCount = 3;
             this.tbllaypn_HRM.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.91954F));
             this.tbllaypn_HRM.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64.08046F));
-            this.tbllaypn_HRM.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 46F));
+            this.tbllaypn_HRM.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 47F));
             this.tbllaypn_HRM.Controls.Add(this.cbb_HRMStatus, 1, 1);
             this.tbllaypn_HRM.Controls.Add(this.lb_HRMStatus, 0, 1);
             this.tbllaypn_HRM.Controls.Add(this.picbx_HRMSort, 2, 0);
@@ -298,7 +303,7 @@ namespace PBL3REAL.View
             // 
             this.picbx_HRMSort.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.picbx_HRMSort.Image = global::PBL3REAL.Properties.Resources.filter_fluent_color_48px;
-            this.picbx_HRMSort.Location = new System.Drawing.Point(307, 4);
+            this.picbx_HRMSort.Location = new System.Drawing.Point(306, 4);
             this.picbx_HRMSort.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.picbx_HRMSort.Name = "picbx_HRMSort";
             this.picbx_HRMSort.Size = new System.Drawing.Size(41, 36);
@@ -350,7 +355,7 @@ namespace PBL3REAL.View
             // 
             this.picbx_HRMSearch.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.picbx_HRMSearch.Image = global::PBL3REAL.Properties.Resources.search_fluent_color_48px;
-            this.picbx_HRMSearch.Location = new System.Drawing.Point(307, 95);
+            this.picbx_HRMSearch.Location = new System.Drawing.Point(306, 95);
             this.picbx_HRMSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.picbx_HRMSearch.Name = "picbx_HRMSearch";
             this.picbx_HRMSearch.Size = new System.Drawing.Size(41, 36);
@@ -402,10 +407,10 @@ namespace PBL3REAL.View
         private System.Windows.Forms.TabPage tabPage_HRM;
         private System.Windows.Forms.DataGridView dgv_HRM;
         private System.Windows.Forms.FlowLayoutPanel fllaypn_HRMButtons;
-        private System.Windows.Forms.Button btn_HRMView;
-        private System.Windows.Forms.Button btn_HRMAdd;
-        private System.Windows.Forms.Button btn_HRMEdit;
-        private System.Windows.Forms.Button btn_HRMDelete;
+        private System.Windows.Forms.Button USER_VIEW;
+        private System.Windows.Forms.Button USER_ADD;
+        private System.Windows.Forms.Button USER_UPDATE;
+        private System.Windows.Forms.Button USER_INACTIVE;
         private System.Windows.Forms.TableLayoutPanel tbllaypn_HRM;
         private System.Windows.Forms.PictureBox picbx_HRMSearch;
         private System.Windows.Forms.PictureBox picbx_HRMSort;
@@ -416,6 +421,6 @@ namespace PBL3REAL.View
         private System.Windows.Forms.Button btn_Home;
         private System.Windows.Forms.Label lb_HRMStatus;
         private System.Windows.Forms.ComboBox cbb_HRMStatus;
-        private System.Windows.Forms.Button btn_HRMRestore;
+        private System.Windows.Forms.Button USER_ACTIVE;
     }
 }

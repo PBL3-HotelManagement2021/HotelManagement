@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
@@ -14,13 +15,32 @@ namespace PBL3REAL.View
         private QLUserBLL qLUserBLL;
         private string search = "";
         private string orderBy = "";
+
+        private List<Button> listButton;
         public Form_HRM()
         {
             InitializeComponent();
             qLUserBLL = new QLUserBLL();
             cbb_HRMSort.SelectedIndex = 0;
             cbb_HRMStatus.SelectedIndex = 0;
+            listButton = new List<Button>()
+            {
+                USER_ACTIVE,USER_ADD,USER_INACTIVE,USER_UPDATE,USER_VIEW
+            };
+            Authorization();
         }
+
+        private void Authorization()
+        {
+            List<string> listAction = QLUserBLL.stoUser.ListRole.Where(x => x.IsSelected == true).FirstOrDefault().ActionList;
+            foreach (var button in listButton)
+            {
+                string idbutton = button.Name.ToString();
+                if (listAction.Contains(idbutton)) button.Enabled = true;
+            }
+        }
+
+
         private void loadDtbUser()
         {
             dgv_HRM.DataSource = null;
