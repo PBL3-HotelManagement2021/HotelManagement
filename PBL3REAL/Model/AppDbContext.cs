@@ -40,7 +40,8 @@ namespace PBL3REAL.Model
         public virtual DbSet<Client> Clients { get; set; }
         public virtual DbSet<ImgStorage> ImgStorages { get; set; }
         public virtual DbSet<Invoice> Invoices { get; set; }
-   
+        public virtual DbSet<Permission> Permissions { get; set; }
+        public virtual DbSet<Action> Actions { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<Room> Rooms { get; set; }
         public virtual DbSet<RoomType> RoomTypes { get; set; }

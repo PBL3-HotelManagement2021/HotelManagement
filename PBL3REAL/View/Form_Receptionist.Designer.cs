@@ -39,11 +39,11 @@ namespace PBL3REAL.View
             this.tabPage_Booking = new System.Windows.Forms.TabPage();
             this.dgv_Booking = new System.Windows.Forms.DataGridView();
             this.fllaypn_BookingButtons = new System.Windows.Forms.FlowLayoutPanel();
-            this.btn_BookingView = new System.Windows.Forms.Button();
-            this.btn_BookingAdd = new System.Windows.Forms.Button();
-            this.btn_BookingEdit = new System.Windows.Forms.Button();
-            this.btn_BookingDelete = new System.Windows.Forms.Button();
-            this.btn_BookingExport = new System.Windows.Forms.Button();
+            this.BOOK_VIEW = new System.Windows.Forms.Button();
+            this.BOOK_ADD = new System.Windows.Forms.Button();
+            this.BOOK_UPDATE = new System.Windows.Forms.Button();
+            this.BOOK_DELETE = new System.Windows.Forms.Button();
+            this.BOOK_EXPORTINVOICE = new System.Windows.Forms.Button();
             this.tbllaypn_Booking = new System.Windows.Forms.TableLayoutPanel();
             this.lb_BookingStatus = new System.Windows.Forms.Label();
             this.cbb_BookingStatus = new System.Windows.Forms.ComboBox();
@@ -67,11 +67,11 @@ namespace PBL3REAL.View
             this.tabPage_Room = new System.Windows.Forms.TabPage();
             this.fllaypn_RoomSwitchPage = new System.Windows.Forms.DataGridView();
             this.fllaypn_Room = new System.Windows.Forms.FlowLayoutPanel();
-            this.btn_RoomView = new System.Windows.Forms.Button();
-            this.btn_RoomAdd = new System.Windows.Forms.Button();
-            this.btn_RoomEdit = new System.Windows.Forms.Button();
-            this.btn_RoomDelete = new System.Windows.Forms.Button();
-            this.btn_RoomRestore = new System.Windows.Forms.Button();
+            this.ROOM_VIEW = new System.Windows.Forms.Button();
+            this.ROOM_ADD = new System.Windows.Forms.Button();
+            this.ROOM_UPDATE = new System.Windows.Forms.Button();
+            this.ROOM_INACTIVE = new System.Windows.Forms.Button();
+            this.ROOM_ACTIVE = new System.Windows.Forms.Button();
             this.tbllaypn_Room = new System.Windows.Forms.TableLayoutPanel();
             this.picbx_RoomSearch = new System.Windows.Forms.PictureBox();
             this.cbb_RoomActive = new System.Windows.Forms.ComboBox();
@@ -89,11 +89,11 @@ namespace PBL3REAL.View
             this.tabPage_RoomType = new System.Windows.Forms.TabPage();
             this.dgv_RoomType = new System.Windows.Forms.DataGridView();
             this.fllaypn_RoomType = new System.Windows.Forms.FlowLayoutPanel();
-            this.btn_RoomTypeView = new System.Windows.Forms.Button();
-            this.btn_RoomTypeAdd = new System.Windows.Forms.Button();
-            this.btn_RoomTypeEdit = new System.Windows.Forms.Button();
-            this.btn_RoomTypeDelete = new System.Windows.Forms.Button();
-            this.btn_RoomTypeRestore = new System.Windows.Forms.Button();
+            this.TYPE_VIEW = new System.Windows.Forms.Button();
+            this.TYPE_ADD = new System.Windows.Forms.Button();
+            this.TYPE_UPDATE = new System.Windows.Forms.Button();
+            this.TYPE_INACTIVE = new System.Windows.Forms.Button();
+            this.TYPE_ACTIVE = new System.Windows.Forms.Button();
             this.tbllaypn_RoomType = new System.Windows.Forms.TableLayoutPanel();
             this.lb_RoomTypeStatus = new System.Windows.Forms.Label();
             this.cbb_RoomTypeStatus = new System.Windows.Forms.ComboBox();
@@ -224,103 +224,108 @@ namespace PBL3REAL.View
             // 
             // fllaypn_BookingButtons
             // 
-            this.fllaypn_BookingButtons.Controls.Add(this.btn_BookingView);
-            this.fllaypn_BookingButtons.Controls.Add(this.btn_BookingAdd);
-            this.fllaypn_BookingButtons.Controls.Add(this.btn_BookingEdit);
-            this.fllaypn_BookingButtons.Controls.Add(this.btn_BookingDelete);
-            this.fllaypn_BookingButtons.Controls.Add(this.btn_BookingExport);
+            this.fllaypn_BookingButtons.Controls.Add(this.BOOK_VIEW);
+            this.fllaypn_BookingButtons.Controls.Add(this.BOOK_ADD);
+            this.fllaypn_BookingButtons.Controls.Add(this.BOOK_UPDATE);
+            this.fllaypn_BookingButtons.Controls.Add(this.BOOK_DELETE);
+            this.fllaypn_BookingButtons.Controls.Add(this.BOOK_EXPORTINVOICE);
             this.fllaypn_BookingButtons.Location = new System.Drawing.Point(485, 34);
             this.fllaypn_BookingButtons.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.fllaypn_BookingButtons.Name = "fllaypn_BookingButtons";
             this.fllaypn_BookingButtons.Size = new System.Drawing.Size(730, 148);
             this.fllaypn_BookingButtons.TabIndex = 0;
             // 
-            // btn_BookingView
+            // BOOK_VIEW
             // 
-            this.btn_BookingView.FlatAppearance.BorderSize = 0;
-            this.btn_BookingView.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_BookingView.Image = global::PBL3REAL.Properties.Resources.show_property_96px;
-            this.btn_BookingView.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_BookingView.Location = new System.Drawing.Point(3, 2);
-            this.btn_BookingView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_BookingView.Name = "btn_BookingView";
-            this.btn_BookingView.Size = new System.Drawing.Size(135, 145);
-            this.btn_BookingView.TabIndex = 0;
-            this.btn_BookingView.Text = "Xem thông tin đơn đã chọn";
-            this.btn_BookingView.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_BookingView.UseVisualStyleBackColor = true;
-            this.btn_BookingView.Click += new System.EventHandler(this.btn_BookingView_Click);
+            this.BOOK_VIEW.Enabled = false;
+            this.BOOK_VIEW.FlatAppearance.BorderSize = 0;
+            this.BOOK_VIEW.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BOOK_VIEW.Image = global::PBL3REAL.Properties.Resources.show_property_96px;
+            this.BOOK_VIEW.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.BOOK_VIEW.Location = new System.Drawing.Point(3, 2);
+            this.BOOK_VIEW.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BOOK_VIEW.Name = "BOOK_VIEW";
+            this.BOOK_VIEW.Size = new System.Drawing.Size(135, 145);
+            this.BOOK_VIEW.TabIndex = 0;
+            this.BOOK_VIEW.Text = "Xem thông tin đơn đã chọn";
+            this.BOOK_VIEW.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.BOOK_VIEW.UseVisualStyleBackColor = true;
+            this.BOOK_VIEW.Click += new System.EventHandler(this.btn_BookingView_Click);
             // 
-            // btn_BookingAdd
+            // BOOK_ADD
             // 
-            this.btn_BookingAdd.FlatAppearance.BorderSize = 0;
-            this.btn_BookingAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_BookingAdd.Image = global::PBL3REAL.Properties.Resources.add_fluent_color_96px;
-            this.btn_BookingAdd.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_BookingAdd.Location = new System.Drawing.Point(144, 2);
-            this.btn_BookingAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_BookingAdd.Name = "btn_BookingAdd";
-            this.btn_BookingAdd.Size = new System.Drawing.Size(135, 145);
-            this.btn_BookingAdd.TabIndex = 0;
-            this.btn_BookingAdd.Text = "Thêm đơn mới";
-            this.btn_BookingAdd.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_BookingAdd.UseVisualStyleBackColor = true;
-            this.btn_BookingAdd.Click += new System.EventHandler(this.btn_BookingAdd_Click);
+            this.BOOK_ADD.Enabled = false;
+            this.BOOK_ADD.FlatAppearance.BorderSize = 0;
+            this.BOOK_ADD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BOOK_ADD.Image = global::PBL3REAL.Properties.Resources.add_fluent_color_96px;
+            this.BOOK_ADD.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.BOOK_ADD.Location = new System.Drawing.Point(144, 2);
+            this.BOOK_ADD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BOOK_ADD.Name = "BOOK_ADD";
+            this.BOOK_ADD.Size = new System.Drawing.Size(135, 145);
+            this.BOOK_ADD.TabIndex = 0;
+            this.BOOK_ADD.Text = "Thêm đơn mới";
+            this.BOOK_ADD.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.BOOK_ADD.UseVisualStyleBackColor = true;
+            this.BOOK_ADD.Click += new System.EventHandler(this.btn_BookingAdd_Click);
             // 
-            // btn_BookingEdit
+            // BOOK_UPDATE
             // 
-            this.btn_BookingEdit.FlatAppearance.BorderSize = 0;
-            this.btn_BookingEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_BookingEdit.Image = global::PBL3REAL.Properties.Resources.edit_property_fluent_color_96px;
-            this.btn_BookingEdit.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_BookingEdit.Location = new System.Drawing.Point(285, 2);
-            this.btn_BookingEdit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_BookingEdit.Name = "btn_BookingEdit";
-            this.btn_BookingEdit.Size = new System.Drawing.Size(135, 145);
-            this.btn_BookingEdit.TabIndex = 0;
-            this.btn_BookingEdit.Text = "Chỉnh sửa thông tin đơn đã chọn";
-            this.btn_BookingEdit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_BookingEdit.UseVisualStyleBackColor = true;
-            this.btn_BookingEdit.Click += new System.EventHandler(this.btn_BookingEdit_Click);
+            this.BOOK_UPDATE.Enabled = false;
+            this.BOOK_UPDATE.FlatAppearance.BorderSize = 0;
+            this.BOOK_UPDATE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BOOK_UPDATE.Image = global::PBL3REAL.Properties.Resources.edit_property_fluent_color_96px;
+            this.BOOK_UPDATE.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.BOOK_UPDATE.Location = new System.Drawing.Point(285, 2);
+            this.BOOK_UPDATE.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BOOK_UPDATE.Name = "BOOK_UPDATE";
+            this.BOOK_UPDATE.Size = new System.Drawing.Size(135, 145);
+            this.BOOK_UPDATE.TabIndex = 0;
+            this.BOOK_UPDATE.Text = "Chỉnh sửa thông tin đơn đã chọn";
+            this.BOOK_UPDATE.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.BOOK_UPDATE.UseVisualStyleBackColor = true;
+            this.BOOK_UPDATE.Click += new System.EventHandler(this.btn_BookingEdit_Click);
             // 
-            // btn_BookingDelete
+            // BOOK_DELETE
             // 
-            this.btn_BookingDelete.FlatAppearance.BorderSize = 0;
-            this.btn_BookingDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_BookingDelete.Image = global::PBL3REAL.Properties.Resources.waste_fluent_color_96px;
-            this.btn_BookingDelete.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_BookingDelete.Location = new System.Drawing.Point(426, 2);
-            this.btn_BookingDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_BookingDelete.Name = "btn_BookingDelete";
-            this.btn_BookingDelete.Size = new System.Drawing.Size(135, 145);
-            this.btn_BookingDelete.TabIndex = 0;
-            this.btn_BookingDelete.Text = "Xóa đơn đã chọn";
-            this.btn_BookingDelete.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_BookingDelete.UseVisualStyleBackColor = true;
-            this.btn_BookingDelete.Click += new System.EventHandler(this.btn_BookingDelete_Click);
+            this.BOOK_DELETE.Enabled = false;
+            this.BOOK_DELETE.FlatAppearance.BorderSize = 0;
+            this.BOOK_DELETE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BOOK_DELETE.Image = global::PBL3REAL.Properties.Resources.waste_fluent_color_96px;
+            this.BOOK_DELETE.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.BOOK_DELETE.Location = new System.Drawing.Point(426, 2);
+            this.BOOK_DELETE.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BOOK_DELETE.Name = "BOOK_DELETE";
+            this.BOOK_DELETE.Size = new System.Drawing.Size(135, 145);
+            this.BOOK_DELETE.TabIndex = 0;
+            this.BOOK_DELETE.Text = "Xóa đơn đã chọn";
+            this.BOOK_DELETE.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.BOOK_DELETE.UseVisualStyleBackColor = true;
+            this.BOOK_DELETE.Click += new System.EventHandler(this.btn_BookingDelete_Click);
             // 
-            // btn_BookingExport
+            // BOOK_EXPORTINVOICE
             // 
-            this.btn_BookingExport.FlatAppearance.BorderSize = 0;
-            this.btn_BookingExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_BookingExport.Image = global::PBL3REAL.Properties.Resources.receipt_terminal_fluent_color_96px;
-            this.btn_BookingExport.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_BookingExport.Location = new System.Drawing.Point(567, 2);
-            this.btn_BookingExport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_BookingExport.Name = "btn_BookingExport";
-            this.btn_BookingExport.Size = new System.Drawing.Size(135, 145);
-            this.btn_BookingExport.TabIndex = 0;
-            this.btn_BookingExport.Text = "Export to invoice";
-            this.btn_BookingExport.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_BookingExport.UseVisualStyleBackColor = true;
-            this.btn_BookingExport.Click += new System.EventHandler(this.btn_BookingExport_Click);
+            this.BOOK_EXPORTINVOICE.Enabled = false;
+            this.BOOK_EXPORTINVOICE.FlatAppearance.BorderSize = 0;
+            this.BOOK_EXPORTINVOICE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BOOK_EXPORTINVOICE.Image = global::PBL3REAL.Properties.Resources.receipt_terminal_fluent_color_96px;
+            this.BOOK_EXPORTINVOICE.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.BOOK_EXPORTINVOICE.Location = new System.Drawing.Point(567, 2);
+            this.BOOK_EXPORTINVOICE.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BOOK_EXPORTINVOICE.Name = "BOOK_EXPORTINVOICE";
+            this.BOOK_EXPORTINVOICE.Size = new System.Drawing.Size(135, 145);
+            this.BOOK_EXPORTINVOICE.TabIndex = 0;
+            this.BOOK_EXPORTINVOICE.Text = "Export to invoice";
+            this.BOOK_EXPORTINVOICE.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.BOOK_EXPORTINVOICE.UseVisualStyleBackColor = true;
+            this.BOOK_EXPORTINVOICE.Click += new System.EventHandler(this.btn_BookingExport_Click);
             // 
             // tbllaypn_Booking
             // 
             this.tbllaypn_Booking.ColumnCount = 3;
             this.tbllaypn_Booking.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.55598F));
             this.tbllaypn_Booking.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.44402F));
-            this.tbllaypn_Booking.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 55F));
+            this.tbllaypn_Booking.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 64F));
             this.tbllaypn_Booking.Controls.Add(this.lb_BookingStatus, 0, 4);
             this.tbllaypn_Booking.Controls.Add(this.cbb_BookingStatus, 1, 4);
             this.tbllaypn_Booking.Controls.Add(this.dtp_BookingTo, 1, 3);
@@ -373,28 +378,28 @@ namespace PBL3REAL.View
             "Fixed",
             "Checkin",
             "Paid"});
-            this.cbb_BookingStatus.Location = new System.Drawing.Point(146, 146);
+            this.cbb_BookingStatus.Location = new System.Drawing.Point(142, 146);
             this.cbb_BookingStatus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbb_BookingStatus.Name = "cbb_BookingStatus";
-            this.cbb_BookingStatus.Size = new System.Drawing.Size(264, 33);
+            this.cbb_BookingStatus.Size = new System.Drawing.Size(259, 33);
             this.cbb_BookingStatus.TabIndex = 5;
             // 
             // dtp_BookingTo
             // 
             this.dtp_BookingTo.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.dtp_BookingTo.Location = new System.Drawing.Point(146, 111);
+            this.dtp_BookingTo.Location = new System.Drawing.Point(142, 111);
             this.dtp_BookingTo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtp_BookingTo.Name = "dtp_BookingTo";
-            this.dtp_BookingTo.Size = new System.Drawing.Size(264, 29);
+            this.dtp_BookingTo.Size = new System.Drawing.Size(259, 29);
             this.dtp_BookingTo.TabIndex = 4;
             // 
             // dtp_BookingFrom
             // 
             this.dtp_BookingFrom.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.dtp_BookingFrom.Location = new System.Drawing.Point(146, 75);
+            this.dtp_BookingFrom.Location = new System.Drawing.Point(142, 75);
             this.dtp_BookingFrom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtp_BookingFrom.Name = "dtp_BookingFrom";
-            this.dtp_BookingFrom.Size = new System.Drawing.Size(264, 29);
+            this.dtp_BookingFrom.Size = new System.Drawing.Size(259, 29);
             this.dtp_BookingFrom.TabIndex = 3;
             // 
             // cbb_BookingSearchFilter
@@ -410,10 +415,10 @@ namespace PBL3REAL.View
             "Due Date",
             "Checkin Date",
             "Checkout Date"});
-            this.cbb_BookingSearchFilter.Location = new System.Drawing.Point(146, 38);
+            this.cbb_BookingSearchFilter.Location = new System.Drawing.Point(142, 38);
             this.cbb_BookingSearchFilter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbb_BookingSearchFilter.Name = "cbb_BookingSearchFilter";
-            this.cbb_BookingSearchFilter.Size = new System.Drawing.Size(264, 33);
+            this.cbb_BookingSearchFilter.Size = new System.Drawing.Size(259, 33);
             this.cbb_BookingSearchFilter.TabIndex = 2;
             // 
             // lb_BookingSearchFIlter
@@ -439,16 +444,16 @@ namespace PBL3REAL.View
             "None",
             "Total Price Asc",
             "Total Price Desc"});
-            this.cbb_BookingSort.Location = new System.Drawing.Point(146, 2);
+            this.cbb_BookingSort.Location = new System.Drawing.Point(142, 2);
             this.cbb_BookingSort.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbb_BookingSort.Name = "cbb_BookingSort";
-            this.cbb_BookingSort.Size = new System.Drawing.Size(264, 33);
+            this.cbb_BookingSort.Size = new System.Drawing.Size(259, 33);
             this.cbb_BookingSort.TabIndex = 1;
             // 
             // picbx_BookingSearch
             // 
             this.picbx_BookingSearch.Image = global::PBL3REAL.Properties.Resources.search_fluent_color_48px;
-            this.picbx_BookingSearch.Location = new System.Drawing.Point(416, 182);
+            this.picbx_BookingSearch.Location = new System.Drawing.Point(407, 182);
             this.picbx_BookingSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.picbx_BookingSearch.Name = "picbx_BookingSearch";
             this.picbx_BookingSearch.Size = new System.Drawing.Size(40, 33);
@@ -462,10 +467,10 @@ namespace PBL3REAL.View
             this.tb_BookingSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
             this.tb_BookingSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tb_BookingSearch.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tb_BookingSearch.Location = new System.Drawing.Point(146, 188);
+            this.tb_BookingSearch.Location = new System.Drawing.Point(142, 188);
             this.tb_BookingSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_BookingSearch.Name = "tb_BookingSearch";
-            this.tb_BookingSearch.Size = new System.Drawing.Size(264, 25);
+            this.tb_BookingSearch.Size = new System.Drawing.Size(259, 25);
             this.tb_BookingSearch.TabIndex = 6;
             // 
             // lb_BookingSearch
@@ -482,7 +487,7 @@ namespace PBL3REAL.View
             // picbx_BookingSort
             // 
             this.picbx_BookingSort.Image = global::PBL3REAL.Properties.Resources.filter_fluent_color_48px;
-            this.picbx_BookingSort.Location = new System.Drawing.Point(416, 2);
+            this.picbx_BookingSort.Location = new System.Drawing.Point(407, 2);
             this.picbx_BookingSort.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.picbx_BookingSort.Name = "picbx_BookingSort";
             this.picbx_BookingSort.Size = new System.Drawing.Size(40, 32);
@@ -638,103 +643,108 @@ namespace PBL3REAL.View
             // 
             // fllaypn_Room
             // 
-            this.fllaypn_Room.Controls.Add(this.btn_RoomView);
-            this.fllaypn_Room.Controls.Add(this.btn_RoomAdd);
-            this.fllaypn_Room.Controls.Add(this.btn_RoomEdit);
-            this.fllaypn_Room.Controls.Add(this.btn_RoomDelete);
-            this.fllaypn_Room.Controls.Add(this.btn_RoomRestore);
+            this.fllaypn_Room.Controls.Add(this.ROOM_VIEW);
+            this.fllaypn_Room.Controls.Add(this.ROOM_ADD);
+            this.fllaypn_Room.Controls.Add(this.ROOM_UPDATE);
+            this.fllaypn_Room.Controls.Add(this.ROOM_INACTIVE);
+            this.fllaypn_Room.Controls.Add(this.ROOM_ACTIVE);
             this.fllaypn_Room.Location = new System.Drawing.Point(450, 2);
             this.fllaypn_Room.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.fllaypn_Room.Name = "fllaypn_Room";
             this.fllaypn_Room.Size = new System.Drawing.Size(732, 149);
             this.fllaypn_Room.TabIndex = 0;
             // 
-            // btn_RoomView
+            // ROOM_VIEW
             // 
-            this.btn_RoomView.FlatAppearance.BorderSize = 0;
-            this.btn_RoomView.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_RoomView.Image = global::PBL3REAL.Properties.Resources.show_property_96px;
-            this.btn_RoomView.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_RoomView.Location = new System.Drawing.Point(3, 2);
-            this.btn_RoomView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_RoomView.Name = "btn_RoomView";
-            this.btn_RoomView.Size = new System.Drawing.Size(135, 145);
-            this.btn_RoomView.TabIndex = 0;
-            this.btn_RoomView.Text = "Xem thông tin phòng đã chọn";
-            this.btn_RoomView.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_RoomView.UseVisualStyleBackColor = true;
-            this.btn_RoomView.Click += new System.EventHandler(this.btn_RoomView_Click);
+            this.ROOM_VIEW.Enabled = false;
+            this.ROOM_VIEW.FlatAppearance.BorderSize = 0;
+            this.ROOM_VIEW.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ROOM_VIEW.Image = global::PBL3REAL.Properties.Resources.show_property_96px;
+            this.ROOM_VIEW.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ROOM_VIEW.Location = new System.Drawing.Point(3, 2);
+            this.ROOM_VIEW.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ROOM_VIEW.Name = "ROOM_VIEW";
+            this.ROOM_VIEW.Size = new System.Drawing.Size(135, 145);
+            this.ROOM_VIEW.TabIndex = 0;
+            this.ROOM_VIEW.Text = "Xem thông tin phòng đã chọn";
+            this.ROOM_VIEW.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ROOM_VIEW.UseVisualStyleBackColor = true;
+            this.ROOM_VIEW.Click += new System.EventHandler(this.btn_RoomView_Click);
             // 
-            // btn_RoomAdd
+            // ROOM_ADD
             // 
-            this.btn_RoomAdd.FlatAppearance.BorderSize = 0;
-            this.btn_RoomAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_RoomAdd.Image = global::PBL3REAL.Properties.Resources.add_fluent_color_96px;
-            this.btn_RoomAdd.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_RoomAdd.Location = new System.Drawing.Point(144, 2);
-            this.btn_RoomAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_RoomAdd.Name = "btn_RoomAdd";
-            this.btn_RoomAdd.Size = new System.Drawing.Size(135, 145);
-            this.btn_RoomAdd.TabIndex = 0;
-            this.btn_RoomAdd.Text = "Thêm phòng mới";
-            this.btn_RoomAdd.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_RoomAdd.UseVisualStyleBackColor = true;
-            this.btn_RoomAdd.Click += new System.EventHandler(this.btn_RoomAdd_Click);
+            this.ROOM_ADD.Enabled = false;
+            this.ROOM_ADD.FlatAppearance.BorderSize = 0;
+            this.ROOM_ADD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ROOM_ADD.Image = global::PBL3REAL.Properties.Resources.add_fluent_color_96px;
+            this.ROOM_ADD.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ROOM_ADD.Location = new System.Drawing.Point(144, 2);
+            this.ROOM_ADD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ROOM_ADD.Name = "ROOM_ADD";
+            this.ROOM_ADD.Size = new System.Drawing.Size(135, 145);
+            this.ROOM_ADD.TabIndex = 0;
+            this.ROOM_ADD.Text = "Thêm phòng mới";
+            this.ROOM_ADD.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ROOM_ADD.UseVisualStyleBackColor = true;
+            this.ROOM_ADD.Click += new System.EventHandler(this.btn_RoomAdd_Click);
             // 
-            // btn_RoomEdit
+            // ROOM_UPDATE
             // 
-            this.btn_RoomEdit.FlatAppearance.BorderSize = 0;
-            this.btn_RoomEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_RoomEdit.Image = global::PBL3REAL.Properties.Resources.edit_property_fluent_color_96px;
-            this.btn_RoomEdit.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_RoomEdit.Location = new System.Drawing.Point(285, 2);
-            this.btn_RoomEdit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_RoomEdit.Name = "btn_RoomEdit";
-            this.btn_RoomEdit.Size = new System.Drawing.Size(135, 145);
-            this.btn_RoomEdit.TabIndex = 0;
-            this.btn_RoomEdit.Text = "Chỉnh sửa thông tin phòng đã chọn";
-            this.btn_RoomEdit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_RoomEdit.UseVisualStyleBackColor = true;
-            this.btn_RoomEdit.Click += new System.EventHandler(this.btn_RoomEdit_Click);
+            this.ROOM_UPDATE.Enabled = false;
+            this.ROOM_UPDATE.FlatAppearance.BorderSize = 0;
+            this.ROOM_UPDATE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ROOM_UPDATE.Image = global::PBL3REAL.Properties.Resources.edit_property_fluent_color_96px;
+            this.ROOM_UPDATE.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ROOM_UPDATE.Location = new System.Drawing.Point(285, 2);
+            this.ROOM_UPDATE.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ROOM_UPDATE.Name = "ROOM_UPDATE";
+            this.ROOM_UPDATE.Size = new System.Drawing.Size(135, 145);
+            this.ROOM_UPDATE.TabIndex = 0;
+            this.ROOM_UPDATE.Text = "Chỉnh sửa thông tin phòng đã chọn";
+            this.ROOM_UPDATE.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ROOM_UPDATE.UseVisualStyleBackColor = true;
+            this.ROOM_UPDATE.Click += new System.EventHandler(this.btn_RoomEdit_Click);
             // 
-            // btn_RoomDelete
+            // ROOM_INACTIVE
             // 
-            this.btn_RoomDelete.FlatAppearance.BorderSize = 0;
-            this.btn_RoomDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_RoomDelete.Image = global::PBL3REAL.Properties.Resources.waste_fluent_color_96px;
-            this.btn_RoomDelete.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_RoomDelete.Location = new System.Drawing.Point(426, 2);
-            this.btn_RoomDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_RoomDelete.Name = "btn_RoomDelete";
-            this.btn_RoomDelete.Size = new System.Drawing.Size(135, 145);
-            this.btn_RoomDelete.TabIndex = 0;
-            this.btn_RoomDelete.Text = "Xóa phòng đã chọn";
-            this.btn_RoomDelete.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_RoomDelete.UseVisualStyleBackColor = true;
-            this.btn_RoomDelete.Click += new System.EventHandler(this.btn_RoomDelete_Click);
+            this.ROOM_INACTIVE.Enabled = false;
+            this.ROOM_INACTIVE.FlatAppearance.BorderSize = 0;
+            this.ROOM_INACTIVE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ROOM_INACTIVE.Image = global::PBL3REAL.Properties.Resources.waste_fluent_color_96px;
+            this.ROOM_INACTIVE.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ROOM_INACTIVE.Location = new System.Drawing.Point(426, 2);
+            this.ROOM_INACTIVE.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ROOM_INACTIVE.Name = "ROOM_INACTIVE";
+            this.ROOM_INACTIVE.Size = new System.Drawing.Size(135, 145);
+            this.ROOM_INACTIVE.TabIndex = 0;
+            this.ROOM_INACTIVE.Text = "Xóa phòng đã chọn";
+            this.ROOM_INACTIVE.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ROOM_INACTIVE.UseVisualStyleBackColor = true;
+            this.ROOM_INACTIVE.Click += new System.EventHandler(this.btn_RoomDelete_Click);
             // 
-            // btn_RoomRestore
+            // ROOM_ACTIVE
             // 
-            this.btn_RoomRestore.FlatAppearance.BorderSize = 0;
-            this.btn_RoomRestore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_RoomRestore.Image = global::PBL3REAL.Properties.Resources.restore_fluent_color_96px;
-            this.btn_RoomRestore.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_RoomRestore.Location = new System.Drawing.Point(567, 2);
-            this.btn_RoomRestore.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_RoomRestore.Name = "btn_RoomRestore";
-            this.btn_RoomRestore.Size = new System.Drawing.Size(135, 145);
-            this.btn_RoomRestore.TabIndex = 0;
-            this.btn_RoomRestore.Text = "Khôi phục phòng đã chọn";
-            this.btn_RoomRestore.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_RoomRestore.UseVisualStyleBackColor = true;
-            this.btn_RoomRestore.Click += new System.EventHandler(this.btn_RoomRestore_Click);
+            this.ROOM_ACTIVE.Enabled = false;
+            this.ROOM_ACTIVE.FlatAppearance.BorderSize = 0;
+            this.ROOM_ACTIVE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ROOM_ACTIVE.Image = global::PBL3REAL.Properties.Resources.restore_fluent_color_96px;
+            this.ROOM_ACTIVE.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ROOM_ACTIVE.Location = new System.Drawing.Point(567, 2);
+            this.ROOM_ACTIVE.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ROOM_ACTIVE.Name = "ROOM_ACTIVE";
+            this.ROOM_ACTIVE.Size = new System.Drawing.Size(135, 145);
+            this.ROOM_ACTIVE.TabIndex = 0;
+            this.ROOM_ACTIVE.Text = "Khôi phục phòng đã chọn";
+            this.ROOM_ACTIVE.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ROOM_ACTIVE.UseVisualStyleBackColor = true;
+            this.ROOM_ACTIVE.Click += new System.EventHandler(this.btn_RoomRestore_Click);
             // 
             // tbllaypn_Room
             // 
             this.tbllaypn_Room.ColumnCount = 3;
             this.tbllaypn_Room.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.07954F));
             this.tbllaypn_Room.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 63.92046F));
-            this.tbllaypn_Room.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 92F));
+            this.tbllaypn_Room.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 101F));
             this.tbllaypn_Room.Controls.Add(this.picbx_RoomSearch, 2, 2);
             this.tbllaypn_Room.Controls.Add(this.cbb_RoomActive, 1, 1);
             this.tbllaypn_Room.Controls.Add(this.lb_RoomSearch, 0, 2);
@@ -757,7 +767,7 @@ namespace PBL3REAL.View
             // 
             this.picbx_RoomSearch.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.picbx_RoomSearch.Image = global::PBL3REAL.Properties.Resources.search_fluent_color_48px;
-            this.picbx_RoomSearch.Location = new System.Drawing.Point(264, 74);
+            this.picbx_RoomSearch.Location = new System.Drawing.Point(255, 74);
             this.picbx_RoomSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.picbx_RoomSearch.Name = "picbx_RoomSearch";
             this.picbx_RoomSearch.Size = new System.Drawing.Size(44, 34);
@@ -773,10 +783,10 @@ namespace PBL3REAL.View
             this.cbb_RoomActive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbb_RoomActive.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbb_RoomActive.FormattingEnabled = true;
-            this.cbb_RoomActive.Location = new System.Drawing.Point(97, 38);
+            this.cbb_RoomActive.Location = new System.Drawing.Point(94, 38);
             this.cbb_RoomActive.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbb_RoomActive.Name = "cbb_RoomActive";
-            this.cbb_RoomActive.Size = new System.Drawing.Size(161, 33);
+            this.cbb_RoomActive.Size = new System.Drawing.Size(155, 33);
             this.cbb_RoomActive.TabIndex = 2;
             // 
             // lb_RoomSearch
@@ -785,7 +795,7 @@ namespace PBL3REAL.View
             this.lb_RoomSearch.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lb_RoomSearch.Location = new System.Drawing.Point(3, 77);
             this.lb_RoomSearch.Name = "lb_RoomSearch";
-            this.lb_RoomSearch.Size = new System.Drawing.Size(88, 28);
+            this.lb_RoomSearch.Size = new System.Drawing.Size(85, 28);
             this.lb_RoomSearch.TabIndex = 0;
             this.lb_RoomSearch.Text = "Tìm kiếm";
             // 
@@ -796,7 +806,7 @@ namespace PBL3REAL.View
             this.lb_RoomFilter.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lb_RoomFilter.Location = new System.Drawing.Point(3, 6);
             this.lb_RoomFilter.Name = "lb_RoomFilter";
-            this.lb_RoomFilter.Size = new System.Drawing.Size(88, 23);
+            this.lb_RoomFilter.Size = new System.Drawing.Size(85, 23);
             this.lb_RoomFilter.TabIndex = 0;
             this.lb_RoomFilter.Text = "Xem theo loại phòng";
             // 
@@ -806,7 +816,7 @@ namespace PBL3REAL.View
             this.lb_RoomSort.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lb_RoomSort.Location = new System.Drawing.Point(3, 40);
             this.lb_RoomSort.Name = "lb_RoomSort";
-            this.lb_RoomSort.Size = new System.Drawing.Size(88, 28);
+            this.lb_RoomSort.Size = new System.Drawing.Size(85, 28);
             this.lb_RoomSort.TabIndex = 0;
             this.lb_RoomSort.Text = "Sắp xếp theo";
             // 
@@ -818,10 +828,10 @@ namespace PBL3REAL.View
             this.cbb_RoomFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbb_RoomFilter.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbb_RoomFilter.FormattingEnabled = true;
-            this.cbb_RoomFilter.Location = new System.Drawing.Point(97, 2);
+            this.cbb_RoomFilter.Location = new System.Drawing.Point(94, 2);
             this.cbb_RoomFilter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbb_RoomFilter.Name = "cbb_RoomFilter";
-            this.cbb_RoomFilter.Size = new System.Drawing.Size(161, 33);
+            this.cbb_RoomFilter.Size = new System.Drawing.Size(155, 33);
             this.cbb_RoomFilter.TabIndex = 1;
             // 
             // tb_RoomSearch
@@ -830,17 +840,17 @@ namespace PBL3REAL.View
             this.tb_RoomSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
             this.tb_RoomSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tb_RoomSearch.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tb_RoomSearch.Location = new System.Drawing.Point(97, 78);
+            this.tb_RoomSearch.Location = new System.Drawing.Point(94, 78);
             this.tb_RoomSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_RoomSearch.Name = "tb_RoomSearch";
-            this.tb_RoomSearch.Size = new System.Drawing.Size(161, 25);
+            this.tb_RoomSearch.Size = new System.Drawing.Size(155, 25);
             this.tb_RoomSearch.TabIndex = 3;
             // 
             // picbx_RoomSort
             // 
             this.picbx_RoomSort.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.picbx_RoomSort.Image = global::PBL3REAL.Properties.Resources.filter_fluent_color_48px;
-            this.picbx_RoomSort.Location = new System.Drawing.Point(264, 38);
+            this.picbx_RoomSort.Location = new System.Drawing.Point(255, 38);
             this.picbx_RoomSort.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.picbx_RoomSort.Name = "picbx_RoomSort";
             this.picbx_RoomSort.Size = new System.Drawing.Size(44, 32);
@@ -960,103 +970,108 @@ namespace PBL3REAL.View
             // 
             // fllaypn_RoomType
             // 
-            this.fllaypn_RoomType.Controls.Add(this.btn_RoomTypeView);
-            this.fllaypn_RoomType.Controls.Add(this.btn_RoomTypeAdd);
-            this.fllaypn_RoomType.Controls.Add(this.btn_RoomTypeEdit);
-            this.fllaypn_RoomType.Controls.Add(this.btn_RoomTypeDelete);
-            this.fllaypn_RoomType.Controls.Add(this.btn_RoomTypeRestore);
+            this.fllaypn_RoomType.Controls.Add(this.TYPE_VIEW);
+            this.fllaypn_RoomType.Controls.Add(this.TYPE_ADD);
+            this.fllaypn_RoomType.Controls.Add(this.TYPE_UPDATE);
+            this.fllaypn_RoomType.Controls.Add(this.TYPE_INACTIVE);
+            this.fllaypn_RoomType.Controls.Add(this.TYPE_ACTIVE);
             this.fllaypn_RoomType.Location = new System.Drawing.Point(455, 2);
             this.fllaypn_RoomType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.fllaypn_RoomType.Name = "fllaypn_RoomType";
             this.fllaypn_RoomType.Size = new System.Drawing.Size(723, 149);
             this.fllaypn_RoomType.TabIndex = 0;
             // 
-            // btn_RoomTypeView
+            // TYPE_VIEW
             // 
-            this.btn_RoomTypeView.FlatAppearance.BorderSize = 0;
-            this.btn_RoomTypeView.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_RoomTypeView.Image = global::PBL3REAL.Properties.Resources.show_property_96px;
-            this.btn_RoomTypeView.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_RoomTypeView.Location = new System.Drawing.Point(3, 2);
-            this.btn_RoomTypeView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_RoomTypeView.Name = "btn_RoomTypeView";
-            this.btn_RoomTypeView.Size = new System.Drawing.Size(135, 145);
-            this.btn_RoomTypeView.TabIndex = 0;
-            this.btn_RoomTypeView.Text = "Xem thông tin loại phòng đã chọn";
-            this.btn_RoomTypeView.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_RoomTypeView.UseVisualStyleBackColor = true;
-            this.btn_RoomTypeView.Click += new System.EventHandler(this.btn_RoomTypeView_Click);
+            this.TYPE_VIEW.Enabled = false;
+            this.TYPE_VIEW.FlatAppearance.BorderSize = 0;
+            this.TYPE_VIEW.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TYPE_VIEW.Image = global::PBL3REAL.Properties.Resources.show_property_96px;
+            this.TYPE_VIEW.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.TYPE_VIEW.Location = new System.Drawing.Point(3, 2);
+            this.TYPE_VIEW.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TYPE_VIEW.Name = "TYPE_VIEW";
+            this.TYPE_VIEW.Size = new System.Drawing.Size(135, 145);
+            this.TYPE_VIEW.TabIndex = 0;
+            this.TYPE_VIEW.Text = "Xem thông tin loại phòng đã chọn";
+            this.TYPE_VIEW.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.TYPE_VIEW.UseVisualStyleBackColor = true;
+            this.TYPE_VIEW.Click += new System.EventHandler(this.btn_RoomTypeView_Click);
             // 
-            // btn_RoomTypeAdd
+            // TYPE_ADD
             // 
-            this.btn_RoomTypeAdd.FlatAppearance.BorderSize = 0;
-            this.btn_RoomTypeAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_RoomTypeAdd.Image = global::PBL3REAL.Properties.Resources.add_fluent_color_96px;
-            this.btn_RoomTypeAdd.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_RoomTypeAdd.Location = new System.Drawing.Point(144, 2);
-            this.btn_RoomTypeAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_RoomTypeAdd.Name = "btn_RoomTypeAdd";
-            this.btn_RoomTypeAdd.Size = new System.Drawing.Size(135, 145);
-            this.btn_RoomTypeAdd.TabIndex = 0;
-            this.btn_RoomTypeAdd.Text = "Thêm loại phòng mới";
-            this.btn_RoomTypeAdd.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_RoomTypeAdd.UseVisualStyleBackColor = true;
-            this.btn_RoomTypeAdd.Click += new System.EventHandler(this.btn_RoomTypeAdd_Click);
+            this.TYPE_ADD.Enabled = false;
+            this.TYPE_ADD.FlatAppearance.BorderSize = 0;
+            this.TYPE_ADD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TYPE_ADD.Image = global::PBL3REAL.Properties.Resources.add_fluent_color_96px;
+            this.TYPE_ADD.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.TYPE_ADD.Location = new System.Drawing.Point(144, 2);
+            this.TYPE_ADD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TYPE_ADD.Name = "TYPE_ADD";
+            this.TYPE_ADD.Size = new System.Drawing.Size(135, 145);
+            this.TYPE_ADD.TabIndex = 0;
+            this.TYPE_ADD.Text = "Thêm loại phòng mới";
+            this.TYPE_ADD.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.TYPE_ADD.UseVisualStyleBackColor = true;
+            this.TYPE_ADD.Click += new System.EventHandler(this.btn_RoomTypeAdd_Click);
             // 
-            // btn_RoomTypeEdit
+            // TYPE_UPDATE
             // 
-            this.btn_RoomTypeEdit.FlatAppearance.BorderSize = 0;
-            this.btn_RoomTypeEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_RoomTypeEdit.Image = global::PBL3REAL.Properties.Resources.edit_property_fluent_color_96px;
-            this.btn_RoomTypeEdit.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_RoomTypeEdit.Location = new System.Drawing.Point(285, 2);
-            this.btn_RoomTypeEdit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_RoomTypeEdit.Name = "btn_RoomTypeEdit";
-            this.btn_RoomTypeEdit.Size = new System.Drawing.Size(135, 145);
-            this.btn_RoomTypeEdit.TabIndex = 0;
-            this.btn_RoomTypeEdit.Text = "Chỉnh sửa thông tin loại phòng";
-            this.btn_RoomTypeEdit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_RoomTypeEdit.UseVisualStyleBackColor = true;
-            this.btn_RoomTypeEdit.Click += new System.EventHandler(this.btn_RoomTypeEdit_Click);
+            this.TYPE_UPDATE.Enabled = false;
+            this.TYPE_UPDATE.FlatAppearance.BorderSize = 0;
+            this.TYPE_UPDATE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TYPE_UPDATE.Image = global::PBL3REAL.Properties.Resources.edit_property_fluent_color_96px;
+            this.TYPE_UPDATE.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.TYPE_UPDATE.Location = new System.Drawing.Point(285, 2);
+            this.TYPE_UPDATE.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TYPE_UPDATE.Name = "TYPE_UPDATE";
+            this.TYPE_UPDATE.Size = new System.Drawing.Size(135, 145);
+            this.TYPE_UPDATE.TabIndex = 0;
+            this.TYPE_UPDATE.Text = "Chỉnh sửa thông tin loại phòng";
+            this.TYPE_UPDATE.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.TYPE_UPDATE.UseVisualStyleBackColor = true;
+            this.TYPE_UPDATE.Click += new System.EventHandler(this.btn_RoomTypeEdit_Click);
             // 
-            // btn_RoomTypeDelete
+            // TYPE_INACTIVE
             // 
-            this.btn_RoomTypeDelete.FlatAppearance.BorderSize = 0;
-            this.btn_RoomTypeDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_RoomTypeDelete.Image = global::PBL3REAL.Properties.Resources.waste_fluent_color_96px;
-            this.btn_RoomTypeDelete.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_RoomTypeDelete.Location = new System.Drawing.Point(426, 2);
-            this.btn_RoomTypeDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_RoomTypeDelete.Name = "btn_RoomTypeDelete";
-            this.btn_RoomTypeDelete.Size = new System.Drawing.Size(135, 145);
-            this.btn_RoomTypeDelete.TabIndex = 0;
-            this.btn_RoomTypeDelete.Text = "Xóa loại phòng đã chọn";
-            this.btn_RoomTypeDelete.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_RoomTypeDelete.UseVisualStyleBackColor = true;
-            this.btn_RoomTypeDelete.Click += new System.EventHandler(this.btn_RoomTypeDelete_Click);
+            this.TYPE_INACTIVE.Enabled = false;
+            this.TYPE_INACTIVE.FlatAppearance.BorderSize = 0;
+            this.TYPE_INACTIVE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TYPE_INACTIVE.Image = global::PBL3REAL.Properties.Resources.waste_fluent_color_96px;
+            this.TYPE_INACTIVE.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.TYPE_INACTIVE.Location = new System.Drawing.Point(426, 2);
+            this.TYPE_INACTIVE.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TYPE_INACTIVE.Name = "TYPE_INACTIVE";
+            this.TYPE_INACTIVE.Size = new System.Drawing.Size(135, 145);
+            this.TYPE_INACTIVE.TabIndex = 0;
+            this.TYPE_INACTIVE.Text = "Xóa loại phòng đã chọn";
+            this.TYPE_INACTIVE.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.TYPE_INACTIVE.UseVisualStyleBackColor = true;
+            this.TYPE_INACTIVE.Click += new System.EventHandler(this.btn_RoomTypeDelete_Click);
             // 
-            // btn_RoomTypeRestore
+            // TYPE_ACTIVE
             // 
-            this.btn_RoomTypeRestore.FlatAppearance.BorderSize = 0;
-            this.btn_RoomTypeRestore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_RoomTypeRestore.Image = global::PBL3REAL.Properties.Resources.restore_fluent_color_96px;
-            this.btn_RoomTypeRestore.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_RoomTypeRestore.Location = new System.Drawing.Point(567, 2);
-            this.btn_RoomTypeRestore.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_RoomTypeRestore.Name = "btn_RoomTypeRestore";
-            this.btn_RoomTypeRestore.Size = new System.Drawing.Size(135, 145);
-            this.btn_RoomTypeRestore.TabIndex = 0;
-            this.btn_RoomTypeRestore.Text = "Khôi phục loại phòng đã chọn";
-            this.btn_RoomTypeRestore.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_RoomTypeRestore.UseVisualStyleBackColor = true;
-            this.btn_RoomTypeRestore.Click += new System.EventHandler(this.btn_RoomTypeRestore_Click);
+            this.TYPE_ACTIVE.Enabled = false;
+            this.TYPE_ACTIVE.FlatAppearance.BorderSize = 0;
+            this.TYPE_ACTIVE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TYPE_ACTIVE.Image = global::PBL3REAL.Properties.Resources.restore_fluent_color_96px;
+            this.TYPE_ACTIVE.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.TYPE_ACTIVE.Location = new System.Drawing.Point(567, 2);
+            this.TYPE_ACTIVE.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TYPE_ACTIVE.Name = "TYPE_ACTIVE";
+            this.TYPE_ACTIVE.Size = new System.Drawing.Size(135, 145);
+            this.TYPE_ACTIVE.TabIndex = 0;
+            this.TYPE_ACTIVE.Text = "Khôi phục loại phòng đã chọn";
+            this.TYPE_ACTIVE.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.TYPE_ACTIVE.UseVisualStyleBackColor = true;
+            this.TYPE_ACTIVE.Click += new System.EventHandler(this.btn_RoomTypeRestore_Click);
             // 
             // tbllaypn_RoomType
             // 
             this.tbllaypn_RoomType.ColumnCount = 3;
             this.tbllaypn_RoomType.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.19608F));
             this.tbllaypn_RoomType.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.80392F));
-            this.tbllaypn_RoomType.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 86F));
+            this.tbllaypn_RoomType.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 95F));
             this.tbllaypn_RoomType.Controls.Add(this.lb_RoomTypeStatus, 0, 1);
             this.tbllaypn_RoomType.Controls.Add(this.cbb_RoomTypeStatus, 1, 1);
             this.tbllaypn_RoomType.Controls.Add(this.picbx_RoomTypeSort, 2, 0);
@@ -1097,16 +1112,16 @@ namespace PBL3REAL.View
             this.cbb_RoomTypeStatus.Items.AddRange(new object[] {
             "Active",
             "Inactive"});
-            this.cbb_RoomTypeStatus.Location = new System.Drawing.Point(130, 48);
+            this.cbb_RoomTypeStatus.Location = new System.Drawing.Point(126, 48);
             this.cbb_RoomTypeStatus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbb_RoomTypeStatus.Name = "cbb_RoomTypeStatus";
-            this.cbb_RoomTypeStatus.Size = new System.Drawing.Size(183, 33);
+            this.cbb_RoomTypeStatus.Size = new System.Drawing.Size(178, 33);
             this.cbb_RoomTypeStatus.TabIndex = 0;
             // 
             // picbx_RoomTypeSort
             // 
             this.picbx_RoomTypeSort.Image = global::PBL3REAL.Properties.Resources.filter_fluent_color_48px;
-            this.picbx_RoomTypeSort.Location = new System.Drawing.Point(319, 2);
+            this.picbx_RoomTypeSort.Location = new System.Drawing.Point(310, 2);
             this.picbx_RoomTypeSort.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.picbx_RoomTypeSort.Name = "picbx_RoomTypeSort";
             this.picbx_RoomTypeSort.Size = new System.Drawing.Size(41, 36);
@@ -1122,10 +1137,10 @@ namespace PBL3REAL.View
             this.cbb_RoomTypeSort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbb_RoomTypeSort.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbb_RoomTypeSort.FormattingEnabled = true;
-            this.cbb_RoomTypeSort.Location = new System.Drawing.Point(130, 5);
+            this.cbb_RoomTypeSort.Location = new System.Drawing.Point(126, 5);
             this.cbb_RoomTypeSort.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbb_RoomTypeSort.Name = "cbb_RoomTypeSort";
-            this.cbb_RoomTypeSort.Size = new System.Drawing.Size(183, 33);
+            this.cbb_RoomTypeSort.Size = new System.Drawing.Size(178, 33);
             this.cbb_RoomTypeSort.TabIndex = 1;
             // 
             // lb_RoomTypeSort
@@ -1133,9 +1148,9 @@ namespace PBL3REAL.View
             this.lb_RoomTypeSort.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lb_RoomTypeSort.AutoSize = true;
             this.lb_RoomTypeSort.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lb_RoomTypeSort.Location = new System.Drawing.Point(3, 9);
+            this.lb_RoomTypeSort.Location = new System.Drawing.Point(3, 0);
             this.lb_RoomTypeSort.Name = "lb_RoomTypeSort";
-            this.lb_RoomTypeSort.Size = new System.Drawing.Size(121, 25);
+            this.lb_RoomTypeSort.Size = new System.Drawing.Size(83, 43);
             this.lb_RoomTypeSort.TabIndex = 0;
             this.lb_RoomTypeSort.Text = "Sắp xếp theo";
             // 
@@ -1156,16 +1171,16 @@ namespace PBL3REAL.View
             this.tb_RoomTypeSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
             this.tb_RoomTypeSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tb_RoomTypeSearch.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tb_RoomTypeSearch.Location = new System.Drawing.Point(130, 96);
+            this.tb_RoomTypeSearch.Location = new System.Drawing.Point(126, 96);
             this.tb_RoomTypeSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_RoomTypeSearch.Name = "tb_RoomTypeSearch";
-            this.tb_RoomTypeSearch.Size = new System.Drawing.Size(183, 25);
+            this.tb_RoomTypeSearch.Size = new System.Drawing.Size(178, 25);
             this.tb_RoomTypeSearch.TabIndex = 2;
             // 
             // picbx_RoomTypeSearch
             // 
             this.picbx_RoomTypeSearch.Image = global::PBL3REAL.Properties.Resources.search_fluent_color_48px;
-            this.picbx_RoomTypeSearch.Location = new System.Drawing.Point(319, 88);
+            this.picbx_RoomTypeSearch.Location = new System.Drawing.Point(310, 88);
             this.picbx_RoomTypeSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.picbx_RoomTypeSearch.Name = "picbx_RoomTypeSearch";
             this.picbx_RoomTypeSearch.Size = new System.Drawing.Size(41, 36);
@@ -1226,10 +1241,10 @@ namespace PBL3REAL.View
         private System.Windows.Forms.TabPage tabPage_Booking;
         private System.Windows.Forms.DataGridView dgv_Booking;
         private System.Windows.Forms.FlowLayoutPanel fllaypn_BookingButtons;
-        private System.Windows.Forms.Button btn_BookingView;
-        private System.Windows.Forms.Button btn_BookingAdd;
-        private System.Windows.Forms.Button btn_BookingEdit;
-        private System.Windows.Forms.Button btn_BookingDelete;
+        private System.Windows.Forms.Button BOOK_VIEW;
+        private System.Windows.Forms.Button BOOK_ADD;
+        private System.Windows.Forms.Button BOOK_UPDATE;
+        private System.Windows.Forms.Button BOOK_DELETE;
         private System.Windows.Forms.TableLayoutPanel tbllaypn_Booking;
         private System.Windows.Forms.PictureBox picbx_BookingSearch;
         private System.Windows.Forms.PictureBox picbx_BookingSort;
@@ -1240,10 +1255,10 @@ namespace PBL3REAL.View
         private System.Windows.Forms.TabPage tabPage_Room;
         private System.Windows.Forms.DataGridView fllaypn_RoomSwitchPage;
         private System.Windows.Forms.FlowLayoutPanel fllaypn_Room;
-        private System.Windows.Forms.Button btn_RoomView;
-        private System.Windows.Forms.Button btn_RoomAdd;
-        private System.Windows.Forms.Button btn_RoomEdit;
-        private System.Windows.Forms.Button btn_RoomDelete;
+        private System.Windows.Forms.Button ROOM_VIEW;
+        private System.Windows.Forms.Button ROOM_ADD;
+        private System.Windows.Forms.Button ROOM_UPDATE;
+        private System.Windows.Forms.Button ROOM_INACTIVE;
         private System.Windows.Forms.TableLayoutPanel tbllaypn_Room;
         private System.Windows.Forms.PictureBox picbx_RoomSearch;
         private System.Windows.Forms.ComboBox cbb_RoomActive;
@@ -1256,10 +1271,10 @@ namespace PBL3REAL.View
         private System.Windows.Forms.TabPage tabPage_RoomType;
         private System.Windows.Forms.DataGridView dgv_RoomType;
         private System.Windows.Forms.FlowLayoutPanel fllaypn_RoomType;
-        private System.Windows.Forms.Button btn_RoomTypeView;
-        private System.Windows.Forms.Button btn_RoomTypeAdd;
-        private System.Windows.Forms.Button btn_RoomTypeEdit;
-        private System.Windows.Forms.Button btn_RoomTypeDelete;
+        private System.Windows.Forms.Button TYPE_VIEW;
+        private System.Windows.Forms.Button TYPE_ADD;
+        private System.Windows.Forms.Button TYPE_UPDATE;
+        private System.Windows.Forms.Button TYPE_INACTIVE;
         private System.Windows.Forms.TableLayoutPanel tbllaypn_RoomType;
         private System.Windows.Forms.PictureBox picbx_RoomTypeSearch;
         private System.Windows.Forms.PictureBox picbx_RoomTypeSort;
@@ -1279,11 +1294,11 @@ namespace PBL3REAL.View
         private System.Windows.Forms.Label lb_BookingFrom;
         private System.Windows.Forms.DateTimePicker dtp_BookingTo;
         private System.Windows.Forms.DateTimePicker dtp_BookingFrom;
-        private System.Windows.Forms.Button btn_RoomRestore;
-        private System.Windows.Forms.Button btn_RoomTypeRestore;
+        private System.Windows.Forms.Button ROOM_ACTIVE;
+        private System.Windows.Forms.Button TYPE_ACTIVE;
         private System.Windows.Forms.Label lb_BookingStatus;
         private System.Windows.Forms.ComboBox cbb_BookingStatus;
-        private System.Windows.Forms.Button btn_BookingExport;
+        private System.Windows.Forms.Button BOOK_EXPORTINVOICE;
         private System.Windows.Forms.Label lb_RoomTypeStatus;
         private System.Windows.Forms.ComboBox cbb_RoomTypeStatus;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;

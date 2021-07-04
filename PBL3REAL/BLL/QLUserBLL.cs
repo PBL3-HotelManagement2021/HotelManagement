@@ -85,6 +85,11 @@ namespace PBL3REAL.BLL
                 foreach (UserRole userRole in user.UserRoles)
                 {
                     RoleVM roleVM = mapper.Map<RoleVM>(userRole.UserolIdroleNavigation);
+                    var roleDetail = RoleDAL.Instance.getDetail(roleVM.IdRole);
+                    foreach(var permission in roleDetail.Permissions)
+                    {
+                        roleVM.ActionList.Add(permission.PerIdactionNavigation.ActionCode.Trim());
+                    }
                     QLUserBLL.stoUser.ListRole.Add(roleVM);
                 }
                 foreach (ImgStorage img in user.ImgStorages)

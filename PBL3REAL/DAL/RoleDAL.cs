@@ -34,5 +34,11 @@ namespace PBL3REAL.DAL
             var result = AppDbContext.Instance.Roles.AsNoTracking().ToList();
             return result;
         }
+
+        public Role getDetail(int idRole)
+        {
+            var result = AppDbContext.Instance.Roles.Include(x=>x.Permissions).ThenInclude(y =>y.PerIdactionNavigation).Where(x=>x.IdRole == idRole).AsNoTracking().FirstOrDefault();
+            return result;
+        }
     }
 }

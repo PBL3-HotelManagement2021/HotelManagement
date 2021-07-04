@@ -14,6 +14,8 @@ using PBL3REAL.ViewModel;
 using PBL3REAL.BLL;
 using PBL3REAL.Extention;
 using PBL3REAL.View;
+using System.Linq;
+
 namespace PBL3REAL.View
 {
     public partial class Form_Receptionist : Form
@@ -45,6 +47,8 @@ namespace PBL3REAL.View
         private string rotySearch ="";
         private string rotyOrderBy = "None";
         private string rotyStatus = "";
+
+        private List<Button> listButton = new List<Button>();
         public Form_Receptionist(int LoggedID, string LoggedRole)
         {
             InitializeComponent();
@@ -78,17 +82,40 @@ namespace PBL3REAL.View
             //-> Tab Page Room Type
 
             //-> Check Logged Role is Admin
-            if (LoggedRole != "Admin")
+            /* if (LoggedRole != "Admin")
+             {
+                 ROOM_ADD.Enabled = false;
+                 btn_RoomEdit.Enabled = false;
+                 btn_RoomDelete.Enabled = false;
+                 btn_RoomRestore.Enabled = false;
+                 btn_RoomTypeAdd.Enabled = false;
+                 btn_RoomTypeEdit.Enabled = false;
+                 btn_RoomTypeDelete.Enabled = false;
+                 btn_RoomTypeRestore.Enabled = false;
+             }*/
+            listButton = new List<Button>()
             {
-                btn_RoomAdd.Enabled = false;
-                btn_RoomEdit.Enabled = false;
-                btn_RoomDelete.Enabled = false;
-                btn_RoomRestore.Enabled = false;
-                btn_RoomTypeAdd.Enabled = false;
-                btn_RoomTypeEdit.Enabled = false;
-                btn_RoomTypeDelete.Enabled = false;
-                btn_RoomTypeRestore.Enabled = false;
+                ROOM_VIEW,ROOM_ADD,ROOM_UPDATE,ROOM_INACTIVE,ROOM_ACTIVE,
+                TYPE_ACTIVE,TYPE_ADD,TYPE_INACTIVE,TYPE_UPDATE,TYPE_VIEW,
+                BOOK_ADD,BOOK_DELETE,BOOK_UPDATE,BOOK_EXPORTINVOICE,BOOK_VIEW
+            };
+            Authorization();
+
+            
+
+        }
+
+        
+
+        private void Authorization()
+        {
+            List<string> listAction = QLUserBLL.stoUser.ListRole.Where(x => x.IsSelected == true).FirstOrDefault().ActionList;
+            foreach (var button in listButton)
+            {
+                string idbutton = button.Name.ToString();
+                if (listAction.Contains(idbutton)) button.Enabled = true;
             }
+            Console.WriteLine("sad");
         }
         /***** GENERAL *****/
         //-> General Functions

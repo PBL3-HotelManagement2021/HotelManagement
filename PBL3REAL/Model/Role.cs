@@ -13,7 +13,7 @@ namespace PBL3REAL.Model
     {
         public Role()
         {
-    
+            Permissions = new HashSet<Permission>();
             UserRoles = new HashSet<UserRole>();
         }
 
@@ -28,7 +28,8 @@ namespace PBL3REAL.Model
         [StringLength(200)]
         public string RoleDescription { get; set; }
 
-        
+        [InverseProperty(nameof(Permission.PerIdroleNavigation))]
+        public virtual ICollection<Permission> Permissions { get; set; }
         [InverseProperty(nameof(UserRole.UserolIdroleNavigation))]
         public virtual ICollection<UserRole> UserRoles { get; set; }
     }

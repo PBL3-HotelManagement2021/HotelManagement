@@ -40,20 +40,21 @@ namespace PBL3REAL.View
                 {
                     if (roleVM.RoleName.Equals(role))
                     {
+                        roleVM.IsSelected = true;
                         if (role == "Admin")
-                        { 
+                        {                          
                             Form_Admin f = new Form_Admin(QLUserBLL.stoUser.IdUser, role);
                             this.Hide();
                             f.ShowDialog();
                         }
                         else if (role == "Clerk")
-                        { 
+                        {
                             Form_Staff f = new Form_Staff(QLUserBLL.stoUser.IdUser, role);
                             this.Hide();
                             f.ShowDialog();
                         }
                         else if (role == "Receptionist")
-                        { 
+                        {
                             Form_Staff f = new Form_Staff(QLUserBLL.stoUser.IdUser, role);
                             this.Hide();
                             f.ShowDialog();
