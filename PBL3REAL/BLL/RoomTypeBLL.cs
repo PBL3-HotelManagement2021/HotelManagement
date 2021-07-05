@@ -138,6 +138,34 @@ namespace HotelManagement.BBL.Implement
             RoomtypeDAL.Instance.deleteRoomtype(idRoomType);
         }
 
+        public RoomTypeVM findbyid(int id)
+        {
+            RoomType roomType = RoomtypeDAL.Instance.findbyid(id);
+            RoomTypeVM roomTypeVM = mapper.Map<RoomTypeVM>(roomType);
+            foreach (ImgStorage img in roomType.ImgStorages)
+            {
+                ImageVM imageVM = mapper.Map<ImageVM>(img);
+                roomTypeVM.ListImg.Add(imageVM);
+            }
+            return roomTypeVM;
+        }
+
+        public List<CbbItem> addCombobox()
+        {
+
+            List<CbbItem> listcbb = new List<CbbItem>();
+            foreach (RoomType roomType in RoomtypeDAL.Instance.findByProperty("", "", "Active"))
+            {
+                CbbItem cbbItem = new CbbItem
+                {
+                    text = roomType.RotyName,
+                    Value = roomType.IdRoomtype,
+                };
+                listcbb.Add(cbbItem);
+            }
+            return listcbb;
+        }
+
         public void sort(List<RoomTypeVM> arr, Compare d1)
         {
             for (int i = 0; i < arr.Count; i++)
