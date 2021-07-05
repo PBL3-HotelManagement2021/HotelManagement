@@ -133,6 +133,11 @@ namespace HotelManagement.BBL.Implement
             RoomtypeDAL.Instance.restoreRoomtype(idRoomType);
         }
 
+        public void deleteRoomType(int idRoomType)
+        {
+            RoomtypeDAL.Instance.deleteRoomtype(idRoomType);
+        }
+
         public void sort(List<RoomTypeVM> arr, Compare d1)
         {
             for (int i = 0; i < arr.Count; i++)
