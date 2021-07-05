@@ -105,6 +105,20 @@ namespace HotelManagement.BLL.Implement
 
         }
 
+        public void restoreRoom(int id)
+        {
+            try
+            {
+                RoomDAL.Instance.restore(id);
+
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+
+        }
+
         public void editRoom(RoomDetailVM roomVM, List<int> listdel)
         {
             Room room = new Room();
