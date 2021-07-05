@@ -84,48 +84,33 @@ namespace HotelManagement.BBL.Implement
             }
            
         }
-        public void editRoomType(RoomTypeVM roomTypeVM , List<int>listdel)
+        public void editRoomType(RoomTypeVM roomTypeVM, List<int> listdel)
         {
             RoomType roomType = new RoomType();
             mapper.Map(roomTypeVM, roomType);
             List<ImgStorage> listadd = new List<ImgStorage>();
-            foreach(ImageVM imageVM in roomTypeVM.ListImg)
+            foreach (ImageVM imageVM in roomTypeVM.ListImg)
             {
                 ImgStorage imgStorage = new ImgStorage();
                 mapper.Map(imageVM, imgStorage);
                 imgStorage.ImgstoIdrootyp = roomType.IdRoomtype;
                 if (imageVM.IdImgsto == 0) listadd.Add(imgStorage);
             }
-           
+
             try
             {
-                _imgStorageDAL.delete(listdel);
-                _roomTypeDAL.updateRoomtype(roomType);
-                _imgStorageDAL.add(listadd);
+                if (listdel != null) { ImgStorageDAL.Instance.delete(listdel); }
+                RoomtypeDAL.Instance.updateRoomtype(roomType);
+                ImgStorageDAL.Instance.add(listadd);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
 
             }
-            
+
         }
 
-        public void deleteRoomType(int idRoomType)
-        {
-            _roomTypeDAL.deleteRoomtype(idRoomType);
-        }
-
-        public RoomTypeVM findbyid(int id)
-        {
-            RoomType roomType = _roomTypeDAL.findbyid(id);
-            RoomTypeVM roomTypeVM = mapper.Map<RoomTypeVM>(roomType);
-            foreach (ImgStorage img in roomType.ImgStorages)
-            {
-                ImageVM imageVM = mapper.Map<ImageVM>(img);
-                 roomTypeVM.ListImg.Add(imageVM);
-            }
-            return roomTypeVM;
-        }
+        
 
         public List<CbbItem> addCombobox()
         {
@@ -141,6 +126,11 @@ namespace HotelManagement.BBL.Implement
                 listcbb.Add(cbbItem);
             }
             return listcbb;
+        }
+
+        public void restoreRoomType(int idRoomType)
+        {
+            RoomtypeDAL.Instance.restoreRoomtype(idRoomType);
         }
 
         public void sort(List<RoomTypeVM> arr, Compare d1)
