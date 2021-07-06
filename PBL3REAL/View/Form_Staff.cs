@@ -11,66 +11,97 @@ namespace PBL3REAL.View
 {
     public partial class Form_Staff : Form
     {
+        //----- INSTANCE VARIABLES -----//
         private QLUserBLL qLUserBLL;
         private string LoggedRole;
+
+        //----- FORM CONSTRUCTOR -----//
         public Form_Staff(int id, string role)
         {
+            //--- Initialize ---//
             InitializeComponent();
             LoggedRole = role;
             qLUserBLL = new QLUserBLL();
+
+            SetGUI();
             LoadData();
         }
-        //Load Data
+
+        //----- FUNCTIONS -----//
+        //-> Set GUI
+        private void SetGUI()
+        {
+            this.fllaypn_Clerk.Visible = false;
+            this.fllaypn_Receptionist.Visible = false;
+            this.fllaypn_Receptionist.Location = this.fllaypn_Clerk.Location;
+        }
+        //-> Load Data
         private void LoadData()
         {
             picbx_Header.SizeMode = PictureBoxSizeMode.StretchImage;
-            lb_Header.Text = "   " + QLUserBLL.stoUser.UserCode + "   ";
-            switch(LoggedRole)
-            {
-                case "Receptionist":
-                    btn_Work.Image = Properties.Resources.front_desk_fluent_color_96px;
-                    btn_Work.Text = "Receptionist";
-                    break;
-                case "Clerk":
-                    btn_Work.Image = Properties.Resources.accounting_96px;
-                    break;
-                default:
-                    break;
-            }    
-        }
-        //Events
-        private void btn_Logout_Click(object sender, EventArgs e)
-        {
-            this.Dispose();
+            lb_Header.Text = "   " + QLUserBLL.stoUser.UserCode + "   ";  
         }
 
-        private void btn_Profile_Click(object sender, EventArgs e)
+        //----- EVENTS -----//
+        private void btn_Receptionist_Receptionist_Click(object sender, EventArgs e)
         {
-            Form_User_Profile f = new Form_User_Profile(QLUserBLL.stoUser.IdUser, LoggedRole, false,true);
+            Form_Receptionist f = new Form_Receptionist(QLUserBLL.stoUser.IdUser, LoggedRole);
             this.Hide();
             f.ShowDialog();
             this.Show();
         }
-
-        private void btn_Work_Click(object sender, EventArgs e)
+        private void btn_Accountant_Receptionist_Click(object sender, EventArgs e)
         {
-            switch(LoggedRole)
+            Form_Accountant f = new Form_Accountant();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
+        }
+        private void btn_Client_Receptionist_Click(object sender, EventArgs e)
+        {
+            Form_Client f = new Form_Client();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
+        }
+        private void btn_Accountant_Clerk_Click(object sender, EventArgs e)
+        {
+            Form_Accountant f = new Form_Accountant();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
+        }
+        private void btn_Client_Clerk_Click(object sender, EventArgs e)
+        {
+            Form_Client f = new Form_Client();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
+        }
+        private void btn_Business_Click(object sender, EventArgs e)
+        {
+            switch (LoggedRole)
             {
                 case "Receptionist":
-                    Form_Receptionist f1 = new Form_Receptionist(QLUserBLL.stoUser.IdUser,LoggedRole);
-                    this.Hide();
-                    f1.ShowDialog();
-                    this.Show();
+                    this.fllaypn_Receptionist.Visible = (!this.fllaypn_Receptionist.Visible);
                     break;
                 case "Clerk":
-                    Form_Accountant f2 = new Form_Accountant();
-                    this.Hide();
-                    f2.ShowDialog();
-                    this.Show();
+                    this.fllaypn_Clerk.Visible = (!this.fllaypn_Clerk.Visible);
                     break;
                 default:
                     break;
-            }    
+            }
+        }
+        private void btn_Profile_Click(object sender, EventArgs e)
+        {
+            Form_User_Profile f = new Form_User_Profile(QLUserBLL.stoUser.IdUser, LoggedRole, false, true);
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
+        }
+        private void btn_Logout_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }
