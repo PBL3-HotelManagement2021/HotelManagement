@@ -59,6 +59,7 @@ namespace PBL3REAL.View
                             this.Hide();
                             f.ShowDialog();
                         }
+                        roleVM.IsSelected = false;
                         this.Show();
                         break;
                     }
