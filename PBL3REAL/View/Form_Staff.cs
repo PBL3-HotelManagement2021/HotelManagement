@@ -31,9 +31,7 @@ namespace PBL3REAL.View
         //-> Set GUI
         private void SetGUI()
         {
-            this.fllaypn_Clerk.Visible = false;
-            this.fllaypn_Receptionist.Visible = false;
-            this.fllaypn_Receptionist.Location = this.fllaypn_Clerk.Location;
+            this.fllaypn_Business.Visible = false;
         }
         //-> Load Data
         private void LoadData()
@@ -43,54 +41,33 @@ namespace PBL3REAL.View
         }
 
         //----- EVENTS -----//
-        private void btn_Receptionist_Receptionist_Click(object sender, EventArgs e)
+        //--- fllaypn_Business ---//
+        private void btn_Receptionist_Click(object sender, EventArgs e)
         {
             Form_Receptionist f = new Form_Receptionist(QLUserBLL.stoUser.IdUser, LoggedRole);
             this.Hide();
             f.ShowDialog();
             this.Show();
         }
-        private void btn_Accountant_Receptionist_Click(object sender, EventArgs e)
+        private void btn_Accountant_Click(object sender, EventArgs e)
         {
             Form_Accountant f = new Form_Accountant();
             this.Hide();
             f.ShowDialog();
             this.Show();
         }
-        private void btn_Client_Receptionist_Click(object sender, EventArgs e)
+        private void btn_Client_Click(object sender, EventArgs e)
         {
             Form_Client f = new Form_Client();
             this.Hide();
             f.ShowDialog();
             this.Show();
         }
-        private void btn_Accountant_Clerk_Click(object sender, EventArgs e)
-        {
-            Form_Accountant f = new Form_Accountant();
-            this.Hide();
-            f.ShowDialog();
-            this.Show();
-        }
-        private void btn_Client_Clerk_Click(object sender, EventArgs e)
-        {
-            Form_Client f = new Form_Client();
-            this.Hide();
-            f.ShowDialog();
-            this.Show();
-        }
+
+        //--- tbllaypn_Staff ---//
         private void btn_Business_Click(object sender, EventArgs e)
         {
-            switch (LoggedRole)
-            {
-                case "Receptionist":
-                    this.fllaypn_Receptionist.Visible = (!this.fllaypn_Receptionist.Visible);
-                    break;
-                case "Clerk":
-                    this.fllaypn_Clerk.Visible = (!this.fllaypn_Clerk.Visible);
-                    break;
-                default:
-                    break;
-            }
+            this.fllaypn_Business.Visible = (!this.fllaypn_Business.Visible);
         }
         private void btn_Profile_Click(object sender, EventArgs e)
         {
