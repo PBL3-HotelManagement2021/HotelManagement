@@ -5,10 +5,10 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using PBL3REAL.BLL;
 using PBL3REAL.DAL;
-using PBL3REAL.ViewModel;
 using PBL3REAL.Extention;
+using PBL3REAL.BLL;
+using PBL3REAL.ViewModel;
 using System.IO;
 
 namespace PBL3REAL.View
@@ -16,12 +16,12 @@ namespace PBL3REAL.View
     
     public partial class Form_User_Profile : Form
     {
-        /***** GLOBAL DECLARATION *****/
-        //-> Delegation
+        //---------- GLOBAL DECLARATION ----------//
+        //----- Delegation -----//
         public delegate void MyDel();
         public MyDel myDel;
 
-        //-> Global Parameter For User
+        //----- User Instance Variables -----//
         private QLUserBLL qLUserBLL;
         private UserVM userVM;
         private int ID = 0;
@@ -30,16 +30,18 @@ namespace PBL3REAL.View
         private bool editable;
         private List<int> listDel = new List<int>();
 
-        /***** CONSTRUCTOR *****/
+        //---------- FORM CONSTRUCTOR ----------//
         public Form_User_Profile(int id, string role, bool Editable,bool isForLogin)
         {
+            //--- Initialize ----//
             InitializeComponent();
             qLUserBLL = new QLUserBLL();
             Change = false;
             editable = Editable;
+
             if (isForLogin)
             {
-                loadForLogin(role);
+                LoadDataForLogin(role);
             }
             else
             {
@@ -49,8 +51,9 @@ namespace PBL3REAL.View
             }   
         }
 
-        /***** PROCESSING FUNCTIONS ****/
-        //-> Load Data Functions
+        //---------- FUNCTIONS ----------//
+        //----- Load Data -----//
+        //-> Add Role to Combobox
         private void AddRoleToCbb()
         {
             foreach(var value in qLUserBLL.getRoleForUser())
@@ -60,12 +63,13 @@ namespace PBL3REAL.View
             cbb_Role.DisplayMember = "RoleName";
             cbb_Role.SelectedIndex = 0;
         }
-        private void loadForLogin(string role)
+
+        //-> Load Data For Viewing Profile 
+        private void LoadDataForLogin(string role)
         {
             lb_Header.Text = "   " + QLUserBLL.stoUser.UserCode + "   ";
             tb_Username.Text = QLUserBLL.stoUser.UserName;
             tb_Email.Text = QLUserBLL.stoUser.UserGmail;
-            //tb_Password.Text = QLUserBLL.stoUser.UserPassword;
             tb_Phone.Text = QLUserBLL.stoUser.UserPhone;
             if (QLUserBLL.stoUser.UserGender)
             {
@@ -84,12 +88,11 @@ namespace PBL3REAL.View
             lbx_User.Visible = false;
             fllaypn_User.Visible = false;
         }
+
+        //-> Load Data For Managing
         private void LoadDataForManage(bool Editable)
         {
-            if (ID == 0)
-            {
-                userVM = new UserVM();
-            }    
+            if (ID == 0)  { userVM = new UserVM(); }    
             else
             {
                 userVM = qLUserBLL.findDetailUser(ID);
@@ -97,16 +100,11 @@ namespace PBL3REAL.View
                 lb_Header.Text = "   " + userVM.UserCode + "   ";
                 tb_Username.Text = userVM.UserName;
                 tb_Email.Text = userVM.UserGmail;
-                //tb_Password.Text = userVM.UserPassword;
                 tb_Phone.Text = userVM.UserPhone;
-                if (userVM.UserGender)
-                {
-                    rbtn_Male.Checked = true;
-                }
-                else
-                {
-                    rbtn_Female.Checked = true;
-                }
+
+                if (userVM.UserGender)  { rbtn_Male.Checked = true; }
+                else  { rbtn_Female.Checked = true; }
+
                 foreach(var value in userVM.ListRole)
                 {
                     lbx_User.Items.Add(value.RoleName);
@@ -140,8 +138,10 @@ namespace PBL3REAL.View
                 fllaypn_User.Visible = false;
             }
         }
-        //-> Check Data Functions
-        private bool CheckVietNamChar(string s)
+
+        //----- Check Data -----//
+        //-> Check If Password has Vietnamese Char
+        private bool CheckVietnameseChar(string s)
         {
             string[] VietNamChar = new string[]
             {
@@ -173,6 +173,8 @@ namespace PBL3REAL.View
             }
             return false;
         }
+
+        //-> Check Validation of Email
         private bool IsValidEmail(string email)
         {
             try
@@ -185,6 +187,8 @@ namespace PBL3REAL.View
                 return false;
             }
         }
+
+        //-> Check User Detail
         private int CheckData()
         {
             int phone = 0;
@@ -194,14 +198,14 @@ namespace PBL3REAL.View
             if (int.TryParse(tb_Phone.Text,out phone) == false)
             { return 1; }
             if (tb_Email.Text.Contains(' ') == true || tb_Password.Text.Contains(' ') == true 
-                || CheckVietNamChar(tb_Email.Text) == true || CheckVietNamChar(tb_Password.Text) == true || IsValidEmail(tb_Email.Text) == false)
+                || CheckVietnameseChar(tb_Email.Text) == true || CheckVietnameseChar(tb_Password.Text) == true || IsValidEmail(tb_Email.Text) == false)
             { return 2; }
             if (TempAvatar == null)
             { return 3; }
             return 4;
         }
-        //-> CRUD User Functions
-      
+
+        //----- Processing Image  -----//
         //-> Create Storaging Folder
         private void CreateStoragingFolder()
         {
@@ -220,6 +224,7 @@ namespace PBL3REAL.View
                 MessageBox.Show("Error!");
             }
         }
+
         //-> Insert IMG
         private Image InsertIMG()
         {
@@ -234,15 +239,14 @@ namespace PBL3REAL.View
             }
             return null;
         }
+
         //-> Delete IMG
         private void DeleteIMG(string fullpath)
         {
-            try
-            {
-                File.Delete(fullpath);
-            }
+            try  { File.Delete(fullpath); }
             catch (Exception e) { }
         }
+
         //-> Update IMG 
         private void UpdateIMG(string FileName)
         {
@@ -256,18 +260,19 @@ namespace PBL3REAL.View
             TempAvatar = null;
             TempAvatar = new ImageVM { ImgstoUrl = FileName };
         }
-        /***** EVENTS *****/
-        //-> Form   
-        //-> TableLayoutPanel User Info
+
+        //---------- EVENTS ----------//
+        //----- fllaypn_Header -----//
         private void picbx_Header_Click(object sender, EventArgs e)
         {
             //Reset to default
             picbx_Header.BackgroundImage = null;
             picbx_Header.Image = Properties.Resources.male_user_fluent_color_96px;
             TempAvatar = null;
-            if (userVM.ListImg.Count != 0) {
+            if (userVM.ListImg.Count != 0)
+            {
                 listDel.Add(userVM.ListImg[0].IdImgsto);
-                Change = true; 
+                Change = true;
             }
         }
         private void picbx_Header_DoubleClick(object sender, EventArgs e)
@@ -285,15 +290,17 @@ namespace PBL3REAL.View
             {
                 picbx_Header.BackgroundImage = null;
                 picbx_Header.Image = Properties.Resources.male_user_fluent_color_96px;
-            }    
+            }
         }
+
+        //----- tbllaypn_UserInfo -----//
         private void picbx_Change_Click(object sender, EventArgs e)
         {
             if (editable || ID == 0) { tb_Password.Enabled = true; }
         }
         private void picbx_Change_DoubleClick(object sender, EventArgs e)
         {
-            if(ID !=0)
+            if (ID != 0)
             {
                 tb_Password.Text = "";
                 tb_Password.Enabled = false;
@@ -319,7 +326,8 @@ namespace PBL3REAL.View
             userVM.ListRole.RemoveAt(userVM.ListRole.Count - 1);
             lbx_User.Items.RemoveAt(lbx_User.Items.Count - 1);
         }
-        //-> TableLayoutPanel Control Buttons
+
+        //----- tbllaypn_ControlButtons -----//
         private void btn_Cancel_Click(object sender, EventArgs e)
         {
             this.Dispose();
@@ -342,16 +350,16 @@ namespace PBL3REAL.View
             switch (CheckData())
             {
                 case 0:
-                    MessageBox.Show("Bạn chưa nhập đầy đủ thông tin!","Thông báo", MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    MessageBox.Show("You must fill in all fields!","Error!", MessageBoxButtons.OK,MessageBoxIcon.Information);
                     break;
                 case 1:
-                    MessageBox.Show("Số điện thoại bạn nhập không hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Invalid Phone Number!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
                 case 2:
-                    MessageBox.Show("Email hoặc mật khẩu bạn nhập không hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Invalid Email or Password!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
                 case 3:
-                    MessageBox.Show("Bạn chưa thêm ảnh đại diện!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("You must insert an image!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     break;
                 case 4:
                     string FileName = tb_Username.Text.Replace(" ", String.Empty) + ".Jpeg";
@@ -383,11 +391,11 @@ namespace PBL3REAL.View
                         if(qLUserBLL.checkexisted(properties))
                         {
                             qLUserBLL.addUser(userVM);
-                            MessageBox.Show("Thêm tài khoản nhân viên mới thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("A new user has been successfully created!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
                         {
-                            MessageBox.Show("Existed Email or Phone!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Existed Email or Phone!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }        
                     }
                     else
@@ -396,11 +404,11 @@ namespace PBL3REAL.View
                         if (qLUserBLL.checkexisted(properties))
                         {
                             qLUserBLL.updateUser(userVM, listDel,isPassChanged);
-                        MessageBox.Show("Cập nhật tài khoản nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("This user has been successfully updated!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
                         {
-                            MessageBox.Show("Existed Email or Phone!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Existed Email or Phone!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                     myDel();
@@ -410,7 +418,5 @@ namespace PBL3REAL.View
                     break;
             }
         }
-
-        
     }
 }

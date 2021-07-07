@@ -11,11 +11,11 @@ namespace PBL3REAL.View
 {
     public partial class Form_Staff : Form
     {
-        //----- INSTANCE VARIABLES -----//
+        //---------- GLOBAL DECLARATION ----------//
         private QLUserBLL qLUserBLL;
         private string LoggedRole;
 
-        //----- FORM CONSTRUCTOR -----//
+        //---------- FORM CONSTRUCTOR ----------//
         public Form_Staff(int id, string role)
         {
             //--- Initialize ---//
@@ -27,21 +27,21 @@ namespace PBL3REAL.View
             LoadData();
         }
 
-        //----- FUNCTIONS -----//
-        //-> Set GUI
+        //---------- FUNCTIONS ----------//
+        //----- Set GUI -----//
         private void SetGUI()
         {
             this.fllaypn_Business.Visible = false;
         }
-        //-> Load Data
+        //----- Load Data -----//
         private void LoadData()
         {
             picbx_Header.SizeMode = PictureBoxSizeMode.StretchImage;
             lb_Header.Text = "   " + QLUserBLL.stoUser.UserCode + "   ";  
         }
 
-        //----- EVENTS -----//
-        //--- fllaypn_Business ---//
+        //---------- EVENTS ----------//
+        //----- fllaypn_Business -----//
         private void btn_Receptionist_Click(object sender, EventArgs e)
         {
             Form_Receptionist f = new Form_Receptionist(QLUserBLL.stoUser.IdUser, LoggedRole);
@@ -64,7 +64,7 @@ namespace PBL3REAL.View
             this.Show();
         }
 
-        //--- tbllaypn_Staff ---//
+        //----- tbllaypn_Staff -----//
         private void btn_Business_Click(object sender, EventArgs e)
         {
             this.fllaypn_Business.Visible = (!this.fllaypn_Business.Visible);
