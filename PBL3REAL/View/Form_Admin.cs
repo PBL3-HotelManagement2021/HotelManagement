@@ -15,21 +15,22 @@ namespace PBL3REAL.View
 {
     public partial class Form_Admin : Form
     {
-        /***** GLOBAL DECLARATION *****/
-        //-> Global Parameter For Admin Account
+        //---------- GLOBAL DECLARATION ----------//
+        //----- Admin Account Instance Variables -----//
         private int ID;
         private string LoggedRole;
 
-        /***** CONSTRUCTOR *****/
+        //---------- FORM CONSTRUCTOR ----------//
         public Form_Admin(int id, string role)
         {
+            //--- Initialize ----//
             InitializeComponent();
             ID = id;
             LoggedRole = role;
         }
 
-        /***** EVENTS *****/
-        //-> Form
+        //---------- EVENTS ----------//
+        //----- Form -----//
         private void Form_Admin_Move(object sender, EventArgs e)
         {
             fllaypn_Menu.Visible = false;
@@ -38,7 +39,8 @@ namespace PBL3REAL.View
         {
             fllaypn_Menu.Visible = false;
         }
-        //-> FlowLayoutPanel Menu
+
+        //----- fllaypn_Menu -----//
         private void btn_Menu_VisibleChanged(object sender, EventArgs e)
         {
             fllaypn_Menu.Visible = (!fllaypn_Menu.Visible);
@@ -58,7 +60,8 @@ namespace PBL3REAL.View
         {
             this.Dispose();
         }
-        //->  FlowLayoutPanel Navbar
+
+        //----- fllaypn_Navbar -----//
         private void btn_Receptionist_Click(object sender, EventArgs e)
         {
             Form_Receptionist f = new Form_Receptionist(ID, LoggedRole);

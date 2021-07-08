@@ -75,23 +75,21 @@ namespace PBL3REAL.View
             this.tabControl_Client.Dock = System.Windows.Forms.DockStyle.Left;
             this.tabControl_Client.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tabControl_Client.Location = new System.Drawing.Point(0, 0);
-            this.tabControl_Client.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl_Client.Name = "tabControl_Client";
             this.tabControl_Client.SelectedIndex = 0;
-            this.tabControl_Client.Size = new System.Drawing.Size(1138, 591);
+            this.tabControl_Client.Size = new System.Drawing.Size(1301, 788);
             this.tabControl_Client.TabIndex = 0;
             // 
             // tabPage_General
             // 
             this.tabPage_General.Controls.Add(this.btn_Home);
             this.tabPage_General.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tabPage_General.Location = new System.Drawing.Point(4, 30);
-            this.tabPage_General.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage_General.Location = new System.Drawing.Point(4, 37);
             this.tabPage_General.Name = "tabPage_General";
-            this.tabPage_General.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage_General.Size = new System.Drawing.Size(1130, 557);
+            this.tabPage_General.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage_General.Size = new System.Drawing.Size(1293, 747);
             this.tabPage_General.TabIndex = 0;
-            this.tabPage_General.Text = "Chung";
+            this.tabPage_General.Text = "General";
             this.tabPage_General.UseVisualStyleBackColor = true;
             // 
             // btn_Home
@@ -101,10 +99,9 @@ namespace PBL3REAL.View
             this.btn_Home.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Home.Image = global::PBL3REAL.Properties.Resources.home_page_fluent_color_96px;
             this.btn_Home.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_Home.Location = new System.Drawing.Point(330, 189);
-            this.btn_Home.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_Home.Location = new System.Drawing.Point(377, 252);
             this.btn_Home.Name = "btn_Home";
-            this.btn_Home.Size = new System.Drawing.Size(170, 137);
+            this.btn_Home.Size = new System.Drawing.Size(194, 183);
             this.btn_Home.TabIndex = 0;
             this.btn_Home.Text = "Return Home";
             this.btn_Home.UseVisualStyleBackColor = true;
@@ -118,13 +115,12 @@ namespace PBL3REAL.View
             this.tabPage_Client.Controls.Add(this.fllaypn_ClientSwitchPage);
             this.tabPage_Client.Controls.Add(this.picbx_ClientRefresh);
             this.tabPage_Client.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tabPage_Client.Location = new System.Drawing.Point(4, 30);
-            this.tabPage_Client.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage_Client.Location = new System.Drawing.Point(4, 37);
             this.tabPage_Client.Name = "tabPage_Client";
-            this.tabPage_Client.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage_Client.Size = new System.Drawing.Size(1130, 557);
+            this.tabPage_Client.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage_Client.Size = new System.Drawing.Size(1293, 747);
             this.tabPage_Client.TabIndex = 1;
-            this.tabPage_Client.Text = "Quản lí Client";
+            this.tabPage_Client.Text = "Client Management";
             this.tabPage_Client.UseVisualStyleBackColor = true;
             // 
             // dgv
@@ -147,8 +143,7 @@ namespace PBL3REAL.View
             this.dgv.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgv.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgv.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.dgv.Location = new System.Drawing.Point(0, 190);
-            this.dgv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgv.Location = new System.Drawing.Point(0, 253);
             this.dgv.Name = "dgv";
             this.dgv.ReadOnly = true;
             this.dgv.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -156,7 +151,7 @@ namespace PBL3REAL.View
             this.dgv.RowHeadersWidth = 51;
             this.dgv.RowTemplate.Height = 29;
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv.Size = new System.Drawing.Size(1131, 370);
+            this.dgv.Size = new System.Drawing.Size(1293, 493);
             this.dgv.TabIndex = 0;
             // 
             // fllaypn_ClientButtons
@@ -166,10 +161,9 @@ namespace PBL3REAL.View
             this.fllaypn_ClientButtons.Controls.Add(this.CLIE_UPDATE);
             this.fllaypn_ClientButtons.Controls.Add(this.CLIE_INACTIVE);
             this.fllaypn_ClientButtons.Controls.Add(this.CLIE_ACTIVE);
-            this.fllaypn_ClientButtons.Location = new System.Drawing.Point(393, 2);
-            this.fllaypn_ClientButtons.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.fllaypn_ClientButtons.Location = new System.Drawing.Point(449, 3);
             this.fllaypn_ClientButtons.Name = "fllaypn_ClientButtons";
-            this.fllaypn_ClientButtons.Size = new System.Drawing.Size(736, 155);
+            this.fllaypn_ClientButtons.Size = new System.Drawing.Size(841, 207);
             this.fllaypn_ClientButtons.TabIndex = 0;
             // 
             // CLIE_VIEW
@@ -179,10 +173,9 @@ namespace PBL3REAL.View
             this.CLIE_VIEW.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CLIE_VIEW.Image = global::PBL3REAL.Properties.Resources.show_property_96px;
             this.CLIE_VIEW.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.CLIE_VIEW.Location = new System.Drawing.Point(3, 2);
-            this.CLIE_VIEW.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.CLIE_VIEW.Location = new System.Drawing.Point(3, 3);
             this.CLIE_VIEW.Name = "CLIE_VIEW";
-            this.CLIE_VIEW.Size = new System.Drawing.Size(138, 149);
+            this.CLIE_VIEW.Size = new System.Drawing.Size(158, 199);
             this.CLIE_VIEW.TabIndex = 0;
             this.CLIE_VIEW.Text = "View Client";
             this.CLIE_VIEW.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -196,10 +189,9 @@ namespace PBL3REAL.View
             this.CLIE_ADD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CLIE_ADD.Image = global::PBL3REAL.Properties.Resources.add_fluent_color_96px;
             this.CLIE_ADD.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.CLIE_ADD.Location = new System.Drawing.Point(147, 2);
-            this.CLIE_ADD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.CLIE_ADD.Location = new System.Drawing.Point(167, 3);
             this.CLIE_ADD.Name = "CLIE_ADD";
-            this.CLIE_ADD.Size = new System.Drawing.Size(138, 149);
+            this.CLIE_ADD.Size = new System.Drawing.Size(158, 199);
             this.CLIE_ADD.TabIndex = 0;
             this.CLIE_ADD.Text = "Add Client";
             this.CLIE_ADD.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -213,10 +205,9 @@ namespace PBL3REAL.View
             this.CLIE_UPDATE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CLIE_UPDATE.Image = global::PBL3REAL.Properties.Resources.edit_property_fluent_color_96px;
             this.CLIE_UPDATE.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.CLIE_UPDATE.Location = new System.Drawing.Point(291, 2);
-            this.CLIE_UPDATE.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.CLIE_UPDATE.Location = new System.Drawing.Point(331, 3);
             this.CLIE_UPDATE.Name = "CLIE_UPDATE";
-            this.CLIE_UPDATE.Size = new System.Drawing.Size(138, 149);
+            this.CLIE_UPDATE.Size = new System.Drawing.Size(158, 199);
             this.CLIE_UPDATE.TabIndex = 0;
             this.CLIE_UPDATE.Text = "Update Client";
             this.CLIE_UPDATE.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -230,10 +221,9 @@ namespace PBL3REAL.View
             this.CLIE_INACTIVE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CLIE_INACTIVE.Image = global::PBL3REAL.Properties.Resources.waste_fluent_color_96px;
             this.CLIE_INACTIVE.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.CLIE_INACTIVE.Location = new System.Drawing.Point(435, 2);
-            this.CLIE_INACTIVE.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.CLIE_INACTIVE.Location = new System.Drawing.Point(495, 3);
             this.CLIE_INACTIVE.Name = "CLIE_INACTIVE";
-            this.CLIE_INACTIVE.Size = new System.Drawing.Size(138, 149);
+            this.CLIE_INACTIVE.Size = new System.Drawing.Size(158, 199);
             this.CLIE_INACTIVE.TabIndex = 0;
             this.CLIE_INACTIVE.Text = "Inactive Client";
             this.CLIE_INACTIVE.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -247,10 +237,9 @@ namespace PBL3REAL.View
             this.CLIE_ACTIVE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CLIE_ACTIVE.Image = global::PBL3REAL.Properties.Resources.restore_fluent_color_96px;
             this.CLIE_ACTIVE.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.CLIE_ACTIVE.Location = new System.Drawing.Point(579, 2);
-            this.CLIE_ACTIVE.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.CLIE_ACTIVE.Location = new System.Drawing.Point(659, 3);
             this.CLIE_ACTIVE.Name = "CLIE_ACTIVE";
-            this.CLIE_ACTIVE.Size = new System.Drawing.Size(138, 149);
+            this.CLIE_ACTIVE.Size = new System.Drawing.Size(158, 199);
             this.CLIE_ACTIVE.TabIndex = 0;
             this.CLIE_ACTIVE.Text = "Restore Client";
             this.CLIE_ACTIVE.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -260,8 +249,8 @@ namespace PBL3REAL.View
             // tbllaypn_Client
             // 
             this.tbllaypn_Client.ColumnCount = 3;
-            this.tbllaypn_Client.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.30407F));
-            this.tbllaypn_Client.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.69593F));
+            this.tbllaypn_Client.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.56425F));
+            this.tbllaypn_Client.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 68.43575F));
             this.tbllaypn_Client.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 49F));
             this.tbllaypn_Client.Controls.Add(this.picbx_ClientSort, 2, 0);
             this.tbllaypn_Client.Controls.Add(this.cbb_ClientSort, 1, 0);
@@ -271,28 +260,27 @@ namespace PBL3REAL.View
             this.tbllaypn_Client.Controls.Add(this.lb_ClientStatus, 0, 1);
             this.tbllaypn_Client.Controls.Add(this.cbb_ClientStatus, 1, 1);
             this.tbllaypn_Client.Controls.Add(this.picbx_ClientSearch, 2, 2);
-            this.tbllaypn_Client.Location = new System.Drawing.Point(7, 11);
-            this.tbllaypn_Client.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbllaypn_Client.Location = new System.Drawing.Point(8, 15);
             this.tbllaypn_Client.Name = "tbllaypn_Client";
             this.tbllaypn_Client.RowCount = 3;
             this.tbllaypn_Client.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tbllaypn_Client.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tbllaypn_Client.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tbllaypn_Client.Size = new System.Drawing.Size(338, 119);
+            this.tbllaypn_Client.Size = new System.Drawing.Size(369, 159);
             this.tbllaypn_Client.TabIndex = 0;
             // 
             // picbx_ClientSort
             // 
             this.picbx_ClientSort.Image = global::PBL3REAL.Properties.Resources.filter_fluent_color_48px;
-            this.picbx_ClientSort.Location = new System.Drawing.Point(291, 2);
-            this.picbx_ClientSort.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.picbx_ClientSort.Location = new System.Drawing.Point(322, 3);
             this.picbx_ClientSort.Name = "picbx_ClientSort";
-            this.picbx_ClientSort.Size = new System.Drawing.Size(40, 35);
+            this.picbx_ClientSort.Size = new System.Drawing.Size(44, 47);
             this.picbx_ClientSort.TabIndex = 9;
             this.picbx_ClientSort.TabStop = false;
             // 
             // cbb_ClientSort
             // 
+            this.cbb_ClientSort.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cbb_ClientSort.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
             this.cbb_ClientSort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbb_ClientSort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -302,52 +290,58 @@ namespace PBL3REAL.View
             "None",
             "Name Asc",
             "Name Desc"});
-            this.cbb_ClientSort.Location = new System.Drawing.Point(110, 2);
-            this.cbb_ClientSort.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbb_ClientSort.Location = new System.Drawing.Point(104, 7);
             this.cbb_ClientSort.Name = "cbb_ClientSort";
-            this.cbb_ClientSort.Size = new System.Drawing.Size(175, 33);
+            this.cbb_ClientSort.Size = new System.Drawing.Size(211, 39);
             this.cbb_ClientSort.TabIndex = 1;
             // 
             // lb_ClientSort
             // 
+            this.lb_ClientSort.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lb_ClientSort.AutoSize = true;
             this.lb_ClientSort.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lb_ClientSort.Location = new System.Drawing.Point(3, 0);
+            this.lb_ClientSort.Location = new System.Drawing.Point(3, 11);
             this.lb_ClientSort.Name = "lb_ClientSort";
-            this.lb_ClientSort.Size = new System.Drawing.Size(98, 39);
+            this.lb_ClientSort.Size = new System.Drawing.Size(86, 31);
             this.lb_ClientSort.TabIndex = 0;
-            this.lb_ClientSort.Text = "Sắp xếp theo";
+            this.lb_ClientSort.Text = "Sort by";
             // 
             // tb_ClientSearch
             // 
+            this.tb_ClientSearch.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.tb_ClientSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
             this.tb_ClientSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tb_ClientSearch.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tb_ClientSearch.Location = new System.Drawing.Point(110, 80);
-            this.tb_ClientSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tb_ClientSearch.Location = new System.Drawing.Point(104, 117);
             this.tb_ClientSearch.Name = "tb_ClientSearch";
-            this.tb_ClientSearch.Size = new System.Drawing.Size(175, 25);
+            this.tb_ClientSearch.Size = new System.Drawing.Size(212, 31);
             this.tb_ClientSearch.TabIndex = 3;
             // 
             // lb_ClientSearch
             // 
+            this.lb_ClientSearch.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lb_ClientSearch.AutoSize = true;
             this.lb_ClientSearch.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lb_ClientSearch.Location = new System.Drawing.Point(3, 78);
+            this.lb_ClientSearch.Location = new System.Drawing.Point(3, 117);
             this.lb_ClientSearch.Name = "lb_ClientSearch";
-            this.lb_ClientSearch.Size = new System.Drawing.Size(98, 40);
+            this.lb_ClientSearch.Size = new System.Drawing.Size(82, 31);
             this.lb_ClientSearch.TabIndex = 0;
-            this.lb_ClientSearch.Text = "Tìm kiếm";
+            this.lb_ClientSearch.Text = "Search";
             // 
             // lb_ClientStatus
             // 
+            this.lb_ClientStatus.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lb_ClientStatus.AutoSize = true;
             this.lb_ClientStatus.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lb_ClientStatus.Location = new System.Drawing.Point(3, 39);
+            this.lb_ClientStatus.Location = new System.Drawing.Point(3, 64);
             this.lb_ClientStatus.Name = "lb_ClientStatus";
-            this.lb_ClientStatus.Size = new System.Drawing.Size(101, 39);
+            this.lb_ClientStatus.Size = new System.Drawing.Size(76, 31);
             this.lb_ClientStatus.TabIndex = 11;
-            this.lb_ClientStatus.Text = "Trạng thái";
+            this.lb_ClientStatus.Text = "Status";
             // 
             // cbb_ClientStatus
             // 
+            this.cbb_ClientStatus.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cbb_ClientStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
             this.cbb_ClientStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbb_ClientStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -356,19 +350,17 @@ namespace PBL3REAL.View
             this.cbb_ClientStatus.Items.AddRange(new object[] {
             "Active",
             "Inactive"});
-            this.cbb_ClientStatus.Location = new System.Drawing.Point(110, 41);
-            this.cbb_ClientStatus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbb_ClientStatus.Location = new System.Drawing.Point(104, 60);
             this.cbb_ClientStatus.Name = "cbb_ClientStatus";
-            this.cbb_ClientStatus.Size = new System.Drawing.Size(175, 33);
+            this.cbb_ClientStatus.Size = new System.Drawing.Size(211, 39);
             this.cbb_ClientStatus.TabIndex = 2;
             // 
             // picbx_ClientSearch
             // 
             this.picbx_ClientSearch.Image = global::PBL3REAL.Properties.Resources.search_fluent_color_48px;
-            this.picbx_ClientSearch.Location = new System.Drawing.Point(291, 80);
-            this.picbx_ClientSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.picbx_ClientSearch.Location = new System.Drawing.Point(322, 109);
             this.picbx_ClientSearch.Name = "picbx_ClientSearch";
-            this.picbx_ClientSearch.Size = new System.Drawing.Size(40, 35);
+            this.picbx_ClientSearch.Size = new System.Drawing.Size(44, 47);
             this.picbx_ClientSearch.TabIndex = 10;
             this.picbx_ClientSearch.TabStop = false;
             this.picbx_ClientSearch.Click += new System.EventHandler(this.picbx_ClientSearch_Click);
@@ -378,10 +370,9 @@ namespace PBL3REAL.View
             this.fllaypn_ClientSwitchPage.Controls.Add(this.btn_ClientPrevPage);
             this.fllaypn_ClientSwitchPage.Controls.Add(this.tb_ClientPageNumber);
             this.fllaypn_ClientSwitchPage.Controls.Add(this.btn_ClientNextPage);
-            this.fllaypn_ClientSwitchPage.Location = new System.Drawing.Point(-3, 160);
-            this.fllaypn_ClientSwitchPage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.fllaypn_ClientSwitchPage.Location = new System.Drawing.Point(-3, 213);
             this.fllaypn_ClientSwitchPage.Name = "fllaypn_ClientSwitchPage";
-            this.fllaypn_ClientSwitchPage.Size = new System.Drawing.Size(164, 33);
+            this.fllaypn_ClientSwitchPage.Size = new System.Drawing.Size(187, 44);
             this.fllaypn_ClientSwitchPage.TabIndex = 0;
             // 
             // btn_ClientPrevPage
@@ -393,7 +384,7 @@ namespace PBL3REAL.View
             this.btn_ClientPrevPage.Location = new System.Drawing.Point(0, 0);
             this.btn_ClientPrevPage.Margin = new System.Windows.Forms.Padding(0);
             this.btn_ClientPrevPage.Name = "btn_ClientPrevPage";
-            this.btn_ClientPrevPage.Size = new System.Drawing.Size(38, 32);
+            this.btn_ClientPrevPage.Size = new System.Drawing.Size(43, 43);
             this.btn_ClientPrevPage.TabIndex = 0;
             this.btn_ClientPrevPage.UseVisualStyleBackColor = true;
             this.btn_ClientPrevPage.Click += new System.EventHandler(this.btn_ClientPrevPage_Click);
@@ -404,10 +395,10 @@ namespace PBL3REAL.View
             this.tb_ClientPageNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
             this.tb_ClientPageNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tb_ClientPageNumber.Font = new System.Drawing.Font("Segoe UI", 16.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tb_ClientPageNumber.Location = new System.Drawing.Point(38, 1);
+            this.tb_ClientPageNumber.Location = new System.Drawing.Point(43, 2);
             this.tb_ClientPageNumber.Margin = new System.Windows.Forms.Padding(0);
             this.tb_ClientPageNumber.Name = "tb_ClientPageNumber";
-            this.tb_ClientPageNumber.Size = new System.Drawing.Size(82, 30);
+            this.tb_ClientPageNumber.Size = new System.Drawing.Size(94, 38);
             this.tb_ClientPageNumber.TabIndex = 0;
             this.tb_ClientPageNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -417,10 +408,10 @@ namespace PBL3REAL.View
             this.btn_ClientNextPage.FlatAppearance.BorderSize = 0;
             this.btn_ClientNextPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ClientNextPage.Image = global::PBL3REAL.Properties.Resources.right_button_fluent_color_48px;
-            this.btn_ClientNextPage.Location = new System.Drawing.Point(120, 0);
+            this.btn_ClientNextPage.Location = new System.Drawing.Point(137, 0);
             this.btn_ClientNextPage.Margin = new System.Windows.Forms.Padding(0);
             this.btn_ClientNextPage.Name = "btn_ClientNextPage";
-            this.btn_ClientNextPage.Size = new System.Drawing.Size(38, 32);
+            this.btn_ClientNextPage.Size = new System.Drawing.Size(43, 43);
             this.btn_ClientNextPage.TabIndex = 0;
             this.btn_ClientNextPage.UseVisualStyleBackColor = true;
             this.btn_ClientNextPage.Click += new System.EventHandler(this.btn_ClientNextPage_Click);
@@ -429,23 +420,21 @@ namespace PBL3REAL.View
             // 
             this.picbx_ClientRefresh.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.picbx_ClientRefresh.Image = global::PBL3REAL.Properties.Resources.refresh_fluent_color_48px;
-            this.picbx_ClientRefresh.Location = new System.Drawing.Point(170, 158);
-            this.picbx_ClientRefresh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.picbx_ClientRefresh.Location = new System.Drawing.Point(194, 211);
             this.picbx_ClientRefresh.Name = "picbx_ClientRefresh";
-            this.picbx_ClientRefresh.Size = new System.Drawing.Size(41, 34);
+            this.picbx_ClientRefresh.Size = new System.Drawing.Size(47, 45);
             this.picbx_ClientRefresh.TabIndex = 16;
             this.picbx_ClientRefresh.TabStop = false;
             // 
             // Form_Client
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(230)))), ((int)(((byte)(233)))));
-            this.ClientSize = new System.Drawing.Size(1137, 591);
+            this.ClientSize = new System.Drawing.Size(1299, 788);
             this.Controls.Add(this.tabControl_Client);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form_Client";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form_Client";
