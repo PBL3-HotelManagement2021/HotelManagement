@@ -151,7 +151,42 @@ namespace HotelManagement.BLL.Implement
             }
         }
 
-
+        public List<RoomVM> findByProperty(int pages, int rows, int idroomtype, string name, int isActive)
+        {
+            int start = (pages - 1) * rows;
+            int length = rows;
+            List<Room> listRoom = RoomDAL.Instance.findByProperty(start, length, idroomtype, name, isActive);
+            List<RoomVM> listRoomVM = new List<RoomVM>();
+            foreach (Room room in listRoom)
+            {
+                RoomVM roomVM = mapper.Map<RoomVM>(room);
+                roomVM.Index = ++start;
+                roomVM.RoomType = room.RoomIdroomtypeNavigation.RotyName;
+                roomVM.Price = room.RoomIdroomtypeNavigation.RotyCurrentprice;
+                listRoomVM.Add(roomVM);
+            }
+            return listRoomVM;
+        } 
+        public RoomDetailVM findByID(int idroom)
+        {
+            Room room = RoomDAL.Instance.findbyid(idroom);
+            RoomDetailVM roomDetailVM = mapper.Map<RoomDetailVM>(room);
+            int id = room.RoomIdroomtypeNavigation.IdRoomtype;
+            string rotyname = room.RoomIdroomtypeNavigation.RotyName;
+            roomDetailVM.RoTyName = rotyname;
+            roomDetailVM.IdRoomType = id;
+            /* roomDetailVM.MapRoomtype.Add(id, rotyname);*/
+            roomDetailVM.RotyCurrentprice = room.RoomIdroomtypeNavigation.RotyCurrentprice;
+            foreach (StatusTime statusTime in room.StatusTimes)
+            {
+                StatusTimeVM statusTimeVM = mapper.Map<StatusTimeVM>(statusTime);
+                statusTimeVM.IdStatus = statusTime.StatimIdstatusNavigation.IdStatus;
+                statusTimeVM.StaName = statusTime.StatimIdstatusNavigation.StaName;
+                /*                statusTimeVM.statusVM = mapper.Map<StatusVM>(statusTime.StatimIdstatusNavigation);*/
+                roomDetailVM.ListStatusTime.Add(statusTimeVM);
+            }
+            return roomDetailVM;
+        }
 
 
         /* public List<RoomVM> getAll1(int pages, int rows, string orderby)
