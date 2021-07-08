@@ -83,11 +83,11 @@ namespace PBL3REAL.View
             this.lb_LoginRole.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lb_LoginRole.AutoSize = true;
             this.lb_LoginRole.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lb_LoginRole.Location = new System.Drawing.Point(3, 0);
+            this.lb_LoginRole.Location = new System.Drawing.Point(27, 0);
             this.lb_LoginRole.Name = "lb_LoginRole";
-            this.lb_LoginRole.Size = new System.Drawing.Size(184, 28);
+            this.lb_LoginRole.Size = new System.Drawing.Size(131, 28);
             this.lb_LoginRole.TabIndex = 0;
-            this.lb_LoginRole.Text = "Đăng nhập với vị trí";
+            this.lb_LoginRole.Text = "Login by Role";
             this.lb_LoginRole.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // cbb_LoginRole
@@ -98,7 +98,7 @@ namespace PBL3REAL.View
             this.cbb_LoginRole.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbb_LoginRole.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbb_LoginRole.FormattingEnabled = true;
-            this.cbb_LoginRole.Location = new System.Drawing.Point(5, 31);
+            this.cbb_LoginRole.Location = new System.Drawing.Point(3, 31);
             this.cbb_LoginRole.Name = "cbb_LoginRole";
             this.cbb_LoginRole.Size = new System.Drawing.Size(180, 36);
             this.cbb_LoginRole.TabIndex = 1;
@@ -114,7 +114,7 @@ namespace PBL3REAL.View
             this.btn_Login.Name = "btn_Login";
             this.btn_Login.Size = new System.Drawing.Size(135, 43);
             this.btn_Login.TabIndex = 0;
-            this.btn_Login.Text = "Đăng nhập";
+            this.btn_Login.Text = "Login";
             this.btn_Login.UseVisualStyleBackColor = false;
             this.btn_Login.Click += new System.EventHandler(this.btn_Login_Click);
             // 
@@ -154,7 +154,7 @@ namespace PBL3REAL.View
             this.btn_Logout.Name = "btn_Logout";
             this.btn_Logout.Size = new System.Drawing.Size(135, 43);
             this.btn_Logout.TabIndex = 0;
-            this.btn_Logout.Text = "Đăng xuất";
+            this.btn_Logout.Text = "Logout";
             this.btn_Logout.UseVisualStyleBackColor = false;
             this.btn_Logout.Click += new System.EventHandler(this.btn_Logout_Click);
             // 

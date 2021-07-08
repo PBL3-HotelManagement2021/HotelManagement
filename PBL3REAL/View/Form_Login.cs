@@ -7,62 +7,41 @@ using System.Text;
 using System.Windows.Forms;
 using PBL3REAL.BLL;
 using PBL3REAL.ViewModel;
+using PBL3REAL.Extention;
+
 namespace PBL3REAL.View
 {
     public partial class Form_Login : Form
     {
+        //---------- GLOBAL DECLARATION ----------//
+        //----- Account Instance Variables -----//
         private QLUserBLL qLUserBLL;
-        private static readonly string[] VietNamChar = new string[]
-        {
-            "aAeEoOuUiIdDyY",
-            "áàạảãâấầậẩẫăắằặẳẵ",
-            "ÁÀẠẢÃÂẤẦẬẨẪĂẮẰẶẲẴ",
-            "éèẹẻẽêếềệểễ",
-            "ÉÈẸẺẼÊẾỀỆỂỄ",
-            "óòọỏõôốồộổỗơớờợởỡ",
-            "ÓÒỌỎÕÔỐỒỘỔỖƠỚỜỢỞỠ",
-            "úùụủũưứừựửữ",
-            "ÚÙỤỦŨƯỨỪỰỬỮ",
-            "íìịỉĩ",
-            "ÍÌỊỈĨ",
-            "đ",
-            "Đ",
-            "ýỳỵỷỹ",
-            "ÝỲỴỶỸ"
-        };
+        private Usercode usercode;
+        private Password password;
+
+        //---------- FORM CONSTRUCTOR ----------//
         public Form_Login()
         {
+            //--- Initialize ----//
             InitializeComponent();
             qLUserBLL = new QLUserBLL();
         }
-        //Check Data 
-        //Solution: (https://)itexpress.vn/tin-tuc/loc-dau-tieng-viet-trong-c-va-javascript-160.html
-        private bool CheckVietNamChar(string s)
-        {
-            for (int i = 1; i < VietNamChar.Length; i++)
-            {
-                for (int j = 0; j < VietNamChar[i].Length; j++)
-                {
-                    if (s.Contains(VietNamChar[i][j]))
-                    {
-                        return true;
-                    }    
-                }    
-            }
-            return false;
-        }
+
+        //---------- FUNCTIONS ----------//
+        //----- Check Data  -----//
         private bool CheckData()
         {
-            if (tb_UserCode.Text.Contains(' ') == true || tb_Password.Text.Contains(' ') == true || CheckVietNamChar(tb_UserCode.Text) == true
-                || CheckVietNamChar(tb_Password.Text) == true || tb_UserCode.Text.Length == 0 || tb_Password.Text.Length == 0)
+            if (usercode.ValidateUsercode(tb_Usercode.Text) == false || password.ValidatePassword(tb_Password.Text) == false)
             { return false; }
             return true;
         }
+
+        //----- Check User  -----//
         private bool CheckUser()
         {
             bool check = false;
             Dictionary<string, string> properties = new Dictionary<string, string>();
-            properties.Add("code", tb_UserCode.Text);
+            properties.Add("code", tb_Usercode.Text);
             properties.Add("password", tb_Password.Text);
             try
             {
@@ -75,7 +54,31 @@ namespace PBL3REAL.View
             catch (Exception) {}
             return check;
         }
-        //Events
+
+        //---------- EVENTS ----------//
+        //----- fllaypn_ControlBar -----//
+        private void btn_Minimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+        private void btn_Exit_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        //----- tbllaypn_LoginInfo -----//
+        private void tb_Username_TextChanged(object sender, EventArgs e)
+        {
+            toolTip_Warning.SetToolTip(tb_Usercode, "Username must not contain Vietnamese Chars or White Space");
+            toolTip_Warning.ToolTipIcon = ToolTipIcon.Warning;
+        }
+        private void tb_Password_TextChanged(object sender, EventArgs e)
+        {
+            toolTip_Warning.SetToolTip(tb_Password, "Password must not contain Vietnamese Chars or White Space");
+            toolTip_Warning.ToolTipIcon = ToolTipIcon.Warning;
+        }
+
+        //----- btn_Login -----//
         private void btn_Login_Click(object sender, EventArgs e)
         {
             //Check Data
@@ -91,35 +94,13 @@ namespace PBL3REAL.View
                 }
                 else
                 {
-                    MessageBox.Show("Mã tài khoản hoặc mật khẩu đã nhập không tồn tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("The Usercode or Password you entered is incorrect. Please try again!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             else
             {
-                MessageBox.Show("Mã tài khoản hoặc mật khẩu đã nhập không hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("The Usercode or Password you entered is invalid. Please try again!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-        private void btn_Exit_Click(object sender, EventArgs e)
-        {
-            this.Dispose();
-        }
-        private void btn_Minimize_Click(object sender, EventArgs e)
-        {
-            //Solution: (https://)stackoverflow.com/questions/7285386/how-to-minimize-and-maximize-in-c-net/7285418
-            this.WindowState = FormWindowState.Minimized;
-        }
-        //Solution: (https://)docs.microsoft.com/en-us/dotnet/desktop/winforms/controls/how-to-set-tooltips-for-controls-on-a-windows-form-at-design-time?view=netframeworkdesktop-4.8
-        //Solution: (https://)www.c-sharpcorner.com/uploadfile/mahesh/tooltip-in-C-Sharp/
-        //Solution: (https://)docs.microsoft.com/en-us/dotnet/api/system.windows.forms.tooltipicon?view=net-5.0
-        private void tb_Username_TextChanged(object sender, EventArgs e)
-        {
-            toolTip_Warning.SetToolTip(tb_UserCode, "Tên tài khoản không được chứa dấu thanh & khoảng trắng");
-            toolTip_Warning.ToolTipIcon = ToolTipIcon.Warning;
-        }
-        private void tb_Password_TextChanged(object sender, EventArgs e)
-        {
-            toolTip_Warning.SetToolTip(tb_Password, "Mật khẩu không được chứa dấu thanh & khoảng trắng");
-            toolTip_Warning.ToolTipIcon = ToolTipIcon.Warning;
         }
     }
 }

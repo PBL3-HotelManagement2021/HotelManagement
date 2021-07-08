@@ -68,10 +68,9 @@ namespace PBL3REAL.View
             this.tabControl_HRM.Dock = System.Windows.Forms.DockStyle.Left;
             this.tabControl_HRM.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tabControl_HRM.Location = new System.Drawing.Point(0, 0);
-            this.tabControl_HRM.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl_HRM.Name = "tabControl_HRM";
             this.tabControl_HRM.SelectedIndex = 0;
-            this.tabControl_HRM.Size = new System.Drawing.Size(1188, 524);
+            this.tabControl_HRM.Size = new System.Drawing.Size(1358, 699);
             this.tabControl_HRM.TabIndex = 0;
             // 
             // tabPage_General
@@ -79,13 +78,12 @@ namespace PBL3REAL.View
             this.tabPage_General.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(230)))), ((int)(((byte)(233)))));
             this.tabPage_General.Controls.Add(this.btn_Home);
             this.tabPage_General.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tabPage_General.Location = new System.Drawing.Point(4, 30);
-            this.tabPage_General.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage_General.Location = new System.Drawing.Point(4, 37);
             this.tabPage_General.Name = "tabPage_General";
-            this.tabPage_General.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage_General.Size = new System.Drawing.Size(1180, 490);
+            this.tabPage_General.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage_General.Size = new System.Drawing.Size(1350, 658);
             this.tabPage_General.TabIndex = 0;
-            this.tabPage_General.Text = "Chung";
+            this.tabPage_General.Text = "General";
             // 
             // btn_Home
             // 
@@ -94,10 +92,9 @@ namespace PBL3REAL.View
             this.btn_Home.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Home.Image = global::PBL3REAL.Properties.Resources.home_page_fluent_color_96px;
             this.btn_Home.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_Home.Location = new System.Drawing.Point(336, 178);
-            this.btn_Home.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_Home.Location = new System.Drawing.Point(384, 237);
             this.btn_Home.Name = "btn_Home";
-            this.btn_Home.Size = new System.Drawing.Size(170, 137);
+            this.btn_Home.Size = new System.Drawing.Size(194, 183);
             this.btn_Home.TabIndex = 0;
             this.btn_Home.Text = "Return Home";
             this.btn_Home.UseVisualStyleBackColor = true;
@@ -109,13 +106,12 @@ namespace PBL3REAL.View
             this.tabPage_HRM.Controls.Add(this.fllaypn_HRMButtons);
             this.tabPage_HRM.Controls.Add(this.tbllaypn_HRM);
             this.tabPage_HRM.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tabPage_HRM.Location = new System.Drawing.Point(4, 30);
-            this.tabPage_HRM.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage_HRM.Location = new System.Drawing.Point(4, 37);
             this.tabPage_HRM.Name = "tabPage_HRM";
-            this.tabPage_HRM.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage_HRM.Size = new System.Drawing.Size(1180, 490);
+            this.tabPage_HRM.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage_HRM.Size = new System.Drawing.Size(1350, 658);
             this.tabPage_HRM.TabIndex = 1;
-            this.tabPage_HRM.Text = "Quản lí nhân sự";
+            this.tabPage_HRM.Text = "HRM";
             this.tabPage_HRM.UseVisualStyleBackColor = true;
             // 
             // dgv_HRM
@@ -137,8 +133,7 @@ namespace PBL3REAL.View
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgv_HRM.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_HRM.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.dgv_HRM.Location = new System.Drawing.Point(0, 186);
-            this.dgv_HRM.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgv_HRM.Location = new System.Drawing.Point(0, 248);
             this.dgv_HRM.Name = "dgv_HRM";
             this.dgv_HRM.ReadOnly = true;
             this.dgv_HRM.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -146,7 +141,7 @@ namespace PBL3REAL.View
             this.dgv_HRM.RowHeadersWidth = 51;
             this.dgv_HRM.RowTemplate.Height = 29;
             this.dgv_HRM.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_HRM.Size = new System.Drawing.Size(1181, 308);
+            this.dgv_HRM.Size = new System.Drawing.Size(1350, 411);
             this.dgv_HRM.TabIndex = 0;
             // 
             // fllaypn_HRMButtons
@@ -156,10 +151,9 @@ namespace PBL3REAL.View
             this.fllaypn_HRMButtons.Controls.Add(this.USER_UPDATE);
             this.fllaypn_HRMButtons.Controls.Add(this.USER_INACTIVE);
             this.fllaypn_HRMButtons.Controls.Add(this.USER_ACTIVE);
-            this.fllaypn_HRMButtons.Location = new System.Drawing.Point(392, -2);
-            this.fllaypn_HRMButtons.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.fllaypn_HRMButtons.Location = new System.Drawing.Point(448, -3);
             this.fllaypn_HRMButtons.Name = "fllaypn_HRMButtons";
-            this.fllaypn_HRMButtons.Size = new System.Drawing.Size(811, 154);
+            this.fllaypn_HRMButtons.Size = new System.Drawing.Size(927, 205);
             this.fllaypn_HRMButtons.TabIndex = 0;
             // 
             // USER_VIEW
@@ -169,10 +163,9 @@ namespace PBL3REAL.View
             this.USER_VIEW.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.USER_VIEW.Image = global::PBL3REAL.Properties.Resources.show_property_96px;
             this.USER_VIEW.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.USER_VIEW.Location = new System.Drawing.Point(3, 2);
-            this.USER_VIEW.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.USER_VIEW.Location = new System.Drawing.Point(3, 3);
             this.USER_VIEW.Name = "USER_VIEW";
-            this.USER_VIEW.Size = new System.Drawing.Size(152, 152);
+            this.USER_VIEW.Size = new System.Drawing.Size(174, 203);
             this.USER_VIEW.TabIndex = 0;
             this.USER_VIEW.Text = "View User";
             this.USER_VIEW.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -186,10 +179,9 @@ namespace PBL3REAL.View
             this.USER_ADD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.USER_ADD.Image = global::PBL3REAL.Properties.Resources.add_fluent_color_96px;
             this.USER_ADD.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.USER_ADD.Location = new System.Drawing.Point(161, 2);
-            this.USER_ADD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.USER_ADD.Location = new System.Drawing.Point(183, 3);
             this.USER_ADD.Name = "USER_ADD";
-            this.USER_ADD.Size = new System.Drawing.Size(152, 152);
+            this.USER_ADD.Size = new System.Drawing.Size(174, 203);
             this.USER_ADD.TabIndex = 0;
             this.USER_ADD.Text = "Add User";
             this.USER_ADD.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -203,10 +195,9 @@ namespace PBL3REAL.View
             this.USER_UPDATE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.USER_UPDATE.Image = global::PBL3REAL.Properties.Resources.edit_property_fluent_color_96px;
             this.USER_UPDATE.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.USER_UPDATE.Location = new System.Drawing.Point(319, 2);
-            this.USER_UPDATE.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.USER_UPDATE.Location = new System.Drawing.Point(363, 3);
             this.USER_UPDATE.Name = "USER_UPDATE";
-            this.USER_UPDATE.Size = new System.Drawing.Size(152, 152);
+            this.USER_UPDATE.Size = new System.Drawing.Size(174, 203);
             this.USER_UPDATE.TabIndex = 0;
             this.USER_UPDATE.Text = "Update User";
             this.USER_UPDATE.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -220,10 +211,9 @@ namespace PBL3REAL.View
             this.USER_INACTIVE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.USER_INACTIVE.Image = global::PBL3REAL.Properties.Resources.waste_fluent_color_96px;
             this.USER_INACTIVE.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.USER_INACTIVE.Location = new System.Drawing.Point(477, 2);
-            this.USER_INACTIVE.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.USER_INACTIVE.Location = new System.Drawing.Point(543, 3);
             this.USER_INACTIVE.Name = "USER_INACTIVE";
-            this.USER_INACTIVE.Size = new System.Drawing.Size(152, 152);
+            this.USER_INACTIVE.Size = new System.Drawing.Size(174, 203);
             this.USER_INACTIVE.TabIndex = 0;
             this.USER_INACTIVE.Text = "Inactive User";
             this.USER_INACTIVE.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -237,10 +227,9 @@ namespace PBL3REAL.View
             this.USER_ACTIVE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.USER_ACTIVE.Image = global::PBL3REAL.Properties.Resources.restore_fluent_color_96px;
             this.USER_ACTIVE.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.USER_ACTIVE.Location = new System.Drawing.Point(635, 2);
-            this.USER_ACTIVE.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.USER_ACTIVE.Location = new System.Drawing.Point(723, 3);
             this.USER_ACTIVE.Name = "USER_ACTIVE";
-            this.USER_ACTIVE.Size = new System.Drawing.Size(152, 152);
+            this.USER_ACTIVE.Size = new System.Drawing.Size(174, 203);
             this.USER_ACTIVE.TabIndex = 0;
             this.USER_ACTIVE.Text = "Active User";
             this.USER_ACTIVE.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -250,9 +239,9 @@ namespace PBL3REAL.View
             // tbllaypn_HRM
             // 
             this.tbllaypn_HRM.ColumnCount = 3;
-            this.tbllaypn_HRM.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.91954F));
-            this.tbllaypn_HRM.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64.08046F));
-            this.tbllaypn_HRM.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 47F));
+            this.tbllaypn_HRM.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.72464F));
+            this.tbllaypn_HRM.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69.27536F));
+            this.tbllaypn_HRM.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 55F));
             this.tbllaypn_HRM.Controls.Add(this.cbb_HRMStatus, 1, 1);
             this.tbllaypn_HRM.Controls.Add(this.lb_HRMStatus, 0, 1);
             this.tbllaypn_HRM.Controls.Add(this.picbx_HRMSort, 2, 0);
@@ -261,14 +250,13 @@ namespace PBL3REAL.View
             this.tbllaypn_HRM.Controls.Add(this.tb_HRMSearch, 1, 2);
             this.tbllaypn_HRM.Controls.Add(this.picbx_HRMSearch, 2, 2);
             this.tbllaypn_HRM.Controls.Add(this.lb_HRMSort, 0, 0);
-            this.tbllaypn_HRM.Location = new System.Drawing.Point(3, 15);
-            this.tbllaypn_HRM.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbllaypn_HRM.Location = new System.Drawing.Point(3, 20);
             this.tbllaypn_HRM.Name = "tbllaypn_HRM";
             this.tbllaypn_HRM.RowCount = 3;
             this.tbllaypn_HRM.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tbllaypn_HRM.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tbllaypn_HRM.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tbllaypn_HRM.Size = new System.Drawing.Size(351, 137);
+            this.tbllaypn_HRM.Size = new System.Drawing.Size(401, 183);
             this.tbllaypn_HRM.TabIndex = 0;
             // 
             // cbb_HRMStatus
@@ -282,10 +270,9 @@ namespace PBL3REAL.View
             this.cbb_HRMStatus.Items.AddRange(new object[] {
             "Active",
             "Inactive"});
-            this.cbb_HRMStatus.Location = new System.Drawing.Point(112, 51);
-            this.cbb_HRMStatus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbb_HRMStatus.Location = new System.Drawing.Point(109, 72);
             this.cbb_HRMStatus.Name = "cbb_HRMStatus";
-            this.cbb_HRMStatus.Size = new System.Drawing.Size(188, 33);
+            this.cbb_HRMStatus.Size = new System.Drawing.Size(233, 39);
             this.cbb_HRMStatus.TabIndex = 2;
             // 
             // lb_HRMStatus
@@ -293,20 +280,19 @@ namespace PBL3REAL.View
             this.lb_HRMStatus.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lb_HRMStatus.AutoSize = true;
             this.lb_HRMStatus.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lb_HRMStatus.Location = new System.Drawing.Point(3, 55);
+            this.lb_HRMStatus.Location = new System.Drawing.Point(3, 76);
             this.lb_HRMStatus.Name = "lb_HRMStatus";
-            this.lb_HRMStatus.Size = new System.Drawing.Size(96, 25);
+            this.lb_HRMStatus.Size = new System.Drawing.Size(76, 31);
             this.lb_HRMStatus.TabIndex = 0;
-            this.lb_HRMStatus.Text = "Trạng thái";
+            this.lb_HRMStatus.Text = "Status";
             // 
             // picbx_HRMSort
             // 
             this.picbx_HRMSort.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.picbx_HRMSort.Image = global::PBL3REAL.Properties.Resources.filter_fluent_color_48px;
-            this.picbx_HRMSort.Location = new System.Drawing.Point(306, 4);
-            this.picbx_HRMSort.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.picbx_HRMSort.Location = new System.Drawing.Point(348, 6);
             this.picbx_HRMSort.Name = "picbx_HRMSort";
-            this.picbx_HRMSort.Size = new System.Drawing.Size(41, 36);
+            this.picbx_HRMSort.Size = new System.Drawing.Size(47, 48);
             this.picbx_HRMSort.TabIndex = 9;
             this.picbx_HRMSort.TabStop = false;
             // 
@@ -322,10 +308,9 @@ namespace PBL3REAL.View
             "None",
             "Name Asc",
             "Name Desc"});
-            this.cbb_HRMSort.Location = new System.Drawing.Point(112, 6);
-            this.cbb_HRMSort.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbb_HRMSort.Location = new System.Drawing.Point(109, 11);
             this.cbb_HRMSort.Name = "cbb_HRMSort";
-            this.cbb_HRMSort.Size = new System.Drawing.Size(188, 33);
+            this.cbb_HRMSort.Size = new System.Drawing.Size(233, 39);
             this.cbb_HRMSort.TabIndex = 1;
             // 
             // lb_HRMSearch
@@ -333,11 +318,11 @@ namespace PBL3REAL.View
             this.lb_HRMSearch.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lb_HRMSearch.AutoSize = true;
             this.lb_HRMSearch.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lb_HRMSearch.Location = new System.Drawing.Point(3, 101);
+            this.lb_HRMSearch.Location = new System.Drawing.Point(3, 137);
             this.lb_HRMSearch.Name = "lb_HRMSearch";
-            this.lb_HRMSearch.Size = new System.Drawing.Size(88, 25);
+            this.lb_HRMSearch.Size = new System.Drawing.Size(82, 31);
             this.lb_HRMSearch.TabIndex = 0;
-            this.lb_HRMSearch.Text = "Tìm kiếm";
+            this.lb_HRMSearch.Text = "Search";
             // 
             // tb_HRMSearch
             // 
@@ -345,20 +330,18 @@ namespace PBL3REAL.View
             this.tb_HRMSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
             this.tb_HRMSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tb_HRMSearch.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tb_HRMSearch.Location = new System.Drawing.Point(112, 101);
-            this.tb_HRMSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tb_HRMSearch.Location = new System.Drawing.Point(109, 137);
             this.tb_HRMSearch.Name = "tb_HRMSearch";
-            this.tb_HRMSearch.Size = new System.Drawing.Size(187, 25);
+            this.tb_HRMSearch.Size = new System.Drawing.Size(233, 31);
             this.tb_HRMSearch.TabIndex = 3;
             // 
             // picbx_HRMSearch
             // 
             this.picbx_HRMSearch.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.picbx_HRMSearch.Image = global::PBL3REAL.Properties.Resources.search_fluent_color_48px;
-            this.picbx_HRMSearch.Location = new System.Drawing.Point(306, 95);
-            this.picbx_HRMSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.picbx_HRMSearch.Location = new System.Drawing.Point(348, 128);
             this.picbx_HRMSearch.Name = "picbx_HRMSearch";
-            this.picbx_HRMSearch.Size = new System.Drawing.Size(41, 36);
+            this.picbx_HRMSearch.Size = new System.Drawing.Size(47, 48);
             this.picbx_HRMSearch.TabIndex = 10;
             this.picbx_HRMSearch.TabStop = false;
             this.picbx_HRMSearch.Click += new System.EventHandler(this.picbx_HRMSearch_Click);
@@ -368,22 +351,21 @@ namespace PBL3REAL.View
             this.lb_HRMSort.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lb_HRMSort.AutoSize = true;
             this.lb_HRMSort.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lb_HRMSort.Location = new System.Drawing.Point(3, 10);
+            this.lb_HRMSort.Location = new System.Drawing.Point(3, 15);
             this.lb_HRMSort.Name = "lb_HRMSort";
-            this.lb_HRMSort.Size = new System.Drawing.Size(78, 25);
+            this.lb_HRMSort.Size = new System.Drawing.Size(86, 31);
             this.lb_HRMSort.TabIndex = 0;
-            this.lb_HRMSort.Text = "Sắp xếp";
+            this.lb_HRMSort.Text = "Sort by";
             // 
             // Form_HRM
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(190)))), ((int)(((byte)(195)))));
-            this.ClientSize = new System.Drawing.Size(1188, 524);
+            this.ClientSize = new System.Drawing.Size(1358, 699);
             this.Controls.Add(this.tabControl_HRM);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form_HRM";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form_HRM";

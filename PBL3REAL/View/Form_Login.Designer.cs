@@ -35,9 +35,9 @@ namespace PBL3REAL.View
             this.btn_Minimize = new System.Windows.Forms.Button();
             this.btn_Exit = new System.Windows.Forms.Button();
             this.tbllaypn_LoginInfo = new System.Windows.Forms.TableLayoutPanel();
-            this.tb_UserCode = new System.Windows.Forms.TextBox();
+            this.tb_Usercode = new System.Windows.Forms.TextBox();
             this.tb_Password = new System.Windows.Forms.TextBox();
-            this.lb_UserCode = new System.Windows.Forms.Label();
+            this.lb_Usercode = new System.Windows.Forms.Label();
             this.lb_Password = new System.Windows.Forms.Label();
             this.btn_Login = new System.Windows.Forms.Button();
             this.picbx_Header = new System.Windows.Forms.PictureBox();
@@ -88,9 +88,9 @@ namespace PBL3REAL.View
             this.tbllaypn_LoginInfo.ColumnCount = 2;
             this.tbllaypn_LoginInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.66667F));
             this.tbllaypn_LoginInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.33333F));
-            this.tbllaypn_LoginInfo.Controls.Add(this.tb_UserCode, 1, 0);
+            this.tbllaypn_LoginInfo.Controls.Add(this.tb_Usercode, 1, 0);
             this.tbllaypn_LoginInfo.Controls.Add(this.tb_Password, 1, 1);
-            this.tbllaypn_LoginInfo.Controls.Add(this.lb_UserCode, 0, 0);
+            this.tbllaypn_LoginInfo.Controls.Add(this.lb_Usercode, 0, 0);
             this.tbllaypn_LoginInfo.Controls.Add(this.lb_Password, 0, 1);
             this.tbllaypn_LoginInfo.Location = new System.Drawing.Point(12, 227);
             this.tbllaypn_LoginInfo.Name = "tbllaypn_LoginInfo";
@@ -100,17 +100,17 @@ namespace PBL3REAL.View
             this.tbllaypn_LoginInfo.Size = new System.Drawing.Size(372, 144);
             this.tbllaypn_LoginInfo.TabIndex = 0;
             // 
-            // tb_UserCode
+            // tb_Usercode
             // 
-            this.tb_UserCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
-            this.tb_UserCode.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tb_UserCode.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.tb_UserCode.Location = new System.Drawing.Point(158, 3);
-            this.tb_UserCode.Name = "tb_UserCode";
-            this.tb_UserCode.Size = new System.Drawing.Size(211, 34);
-            this.tb_UserCode.TabIndex = 1;
-            this.tb_UserCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tb_UserCode.TextChanged += new System.EventHandler(this.tb_Username_TextChanged);
+            this.tb_Usercode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.tb_Usercode.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tb_Usercode.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.tb_Usercode.Location = new System.Drawing.Point(158, 3);
+            this.tb_Usercode.Name = "tb_Usercode";
+            this.tb_Usercode.Size = new System.Drawing.Size(211, 34);
+            this.tb_Usercode.TabIndex = 1;
+            this.tb_Usercode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tb_Usercode.TextChanged += new System.EventHandler(this.tb_Username_TextChanged);
             // 
             // tb_Password
             // 
@@ -125,15 +125,15 @@ namespace PBL3REAL.View
             this.tb_Password.UseSystemPasswordChar = true;
             this.tb_Password.TextChanged += new System.EventHandler(this.tb_Password_TextChanged);
             // 
-            // lb_UserCode
+            // lb_Usercode
             // 
-            this.lb_UserCode.AutoSize = true;
-            this.lb_UserCode.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lb_UserCode.Location = new System.Drawing.Point(3, 0);
-            this.lb_UserCode.Name = "lb_UserCode";
-            this.lb_UserCode.Size = new System.Drawing.Size(147, 31);
-            this.lb_UserCode.TabIndex = 0;
-            this.lb_UserCode.Text = "Mã tài khoản";
+            this.lb_Usercode.AutoSize = true;
+            this.lb_Usercode.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lb_Usercode.Location = new System.Drawing.Point(3, 0);
+            this.lb_Usercode.Name = "lb_Usercode";
+            this.lb_Usercode.Size = new System.Drawing.Size(110, 31);
+            this.lb_Usercode.TabIndex = 0;
+            this.lb_Usercode.Text = "Usercode";
             // 
             // lb_Password
             // 
@@ -143,7 +143,7 @@ namespace PBL3REAL.View
             this.lb_Password.Name = "lb_Password";
             this.lb_Password.Size = new System.Drawing.Size(110, 31);
             this.lb_Password.TabIndex = 0;
-            this.lb_Password.Text = "Mật khẩu";
+            this.lb_Password.Text = "Password";
             // 
             // btn_Login
             // 
@@ -155,7 +155,7 @@ namespace PBL3REAL.View
             this.btn_Login.Name = "btn_Login";
             this.btn_Login.Size = new System.Drawing.Size(135, 48);
             this.btn_Login.TabIndex = 0;
-            this.btn_Login.Text = "Đăng nhập";
+            this.btn_Login.Text = "Log in";
             this.btn_Login.UseVisualStyleBackColor = false;
             this.btn_Login.Click += new System.EventHandler(this.btn_Login_Click);
             // 
@@ -228,8 +228,8 @@ namespace PBL3REAL.View
         private System.Windows.Forms.TableLayoutPanel tbllaypn_LoginInfo;
         private System.Windows.Forms.Button btn_Login;
         private System.Windows.Forms.TextBox tb_Password;
-        private System.Windows.Forms.TextBox tb_UserCode;
-        private System.Windows.Forms.Label lb_UserCode;
+        private System.Windows.Forms.TextBox tb_Usercode;
+        private System.Windows.Forms.Label lb_Usercode;
         private System.Windows.Forms.Label lb_Password;
         private System.Windows.Forms.PictureBox picbx_Header;
         private System.Windows.Forms.FlowLayoutPanel fllaypn_Header;

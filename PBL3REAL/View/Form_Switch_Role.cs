@@ -11,15 +11,24 @@ namespace PBL3REAL.View
 {
     public partial class Form_Switch_Role : Form
     {
+        //---------- GLOBAL DECLARATION ----------//
+        //----- User Instance Variables -----//
         private QLUserBLL qLUserBLL;
+
+        //---------- FORM CONSTRUCTOR ----------//
         public Form_Switch_Role()
         {
+            //--- Initialize ----//
             InitializeComponent();
             qLUserBLL = new QLUserBLL();
+
+            //--- Load Data ----//
             LoadData();
             addToCbb();
         }
-        //Load Data
+
+        //---------- FUNCTIONS ----------//
+        //----- Load Data -----//
         private void LoadData()
         {
             picbx_Header.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -30,7 +39,8 @@ namespace PBL3REAL.View
             cbb_LoginRole.DataSource = qLUserBLL.getRoleForUser();
             cbb_LoginRole.DisplayMember = "RoleName";
         }
-        //Events
+
+        //---------- EVENTS ----------//
         private void btn_Login_Click(object sender, EventArgs e)
         {
             string role = ((RoleVM)cbb_LoginRole.SelectedItem).RoleName;
