@@ -188,6 +188,45 @@ namespace HotelManagement.BLL.Implement
             return roomDetailVM;
         }
 
+        public List<AvailableRoomVM> findAvailableRoom(int idRoomType, DateTime fromDate, DateTime toDate)
+        {
+            List<AvailableRoomVM> listVM = new List<AvailableRoomVM>();
+            foreach (Room room in RoomDAL.Instance.findAvailableRoom(idRoomType, fromDate, toDate))
+            {
+                AvailableRoomVM availableRoomVM = mapper.Map<AvailableRoomVM>(room);
+                listVM.Add(availableRoomVM);
+            }
+            return listVM;
+        }
+        public List<CbbItem> addComboboxStatus()
+        {
+            List<CbbItem> listcbb = new List<CbbItem>();
+            foreach (Status status in StatusDAL.Instance.getAll())
+            {
+                CbbItem cbbItem = new CbbItem
+                {
+                    text = status.StaName,
+                    Value = status.IdStatus
+                };
+                listcbb.Add(cbbItem);
+            }
+            return listcbb;
+        }
+
+        public int getPagination(int rows, int idRoomType, string name, int isActive)
+        {
+            int totalRows = RoomDAL.Instance.getTotalRow(idRoomType, name, isActive);
+            int totalpage;
+            if (totalRows % rows == 0)
+            {
+                totalpage = totalRows / rows;
+            }
+            else
+            {
+                totalpage = totalRows / rows + 1;
+            }
+            return totalpage;
+        }
 
         /* public List<RoomVM> getAll1(int pages, int rows, string orderby)
          {
