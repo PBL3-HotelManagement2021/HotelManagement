@@ -1,33 +1,43 @@
-﻿using PBL3REAL.BLL;
-using PBL3REAL.ViewModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using PBL3REAL.BLL;
+using PBL3REAL.ViewModel;
 
-// Khi them client mới ko tu dong update cli_Code
 namespace PBL3REAL.View
 {
     public partial class Form_Detail_Client : Form
     {
-        private int id;
-        private bool Editable_Cli;
-        private ClientVM clientVM;
-        private ClientBLL clientBLL;
+        //---------- GLOBAL DECLARATION ----------//
+        //----- Delegation -----//
         public delegate void MyDel();
         public MyDel myDel;
+
+        //----- User Instance Variables -----//
+        private ClientVM clientVM;
+        private ClientBLL clientBLL;
+        private int id;
+        private bool Editable_Cli;
+
+        //---------- FORM CONSTRUCTOR ----------//
         public Form_Detail_Client(int ID, bool Editable)
         {
+            //--- Initialize ----//
             InitializeComponent();
             id = ID;
             clientBLL = new ClientBLL();
             Editable_Cli = Editable;
+
+            //--- Load Data ----//
             LoadData();   
         }
-        //Load Data Functions
+
+        //---------- FUNCTIONS ----------//
+        //----- Load Data -----//
         private void LoadData()
         {
             if (id == 0)
@@ -53,12 +63,9 @@ namespace PBL3REAL.View
                 btn_Reset.Enabled = false;
             }
         }
-        //Check Data Function
-        private void CheckData()
-        {
 
-        }
-        //Events
+        //---------- EVENTS ----------//
+        //----- tbllaypn_ControlButtons -----//
         private void btn_OK_Click(object sender, EventArgs e)
         {
             Dictionary<string, string> properties = new Dictionary<string, string>();
@@ -74,21 +81,20 @@ namespace PBL3REAL.View
                 {
                     //Add
                     clientBLL.add(clientVM);
-                    MessageBox.Show("Thêm mới khách hàng thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Your client has been successfully created!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
                         clientBLL.update(clientVM);
-                        MessageBox.Show("Cập nhật khách hàng thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);                
+                        MessageBox.Show("Your client has been successfully updated!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);                
                 }
                 myDel();
                 this.Dispose();
             }
             else
             {
-                MessageBox.Show("Phone or Email has existed !!!");
+                MessageBox.Show("Phone or Email has existed!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-           
         }
         private void btn_Reset_Click(object sender, EventArgs e)
         {

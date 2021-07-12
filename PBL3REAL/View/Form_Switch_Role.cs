@@ -43,6 +43,7 @@ namespace PBL3REAL.View
         //---------- EVENTS ----------//
         private void btn_Login_Click(object sender, EventArgs e)
         {
+            bool find = false;
             string role = ((RoleVM)cbb_LoginRole.SelectedItem).RoleName;
             if (role != null)
             {
@@ -51,6 +52,7 @@ namespace PBL3REAL.View
                     if (roleVM.RoleName.Equals(role))
                     {
                         roleVM.IsSelected = true;
+                        find = true;
                         if (role == "Admin")
                         {                          
                             Form_Admin f = new Form_Admin(QLUserBLL.stoUser.IdUser, role);
@@ -74,7 +76,12 @@ namespace PBL3REAL.View
                         break;
                     }
                 }
+                if (!find)  { MessageBox.Show("You can't log in with this role!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             }
+            else
+            {
+                MessageBox.Show("You must choose a role to log in!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }    
         }
         private void btn_Logout_Click(object sender, EventArgs e)
         {

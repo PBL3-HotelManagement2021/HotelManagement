@@ -5,27 +5,31 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Linq;
 using PBL3REAL.BLL;
 using PBL3REAL.ViewModel;
 using PBL3REAL.Extention;
 using HotelManagement.BBL.Implement;
 using HotelManagement.BLL.Implement;
 using HotelManagement.ViewModel;
-using System.Linq;
 
 namespace PBL3REAL.View
 {
     public partial class Form_Detail_Booking : Form
     {
+        //---------- GLOBAL DECLARATION ----------//
+        //----- Delegation -----//
         public delegate void MyDel();
         public MyDel myDel;
-        //Declaration
+
+        //----- BLL Booking Detail Instance Variables -----//
         private QLBookingBLL BookingBLL;
         private RoomTypeBLL roomTypeBLL;
         private RoomBLL roomBLL;
         private ClientBLL clientBLL;
-        private int IDBook = 0;
 
+        //----- Booking Detail Instance Variables -----//
+        private int IDBook = 0;
         private BookingDetailVM detailVM;
         private BindingList<SubBookingDetailVM> subBookings;
         private Dictionary<string, List<AvailableRoomVM>> storeRoomDel;
@@ -34,10 +38,12 @@ namespace PBL3REAL.View
         private string currentRoomType;
         private List<int> listOld;
         private List<int> listDel;
-        private int duration; 
+        private int duration;
 
+        //---------- FORM CONSTRUCTOR ----------//
         public Form_Detail_Booking (int IdBook, bool Editable)
         {
+            //--- Initialize ---//
             InitializeComponent();
             BookingBLL = new QLBookingBLL();
             roomTypeBLL = new RoomTypeBLL();
@@ -56,10 +62,14 @@ namespace PBL3REAL.View
             //     storeDelRoom = new List<AvailableRoomVM>();
             storeRoomDel = new Dictionary<string, List<AvailableRoomVM>>();
             IDBook = IdBook;
+
+            //--- Load Data ---//
             LoadData(IdBook, Editable);
             LoadRoomTypeList();
         }
-        //Load Data Functions
+
+        //---------- FUNCTIONS ----------//
+        //----- Load Data -----//
         private void LoadRoomTypeList()
         {
             List<CbbItem> list = roomTypeBLL.addCombobox();
@@ -89,7 +99,6 @@ namespace PBL3REAL.View
             }
             LoadCbbRoom();
         }
-
         private void LoadCbbRoom()
         {
             cbb_Room.DataSource = null;
@@ -162,7 +171,8 @@ namespace PBL3REAL.View
             tb_Total.Enabled = false;
             tb_Deposit.Enabled = false;
         }
-        //Check Data Function
+
+        //----- Check Data -----//
         private int CheckData()
         {
             if (tb_ClientName.Text == "" || tb_ClientPhone.Text == "" || tb_ClientEmail.Text == "")
@@ -173,6 +183,7 @@ namespace PBL3REAL.View
             { return 0; }
         }
 
+        //----- Business Processing -----//
         private int calTotalPrice()
         {
             int result = 0;
@@ -182,7 +193,22 @@ namespace PBL3REAL.View
             }
             return result * duration;
         }
-        //Booking Functions
+        private void onDtbChange()
+        {
+            duration = dtp_To.Value.Date.Subtract(dtp_From.Value.Date).Days;
+            foreach (var value in subBookings)
+            {
+                if (value.IdBoodet != 0) listDel.Add(value.IdBoodet);
+            }
+            tb_Total.Text = "0";
+            tb_Deposit.Text = "0";
+            subBookings.Clear();
+            dgv.DataSource = null;
+            storeRoomDel.Clear();
+            cbb_Room.DataSource = null;
+        }
+
+        //----- Booking -----//
         private void AddBooking()
         {
             detailVM = new BookingDetailVM
@@ -237,25 +263,8 @@ namespace PBL3REAL.View
             BookingBLL.updateBooking(detailVM, listDel);
         }
 
-
-
-        //Events
-        /*    private void rbtn_NewClient_CheckedChanged(object sender, EventArgs e)
-            {
-                if (rbtn_NewClient.Checked)
-                {
-                    tb_ClientSearch.Enabled = false;
-                    picbx_ClientSearch.Enabled = false;
-                }
-            }*/
-        /*     private void rbtn_OldClient_CheckedChanged(object sender, EventArgs e)
-             {
-                 if (rbtn_OldClient.Checked)
-                 {
-                     tb_ClientSearch.Enabled = true;
-                     picbx_ClientSearch.Enabled = true;
-                 }
-             }*/
+        //---------- EVENTS ----------//
+        //----- grbx_ClientInfo -----//
         private void picbx_ClientSearch_Click(object sender, EventArgs e)
         {
             if (tb_ClientSearch.Text == "")
@@ -291,6 +300,16 @@ namespace PBL3REAL.View
                     tb_ClientPhone.Enabled = true;
                 }
             }
+        }
+
+        //----- grbx_PeriodTime -----//
+        private void dtp_From_ValueChanged(object sender, EventArgs e)
+        {
+            onDtbChange();
+        }
+        private void dtp_To_ValueChanged(object sender, EventArgs e)
+        {
+            onDtbChange();
         }
         private void picbx_Enter_Click(object sender, EventArgs e)
         {
@@ -331,6 +350,7 @@ namespace PBL3REAL.View
                 tb_Deposit.Text = (calTotalPrice() * 3 / 10).ToString();
             }
         }
+
         private void picbx_Delete_Click(object sender, EventArgs e)
         {
             if (dgv.SelectedRows.Count == 1 && dgv.Rows.Count > 0)
@@ -360,28 +380,7 @@ namespace PBL3REAL.View
             }
         }
 
-        private void onDtbChange()
-        {
-            duration = dtp_To.Value.Date.Subtract(dtp_From.Value.Date).Days;
-            foreach (var value in subBookings)
-            {
-                if (value.IdBoodet != 0) listDel.Add(value.IdBoodet);
-            }
-            tb_Total.Text = "0";
-            tb_Deposit.Text = "0";
-            subBookings.Clear();
-            dgv.DataSource = null;
-            storeRoomDel.Clear();
-            cbb_Room.DataSource = null;
-        }
-        private void dtp_To_ValueChanged(object sender, EventArgs e)
-        {
-            onDtbChange();
-        }
-        private void dtp_From_ValueChanged(object sender, EventArgs e)
-        {
-            onDtbChange();
-        }
+        //----- tbllaypn_ControlButtons -----//
         private void btn_Cancel_Click(object sender, EventArgs e)
         {
             this.Dispose();
@@ -397,21 +396,21 @@ namespace PBL3REAL.View
             switch (CheckData())
             {
                 case 1:
-                    MessageBox.Show("Bạn chưa nhập đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("You must fill in all fields!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 case 2:
-                    MessageBox.Show("Bạn chưa chọn phòng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("You must add at least one room!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 default:
                     if (IDBook == 0)
                     {
                         AddBooking();
-                        MessageBox.Show("Đã tạo thành công đơn booking mới!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Your booking has been successfully created!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
                         UpdateBooking();
-                        MessageBox.Show("Đã cập nhật thành công đơn booking!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Your booking has been successfully updated!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     myDel();
                     this.Dispose();

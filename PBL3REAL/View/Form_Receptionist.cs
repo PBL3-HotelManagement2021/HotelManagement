@@ -513,9 +513,9 @@ namespace PBL3REAL.View
             DataGridViewSelectedRowCollection r = dgv_RoomType.SelectedRows;
             if (r.Count == 1)
             {
-                Form_Detail_Room_Category f = new Form_Detail_Room_Category(int.Parse(r[0].Cells["IdRoomtype"].Value.ToString()), false);
+                Form_Detail_Room_Type f = new Form_Detail_Room_Type(int.Parse(r[0].Cells["IdRoomtype"].Value.ToString()), false);
                 this.Hide();
-                f.myDel = new Form_Detail_Room_Category.MyDel(LoadRoomTypeList);
+                f.myDel = new Form_Detail_Room_Type.MyDel(LoadRoomTypeList);
                 f.ShowDialog();
                 this.Show();
                 //Reload Data
@@ -531,9 +531,9 @@ namespace PBL3REAL.View
         }
         private void btn_RoomTypeAdd_Click(object sender, EventArgs e)
         {
-            Form_Detail_Room_Category f = new Form_Detail_Room_Category(0, true);
+            Form_Detail_Room_Type f = new Form_Detail_Room_Type(0, true);
             this.Hide();
-            f.myDel = new Form_Detail_Room_Category.MyDel(LoadRoomTypeList);
+            f.myDel = new Form_Detail_Room_Type.MyDel(LoadRoomTypeList);
             f.ShowDialog();
             this.Show();
             //Reload data
@@ -545,9 +545,9 @@ namespace PBL3REAL.View
             {
                 if((bool)r[0].Cells["RoTyActiveflag"].Value == true)
                 {
-                    Form_Detail_Room_Category f = new Form_Detail_Room_Category(int.Parse(r[0].Cells["IdRoomType"].Value.ToString()), true);
+                    Form_Detail_Room_Type f = new Form_Detail_Room_Type(int.Parse(r[0].Cells["IdRoomType"].Value.ToString()), true);
                     this.Hide();
-                    f.myDel = new Form_Detail_Room_Category.MyDel(LoadRoomTypeList);
+                    f.myDel = new Form_Detail_Room_Type.MyDel(LoadRoomTypeList);
                     f.ShowDialog();
                     this.Show();
                 }

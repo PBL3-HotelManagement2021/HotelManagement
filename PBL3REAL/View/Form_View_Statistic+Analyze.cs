@@ -15,20 +15,24 @@ using PBL3REAL.ViewModel;
 using PBL3REAL.Algorithm;
 //using Microsoft.Office.Interop.Excel;
 using OfficeOpenXml;
+
 namespace PBL3REAL.View
 {
     public partial class Form_View_Statistic_Analyze : Form
     {
-        /***** GLOBAL DECLARATION *****/
+        //---------- GLOBAL DECLARATION ----------//
+        //----- Statistic & Analyze Instance Variables -----//
         QLInvoiceBLL invoiceBLL;
         List<Statistic1> listVM1;
         List<Statistic2> listVM2;
 
-        /***** CONSTRUCTOR *****/
+        //---------- FORM CONSTRUCTOR ----------//
         public Form_View_Statistic_Analyze(int DataType, DateTime from, DateTime to, bool Statistic, bool Analyze, bool Predict)
         {
+            //--- Initialize ----//
             InitializeComponent();
             invoiceBLL = new QLInvoiceBLL();
+
             switch(DataType)
             {
                 case 0:
@@ -89,11 +93,13 @@ namespace PBL3REAL.View
                     break;
             }    
         }
-        /***** STATISTIC *****/
-        //-> Functions
+
+        //---------- STATISTIC ----------//
+        //----- Functions -----//
+        //--- Statistic Processing ---//
         private void LoadStatisticsData(int DataType, DateTime from, DateTime to)
         {
-            switch(DataType)
+            switch (DataType)
             {
                 case 0:
                     listVM1 = invoiceBLL.findForStatistic(from, to);
@@ -105,8 +111,8 @@ namespace PBL3REAL.View
                     dt.Columns.AddRange(new DataColumn[]
                     {
                         new DataColumn("Date",typeof(DateTime)),
-                        new DataColumn("String",typeof(string)),
-                        new DataColumn("int",typeof(int))
+                        new DataColumn("Room Type",typeof(string)),
+                        new DataColumn("Amount",typeof(int))
                     });
                     DataRow r;
                     foreach (Statistic2 statistic2 in listVM2)
@@ -115,8 +121,8 @@ namespace PBL3REAL.View
                         {
                             r = dt.NewRow();
                             r["Date"] = statistic2.Date;
-                            r["String"] = kvp.Key;
-                            r["int"] = kvp.Value;
+                            r["Room Type"] = kvp.Key;
+                            r["Amount"] = kvp.Value;
                             dt.Rows.Add(r);
                         }
                     }
@@ -124,11 +130,13 @@ namespace PBL3REAL.View
                     break;
                 default:
                     break;
-            }    
+            }
         }
+
+        //--- Draw Statistic Chart ---//
         private void DrawStatisticChart(int DataType)
         {
-            switch(DataType)
+            switch (DataType)
             {
                 case 0:
                     Dictionary<string, int> kvp = new Dictionary<string, int>();
@@ -146,12 +154,15 @@ namespace PBL3REAL.View
                     break;
                 default:
                     break;
-            } 
+            }
         }
+
+        //--- Export ---//
+        //-> Export to Image
         private void StatisticExporttoImage()
         {
             string path = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + "\\Statistic";
-            this.chart1.SaveImage(path + "\\Image" + "\\" + DateTime.Now.Year.ToString() 
+            this.chart1.SaveImage(path + "\\Image" + "\\" + DateTime.Now.Year.ToString()
                 + "-" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Day.ToString() + "-" + DateTime.Now.Hour.ToString()
                 + "-" + DateTime.Now.Minute.ToString() + "-" + DateTime.Now.Second.ToString() + " --- chart.png", ChartImageFormat.Png);
             //Resize DataGridView to full height.
@@ -170,7 +181,8 @@ namespace PBL3REAL.View
                 + "-" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Day.ToString() + "-" + DateTime.Now.Hour.ToString()
                 + "-" + DateTime.Now.Minute.ToString() + "-" + DateTime.Now.Second.ToString() + " --- DataList.png");
         }
-        /*
+
+        //-> Export to Excel
         private void StatisticExportToExcel()
         {
             // creating Excel Application  
@@ -205,37 +217,35 @@ namespace PBL3REAL.View
             workbook.SaveAs(path, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
             // Exit from the application  
             app.Quit();
-        } 
-        */
+        }
 
-        //-> Events
+        //----- Events -----//
         private void btn_StatisticExportToImage_Click(object sender, EventArgs e)
         {
             try
             {
                 StatisticExporttoImage();
-                MessageBox.Show("Image export successful !", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Successfully exported!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch (Exception e1) {
-                MessageBox.Show("Image export successfu failed !", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            catch (Exception e1) {}
         }
         private void btn_StatisticExportToExcel_Click(object sender, EventArgs e)
         {
             try
             {
-                //  StatisticExportToExcel();
-                MessageBox.Show("File export successful !", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                StatisticExportToExcel();
+                MessageBox.Show("Successfully exported!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch (Exception e1) { }
+            catch (Exception e1) {}
         }
         private void btn_StatisticCancel_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }
 
-        /***** ANALYZE *****/
-        //-> Functions
+        //---------- ANALYZE ----------//
+        //----- Functions -----//
+        //--- Predict ---//
         private Dictionary<DateTime, int> PredictNext7Days(int DataType)
         {
             Dictionary<DateTime, int> kvp = new Dictionary<DateTime, int>();
@@ -268,6 +278,8 @@ namespace PBL3REAL.View
             }
             return kvp;
         }
+
+        //--- Draw Trend line ---//
         private void DrawTrendlineChart(int DataType, Dictionary<DateTime, int> kvp)
         {
             switch(DataType)
@@ -283,6 +295,9 @@ namespace PBL3REAL.View
                     break;
             }  
         }
+
+        //--- Export ---//
+        //-> Export to Image
         private void AnalyzeExportToImage()
         {
             string path = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + "\\Analyze";
@@ -290,17 +305,17 @@ namespace PBL3REAL.View
                 + "-" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Day.ToString() + "-" + DateTime.Now.Hour.ToString()
                 + "-" + DateTime.Now.Minute.ToString() + "-" + DateTime.Now.Second.ToString() + " --- chart.png", ChartImageFormat.Png);
         }
-        private void AnalyzeExportToExcel()
-        {
-            
-        }
-        //-> Events
+
+        //-> Export to Excel
+        private void AnalyzeExportToExcel() {}
+
+        //------ Events -----//
         private void btn_AnalyzeExportToImage_Click(object sender, EventArgs e)
         {
             try
             {
                 AnalyzeExportToImage();
-                MessageBox.Show("Xuất file thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Successfully exported!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception e1) { }
         }
@@ -309,7 +324,7 @@ namespace PBL3REAL.View
             try
             {
                 AnalyzeExportToExcel();
-                MessageBox.Show("Xuất file thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Successfully exported!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception e1) { }
         }

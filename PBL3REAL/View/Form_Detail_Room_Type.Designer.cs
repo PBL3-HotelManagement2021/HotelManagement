@@ -1,7 +1,7 @@
 ﻿
 namespace PBL3REAL.View
 {
-    partial class Form_Detail_Room_Category
+    partial class Form_Detail_Room_Type
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace PBL3REAL.View
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Detail_Room_Category));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Detail_Room_Type));
             this.btn_OK = new System.Windows.Forms.Button();
             this.btn_Reset = new System.Windows.Forms.Button();
             this.tbllaypn_ControlButtons = new System.Windows.Forms.TableLayoutPanel();

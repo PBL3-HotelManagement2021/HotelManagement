@@ -12,27 +12,34 @@ using PdfSharp.Fonts;
 using Microsoft.Extensions.DependencyInjection;
 using PBL3REAL.BLL;
 using PBL3REAL.ViewModel;
+
 namespace PBL3REAL.View
 {
     public partial class Form_Detail_Invoice : Form
     {
-        /***** GLOBAL PARAMETERS *****/
-        private string bookCode="";
-        private int idInvoice=0;
-        private QLInvoiceBLL qLInvoiceBLL;
-        private InvoiceDetailVM invoiceDetailVM;
+        //---------- GLOBAL DECLARATION ----------//
+        //----- Delegation -----//
         public delegate void MyDel();
         public MyDel myDel;
 
-        /***** CONSTRUCTOR *****/
+        //----- Invoice Instance Variables -----//
+        private QLInvoiceBLL qLInvoiceBLL;
+        private InvoiceDetailVM invoiceDetailVM;
+        private string bookCode="";
+        private int idInvoice=0;
+
+        //---------- FORM CONSTRUCTOR ----------//
         public Form_Detail_Invoice(string bookCode, int idInvoice)
         {
+            //--- Initialize ---//
             InitializeComponent();
             System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
             //ConfigureServices();
             this.bookCode = bookCode;
             this.idInvoice = idInvoice;
             qLInvoiceBLL = new QLInvoiceBLL();
+
+            //--- Load Data ---//
             if (bookCode != "")
             {
                 invoiceDetailVM = qLInvoiceBLL.infoAddInvoice(bookCode);
@@ -55,8 +62,8 @@ namespace PBL3REAL.View
             LoadData();
         }
 
-        /***** FUNCTIONS *****/
-        //-> Load Data Function
+        //---------- FUNCTIONS ----------//
+        //----- Load Data -----//
         private void LoadData()
         {
             tbllaypn_InvoiceFromToInfo.Enabled = false;
@@ -75,15 +82,14 @@ namespace PBL3REAL.View
             else btn_OK.Enabled = false;
         }
 
-        //-> Set Service
-        //public void ConfigureServices(IServiceCollection services)
-        //{
-        //    Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+        //----- Set Service -----//
+        public void ConfigureServices(IServiceCollection services)
+        {
+            //Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+            // more code here
+        }
 
-        //    // more code here
-        //}
-
-        //-> Export to PDF Function
+        //----- Export to PDF -----//
         private void ExportToPDF(string FileName)
         {
             PdfDocument pdf = new PdfDocument();
@@ -158,31 +164,31 @@ namespace PBL3REAL.View
             pdf.Save(FileName);
         }
 
-        /***** EVENTS *****/
+        //---------- EVENTS ----------//
+        //----- tbllaypn_ControlButtons -----//
         private void btn_OK_Click(object sender, EventArgs e)
         {
             if (invoiceDetailVM.IdInvoice == 0)
             {
                 qLInvoiceBLL.addInvoice(invoiceDetailVM);
-                MessageBox.Show("Đã tạo thành công đơn invoice mới!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Your invoice has been successfully created!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 myDel();
                 this.Dispose();
             }
             else
             {
-                MessageBox.Show("This Invoice has already been created", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("This Invoice has already been created", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void btn_Cancel_Click(object sender, EventArgs e)
-        {
-            this.Dispose();
-        }
-
         private void btn_ExportToPDF_Click(object sender, EventArgs e)
         {
             string path = System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + "\\Invoices\\" + invoiceDetailVM.InvCode + ".pdf";
             ExportToPDF(path);
             myDel();
+            this.Dispose();
+        }
+        private void btn_Cancel_Click(object sender, EventArgs e)
+        {
             this.Dispose();
         }
     }

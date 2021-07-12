@@ -169,54 +169,7 @@ namespace PBL3REAL.BLL
         {
             return InvoiceDAL.Instance.findForStatistic2(fromDate, toDate);
         }
-        public class MaxHeap
-        {
-            public MaxHeap(double[] input, int length)
-            {
-                this.Length = length;
-                this.Array = input;
-                BuildMaxHeap();
-            }
-            public double[] Array { get; private set; }
-            public int Length { get; private set; }
-            private void BuildMaxHeap()
-            {
-                for (int i = this.Length / 2; i > 0; i--)
-                {
-                    MaxHeapify(i);
-                }
-                return;
-            }
-            public void MaxHeapify(int index)
-            {
-                var left = 2 * index;
-                var right = 2 * index + 1;
-                int max = index;
-                if (left <= this.Length && this.Array[left - 1] > this.Array[index - 1])
-                {
-                    max = left;
-                }
-                if (right <= this.Length && this.Array[right - 1] > this.Array[max - 1])
-                {
-                    max = right;
-                }
-                if (max != index)
-                {
-                    double temp = this.Array[max - 1];
-                    this.Array[max - 1] = this.Array[index - 1];
-                    this.Array[index - 1] = temp;
-                    MaxHeapify(max);
-                }
-                return;
-            }
-            public double Maximum()
-            {
-                return this.Array[0];
-            }
-            public string rs;
-            public string pointtime;
-            public int len;
-        }
+        
         public string AnalyzingIncome(List<Statistic1> statistic1s, DateTime from, DateTime to)
         {
             if (statistic1s == null) { return ""; }

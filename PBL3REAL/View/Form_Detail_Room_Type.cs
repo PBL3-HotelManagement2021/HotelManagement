@@ -10,32 +10,44 @@ using HotelManagement.BBL.Implement;
 using HotelManagement.BLL.Implement;
 using HotelManagement.DAL.Implement;
 using HotelManagement.ViewModel;
-using Newtonsoft.Json;
 using PBL3REAL.BLL;
 using PBL3REAL.DAL;
 using PBL3REAL.Model;
 using PBL3REAL.ViewModel;
+using Newtonsoft.Json;
+
 namespace PBL3REAL.View
 {
-    public partial class Form_Detail_Room_Category : Form
+    public partial class Form_Detail_Room_Type : Form
     {
+        //---------- GLOBAL DECLARATION ----------//
+        //----- Delegation -----//
         public delegate void MyDel();
         public MyDel myDel;
+
+        //----- BLL Room Type Instance Variables -----//
         private RoomTypeBLL roomTypeBLL;
         private int idRoomType;
         private int TotalPic = 0;
         private int TotalPicAdded = 0;
         RoomTypeVM roomTypeVM;
         private List<int> listdel;
-        public Form_Detail_Room_Category(int idRoomType, bool Editable)
+
+        //---------- FORM CONSTRUCTOR ----------//
+        public Form_Detail_Room_Type(int idRoomType, bool Editable)
         {
+            //--- Initialize ---//
             InitializeComponent();
             roomTypeBLL = new RoomTypeBLL();
-            LoadData(idRoomType,Editable);
             this.idRoomType = idRoomType;   
             listdel = new List<int>();
+
+            //--- Load Data ---//
+            LoadData(idRoomType, Editable);
         }
-        //Loading Data Function
+
+        //---------- FUNCTIONS ----------//
+        //----- Load Data -----//
         public void LoadData(int idroomtype, bool Editable) 
         {
             if (idroomtype == 0)
@@ -170,9 +182,9 @@ namespace PBL3REAL.View
                 btn_Reset.Enabled = false;
             }    
         }
-        //Reset Function
-        private void ResetData() { }
-        //Create Storaging Folder
+
+        //----- Processing Image -----//
+        //-> Create Storaging Folder
         private void CreateStoragingFolder()
         {
             string palettesPath = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + "\\RoomType";
@@ -190,7 +202,8 @@ namespace PBL3REAL.View
                 MessageBox.Show("Error!");
             }
         }
-        //Insert IMG
+
+        //-> Insert IMG
         private Image InsertIMG()
         {
             // open file dialog   
@@ -203,7 +216,8 @@ namespace PBL3REAL.View
             }
             return null;
         }
-        //Delete IMG
+        
+        //-> Delete IMG
         private void DeleteIMG(int index)
         {
             string path = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + "\\RoomType\\";
@@ -233,15 +247,13 @@ namespace PBL3REAL.View
                     break;
             }
             try
-            {
-                if (File.Exists(fullpath))
-                {
-                    File.Delete(fullpath);
-                }   
+            { 
+                if (File.Exists(fullpath))  { File.Delete(fullpath); }   
             }
             catch (Exception e) { }
         }
-        //Save IMG
+
+        //-> Save IMG
         private void SaveIMG(int index)
         {
             CreateStoragingFolder();
@@ -301,7 +313,8 @@ namespace PBL3REAL.View
                     break;
             }
         }
-        //Update IMG 
+
+        //-> Update IMG 
         private void UpdatedIMG()
         {
             if (listdel.Count == 0)
@@ -366,7 +379,8 @@ namespace PBL3REAL.View
                 }    
             }    
         }
-        //Room Type Processing Functions
+
+        //----- Room Type -----//
         private void AddRoomType()
         {
             RoomTypeVM roomTypeVM = new RoomTypeVM
@@ -388,8 +402,9 @@ namespace PBL3REAL.View
             roomTypeVM.ListImg.Add(image2);
             roomTypeBLL.addRoomType(roomTypeVM);
         }
-        
-        //Events
+
+        //---------- EVENTS ----------//
+        //----- grbx_RoomTypeDetail -----//
         private void picbx_add1_Click(object sender, EventArgs e)
         {
             if (TotalPic == 0)
@@ -513,7 +528,7 @@ namespace PBL3REAL.View
             switch(TotalPic)
             {
                 case 0:
-                    MessageBox.Show("Đã xóa hết ảnh!", "Thông báo", MessageBoxButtons.OK);
+                    MessageBox.Show("Image list is empty!", "Empty!", MessageBoxButtons.OK);
                     break;
                 case 1:
                     picbx_Add1.Image = null;
@@ -526,7 +541,7 @@ namespace PBL3REAL.View
                         listdel.Add(roomTypeVM.ListImg[0].IdImgsto);
                         picbx_Add1.AccessibleName = null;
                     }
-                    MessageBox.Show("Đã xóa hết ảnh!", "Thông báo", MessageBoxButtons.OK);
+                    MessageBox.Show("Image list is empty!", "Empty!", MessageBoxButtons.OK);
                     break;
                 case 2:
                     picbx_Add2.Image = null;
@@ -589,6 +604,8 @@ namespace PBL3REAL.View
                     break;
             }    
         }
+
+        //----- tbllaypn_ControlButtons -----//
         private void btn_OK_Click(object sender, EventArgs e)
         {
             //Gọi hàm BLL xử lí nghiệp vụ
@@ -614,11 +631,7 @@ namespace PBL3REAL.View
             myDel();
             this.Dispose();
         }
-        private void btn_Reset_Click(object sender, EventArgs e)
-        {
-            //Gọi hàm xóa tất cả dữ liệu đã nhập hoặc có sẵn trước đó
-            ResetData();
-        }
+        private void btn_Reset_Click(object sender, EventArgs e) {}
         private void btn_Cancel_Click(object sender, EventArgs e)
         {
             this.Dispose();

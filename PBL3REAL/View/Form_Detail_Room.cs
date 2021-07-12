@@ -11,28 +11,35 @@ using HotelManagement.ViewModel;
 using PBL3REAL.BLL;
 using PBL3REAL.Extention;
 using PBL3REAL.ViewModel;
+
 namespace HotelManagement.View
 {
     public partial class Form_Detail_Room : Form
     {
+        //---------- GLOBAL DECLARATION ----------//
+        //----- Delegation -----//
         public delegate void MyDel();
         public MyDel myDel;
-        private int idRoom;
+
+        //----- BLL Room Instance Variables -----//
         private RoomBLL _roomBLL;
         private RoomTypeBLL _roomTypeBLL;
+        private int idRoom;
         private RoomDetailVM roomDetailVM;
         private List<int> listdel;
+
+        //---------- FORM CONSTRUCTOR ----------//
         public Form_Detail_Room(int idRoom, bool Editable)
         {
+            //--- Initialize ---//
             InitializeComponent();
             this.idRoom = idRoom;
             _roomBLL = new RoomBLL();
             _roomTypeBLL = new RoomTypeBLL();
+
+            //--- Load Data ---//
             comboboxRoomType();
-            if (Editable) 
-            { 
-                comboboxStatus();
-            }
+            if (Editable)  { comboboxStatus(); }
             else
             {
                 grbx_FromToStatus.Enabled = false;
@@ -44,7 +51,9 @@ namespace HotelManagement.View
             else roomDetailVM = new RoomDetailVM();
             listdel = new List<int>();
         }
-        //Load data Functions
+
+        //---------- FUNCTIONS ----------//
+        //----- Load Data -----//
         private void comboboxRoomType()
         {
             List<CbbItem> res = _roomTypeBLL.addCombobox();
@@ -78,35 +87,11 @@ namespace HotelManagement.View
                 }
             }
         }
-       
-       
-      
-        //Events
-        private void btn_OK_Click(object sender, EventArgs e)
-        {
-            roomDetailVM.RoomName = tb_RoomName.Text;
-            roomDetailVM.RoomDescription = tb_RoomDescription.Text;
-            roomDetailVM.IdRoomType = ((CbbItem)cbb_RoomType.SelectedItem).Value;
-            if (idRoom != 0)
-            {
-                _roomBLL.editRoom(roomDetailVM, listdel);
-            }
-            else
-            {
-                _roomBLL.addRoom(roomDetailVM);
-            }
-            myDel();
-            this.Dispose();
-        }
-        private void btn_Cancel_Click(object sender, EventArgs e)
-        {
-            myDel();
-            this.Dispose();
-        }
-        private void btn_Reset_Click(object sender, EventArgs e)
-        {
-            //Reset data
-        }
+
+
+
+        //---------- EVENTS ----------//
+        //----- tbllaypn_ControlButtons -----//
         private void btn_Add_Click(object sender, EventArgs e)
         {
             StatusTimeVM statusTimeVM = new StatusTimeVM
@@ -119,11 +104,10 @@ namespace HotelManagement.View
             roomDetailVM.ListStatusTime.Add(statusTimeVM);
             addDataGridView();
         }
-
         private void btn_Delete_Click(object sender, EventArgs e)
         {
             DataGridViewSelectedRowCollection r = dgv.SelectedRows;
-            if (r.Count == 0) MessageBox.Show("Please choose rows to delete !!!");
+            if (r.Count == 0) MessageBox.Show("Please choose at least one row to delete!","Error!",MessageBoxButtons.OK,MessageBoxIcon.Error);
             else
             {
                 foreach (DataGridViewRow val in r)
@@ -135,6 +119,27 @@ namespace HotelManagement.View
                 }
             }
             addDataGridView();
+        }
+
+        //----- tbllaypn_ControlButtons -----//
+        private void btn_OK_Click(object sender, EventArgs e)
+        {
+            roomDetailVM.RoomName = tb_RoomName.Text;
+            roomDetailVM.RoomDescription = tb_RoomDescription.Text;
+            roomDetailVM.IdRoomType = ((CbbItem)cbb_RoomType.SelectedItem).Value;
+            if (idRoom != 0)  { _roomBLL.editRoom(roomDetailVM, listdel); }
+            else  { _roomBLL.addRoom(roomDetailVM); }
+            myDel();
+            this.Dispose();
+        }
+        private void btn_Reset_Click(object sender, EventArgs e)
+        {
+            //Reset data
+        }
+        private void btn_Cancel_Click(object sender, EventArgs e)
+        {
+            myDel();
+            this.Dispose();
         }
     }
 }
