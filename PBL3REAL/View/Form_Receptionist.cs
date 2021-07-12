@@ -20,35 +20,39 @@ namespace PBL3REAL.View
 {
     public partial class Form_Receptionist : Form
     {
-        /***** GLOBAL DECLARATION *****/
-        //-> Global BLL Parameter
+        //---------- GLOBAL DECLARATION ----------//
+        //----- BLL Variables -----//
         private QLBookingBLL bookingBLL;
         private QLInvoiceBLL qLInvoiceBLL;
         private RoomBLL roomBLL;
         private RoomTypeBLL roomTypeBLL;
-        private readonly int ROWS = 5;
 
-        //-> Parameter for Booking
+
+        //----- Booking Variables -----//
         private int BookingCurrentPage = 1;
         private int totalBookingPages = 0;
         private string bookingSearch = "";
-        private CalendarVM searchByDate;
+  
         private string bookOrderBy = "None";
         private string bookStatus = "";
 
-        //-> Parameter for Room 
+
+        //----- Room Variables -----//
         private int totalRoomPages = 0;
         private string nameSearch = "";
-        private int idRoomTypeSearch = 0;
         private int roomActivate = 0;
         private int RoomCurrentPage = 1;
 
-        //-> Parameter for RoomType
+        //----- RoomType Variables -----//
+        private int idRoomTypeSearch = 0;
         private string rotySearch ="";
         private string rotyOrderBy = "None";
         private string rotyStatus = "";
 
-        private List<Button> listButton = new List<Button>();
+        //----- Other Variables -----//
+        private readonly int ROWS = 5;
+        private CalendarVM searchByDate;
+        private List<Button> listButton;
         public Form_Receptionist(int LoggedID, string LoggedRole)
         {
             InitializeComponent();
@@ -80,19 +84,6 @@ namespace PBL3REAL.View
             AddCbbActive();
 
             //-> Tab Page Room Type
-
-            //-> Check Logged Role is Admin
-            /* if (LoggedRole != "Admin")
-             {
-                 ROOM_ADD.Enabled = false;
-                 btn_RoomEdit.Enabled = false;
-                 btn_RoomDelete.Enabled = false;
-                 btn_RoomRestore.Enabled = false;
-                 btn_RoomTypeAdd.Enabled = false;
-                 btn_RoomTypeEdit.Enabled = false;
-                 btn_RoomTypeDelete.Enabled = false;
-                 btn_RoomTypeRestore.Enabled = false;
-             }*/
             listButton = new List<Button>()
             {
                 ROOM_VIEW,ROOM_ADD,ROOM_UPDATE,ROOM_INACTIVE,ROOM_ACTIVE,
@@ -100,12 +91,7 @@ namespace PBL3REAL.View
                 BOOK_ADD,BOOK_DELETE,BOOK_UPDATE,BOOK_EXPORTINVOICE,BOOK_VIEW
             };
             Authorization();
-
-            
-
         }
-
-        
 
         private void Authorization()
         {
@@ -116,7 +102,7 @@ namespace PBL3REAL.View
                 if (listAction.Contains(idbutton)) button.Enabled = true;
             }
         }
-        /***** GENERAL *****/
+                                            /***** GENERAL *****/
         //-> General Functions
 
         //-> General Events
@@ -125,8 +111,8 @@ namespace PBL3REAL.View
             this.Dispose();
         }
 
-        /***** BOOKING *****/
-        //-> Booking Functions
+                                        /***** BOOKING *****/
+        //----- Booking Functions -----//
         private void LoadBookingList()
         {
            
@@ -170,7 +156,7 @@ namespace PBL3REAL.View
             return 0;
         }
 
-        //-> Booking Events
+        //----- Booking Events  -----//
         private void btn_BookingExport_Click(object sender, EventArgs e)
         {
             DataGridViewSelectedRowCollection r = dgv_Booking.SelectedRows;
@@ -328,8 +314,10 @@ namespace PBL3REAL.View
             }
         }
 
-        /***** ROOM *****/
-        //-> Room Functions
+
+
+                                             /***** BOOKING *****/
+        //----- Room Functions -----//
         private void AddCbbRoomFilter()
         {
             List<CbbItem> list = roomTypeBLL.addCombobox();
@@ -377,10 +365,9 @@ namespace PBL3REAL.View
             else tb_RoomPageNumber.Text = "0/0";
         }
 
-        //-> Room Events
+        //----- Room Events -----//
         private void picbx_RoomSort_Click(object sender, EventArgs e)
         {
-            //Sort by Filter
         }
         private void picbx_RoomSearch_Click(object sender, EventArgs e)
         {
@@ -482,9 +469,7 @@ namespace PBL3REAL.View
         {
             if (RoomCurrentPage > 1)
             {
-                //   dgv_Room.DataSource = roomBLL.findByProperty(RoomCurrentPage - 1, 10, 0, "");
                 RoomCurrentPage -= 1;
-
                 LoadRoomList();
                 tb_RoomPageNumber.Text = RoomCurrentPage + "/" + totalRoomPages;
             }
@@ -493,7 +478,6 @@ namespace PBL3REAL.View
         {
             if (RoomCurrentPage < totalRoomPages)
             {
-                // dgv_Room.DataSource = roomBLL.findByProperty(RoomCurrentPage + 1, 10, 0, "");
                 RoomCurrentPage += 1;
                 LoadRoomList();
                 tb_RoomPageNumber.Text = RoomCurrentPage + "/" + totalRoomPages;
@@ -504,15 +488,10 @@ namespace PBL3REAL.View
             ReloadRoomData();
         }
         private void dgv_Room_SelectionChanged(object sender, EventArgs e)
-        {
-            //if (fllaypn_RoomSwitchPage.SelectedRows.Count == 1)
-            //{
-            //    //if (dgv_Room.SelectedRows[0].Cells[])
-            //}   
-            //else {}    
+        { 
         }
-        /***** ROOM TYPE *****/
-        //-> Romm Type Functions
+                                        /***** BOOKING *****/
+        //----- RoomType Functions -----//
         private void LoadRoomTypeList()
         {
             dgv_RoomType.DataSource = null;
@@ -528,7 +507,7 @@ namespace PBL3REAL.View
             cbb_RoomTypeSort.SelectedIndex = 0;
         }
 
-        //-> Room Type Events
+        //----- RoomType Events -----//
         private void btn_RoomTypeView_Click(object sender, EventArgs e)
         {
             DataGridViewSelectedRowCollection r = dgv_RoomType.SelectedRows;
@@ -654,7 +633,6 @@ namespace PBL3REAL.View
         }
         private void picbx_RoomTypeSort_Click(object sender, EventArgs e)
         {
-            //Sort by Filter
         }
        
     }

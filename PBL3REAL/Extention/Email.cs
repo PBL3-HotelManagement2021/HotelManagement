@@ -25,7 +25,7 @@ namespace PBL3REAL.Extention
             "ÝỲỴỶỸ"
         };
         public Email() { }
-        public bool CheckVietNamChar(string s)
+        public static bool CheckVietNamChar(string s)
         {
             for (int i = 1; i < VietNamChar.Length; i++)
             {
@@ -39,7 +39,7 @@ namespace PBL3REAL.Extention
             }
             return false;
         }
-        public bool IsValidEmail(string email)
+        public static bool IsValidEmail(string email)
         {
             try
             {
@@ -51,7 +51,7 @@ namespace PBL3REAL.Extention
                 return false;
             }
         }
-        public bool ValidateEmail(string email)
+        public static bool ValidateEmail(string email)
         {
             if (string.IsNullOrWhiteSpace(email) || email.Contains(' ') || email.Length == 0)
                 return false;

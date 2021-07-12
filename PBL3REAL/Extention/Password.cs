@@ -25,7 +25,7 @@ namespace PBL3REAL.Extention
             "ÝỲỴỶỸ"
         };
         public Password() { }
-        public bool CheckVietNamChar(string s)
+        public static bool CheckVietNamChar(string s)
         {
             for (int i = 1; i < VietNamChar.Length; i++)
             {
@@ -39,7 +39,7 @@ namespace PBL3REAL.Extention
             }
             return false;
         }
-        public bool ValidatePassword(string password)
+        public static bool ValidatePassword(string password)
         {
             if (string.IsNullOrWhiteSpace(password) || password.Contains(' ') || password.Length == 0)
                 return false;

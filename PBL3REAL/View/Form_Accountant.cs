@@ -35,7 +35,7 @@ namespace PBL3REAL.View
             qLInvoiceBLL = new QLInvoiceBLL();
             cbb_InvoiceSort.SelectedIndex = 0;
             calendarVM = new CalendarVM();
-            tp = tabPage_Statistic_Analyze;
+            tp = STATAB_USE;
             if (tabControl_Accountant.TabPages.Contains(tp)) tabControl_Accountant.TabPages.Remove(tp);
             listButton = new List<Button>()
             {

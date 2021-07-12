@@ -42,7 +42,6 @@ namespace PBL3REAL.DAL
             {
                 if (permission.PerActiveflag == false) result.Permissions.Remove(permission);
             }
-
             return result;
         }
     }

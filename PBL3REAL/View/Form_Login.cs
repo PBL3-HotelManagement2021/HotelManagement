@@ -16,8 +16,6 @@ namespace PBL3REAL.View
         //---------- GLOBAL DECLARATION ----------//
         //----- Account Instance Variables -----//
         private QLUserBLL qLUserBLL;
-        private Usercode usercode;
-        private Password password;
 
         //---------- FORM CONSTRUCTOR ----------//
         public Form_Login()
@@ -31,7 +29,7 @@ namespace PBL3REAL.View
         //----- Check Data  -----//
         private bool CheckData()
         {
-            if (usercode.ValidateUsercode(tb_Usercode.Text) == false || password.ValidatePassword(tb_Password.Text) == false)
+            if (ValidateCode.TotalValidate(tb_Usercode.Text) == false || Password.ValidatePassword(tb_Password.Text) == false)
             { return false; }
             return true;
         }

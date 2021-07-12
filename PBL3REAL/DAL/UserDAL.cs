@@ -62,8 +62,6 @@ namespace PBL3REAL.DAL
                 if (properties["status"] == "Active") predicate = predicate.And(x => x.UserActiveflag == true);
                 else predicate = predicate.And(x => x.UserActiveflag == false);
             }
-
-
             IQueryable<User> query = AppDbContext.Instance.Users
                                       .Include(x => x.UserRoles)
                                       .ThenInclude(y => y.UserolIdroleNavigation)
@@ -76,7 +74,6 @@ namespace PBL3REAL.DAL
                 case "Name Desc": query = query.OrderByDescending(x => x.UserName); break;
                 default: break;
             }
-
             List<User> result = query.AsNoTracking().ToList();
             return result;
         }

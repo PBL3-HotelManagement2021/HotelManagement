@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PBL3REAL.Extention
 {
-    public class Usercode
+    public class ValidateCode
     {
         private static readonly string[] VietNamChar = new string[]
         {
@@ -24,8 +24,8 @@ namespace PBL3REAL.Extention
             "ýỳỵỷỹ",
             "ÝỲỴỶỸ"
         };
-        public Usercode() { }
-        public bool CheckVietNamChar(string s)
+        public ValidateCode() { }
+        public static bool CheckVietNamChar(string s)
         {
             for (int i = 1; i < VietNamChar.Length; i++)
             {
@@ -39,11 +39,11 @@ namespace PBL3REAL.Extention
             }
             return false;
         }
-        public bool ValidateUsercode(string usercode)
+        public static bool TotalValidate(string code)
         {
-            if (string.IsNullOrWhiteSpace(usercode) || usercode.Contains(' ') || usercode.Length == 0)
+            if (string.IsNullOrWhiteSpace(code) || code.Contains(' ') || code.Length == 0)
                 return false;
-            if (CheckVietNamChar(usercode))
+            if (CheckVietNamChar(code))
                 return false;
             return true;
         }

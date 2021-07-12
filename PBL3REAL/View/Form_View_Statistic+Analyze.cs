@@ -214,16 +214,18 @@ namespace PBL3REAL.View
             try
             {
                 StatisticExporttoImage();
-                MessageBox.Show("Xuất file thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Image export successful !", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch (Exception e1) { }
+            catch (Exception e1) {
+                MessageBox.Show("Image export successfu failed !", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void btn_StatisticExportToExcel_Click(object sender, EventArgs e)
         {
             try
             {
-              //  StatisticExportToExcel();
-                MessageBox.Show("Xuất file thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //  StatisticExportToExcel();
+                MessageBox.Show("File export successful !", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception e1) { }
         }
