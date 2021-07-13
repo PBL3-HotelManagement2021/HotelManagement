@@ -13,7 +13,7 @@ using PBL3REAL.BLL;
 using PBL3REAL.DAL;
 using PBL3REAL.ViewModel;
 using PBL3REAL.Algorithm;
-//using Microsoft.Office.Interop.Excel;
+using Microsoft.Office.Interop.Excel;
 using OfficeOpenXml;
 
 namespace PBL3REAL.View
@@ -110,7 +110,7 @@ namespace PBL3REAL.View
                     System.Data.DataTable dt = new System.Data.DataTable();
                     dt.Columns.AddRange(new DataColumn[]
                     {
-                        new DataColumn("Date",typeof(DateTime)),
+                        new DataColumn("Booking Date",typeof(DateTime)),
                         new DataColumn("Room Type",typeof(string)),
                         new DataColumn("Amount",typeof(int))
                     });
