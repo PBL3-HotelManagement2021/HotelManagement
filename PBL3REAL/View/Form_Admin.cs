@@ -47,7 +47,7 @@ namespace PBL3REAL.View
         }
         private void btn_Menu_Click(object sender, EventArgs e)
         {
-            fllaypn_Menu.Visible = true;
+            fllaypn_Menu.Visible = !fllaypn_Menu.Visible;
         }
         private void btn_Profile_Click(object sender, EventArgs e)
         {

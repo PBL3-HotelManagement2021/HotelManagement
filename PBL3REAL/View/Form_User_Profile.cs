@@ -67,6 +67,24 @@ namespace PBL3REAL.View
         //-> Load Data For Viewing Profile 
         private void LoadDataForLogin(string role)
         {
+            if (QLUserBLL.stoUser.ListImg.Count != 0)
+            {
+                try
+                {
+                    string FullPath = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + "\\User_Profile\\" + QLUserBLL.stoUser.ListImg[0].ImgstoUrl;
+                    using (FileStream fs = new FileStream(FullPath, FileMode.Open))
+                    {
+                        picbx_Header.Image = Image.FromStream(fs);
+                        picbx_Header.SizeMode = PictureBoxSizeMode.StretchImage;
+                        fs.Close();
+                    }
+                }
+                catch (Exception e)
+                {
+                    picbx_Header.BackgroundImage = Properties.Resources.nothing_found_fluent_color_96px;
+                    picbx_Header.Image = null;
+                }
+            }
             lb_Header.Text = "   " + QLUserBLL.stoUser.UserCode + "   ";
             tb_Username.Text = QLUserBLL.stoUser.UserName;
             tb_Email.Text = QLUserBLL.stoUser.UserGmail;
