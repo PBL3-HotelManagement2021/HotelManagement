@@ -341,8 +341,12 @@ namespace PBL3REAL.View
         private void picbx_Delete_Click(object sender, EventArgs e)
         {
             //Delete role
-            userVM.ListRole.RemoveAt(userVM.ListRole.Count - 1);
-            lbx_User.Items.RemoveAt(lbx_User.Items.Count - 1);
+            if (userVM.ListRole.Count != 0)
+            {
+                userVM.ListRole.RemoveAt(userVM.ListRole.Count - 1);
+                lbx_User.Items.RemoveAt(lbx_User.Items.Count - 1);
+            }
+          
         }
 
         //----- tbllaypn_ControlButtons -----//

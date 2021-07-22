@@ -114,7 +114,7 @@ namespace PBL3REAL.DAL
 
         public void addUserRole(List<UserRole> list)
         {
-            AppDbContext.Instance.AddRange(list);
+            AppDbContext.Instance.UserRoles.AddRange(list);
             AppDbContext.Instance.SaveChanges();
         }
 
