@@ -158,54 +158,6 @@ namespace PBL3REAL.View
         }
 
         //----- Check Data -----//
-        //-> Check If Password has Vietnamese Char
-        private bool CheckVietnameseChar(string s)
-        {
-            string[] VietNamChar = new string[]
-            {
-            "aAeEoOuUiIdDyY",
-            "áàạảãâấầậẩẫăắằặẳẵ",
-            "ÁÀẠẢÃÂẤẦẬẨẪĂẮẰẶẲẴ",
-            "éèẹẻẽêếềệểễ",
-            "ÉÈẸẺẼÊẾỀỆỂỄ",
-            "óòọỏõôốồộổỗơớờợởỡ",
-            "ÓÒỌỎÕÔỐỒỘỔỖƠỚỜỢỞỠ",
-            "úùụủũưứừựửữ",
-            "ÚÙỤỦŨƯỨỪỰỬỮ",
-            "íìịỉĩ",
-            "ÍÌỊỈĨ",
-            "đ",
-            "Đ",
-            "ýỳỵỷỹ",
-            "ÝỲỴỶỸ"
-            };
-            for (int i = 1; i < VietNamChar.Length; i++)
-            {
-                for (int j = 0; j < VietNamChar[i].Length; j++)
-                {
-                    if (s.Contains(VietNamChar[i][j]))
-                    {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-
-        //-> Check Validation of Email
-        private bool IsValidEmail(string email)
-        {
-            try
-            {
-                var addr = new System.Net.Mail.MailAddress(email);
-                return addr.Address == email;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
         //-> Check User Detail
         private int CheckData()
         {
@@ -215,8 +167,7 @@ namespace PBL3REAL.View
             { return 0; }    
             if (int.TryParse(tb_Phone.Text,out phone) == false)
             { return 1; }
-            if (tb_Email.Text.Contains(' ') == true || tb_Password.Text.Contains(' ') == true 
-                || CheckVietnameseChar(tb_Email.Text) == true || CheckVietnameseChar(tb_Password.Text) == true || IsValidEmail(tb_Email.Text) == false)
+            if (Password.ValidatePassword(tb_Password.Text) == true || Email.ValidateEmail(tb_Email.Text) == false || PhoneNumber.IsValidPhoneNumber(tb_Phone.Text) == false)
             { return 2; }
             if (TempAvatar == null)
             { return 3; }

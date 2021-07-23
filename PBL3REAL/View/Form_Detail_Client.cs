@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using PBL3REAL.BLL;
 using PBL3REAL.ViewModel;
+using PBL3REAL.Extention;
 
 namespace PBL3REAL.View
 {
@@ -68,6 +69,11 @@ namespace PBL3REAL.View
         //----- tbllaypn_ControlButtons -----//
         private void btn_OK_Click(object sender, EventArgs e)
         {
+            if (Email.ValidateEmail(tb_ClientEmail.Text) == false || PhoneNumber.IsValidPhoneNumber(tb_ClientPhone.Text) == false) 
+            {
+                MessageBox.Show("Invalid Email or Password!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             Dictionary<string, string> properties = new Dictionary<string, string>();
             properties.Add("gmail", tb_ClientEmail.Text);
             properties.Add("phone", tb_ClientPhone.Text);
