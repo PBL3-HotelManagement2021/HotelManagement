@@ -29,7 +29,7 @@ namespace PBL3REAL.View
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Accountant));
             this.tabControl_Accountant = new System.Windows.Forms.TabControl();
             this.tabPage_General = new System.Windows.Forms.TabPage();
@@ -176,14 +176,14 @@ namespace PBL3REAL.View
             this.dgv_Invoice.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgv_Invoice.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgv_Invoice.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_Invoice.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_Invoice.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_Invoice.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgv_Invoice.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
             this.dgv_Invoice.Location = new System.Drawing.Point(0, 226);
@@ -247,7 +247,7 @@ namespace PBL3REAL.View
             this.tbllaypn_Invoice.ColumnCount = 3;
             this.tbllaypn_Invoice.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.06299F));
             this.tbllaypn_Invoice.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 78.937F));
-            this.tbllaypn_Invoice.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 46F));
+            this.tbllaypn_Invoice.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 47F));
             this.tbllaypn_Invoice.Controls.Add(this.dtp_InvoiceTo, 1, 2);
             this.tbllaypn_Invoice.Controls.Add(this.dtp_InvoiceFrom, 1, 1);
             this.tbllaypn_Invoice.Controls.Add(this.lb_InvoiceTo, 0, 2);
@@ -275,7 +275,7 @@ namespace PBL3REAL.View
             this.dtp_InvoiceTo.Location = new System.Drawing.Point(83, 83);
             this.dtp_InvoiceTo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtp_InvoiceTo.Name = "dtp_InvoiceTo";
-            this.dtp_InvoiceTo.Size = new System.Drawing.Size(297, 29);
+            this.dtp_InvoiceTo.Size = new System.Drawing.Size(296, 29);
             this.dtp_InvoiceTo.TabIndex = 3;
             // 
             // dtp_InvoiceFrom
@@ -284,7 +284,7 @@ namespace PBL3REAL.View
             this.dtp_InvoiceFrom.Location = new System.Drawing.Point(83, 44);
             this.dtp_InvoiceFrom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtp_InvoiceFrom.Name = "dtp_InvoiceFrom";
-            this.dtp_InvoiceFrom.Size = new System.Drawing.Size(297, 29);
+            this.dtp_InvoiceFrom.Size = new System.Drawing.Size(296, 29);
             this.dtp_InvoiceFrom.TabIndex = 2;
             // 
             // lb_InvoiceTo
@@ -312,7 +312,7 @@ namespace PBL3REAL.View
             // picbx_InvoiceSort
             // 
             this.picbx_InvoiceSort.Image = global::PBL3REAL.Properties.Resources.filter_fluent_color_48px;
-            this.picbx_InvoiceSort.Location = new System.Drawing.Point(386, 2);
+            this.picbx_InvoiceSort.Location = new System.Drawing.Point(385, 2);
             this.picbx_InvoiceSort.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.picbx_InvoiceSort.Name = "picbx_InvoiceSort";
             this.picbx_InvoiceSort.Size = new System.Drawing.Size(40, 35);
@@ -334,7 +334,7 @@ namespace PBL3REAL.View
             this.cbb_InvoiceSort.Location = new System.Drawing.Point(83, 3);
             this.cbb_InvoiceSort.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbb_InvoiceSort.Name = "cbb_InvoiceSort";
-            this.cbb_InvoiceSort.Size = new System.Drawing.Size(297, 33);
+            this.cbb_InvoiceSort.Size = new System.Drawing.Size(296, 33);
             this.cbb_InvoiceSort.TabIndex = 1;
             // 
             // lb_InvoiceSort
@@ -368,13 +368,13 @@ namespace PBL3REAL.View
             this.tb_InvoiceSearch.Location = new System.Drawing.Point(83, 125);
             this.tb_InvoiceSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tb_InvoiceSearch.Name = "tb_InvoiceSearch";
-            this.tb_InvoiceSearch.Size = new System.Drawing.Size(297, 25);
+            this.tb_InvoiceSearch.Size = new System.Drawing.Size(296, 25);
             this.tb_InvoiceSearch.TabIndex = 4;
             // 
             // picbx_InvoiceSearch
             // 
             this.picbx_InvoiceSearch.Image = global::PBL3REAL.Properties.Resources.search_fluent_color_48px;
-            this.picbx_InvoiceSearch.Location = new System.Drawing.Point(386, 119);
+            this.picbx_InvoiceSearch.Location = new System.Drawing.Point(385, 119);
             this.picbx_InvoiceSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.picbx_InvoiceSearch.Name = "picbx_InvoiceSearch";
             this.picbx_InvoiceSearch.Size = new System.Drawing.Size(40, 35);
@@ -818,8 +818,7 @@ namespace PBL3REAL.View
             this.cbb_DataType.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbb_DataType.FormattingEnabled = true;
             this.cbb_DataType.Items.AddRange(new object[] {
-            "Income",
-            "Booking"});
+            "Income"});
             this.cbb_DataType.Location = new System.Drawing.Point(186, 4);
             this.cbb_DataType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbb_DataType.Name = "cbb_DataType";

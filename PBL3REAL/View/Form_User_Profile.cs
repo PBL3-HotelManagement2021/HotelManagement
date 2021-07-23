@@ -365,6 +365,8 @@ namespace PBL3REAL.View
                         {
                             qLUserBLL.addUser(userVM);
                             MessageBox.Show("A new user has been successfully created!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            myDel();
+                            this.Dispose();
                         }
                         else
                         {
@@ -378,14 +380,15 @@ namespace PBL3REAL.View
                         {
                             qLUserBLL.updateUser(userVM, listDel,isPassChanged);
                             MessageBox.Show("This user has been successfully updated!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            myDel();
+                            this.Dispose();
                         }
                         else
                         {
                             MessageBox.Show("Existed Email or Phone!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
-                    myDel();
-                    this.Dispose();
+                 
                     break;
                 default:
                     break;

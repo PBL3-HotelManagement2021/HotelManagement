@@ -82,6 +82,7 @@ namespace PBL3REAL.View
             {
                 dgv_Invoice.DataSource = qLInvoiceBLL.findByProperties(currentPage, ROWS,"", search, orderBy, calendarVM);
                 dgv_Invoice.Columns["InvIdbook"].Visible = false;
+                dgv_Invoice.Columns["IdInvoice"].Visible = false;
                 tb_InvoicePageNumber.Text = currentPage + "/" + totalPage;
             }
             else

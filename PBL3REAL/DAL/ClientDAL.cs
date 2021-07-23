@@ -57,6 +57,8 @@ namespace PBL3REAL.DAL
             AppDbContext.Instance.Entry(client).State = EntityState.Detached;
         }
 
+       
+
         public void restore(int id)
         {
             Client client = findById(id);

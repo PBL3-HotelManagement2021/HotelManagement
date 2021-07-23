@@ -88,14 +88,17 @@ namespace PBL3REAL.View
                     //Add
                     clientBLL.add(clientVM);
                     MessageBox.Show("Your client has been successfully created!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    myDel();
+                    this.Dispose();
                 }
                 else
                 {
-                        clientBLL.update(clientVM);
-                        MessageBox.Show("Your client has been successfully updated!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);                
+                    clientBLL.update(clientVM);
+                    MessageBox.Show("Your client has been successfully updated!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    myDel();
+                    this.Dispose();
                 }
-                myDel();
-                this.Dispose();
+              
             }
             else
             {

@@ -18,7 +18,7 @@ namespace PBL3REAL.View
     public partial class Form_Detail_Invoice : Form
     {
         //---------- GLOBAL DECLARATION ----------//
-        //----- Delegation -----//
+        //----- Delegate -----//
         public delegate void MyDel();
         public MyDel myDel;
 
@@ -48,6 +48,7 @@ namespace PBL3REAL.View
                 lb_InvoiceID.Text = "Invoice ID: ...";
                 tb_BookingCode.Text = bookCode;
                 lb_Usercode.Text += QLUserBLL.stoUser.UserCode;
+      
             }
             else if (idInvoice != 0)
             {
@@ -182,10 +183,18 @@ namespace PBL3REAL.View
         }
         private void btn_ExportToPDF_Click(object sender, EventArgs e)
         {
-            string path = System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + "\\Invoices\\" + invoiceDetailVM.InvCode + ".pdf";
-            ExportToPDF(path);
-            myDel();
-            this.Dispose();
+            if(invoiceDetailVM.InvCode !=null && invoiceDetailVM.InvCode != "")
+            {
+                string path = System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + "\\Invoices\\" + invoiceDetailVM.InvCode + ".pdf";
+                ExportToPDF(path);
+                myDel();
+                this.Dispose();
+            }
+            else
+            {
+                MessageBox.Show("Please create invoice first", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
         }
         private void btn_Cancel_Click(object sender, EventArgs e)
         {

@@ -77,6 +77,7 @@ namespace PBL3REAL.BLL
             {
 
             }
+    
         }
 
         public void deleteInvoice(int  idInvoice)
