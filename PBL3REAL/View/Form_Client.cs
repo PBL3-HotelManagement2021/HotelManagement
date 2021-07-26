@@ -17,7 +17,7 @@ namespace PBL3REAL.View
         private List<Button> listButton;
 
         //----- Client Instance Variables -----//
-        private ClientBLL clientBLL;
+        private QLClientBLL clientBLL;
         private string search = "";
         private string orderBy = "";
         private readonly int ROWS = 5;
@@ -29,7 +29,7 @@ namespace PBL3REAL.View
         {
             //--- Initialize ----//
             InitializeComponent();
-            clientBLL = new ClientBLL();
+            clientBLL = new QLClientBLL();
             cbb_ClientSort.SelectedIndex = 0;
             cbb_ClientStatus.SelectedIndex = 0;
             listButton = new List<Button>()
@@ -67,10 +67,10 @@ namespace PBL3REAL.View
             Dictionary<string, string> properties = new Dictionary<string, string>();
             properties.Add("name", search);
             properties.Add("status", cbb_ClientStatus.SelectedItem.ToString());
-            totalPage = clientBLL.getPagination(ROWS, properties);
+            totalPage = clientBLL.GetPagination(ROWS, properties);
             if (totalPage != 0)
             {
-                dgv.DataSource = clientBLL.findByProperty(currentPage, ROWS, properties, orderBy);
+                dgv.DataSource = clientBLL.FindByProperty(currentPage, ROWS, properties, orderBy);
                 dgv.Columns["IdClient"].Visible = false;
                 dgv.Columns["CliActiveflag"].Visible = false;              
                 tb_ClientPageNumber.Text = currentPage + "/" + totalPage;
@@ -142,7 +142,7 @@ namespace PBL3REAL.View
             if (dgv.SelectedRows.Count == 1)
             {
                 //Delete client
-                clientBLL.delete(int.Parse(dgv.SelectedRows[0].Cells["IdClient"].Value.ToString()));
+                clientBLL.Delete(int.Parse(dgv.SelectedRows[0].Cells["IdClient"].Value.ToString()));
                 LoadData();
             }
             else
@@ -154,7 +154,7 @@ namespace PBL3REAL.View
         {
             if (dgv.SelectedRows.Count == 1)
             {
-                clientBLL.restore(int.Parse(dgv.SelectedRows[0].Cells["IdClient"].Value.ToString()));
+                clientBLL.Restore(int.Parse(dgv.SelectedRows[0].Cells["IdClient"].Value.ToString()));
                 LoadData();
             }
             else

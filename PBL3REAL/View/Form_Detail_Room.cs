@@ -22,8 +22,8 @@ namespace HotelManagement.View
         public MyDel myDel;
 
         //----- BLL Room Instance Variables -----//
-        private RoomBLL _roomBLL;
-        private RoomTypeBLL _roomTypeBLL;
+        private QLRoomBLL _roomBLL;
+        private QLRoomTypeBLL _roomTypeBLL;
         private int idRoom;
         private RoomDetailVM roomDetailVM;
         private List<int> listdel;
@@ -34,8 +34,8 @@ namespace HotelManagement.View
             //--- Initialize ---//
             InitializeComponent();
             this.idRoom = idRoom;
-            _roomBLL = new RoomBLL();
-            _roomTypeBLL = new RoomTypeBLL();
+            _roomBLL = new QLRoomBLL();
+            _roomTypeBLL = new QLRoomTypeBLL();
 
             //--- Load Data ---//
             comboboxRoomType();

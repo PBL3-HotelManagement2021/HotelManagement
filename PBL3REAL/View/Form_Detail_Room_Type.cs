@@ -26,7 +26,7 @@ namespace PBL3REAL.View
         public MyDel myDel;
 
         //----- BLL Room Type Instance Variables -----//
-        private RoomTypeBLL roomTypeBLL;
+        private QLRoomTypeBLL roomTypeBLL;
         private int idRoomType;
         private int TotalPic = 0;
         private int TotalPicAdded = 0;
@@ -38,7 +38,7 @@ namespace PBL3REAL.View
         {
             //--- Initialize ---//
             InitializeComponent();
-            roomTypeBLL = new RoomTypeBLL();
+            roomTypeBLL = new QLRoomTypeBLL();
             this.idRoomType = idRoomType;   
             listdel = new List<int>();
 

@@ -20,7 +20,7 @@ namespace PBL3REAL.View
 
         //----- User Instance Variables -----//
         private ClientVM clientVM;
-        private ClientBLL clientBLL;
+        private QLClientBLL clientBLL;
         private int id;
         private bool Editable_Cli;
 
@@ -30,7 +30,7 @@ namespace PBL3REAL.View
             //--- Initialize ----//
             InitializeComponent();
             id = ID;
-            clientBLL = new ClientBLL();
+            clientBLL = new QLClientBLL();
             Editable_Cli = Editable;
 
             //--- Load Data ----//
@@ -50,7 +50,7 @@ namespace PBL3REAL.View
             else
             {
                 //View or Edit
-                clientVM = clientBLL.findById(id);
+                clientVM = clientBLL.FindById(id);
                 tb_ClientCode.Text = clientVM.Code;
                 tb_ClientEmail.Text = clientVM.Gmail;
                 tb_ClientName.Text = clientVM.Name;
@@ -78,7 +78,7 @@ namespace PBL3REAL.View
             properties.Add("gmail", tb_ClientEmail.Text);
             properties.Add("phone", tb_ClientPhone.Text);
             properties.Add("code", tb_ClientCode.Text);
-            if (clientBLL.checkexisted(properties))
+            if (clientBLL.Checkexisted(properties))
             {
                 clientVM.Gmail = tb_ClientEmail.Text;
                 clientVM.Name = tb_ClientName.Text;
@@ -86,14 +86,14 @@ namespace PBL3REAL.View
                 if (id == 0)
                 {
                     //Add
-                    clientBLL.add(clientVM);
+                    clientBLL.Add(clientVM);
                     MessageBox.Show("Your client has been successfully created!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     myDel();
                     this.Dispose();
                 }
                 else
                 {
-                    clientBLL.update(clientVM);
+                    clientBLL.Update(clientVM);
                     MessageBox.Show("Your client has been successfully updated!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     myDel();
                     this.Dispose();

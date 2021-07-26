@@ -24,8 +24,8 @@ namespace PBL3REAL.View
         //----- BLL Variables -----//
         private QLBookingBLL bookingBLL;
         private QLInvoiceBLL qLInvoiceBLL;
-        private RoomBLL roomBLL;
-        private RoomTypeBLL roomTypeBLL;
+        private QLRoomBLL roomBLL;
+        private QLRoomTypeBLL roomTypeBLL;
 
 
         //----- Booking Variables -----//
@@ -64,11 +64,11 @@ namespace PBL3REAL.View
             searchByDate = new CalendarVM();
 
             //-> Room Parameters
-            roomBLL = new RoomBLL();
+            roomBLL = new QLRoomBLL();
             tb_RoomPageNumber.Text = "";
 
             //-> Room Type Parameters
-            roomTypeBLL = new RoomTypeBLL();
+            roomTypeBLL = new QLRoomTypeBLL();
             cbb_RoomTypeStatus.SelectedIndex = 0;
 
             /*** Load Data & Set GUI ***/
@@ -117,7 +117,7 @@ namespace PBL3REAL.View
         {
            
             dgv_Booking.DataSource = null;
-            dgv_Booking.DataSource = bookingBLL.findByProperty(BookingCurrentPage, ROWS,searchByDate, bookingSearch, bookOrderBy,bookStatus);
+            dgv_Booking.DataSource = bookingBLL.FindByProperty(BookingCurrentPage, ROWS,searchByDate, bookingSearch, bookOrderBy,bookStatus);
             dgv_Booking.Columns["Deposit"].Visible = false;
             dgv_Booking.Columns["IdBook"].Visible = false;
             dgv_Booking.Columns["BookNote"].Visible = false;
@@ -131,7 +131,7 @@ namespace PBL3REAL.View
             searchByDate.fromDate = dtp_BookingFrom.Value;
             searchByDate.toDate = dtp_BookingTo.Value;
             BookingCurrentPage = 1;
-            totalBookingPages = bookingBLL.getPagination(ROWS, searchByDate, bookingSearch, bookStatus);
+            totalBookingPages = bookingBLL.GetPagination(ROWS, searchByDate, bookingSearch, bookStatus);
             if (totalBookingPages != 0)
             {
                 tb_BookingPageNumber.Text = BookingCurrentPage + "/" + totalBookingPages;
@@ -252,7 +252,7 @@ namespace PBL3REAL.View
                 {
                     try
                     {
-                        bookingBLL.delBooking(int.Parse(r[0].Cells["IdBook"].Value.ToString()), r[0].Cells["Status"].Value.ToString());
+                        bookingBLL.DelBooking(int.Parse(r[0].Cells["IdBook"].Value.ToString()), r[0].Cells["Status"].Value.ToString());
                         searchBookData();
                     }
                     catch (Exception mes)

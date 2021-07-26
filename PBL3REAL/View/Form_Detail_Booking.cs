@@ -24,9 +24,9 @@ namespace PBL3REAL.View
 
         //----- BLL Booking Detail Instance Variables -----//
         private QLBookingBLL BookingBLL;
-        private RoomTypeBLL roomTypeBLL;
-        private RoomBLL roomBLL;
-        private ClientBLL clientBLL;
+        private QLRoomTypeBLL roomTypeBLL;
+        private QLRoomBLL roomBLL;
+        private QLClientBLL clientBLL;
 
         //----- Booking Detail Instance Variables -----//
         private int IDBook = 0;
@@ -46,9 +46,9 @@ namespace PBL3REAL.View
             //--- Initialize ---//
             InitializeComponent();
             BookingBLL = new QLBookingBLL();
-            roomTypeBLL = new RoomTypeBLL();
-            roomBLL = new RoomBLL();
-            clientBLL = new ClientBLL();
+            roomTypeBLL = new QLRoomTypeBLL();
+            roomBLL = new QLRoomBLL();
+            clientBLL = new QLClientBLL();
             subBookings = new BindingList<SubBookingDetailVM>();
             subBookings.AllowNew = true;
             subBookings.AllowRemove = true;
@@ -124,7 +124,7 @@ namespace PBL3REAL.View
             {
                 rbtn_OldClient.Checked = true;
                 tb_ClientSearch.Enabled = false;
-                detailVM = BookingBLL.getDetail(IDBook);
+                detailVM = BookingBLL.GetDetail(IDBook);
                 //View or Edit
                 rbtn_OldClient.Checked = true;
                 idClient = detailVM.clientVM.IdClient;
@@ -243,7 +243,7 @@ namespace PBL3REAL.View
             {
                 detailVM.ListSub.Add(val);
             }
-            BookingBLL.addBooking(detailVM);
+            BookingBLL.AddBooking(detailVM);
         }
         private void UpdateBooking()
         {
@@ -260,7 +260,7 @@ namespace PBL3REAL.View
             detailVM.clientVM.Gmail = tb_ClientEmail.Text;
             detailVM.clientVM.Name = tb_ClientName.Text;
             detailVM.clientVM.Phone = tb_ClientPhone.Text;
-            BookingBLL.updateBooking(detailVM, listDel);
+            BookingBLL.UpdateBooking(detailVM, listDel);
         }
 
         //---------- EVENTS ----------//
@@ -276,7 +276,7 @@ namespace PBL3REAL.View
                 Dictionary<string, string> properties = new Dictionary<string, string>();
                 properties.Add("phone", tb_ClientSearch.Text);
                 properties.Add("status", "Active");
-                List<ClientVM> listClient = clientBLL.findByProperty(1,10000,properties,"");
+                List<ClientVM> listClient = clientBLL.FindByProperty(1,10000,properties,"");
                 if (listClient != null && listClient.Count != 0)
                 {
                     tb_ClientEmail.Text = listClient[0].Gmail;
