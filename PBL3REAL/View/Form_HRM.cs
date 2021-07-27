@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using PBL3REAL.BLL;
+using PBL3REAL.BLL.Interfaces;
 
 namespace PBL3REAL.View
 {
@@ -17,7 +18,7 @@ namespace PBL3REAL.View
         private List<Button> listButton;
 
         //----- HRM Instance Variables -----//
-        private QLUserBLL qLUserBLL;
+        private IUserBLL qLUserBLL;
         private string search = "";
         private string orderBy = "";
 
@@ -64,7 +65,7 @@ namespace PBL3REAL.View
             Dictionary<string, string> properties = new Dictionary<string, string>();
             properties.Add("name", search);
             properties.Add("status", cbb_HRMStatus.SelectedItem.ToString());
-            dgv_HRM.DataSource = qLUserBLL.findByProperty(properties, orderBy);
+            dgv_HRM.DataSource = qLUserBLL.FindByProperty(properties, orderBy);
             dgv_HRM.Columns["IdUser"].Visible = false;
             dgv_HRM.Columns["UserPassword"].Visible = false;
             dgv_HRM.Columns["UserActiveflag"].Visible = false;
@@ -140,7 +141,7 @@ namespace PBL3REAL.View
             DataGridViewSelectedRowCollection r = dgv_HRM.SelectedRows;
             if (r.Count == 1)
             {
-                qLUserBLL.delUser(int.Parse(r[0].Cells["IdUser"].Value.ToString()));
+                qLUserBLL.DelUser(int.Parse(r[0].Cells["IdUser"].Value.ToString()));
                 loadDtbUser();
             }
             else if (r.Count == 0)
@@ -157,7 +158,7 @@ namespace PBL3REAL.View
             DataGridViewSelectedRowCollection r = dgv_HRM.SelectedRows;
             if (r.Count == 1)
             {
-                qLUserBLL.restoreUser(int.Parse(r[0].Cells["IdUser"].Value.ToString()));
+                qLUserBLL.RestoreUser(int.Parse(r[0].Cells["IdUser"].Value.ToString()));
                 loadDtbUser();
             }
             else if (r.Count == 0)

@@ -6,13 +6,14 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using PBL3REAL.BLL;
+using PBL3REAL.BLL.Interfaces;
 using PBL3REAL.ViewModel;
 namespace PBL3REAL.View
 {
     public partial class Form_Staff : Form
     {
         //---------- GLOBAL DECLARATION ----------//
-        private QLUserBLL qLUserBLL;
+        private IUserBLL qLUserBLL;
         private string LoggedRole;
 
         //---------- FORM CONSTRUCTOR ----------//

@@ -10,6 +10,7 @@ using PBL3REAL.Extention;
 using PBL3REAL.BLL;
 using PBL3REAL.ViewModel;
 using System.IO;
+using PBL3REAL.BLL.Interfaces;
 
 namespace PBL3REAL.View
 {
@@ -22,7 +23,7 @@ namespace PBL3REAL.View
         public MyDel myDel;
 
         //----- User Instance Variables -----//
-        private QLUserBLL qLUserBLL;
+        private IUserBLL qLUserBLL;
         private UserVM userVM;
         private int ID = 0;
         private ImageVM TempAvatar;
@@ -56,7 +57,7 @@ namespace PBL3REAL.View
         //-> Add Role to Combobox
         private void AddRoleToCbb()
         {
-            foreach(var value in qLUserBLL.getRoleForUser())
+            foreach(var value in qLUserBLL.GetRoleForUser())
             {
                 cbb_Role.Items.Add(value);
             }
@@ -113,7 +114,7 @@ namespace PBL3REAL.View
             if (ID == 0)  { userVM = new UserVM(); }    
             else
             {
-                userVM = qLUserBLL.findDetailUser(ID);
+                userVM = qLUserBLL.FindDetailUser(ID);
                 //View or Edit
                 lb_Header.Text = "   " + userVM.UserCode + "   ";
                 tb_Username.Text = userVM.UserName;
@@ -361,9 +362,9 @@ namespace PBL3REAL.View
                     properties.Add("gmail", userVM.UserGmail);
                     if (ID == 0)
                     {
-                        if(qLUserBLL.checkexisted(properties))
+                        if(qLUserBLL.Checkexisted(properties))
                         {
-                            qLUserBLL.addUser(userVM);
+                            qLUserBLL.AddUser(userVM);
                             MessageBox.Show("A new user has been successfully created!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             myDel();
                             this.Dispose();
@@ -376,9 +377,9 @@ namespace PBL3REAL.View
                     else
                     {
                         properties.Add("code", userVM.UserCode);
-                        if (qLUserBLL.checkexisted(properties))
+                        if (qLUserBLL.Checkexisted(properties))
                         {
-                            qLUserBLL.updateUser(userVM, listDel,isPassChanged);
+                            qLUserBLL.UpdateUser(userVM, listDel,isPassChanged);
                             MessageBox.Show("This user has been successfully updated!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             myDel();
                             this.Dispose();

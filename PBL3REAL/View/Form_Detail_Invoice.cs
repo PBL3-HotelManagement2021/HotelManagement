@@ -42,7 +42,7 @@ namespace PBL3REAL.View
             //--- Load Data ---//
             if (bookCode != "")
             {
-                invoiceDetailVM = qLInvoiceBLL.infoAddInvoice(bookCode);
+                invoiceDetailVM = qLInvoiceBLL.InfoAddInvoice(bookCode);
                 tb_CreateDate.Text = DateTime.Now.ToString("dd/MM/yyyy");
                 tb_LastUpdateDate.Text = DateTime.Now.ToString("dd/MM/yyyy");
                 lb_InvoiceID.Text = "Invoice ID: ...";
@@ -52,7 +52,7 @@ namespace PBL3REAL.View
             }
             else if (idInvoice != 0)
             {
-                invoiceDetailVM = qLInvoiceBLL.getDetail(idInvoice);
+                invoiceDetailVM = qLInvoiceBLL.GetDetail(idInvoice);
                 tb_CreateDate.Text = invoiceDetailVM.InvCreatedate.ToString("dd/MM/yyyy");
                 tb_LastUpdateDate.Text = invoiceDetailVM.InvUpdatedate.ToString("dd/MM/yyyy");
                 lb_InvoiceID.Text = "Invoice ID: " + invoiceDetailVM.InvCode.ToString();
@@ -171,7 +171,7 @@ namespace PBL3REAL.View
         {
             if (invoiceDetailVM.IdInvoice == 0)
             {
-                qLInvoiceBLL.addInvoice(invoiceDetailVM);
+                qLInvoiceBLL.AddInvoice(invoiceDetailVM);
                 MessageBox.Show("Your invoice has been successfully created!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 myDel();
                 this.Dispose();

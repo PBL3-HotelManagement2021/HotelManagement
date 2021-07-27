@@ -15,6 +15,7 @@ using PBL3REAL.ViewModel;
 using PBL3REAL.Algorithm;
 using Microsoft.Office.Interop.Excel;
 using OfficeOpenXml;
+using PBL3REAL.BLL.Interfaces;
 
 namespace PBL3REAL.View
 {
@@ -22,7 +23,7 @@ namespace PBL3REAL.View
     {
         //---------- GLOBAL DECLARATION ----------//
         //----- Statistic & Analyze Instance Variables -----//
-        QLInvoiceBLL invoiceBLL;
+        IInvoiceBLL invoiceBLL;
         List<Statistic1> listVM1;
         List<Statistic2> listVM2;
 
@@ -102,11 +103,11 @@ namespace PBL3REAL.View
             switch (DataType)
             {
                 case 0:
-                    listVM1 = invoiceBLL.findForStatistic(from, to);
+                    listVM1 = invoiceBLL.FindForStatistic(from, to);
                     dgv_Statistic.DataSource = listVM1;
                     break;
                 case 1:
-                    listVM2 = invoiceBLL.findForStatistic2(from, to);
+                    listVM2 = invoiceBLL.FindForStatistic2(from, to);
                     System.Data.DataTable dt = new System.Data.DataTable();
                     dt.Columns.AddRange(new DataColumn[]
                     {

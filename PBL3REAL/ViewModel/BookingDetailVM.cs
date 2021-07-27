@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PBL3REAL.ViewModel
 {
-    class BookingDetailVM : BookingVM
+    public class BookingDetailVM : BookingVM
     {
         public BookingDetailVM()
         {

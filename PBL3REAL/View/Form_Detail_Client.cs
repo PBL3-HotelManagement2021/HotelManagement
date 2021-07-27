@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using PBL3REAL.BLL;
 using PBL3REAL.ViewModel;
 using PBL3REAL.Extention;
+using PBL3REAL.BLL.Interfaces;
 
 namespace PBL3REAL.View
 {
@@ -20,7 +21,7 @@ namespace PBL3REAL.View
 
         //----- User Instance Variables -----//
         private ClientVM clientVM;
-        private QLClientBLL clientBLL;
+        private IClientBLL clientBLL;
         private int id;
         private bool Editable_Cli;
 

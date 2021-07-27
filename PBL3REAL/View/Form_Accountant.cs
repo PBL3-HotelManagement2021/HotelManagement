@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using PBL3REAL.BLL;
+using PBL3REAL.BLL.Interfaces;
 using PBL3REAL.ViewModel;
 
 namespace PBL3REAL.View
@@ -18,7 +19,7 @@ namespace PBL3REAL.View
         private List<Button> listButton;
 
         //----- Invoice Instance Variables -----//
-        private QLInvoiceBLL qLInvoiceBLL;
+        private IInvoiceBLL qLInvoiceBLL;
         private string search = "";
         private string orderBy = "";
         private readonly int ROWS = 5;
@@ -77,10 +78,10 @@ namespace PBL3REAL.View
         private void LoadData()
         {
             dgv_Invoice.DataSource = null;
-            totalPage = qLInvoiceBLL.getPagination(ROWS, search , calendarVM);
+            totalPage = qLInvoiceBLL.GetPagination(ROWS, search , calendarVM);
             if (totalPage != 0)
             {
-                dgv_Invoice.DataSource = qLInvoiceBLL.findByProperties(currentPage, ROWS,"", search, orderBy, calendarVM);
+                dgv_Invoice.DataSource = qLInvoiceBLL.FindByProperties(currentPage, ROWS,"", search, orderBy, calendarVM);
                 dgv_Invoice.Columns["InvIdbook"].Visible = false;
                 dgv_Invoice.Columns["IdInvoice"].Visible = false;
                 tb_InvoicePageNumber.Text = currentPage + "/" + totalPage;
@@ -124,7 +125,7 @@ namespace PBL3REAL.View
         {
             if (dgv_Invoice.SelectedRows.Count == 1)
             {
-                qLInvoiceBLL.deleteInvoice(int.Parse(dgv_Invoice.SelectedRows[0].Cells["IdInvoice"].Value.ToString()));
+                qLInvoiceBLL.DeleteInvoice(int.Parse(dgv_Invoice.SelectedRows[0].Cells["IdInvoice"].Value.ToString()));
                 LoadData();
             }
             else

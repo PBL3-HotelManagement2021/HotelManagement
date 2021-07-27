@@ -15,6 +15,7 @@ using PBL3REAL.BLL;
 using PBL3REAL.Extention;
 using PBL3REAL.View;
 using System.Linq;
+using PBL3REAL.BLL.FacadeBLL;
 
 namespace PBL3REAL.View
 {
@@ -22,10 +23,7 @@ namespace PBL3REAL.View
     {
         //---------- GLOBAL DECLARATION ----------//
         //----- BLL Variables -----//
-        private QLBookingBLL bookingBLL;
-        private QLInvoiceBLL qLInvoiceBLL;
-        private QLRoomBLL roomBLL;
-        private QLRoomTypeBLL roomTypeBLL;
+        ReceiptionistManageFacade _receiptionistManage;
 
 
         //----- Booking Variables -----//
@@ -58,17 +56,14 @@ namespace PBL3REAL.View
             InitializeComponent();
 
             /*** Initialize Parameter ***/
+            _receiptionistManage = new ReceiptionistManageFacade();
             //-> Booking Parameters
-            bookingBLL = new QLBookingBLL();
-            qLInvoiceBLL = new QLInvoiceBLL();
             searchByDate = new CalendarVM();
 
             //-> Room Parameters
-            roomBLL = new QLRoomBLL();
             tb_RoomPageNumber.Text = "";
 
             //-> Room Type Parameters
-            roomTypeBLL = new QLRoomTypeBLL();
             cbb_RoomTypeStatus.SelectedIndex = 0;
 
             /*** Load Data & Set GUI ***/
@@ -117,7 +112,7 @@ namespace PBL3REAL.View
         {
            
             dgv_Booking.DataSource = null;
-            dgv_Booking.DataSource = bookingBLL.FindByProperty(BookingCurrentPage, ROWS,searchByDate, bookingSearch, bookOrderBy,bookStatus);
+            dgv_Booking.DataSource = _receiptionistManage.FindBooking(BookingCurrentPage, ROWS,searchByDate, bookingSearch, bookOrderBy,bookStatus);
             dgv_Booking.Columns["Deposit"].Visible = false;
             dgv_Booking.Columns["IdBook"].Visible = false;
             dgv_Booking.Columns["BookNote"].Visible = false;
@@ -131,7 +126,7 @@ namespace PBL3REAL.View
             searchByDate.fromDate = dtp_BookingFrom.Value;
             searchByDate.toDate = dtp_BookingTo.Value;
             BookingCurrentPage = 1;
-            totalBookingPages = bookingBLL.GetPagination(ROWS, searchByDate, bookingSearch, bookStatus);
+            totalBookingPages = _receiptionistManage.GetBookingPagination(ROWS, searchByDate, bookingSearch, bookStatus);
             if (totalBookingPages != 0)
             {
                 tb_BookingPageNumber.Text = BookingCurrentPage + "/" + totalBookingPages;
@@ -165,7 +160,7 @@ namespace PBL3REAL.View
                 if(r[0].Cells["Status"].Value.ToString() != "Processed")
                 {
                     Form_Detail_Invoice f = null;
-                    var list = qLInvoiceBLL.findByProperties(1, 1, r[0].Cells["Code"].Value.ToString(), "", "",null);
+                    var list = _receiptionistManage.FindInvoice(1, 1, r[0].Cells["Code"].Value.ToString(), "", "",null);
                     if(list.Count!=0) f = new Form_Detail_Invoice("",list[0].IdInvoice);
                     else  f = new Form_Detail_Invoice(r[0].Cells["Code"].Value.ToString(),0);
                     f.myDel = searchBookData;
@@ -252,7 +247,7 @@ namespace PBL3REAL.View
                 {
                     try
                     {
-                        bookingBLL.DelBooking(int.Parse(r[0].Cells["IdBook"].Value.ToString()), r[0].Cells["Status"].Value.ToString());
+                        _receiptionistManage.DelBooking(int.Parse(r[0].Cells["IdBook"].Value.ToString()), r[0].Cells["Status"].Value.ToString());
                         searchBookData();
                     }
                     catch (Exception mes)
@@ -320,7 +315,7 @@ namespace PBL3REAL.View
         //----- Room Functions -----//
         private void AddCbbRoomFilter()
         {
-            List<CbbItem> list = roomTypeBLL.addCombobox();
+            List<CbbItem> list = _receiptionistManage.AddCombobox();
             list.Insert(0, new CbbItem(0, "All RoomType"));
             List<CbbItem> res = list;
             cbb_RoomFilter.DataSource = res;
@@ -336,14 +331,14 @@ namespace PBL3REAL.View
         private void LoadRoomList()
         {
             fllaypn_RoomSwitchPage.DataSource = null;
-            fllaypn_RoomSwitchPage.DataSource = roomBLL.findByProperty(RoomCurrentPage, ROWS, idRoomTypeSearch, nameSearch, roomActivate);
+            fllaypn_RoomSwitchPage.DataSource = _receiptionistManage.FindRoom(RoomCurrentPage, ROWS, idRoomTypeSearch, nameSearch, roomActivate);
             fllaypn_RoomSwitchPage.Columns["IdRoom"].Visible = false;
             fllaypn_RoomSwitchPage.Columns["RoomActiveflag"].Visible = false;
             
         }
         public void findidRoom()
         {
-            RoomDetailVM roomDetailVM = roomBLL.findByID(1);
+            RoomDetailVM roomDetailVM = _receiptionistManage.FindRoomById(1);
         }
         public void ReloadRoomData()
         {
@@ -359,7 +354,7 @@ namespace PBL3REAL.View
             nameSearch = tb_RoomSearch.Text;
             roomActivate = cbb_RoomActive.SelectedIndex;
             RoomCurrentPage = 1;
-            totalRoomPages = roomBLL.getPagination(ROWS, idRoomTypeSearch, nameSearch,roomActivate);
+            totalRoomPages = _receiptionistManage.GetRoomPagination(ROWS, idRoomTypeSearch, nameSearch,roomActivate);
             LoadRoomList();
             if (totalRoomPages != 0) tb_RoomPageNumber.Text = RoomCurrentPage + "/" + totalRoomPages;
             else tb_RoomPageNumber.Text = "0/0";
@@ -434,7 +429,7 @@ namespace PBL3REAL.View
             DataGridViewSelectedRowCollection r = fllaypn_RoomSwitchPage.SelectedRows;
             if (r.Count == 1)
             {
-                roomBLL.deleteRoom(int.Parse(r[0].Cells["IdRoom"].Value.ToString()));
+                _receiptionistManage.DeleteRoom(int.Parse(r[0].Cells["IdRoom"].Value.ToString()));
                 ReloadRoomData();
                 //Reload Data
             }
@@ -452,7 +447,7 @@ namespace PBL3REAL.View
             DataGridViewSelectedRowCollection r = fllaypn_RoomSwitchPage.SelectedRows;
             if (r.Count == 1)
             {
-                roomBLL.restoreRoom(int.Parse(r[0].Cells["IdRoom"].Value.ToString()));
+                _receiptionistManage.RestoreRoom(int.Parse(r[0].Cells["IdRoom"].Value.ToString()));
                 ReloadRoomData();
                 //Reload Data
             }
@@ -495,7 +490,7 @@ namespace PBL3REAL.View
         private void LoadRoomTypeList()
         {
             dgv_RoomType.DataSource = null;
-            dgv_RoomType.DataSource = roomTypeBLL.findByProperty(rotySearch,rotyOrderBy,rotyStatus);
+            dgv_RoomType.DataSource = _receiptionistManage.FindRoomType(rotySearch,rotyOrderBy,rotyStatus);
             dgv_RoomType.Columns["IdRoomtype"].Visible = false;
             dgv_RoomType.Columns["RoTyActiveflag"].Visible = false;
         }
@@ -572,7 +567,7 @@ namespace PBL3REAL.View
             {
                 try
                 {
-                    roomTypeBLL.deleteRoomType(int.Parse(r[0].Cells["IdRoomtype"].Value.ToString()));
+                    _receiptionistManage.DeleteRoomType(int.Parse(r[0].Cells["IdRoomtype"].Value.ToString()));
                     AddCbbRoomFilter();
                     LoadRoomTypeList();
                 }
@@ -600,7 +595,7 @@ namespace PBL3REAL.View
                 {
                     try
                     {
-                        roomTypeBLL.restoreRoomType(int.Parse(r[0].Cells["IdRoomtype"].Value.ToString()));
+                        _receiptionistManage.RestoreRoomType(int.Parse(r[0].Cells["IdRoomtype"].Value.ToString()));
                         AddCbbRoomFilter();
                         LoadRoomTypeList();
                     }

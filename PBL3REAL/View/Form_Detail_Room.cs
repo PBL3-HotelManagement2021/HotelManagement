@@ -9,6 +9,7 @@ using HotelManagement.BBL.Implement;
 using HotelManagement.BLL.Implement;
 using HotelManagement.ViewModel;
 using PBL3REAL.BLL;
+using PBL3REAL.BLL.FacadeBLL;
 using PBL3REAL.Extention;
 using PBL3REAL.ViewModel;
 
@@ -22,8 +23,7 @@ namespace HotelManagement.View
         public MyDel myDel;
 
         //----- BLL Room Instance Variables -----//
-        private QLRoomBLL _roomBLL;
-        private QLRoomTypeBLL _roomTypeBLL;
+        private DetailRoomManageFacade _detailRoomManageFacade;
         private int idRoom;
         private RoomDetailVM roomDetailVM;
         private List<int> listdel;
@@ -34,8 +34,7 @@ namespace HotelManagement.View
             //--- Initialize ---//
             InitializeComponent();
             this.idRoom = idRoom;
-            _roomBLL = new QLRoomBLL();
-            _roomTypeBLL = new QLRoomTypeBLL();
+            _detailRoomManageFacade = new DetailRoomManageFacade();
 
             //--- Load Data ---//
             comboboxRoomType();
@@ -56,12 +55,12 @@ namespace HotelManagement.View
         //----- Load Data -----//
         private void comboboxRoomType()
         {
-            List<CbbItem> res = _roomTypeBLL.addCombobox();
+            List<CbbItem> res = _detailRoomManageFacade.AddCombobox();
             cbb_RoomType.DataSource = res;
         }
         private void comboboxStatus()
         {
-            List<CbbItem> res = _roomBLL.addComboboxStatus();
+            List<CbbItem> res = _detailRoomManageFacade.AddComboboxStatus();
             cbb_RoomStatus.DataSource = res;
         }
         private void addDataGridView()
@@ -73,7 +72,7 @@ namespace HotelManagement.View
         }
         private void LoadData()
         {
-            roomDetailVM = _roomBLL.findByID(idRoom);
+            roomDetailVM = _detailRoomManageFacade.FindByID(idRoom);
             tb_RoomName.Text = roomDetailVM.RoomName;
             tb_RoomDescription.Text = roomDetailVM.RoomDescription;
             addDataGridView();
@@ -127,8 +126,8 @@ namespace HotelManagement.View
             roomDetailVM.RoomName = tb_RoomName.Text;
             roomDetailVM.RoomDescription = tb_RoomDescription.Text;
             roomDetailVM.IdRoomType = ((CbbItem)cbb_RoomType.SelectedItem).Value;
-            if (idRoom != 0)  { _roomBLL.editRoom(roomDetailVM, listdel); }
-            else  { _roomBLL.addRoom(roomDetailVM); }
+            if (idRoom != 0)  { _detailRoomManageFacade.EditRoom(roomDetailVM, listdel); }
+            else  { _detailRoomManageFacade.AddRoom(roomDetailVM); }
             myDel();
             this.Dispose();
         }

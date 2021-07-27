@@ -2,6 +2,7 @@
 using HotelManagement.DAL.Impl;
 using HotelManagement.DAL.Implement;
 using HotelManagement.ViewModel;
+using PBL3REAL.BLL.Interfaces;
 using PBL3REAL.DAL.Facade;
 using PBL3REAL.Extention;
 using PBL3REAL.Model;
@@ -13,7 +14,7 @@ using System.Text;
 
 namespace HotelManagement.BLL.Implement
 {
-    public class QLRoomBLL
+    public class QLRoomBLL : IRoomBLL
     { 
         private Mapper mapper;  
         private RoomDALManageFacade _roomDALManageFacade;
@@ -22,7 +23,7 @@ namespace HotelManagement.BLL.Implement
             mapper = new Mapper(MapperVM.config);
             _roomDALManageFacade = new RoomDALManageFacade();
         }
-        public void addRoom(RoomDetailVM roomDetailVM)
+        public void AddRoom(RoomDetailVM roomDetailVM)
         {
             var test = _roomDALManageFacade.FindRoom(1, 1, 0, roomDetailVM.RoomName,0);
             if (test.Count!=0) throw new ArgumentException("Room Name already existed");
@@ -51,7 +52,7 @@ namespace HotelManagement.BLL.Implement
             }
         }
 
-        public void deleteRoom(int id)
+        public void DeleteRoom(int id)
         {
             try
             {
@@ -64,7 +65,7 @@ namespace HotelManagement.BLL.Implement
 
         }
 
-        public void restoreRoom(int id)
+        public void RestoreRoom(int id)
         {
             try
             {
@@ -78,7 +79,7 @@ namespace HotelManagement.BLL.Implement
 
         }
 
-        public void editRoom(RoomDetailVM roomVM, List<int> listdel)
+        public void EditRoom(RoomDetailVM roomVM, List<int> listdel)
         {
             Room room = new Room();
             mapper.Map(roomVM, room);
@@ -106,7 +107,7 @@ namespace HotelManagement.BLL.Implement
                 Console.WriteLine(e.Message);
             }
         }
-        public List<RoomVM> findByProperty(int pages, int rows, int idroomtype, string name,int isActive)
+        public List<RoomVM> FindByProperty(int pages, int rows, int idroomtype, string name,int isActive)
         {
             int start = (pages - 1) * rows;
             int length = rows;
@@ -122,7 +123,7 @@ namespace HotelManagement.BLL.Implement
             }
             return listRoomVM;
         }
-        public RoomDetailVM findByID(int idroom)
+        public RoomDetailVM FindByID(int idroom)
         {
             Room room = _roomDALManageFacade.FindRoomById(idroom);
             RoomDetailVM roomDetailVM = mapper.Map<RoomDetailVM>(room);
@@ -143,7 +144,7 @@ namespace HotelManagement.BLL.Implement
             return roomDetailVM;
         }
 
-        public List<AvailableRoomVM> findAvailableRoom(int idRoomType , DateTime fromDate , DateTime toDate)
+        public List<AvailableRoomVM> FindAvailableRoom(int idRoomType , DateTime fromDate , DateTime toDate)
         {
             List<AvailableRoomVM> listVM = new List<AvailableRoomVM>();
             foreach(Room room in _roomDALManageFacade.FindAvailableRoom(idRoomType, fromDate, toDate))
@@ -153,7 +154,7 @@ namespace HotelManagement.BLL.Implement
             }
             return listVM;
         }
-        public List<CbbItem> addComboboxStatus()
+        public List<CbbItem> AddComboboxStatus()
         {
             List<CbbItem> listcbb = new List<CbbItem>();
             foreach(Status status in _roomDALManageFacade.GetAllStatus())
@@ -168,7 +169,7 @@ namespace HotelManagement.BLL.Implement
             return listcbb;
         }
 
-        public int getPagination(int rows ,int idRoomType, string name,int isActive)
+        public int GetPagination(int rows ,int idRoomType, string name,int isActive)
         {
             int totalRows = _roomDALManageFacade.GetRoomTotalRow(idRoomType,name,isActive);
             int totalpage;

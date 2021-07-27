@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using PBL3REAL.BLL;
 using PBL3REAL.ViewModel;
 using PBL3REAL.Extention;
+using PBL3REAL.BLL.Interfaces;
 
 namespace PBL3REAL.View
 {
@@ -15,7 +16,7 @@ namespace PBL3REAL.View
     {
         //---------- GLOBAL DECLARATION ----------//
         //----- Account Instance Variables -----//
-        private QLUserBLL qLUserBLL;
+        private IUserBLL qLUserBLL;
 
         //---------- FORM CONSTRUCTOR ----------//
         public Form_Login()
@@ -43,7 +44,7 @@ namespace PBL3REAL.View
             properties.Add("password", tb_Password.Text);
             try
             {
-                UserVM userVM = qLUserBLL.checkUser(properties);
+                UserVM userVM = qLUserBLL.CheckUser(properties);
                 if (userVM != null)
                 {
                     check = true;

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using PBL3REAL.BLL;
+using PBL3REAL.BLL.Interfaces;
 
 namespace PBL3REAL.View
 {
@@ -17,7 +18,7 @@ namespace PBL3REAL.View
         private List<Button> listButton;
 
         //----- Client Instance Variables -----//
-        private QLClientBLL clientBLL;
+        private IClientBLL clientBLL;
         private string search = "";
         private string orderBy = "";
         private readonly int ROWS = 5;

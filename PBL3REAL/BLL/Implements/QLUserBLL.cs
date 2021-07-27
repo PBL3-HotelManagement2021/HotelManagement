@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using HotelManagement.DAL.Implement;
+using PBL3REAL.BLL.Interfaces;
 using PBL3REAL.DAL;
 using PBL3REAL.DAL.Facade;
 using PBL3REAL.Extention;
@@ -11,7 +12,7 @@ using System.Text;
 
 namespace PBL3REAL.BLL
 {
-    public class QLUserBLL
+    public class QLUserBLL : IUserBLL
     {
         public static  UserVM stoUser;
         private Mapper mapper;
@@ -22,7 +23,7 @@ namespace PBL3REAL.BLL
             _userDALManageFacade = new UserDALManageFacade();
         }
 
-        public List<UserVM> findByProperty(Dictionary<string , string >search , string orderBy)
+        public List<UserVM> FindByProperty(Dictionary<string , string >search , string orderBy)
         {
             List<UserVM> listVM = new List<UserVM>();
             foreach(User user in _userDALManageFacade.FindUser(search,orderBy))
@@ -43,14 +44,14 @@ namespace PBL3REAL.BLL
             return listVM;
         }
 
-        public bool checkexisted(Dictionary<string, string> properties)
+        public bool Checkexisted(Dictionary<string, string> properties)
         {
             var list = _userDALManageFacade.CheckExisted(properties);
             if (list.Count == 0) return true;
             return false;
         }
 
-        public UserVM findDetailUser(int id)
+        public UserVM FindDetailUser(int id)
         {
             UserVM userVM = null;
             try
@@ -75,7 +76,7 @@ namespace PBL3REAL.BLL
             return userVM;
         }
 
-        public UserVM checkUser(Dictionary<string, string> properties)
+        public UserVM CheckUser(Dictionary<string, string> properties)
         {
             QLUserBLL.stoUser = null;
             try
@@ -109,7 +110,7 @@ namespace PBL3REAL.BLL
         }
 
        
-        public void delUser(int idUser)
+        public void DelUser(int idUser)
         {
             try
             {
@@ -122,7 +123,7 @@ namespace PBL3REAL.BLL
             }
         }
 
-        public void restoreUser(int idUser)
+        public void RestoreUser(int idUser)
         {
             try
             {
@@ -134,7 +135,7 @@ namespace PBL3REAL.BLL
             }
         }
 
-        public void updateUser(UserVM userVM ,List<int>listdel , bool isPassChanged)
+        public void UpdateUser(UserVM userVM ,List<int>listdel , bool isPassChanged)
         {
             User user = new User();
             mapper.Map(userVM, user);
@@ -172,7 +173,7 @@ namespace PBL3REAL.BLL
         }
 
 
-        public void addUser(UserVM userVM)
+        public void AddUser(UserVM userVM)
         {
             int idUser = _userDALManageFacade.GetnextUserid();
             User user = new User();
@@ -210,7 +211,7 @@ namespace PBL3REAL.BLL
             }
         }
 
-        public List<RoleVM> getRoleForUser()
+        public List<RoleVM> GetRoleForUser()
         {
             List<RoleVM> listVM = new List<RoleVM>();
             foreach(Role role in _userDALManageFacade.GetAllRole())

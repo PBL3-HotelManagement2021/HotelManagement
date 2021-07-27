@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using HotelManagement.DAL.Implement;
 using HotelManagement.ViewModel;
+using PBL3REAL.BLL.Interfaces;
 using PBL3REAL.DAL.Facade;
 using PBL3REAL.Extention;
 using PBL3REAL.Model;
@@ -11,7 +12,7 @@ using System.Text;
 
 namespace HotelManagement.BBL.Implement
 {
-    public class QLRoomTypeBLL
+    public class QLRoomTypeBLL : IRoomTypeBLL
     {
      
         private Mapper mapper;
@@ -23,7 +24,7 @@ namespace HotelManagement.BBL.Implement
             _roomTypeDALManageFacade = new RoomTypeDALManageFacade();
         }
 
-        public List<RoomTypeVM> findByProperty(string search , string orderBy,string status)
+        public List<RoomTypeVM> FindByProperty(string search , string orderBy,string status)
         {
             List<RoomTypeVM> listVM = new List<RoomTypeVM>();
             foreach (RoomType roomType in _roomTypeDALManageFacade.FindRoomtype(search,orderBy,status))
@@ -33,7 +34,7 @@ namespace HotelManagement.BBL.Implement
             }
             return listVM;
         }
-        public void addRoomType(RoomTypeVM roomTypeVM)
+        public void AddRoomType(RoomTypeVM roomTypeVM)
         {
             int idRoomType = _roomTypeDALManageFacade.GetnextidRoomType();
             RoomType roomType = new RoomType();
@@ -59,7 +60,7 @@ namespace HotelManagement.BBL.Implement
             }
            
         }
-        public void editRoomType(RoomTypeVM roomTypeVM , List<int>listdel)
+        public void EditRoomType(RoomTypeVM roomTypeVM , List<int>listdel)
         {
             RoomType roomType = new RoomType();
             mapper.Map(roomTypeVM, roomType);
@@ -85,16 +86,16 @@ namespace HotelManagement.BBL.Implement
             
         }
 
-        public void restoreRoomType(int idRoomType)
+        public void RestoreRoomType(int idRoomType)
         {
             _roomTypeDALManageFacade.RestoreRoomtype(idRoomType);         
         }
-        public void deleteRoomType(int idRoomType)
+        public void DeleteRoomType(int idRoomType)
         {
             _roomTypeDALManageFacade.DeleteRoomtype(idRoomType);
         }
 
-        public RoomTypeVM findbyid(int id)
+        public RoomTypeVM Findbyid(int id)
         {
             RoomType roomType = _roomTypeDALManageFacade.FindRoomtypeById(id);
             RoomTypeVM roomTypeVM = mapper.Map<RoomTypeVM>(roomType);
@@ -106,7 +107,7 @@ namespace HotelManagement.BBL.Implement
             return roomTypeVM;
         }
 
-        public List<CbbItem> addCombobox()
+        public List<CbbItem> AddCombobox()
         {
 
             List<CbbItem> listcbb = new List<CbbItem>();

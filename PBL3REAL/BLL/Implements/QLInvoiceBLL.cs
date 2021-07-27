@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using HotelManagement.DAL.Implement;
+using PBL3REAL.BLL.Interfaces;
 using PBL3REAL.DAL;
 using PBL3REAL.DAL.FacadeDAL;
 using PBL3REAL.Model;
@@ -10,7 +11,7 @@ using System.Text;
 
 namespace PBL3REAL.BLL
 {
-    public class QLInvoiceBLL
+    public class QLInvoiceBLL : IInvoiceBLL
     {
         private Mapper mapper;
         private InvoiceDALManageFacade _invoiceDALManageFacade; 
@@ -20,7 +21,7 @@ namespace PBL3REAL.BLL
             _invoiceDALManageFacade = new InvoiceDALManageFacade();
         }
 
-        public InvoiceDetailVM infoAddInvoice(string bookCode)
+        public InvoiceDetailVM InfoAddInvoice(string bookCode)
         {
             try
             {
@@ -68,7 +69,7 @@ namespace PBL3REAL.BLL
             }
         }
 
-        public void addInvoice(InvoiceDetailVM invoiceDetailVM)
+        public void AddInvoice(InvoiceDetailVM invoiceDetailVM)
         {
             Invoice invoice = new Invoice();
             mapper.Map(invoiceDetailVM, invoice);
@@ -83,12 +84,12 @@ namespace PBL3REAL.BLL
     
         }
 
-        public void deleteInvoice(int  idInvoice)
+        public void DeleteInvoice(int  idInvoice)
         {
             _invoiceDALManageFacade.DeleteInvoice(idInvoice);
         }
 
-        public InvoiceDetailVM getDetail(int idinvoice)
+        public InvoiceDetailVM GetDetail(int idinvoice)
         {
             try
             {                
@@ -126,7 +127,7 @@ namespace PBL3REAL.BLL
             }
         }
 
-        public List<InvoiceVM>findByProperties(int pages , int rows ,string bookCode, string invCode , string orderBy , CalendarVM searchByDate)
+        public List<InvoiceVM>FindByProperties(int pages , int rows ,string bookCode, string invCode , string orderBy , CalendarVM searchByDate)
         {
             int start = (pages - 1) * rows;
             int length = rows;
@@ -140,7 +141,7 @@ namespace PBL3REAL.BLL
             return listVm;
         }
 
-        public int getPagination(int rows, string code , CalendarVM searchByDate)
+        public int GetPagination(int rows, string code , CalendarVM searchByDate)
         {
             int totalRows = _invoiceDALManageFacade.GetInvoiceTotalRow(code, searchByDate);
             int totalpage;
@@ -155,7 +156,7 @@ namespace PBL3REAL.BLL
             return totalpage;
         }
 
-        public List<Statistic1> findForStatistic(DateTime fromDate, DateTime toDate)
+        public List<Statistic1> FindForStatistic(DateTime fromDate, DateTime toDate)
         {
             List<Statistic1> listVM = null;
             try
@@ -169,7 +170,7 @@ namespace PBL3REAL.BLL
             return listVM;
         }
 
-        public List<Statistic2>findForStatistic2 (DateTime fromDate, DateTime toDate)
+        public List<Statistic2>FindForStatistic2 (DateTime fromDate, DateTime toDate)
         {
             return _invoiceDALManageFacade.FindForStatistic2(fromDate, toDate);
         }

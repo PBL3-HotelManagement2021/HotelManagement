@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using PBL3REAL.BLL;
+using PBL3REAL.BLL.Interfaces;
 using PBL3REAL.ViewModel;
 namespace PBL3REAL.View
 {
@@ -13,7 +14,7 @@ namespace PBL3REAL.View
     {
         //---------- GLOBAL DECLARATION ----------//
         //----- User Instance Variables -----//
-        private QLUserBLL qLUserBLL;
+        private IUserBLL qLUserBLL;
 
         //---------- FORM CONSTRUCTOR ----------//
         public Form_Switch_Role()
@@ -36,7 +37,7 @@ namespace PBL3REAL.View
         }
         private void addToCbb()
         {
-            cbb_LoginRole.DataSource = qLUserBLL.getRoleForUser();
+            cbb_LoginRole.DataSource = qLUserBLL.GetRoleForUser();
             cbb_LoginRole.DisplayMember = "RoleName";
         }
 

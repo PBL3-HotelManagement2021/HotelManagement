@@ -12,6 +12,7 @@ using PBL3REAL.Extention;
 using HotelManagement.BBL.Implement;
 using HotelManagement.BLL.Implement;
 using HotelManagement.ViewModel;
+using PBL3REAL.BLL.FacadeBLL;
 
 namespace PBL3REAL.View
 {
@@ -23,10 +24,7 @@ namespace PBL3REAL.View
         public MyDel myDel;
 
         //----- BLL Booking Detail Instance Variables -----//
-        private QLBookingBLL BookingBLL;
-        private QLRoomTypeBLL roomTypeBLL;
-        private QLRoomBLL roomBLL;
-        private QLClientBLL clientBLL;
+        private DetailBookingManageFacade _detailBookingManageFacade;
 
         //----- Booking Detail Instance Variables -----//
         private int IDBook = 0;
@@ -36,7 +34,6 @@ namespace PBL3REAL.View
         private List<AvailableRoomVM> listForCbb;
         private int idClient;
         private string currentRoomType;
-        private List<int> listOld;
         private List<int> listDel;
         private int duration;
 
@@ -45,10 +42,7 @@ namespace PBL3REAL.View
         {
             //--- Initialize ---//
             InitializeComponent();
-            BookingBLL = new QLBookingBLL();
-            roomTypeBLL = new QLRoomTypeBLL();
-            roomBLL = new QLRoomBLL();
-            clientBLL = new QLClientBLL();
+            _detailBookingManageFacade = new DetailBookingManageFacade();
             subBookings = new BindingList<SubBookingDetailVM>();
             subBookings.AllowNew = true;
             subBookings.AllowRemove = true;
@@ -57,7 +51,6 @@ namespace PBL3REAL.View
             dgv.AllowUserToAddRows = false;
             dgv.AllowUserToDeleteRows = false;
             listForCbb = new List<AvailableRoomVM>();
-            listOld = new List<int>();
             listDel = new List<int>();
             //     storeDelRoom = new List<AvailableRoomVM>();
             storeRoomDel = new Dictionary<string, List<AvailableRoomVM>>();
@@ -72,7 +65,7 @@ namespace PBL3REAL.View
         //----- Load Data -----//
         private void LoadRoomTypeList()
         {
-            List<CbbItem> list = roomTypeBLL.addCombobox();
+            List<CbbItem> list = _detailBookingManageFacade.AddComboboxRoomType();
             List<CbbItem> res = list;
             cbb_RoomType.DataSource = res;
         }
@@ -88,7 +81,7 @@ namespace PBL3REAL.View
         }
         private void LoadAvailableTempRoomList(int IdRoomtype, DateTime fromDate, DateTime toDate)
         {
-            listForCbb = roomBLL.findAvailableRoom(IdRoomtype, fromDate, toDate);
+            listForCbb = _detailBookingManageFacade.FindAvailableRoom(IdRoomtype, fromDate, toDate);
             string rotyname = listForCbb[0].RoTyName;
             if (storeRoomDel.ContainsKey(rotyname))
             {
@@ -124,7 +117,7 @@ namespace PBL3REAL.View
             {
                 rbtn_OldClient.Checked = true;
                 tb_ClientSearch.Enabled = false;
-                detailVM = BookingBLL.GetDetail(IDBook);
+                detailVM = _detailBookingManageFacade.GetDetail(IDBook);
                 //View or Edit
                 rbtn_OldClient.Checked = true;
                 idClient = detailVM.clientVM.IdClient;
@@ -156,7 +149,7 @@ namespace PBL3REAL.View
                 {
                     foreach (SubBookingDetailVM item in subBookings)
                     {
-                        RoomDetailVM temproom = roomBLL.findByID(item.BoodetIdroom);
+                        RoomDetailVM temproom = _detailBookingManageFacade.FindRoomByID(item.BoodetIdroom);
                         /* BookedRoomVMs.Add(new RoomVM
                          {
                              IdRoom = temproom.IdRoom,
@@ -243,7 +236,7 @@ namespace PBL3REAL.View
             {
                 detailVM.ListSub.Add(val);
             }
-            BookingBLL.AddBooking(detailVM);
+            _detailBookingManageFacade.AddBooking(detailVM);
         }
         private void UpdateBooking()
         {
@@ -260,7 +253,7 @@ namespace PBL3REAL.View
             detailVM.clientVM.Gmail = tb_ClientEmail.Text;
             detailVM.clientVM.Name = tb_ClientName.Text;
             detailVM.clientVM.Phone = tb_ClientPhone.Text;
-            BookingBLL.UpdateBooking(detailVM, listDel);
+            _detailBookingManageFacade.UpdateBooking(detailVM, listDel);
         }
 
         //---------- EVENTS ----------//
@@ -276,7 +269,7 @@ namespace PBL3REAL.View
                 Dictionary<string, string> properties = new Dictionary<string, string>();
                 properties.Add("phone", tb_ClientSearch.Text);
                 properties.Add("status", "Active");
-                List<ClientVM> listClient = clientBLL.FindByProperty(1,10000,properties,"");
+                List<ClientVM> listClient = _detailBookingManageFacade.FindClient(1,10000,properties,"");
                 if (listClient != null && listClient.Count != 0)
                 {
                     tb_ClientEmail.Text = listClient[0].Gmail;
@@ -387,7 +380,7 @@ namespace PBL3REAL.View
         }
         private void btn_Checkin_Click(object sender, EventArgs e)
         {
-            BookingBLL.CheckinBooking(IDBook);
+            _detailBookingManageFacade.CheckinBooking(IDBook);
             myDel();
             this.Dispose();
         }

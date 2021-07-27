@@ -15,6 +15,7 @@ using PBL3REAL.DAL;
 using PBL3REAL.Model;
 using PBL3REAL.ViewModel;
 using Newtonsoft.Json;
+using PBL3REAL.BLL.Interfaces;
 
 namespace PBL3REAL.View
 {
@@ -26,7 +27,7 @@ namespace PBL3REAL.View
         public MyDel myDel;
 
         //----- BLL Room Type Instance Variables -----//
-        private QLRoomTypeBLL roomTypeBLL;
+        private IRoomTypeBLL roomTypeBLL;
         private int idRoomType;
         private int TotalPic = 0;
         private int TotalPicAdded = 0;
@@ -57,7 +58,7 @@ namespace PBL3REAL.View
             else
             {
                 //View or edit
-                roomTypeVM = roomTypeBLL.findbyid(idroomtype);
+                roomTypeVM = roomTypeBLL.Findbyid(idroomtype);
                 tb_RoomTypeName.Text = roomTypeVM.Name;
                 tb_RoomTypeDescription.Text = roomTypeVM.Description;
                 tb_RoomTypePrice.Text = roomTypeVM.Price.ToString();
@@ -400,7 +401,7 @@ namespace PBL3REAL.View
                 ImgstoUrl = "home/cuong/nooooo"
             };
             roomTypeVM.ListImg.Add(image2);
-            roomTypeBLL.addRoomType(roomTypeVM);
+            roomTypeBLL.AddRoomType(roomTypeVM);
         }
 
         //---------- EVENTS ----------//
@@ -626,7 +627,7 @@ namespace PBL3REAL.View
                 roomTypeVM.Name = tb_RoomTypeName.Text;
                 roomTypeVM.Price = price;
                 roomTypeVM.Description = tb_RoomTypeDescription.Text;
-                roomTypeBLL.editRoomType(roomTypeVM, listdel);
+                roomTypeBLL.EditRoomType(roomTypeVM, listdel);
             }
             myDel();
             this.Dispose();
