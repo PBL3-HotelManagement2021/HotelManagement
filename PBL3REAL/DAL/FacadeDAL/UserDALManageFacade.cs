@@ -33,19 +33,19 @@ namespace PBL3REAL.DAL.Facade
         }
         public void AddUser(User user)
         {
-            _userDALProvider.AddUser(user);
+            _userDALProvider.Add(user);
         }
         public void UpdateUser(User user)
         {
-            _userDALProvider.UpdateUser(user);
+            _userDALProvider.Update(user);
         }
         public void DelUser(int idUser)
         {
-            _userDALProvider.DelUser(idUser);
+            _userDALProvider.Delete(idUser);
         }
         public void RestoreUser(int idUser)
         {
-            _userDALProvider.RestoreUser(idUser);
+            _userDALProvider.Restore(idUser);
         }
         public void AddUserRole(List<UserRole> list)
         {
@@ -61,7 +61,7 @@ namespace PBL3REAL.DAL.Facade
         }
         public int GetnextUserid()
         {
-            return _userDALProvider.Getnextid();
+            return _userDALProvider.GetNextId();
         }
         public void DeleteImage(List<int> listdel)
         {
@@ -79,7 +79,7 @@ namespace PBL3REAL.DAL.Facade
         }
         public Role GetRoleDetail(int idRole)
         {
-            return _roleDALProvider.GetDetail(idRole);
+            return _roleDALProvider.FindById(idRole);
         }
 
     }

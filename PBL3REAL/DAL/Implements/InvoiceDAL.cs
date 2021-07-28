@@ -78,13 +78,16 @@ namespace PBL3REAL.DAL
         }
 
 
-        public void Add(Invoice invoice)
+        public int Add(Invoice invoice)
         {
+            int trackedID = 0;
             invoice.InvCreatedate = DateTime.Now;
             invoice.InvUpdatedate = DateTime.Now;
             AppDbContext.Instance.Invoices.Add(invoice);
             AppDbContext.Instance.SaveChanges();
+            trackedID = invoice.IdInvoice;
             AppDbContext.Instance.Entry(invoice).State = EntityState.Detached;
+            return trackedID;
         }
 
         public void Delete(int idInvoice)
@@ -181,6 +184,26 @@ namespace PBL3REAL.DAL
                 }
             }
             return list;
+        }
+
+        public int Update(Invoice t)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Restore(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Invoice> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public int GetNextId()
+        {
+            throw new NotImplementedException();
         }
     }
 }

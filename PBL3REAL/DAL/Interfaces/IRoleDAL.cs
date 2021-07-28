@@ -5,10 +5,8 @@ using System.Text;
 
 namespace PBL3REAL.DAL.Interfaces
 {
-    interface IRoleDAL
+    interface IRoleDAL : SharedInterface<Role>
     {
-        public List<Role> GetAll();
-        public Role GetDetail(int idRole);
 
     }
 }

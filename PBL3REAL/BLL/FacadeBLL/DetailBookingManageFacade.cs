@@ -2,7 +2,6 @@
 using HotelManagement.BLL.Implement;
 using HotelManagement.ViewModel;
 using PBL3REAL.BLL.Interfaces;
-using PBL3REAL.BLL.Interfaces;
 using PBL3REAL.Extention;
 using PBL3REAL.ViewModel;
 using System;

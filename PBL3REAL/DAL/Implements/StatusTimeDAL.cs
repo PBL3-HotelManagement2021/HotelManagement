@@ -18,12 +18,9 @@ namespace HotelManagement.DAL.Impl
 
         public void Add(List<StatusTime> listadd)
         {
-            try{
-                AppDbContext.Instance.StatusTimes.AddRange(listadd);
-                AppDbContext.Instance.SaveChanges();
-            }catch(Exception e){
-                throw ;
-            }
+            AppDbContext.Instance.StatusTimes.AddRange(listadd);
+            AppDbContext.Instance.SaveChanges();
+
 
         }
        

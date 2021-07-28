@@ -6,8 +6,7 @@ using System.Text;
 
 namespace PBL3REAL.DAL.Interfaces
 {
-    interface IStatusDAL
+    interface IStatusDAL : SharedInterface<Status>
     {
-        public List<Status> GetAll();
     }
 }

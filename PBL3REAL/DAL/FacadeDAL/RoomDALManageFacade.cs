@@ -38,7 +38,7 @@ namespace PBL3REAL.DAL.Facade
         }
         public Room FindRoomById(int id)
         {
-            return _roomDALProvider.Findbyid(id);
+            return _roomDALProvider.FindById(id);
         }
         public List<Room> FindAvailableRoom(int idRoomType, DateTime fromDate, DateTime toDate)
         {
@@ -57,7 +57,7 @@ namespace PBL3REAL.DAL.Facade
 
         public int GetRoomNextid()
         {
-            return _roomDALProvider.Getnextid();
+            return _roomDALProvider.GetNextId();
         }
 
         public void AddStatus(List<StatusTime> listadd)

@@ -19,24 +19,30 @@ namespace HotelManagement.DAL.Implement
         {
         }
 
-        public void Update(Room room)
+        public int Update(Room room)
         {
+            int trackedID = 0;
             AppDbContext.Instance.Rooms.Update(room);
             AppDbContext.Instance.SaveChanges();
-            AppDbContext.Instance.Entry(room).State = EntityState.Detached;           
+            trackedID = room.IdRoom;
+            AppDbContext.Instance.Entry(room).State = EntityState.Detached;
+            return trackedID;
         }
 
-        public void Add(Room room)
+        public int Add(Room room)
         {
+            int trackedID = 0;
             room.RoomActiveflag = true;
             AppDbContext.Instance.Rooms.Add(room);
             AppDbContext.Instance.SaveChanges();
-            AppDbContext.Instance.Entry(room).State = EntityState.Detached;         
+            trackedID = room.IdRoom;
+            AppDbContext.Instance.Entry(room).State = EntityState.Detached;
+            return trackedID;
         }
         public void Delete(int id)
         {
-                 Room room = AppDbContext.Instance.Rooms.Where(x => x.IdRoom ==id).SingleOrDefault();
-                 if (room != null) room.RoomActiveflag = false;
+            Room room = AppDbContext.Instance.Rooms.Where(x => x.IdRoom ==id).SingleOrDefault();
+            if (room != null) room.RoomActiveflag = false;
             AppDbContext.Instance.Rooms.Update(room);
             AppDbContext.Instance.SaveChanges();  
         }
@@ -48,7 +54,7 @@ namespace HotelManagement.DAL.Implement
             AppDbContext.Instance.Rooms.Update(room);
             AppDbContext.Instance.SaveChanges();
         }
-        public Room Findbyid(int id)
+        public Room FindById(int id)
         {
             var result = AppDbContext.Instance.Rooms.Where(x => x.IdRoom == id).Include(x => x.RoomIdroomtypeNavigation)
                                            .Include(x => x.StatusTimes)
@@ -153,7 +159,7 @@ namespace HotelManagement.DAL.Implement
         }
 
 
-        public int Getnextid()
+        public int GetNextId()
         {
             int id;
             using (var command = AppDbContext.Instance.Database.GetDbConnection().CreateCommand())
@@ -169,5 +175,9 @@ namespace HotelManagement.DAL.Implement
             return id;
         }
 
+        public List<Room> GetAll()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

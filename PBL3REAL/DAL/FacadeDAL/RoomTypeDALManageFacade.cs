@@ -24,28 +24,28 @@ namespace PBL3REAL.DAL.Facade
         }
         public void AddRoomtype(RoomType roomType)
         {
-            _roomtypeDALProvider.AddRoomtype(roomType);
+            _roomtypeDALProvider.Add(roomType);
         }
 
         public void DeleteRoomtype(int idRoomtype)
         {
-            _roomtypeDALProvider.DeleteRoomtype(idRoomtype);
+            _roomtypeDALProvider.Delete(idRoomtype);
         }
         public void RestoreRoomtype(int idRoomtype)
         {
-            _roomtypeDALProvider.restoreRoomtype(idRoomtype);
+            _roomtypeDALProvider.Restore(idRoomtype);
         }
         public void UpdateRoomtype(RoomType roomType)
         {
-            _roomtypeDALProvider.UpdateRoomtype(roomType);
+            _roomtypeDALProvider.Update(roomType);
         }
         public int GetnextidRoomType()
         {
-            return _roomtypeDALProvider.Getnextid();
+            return _roomtypeDALProvider.GetNextId();
         }
         public RoomType FindRoomtypeById(int id)
         {
-            return _roomtypeDALProvider.Findbyid(id);
+            return _roomtypeDALProvider.FindById(id);
         }
 
         public void DeleteImage(List<int> listdel)

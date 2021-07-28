@@ -20,7 +20,7 @@ namespace PBL3REAL.DAL
             return result;
         }
 
-        public Role GetDetail(int idRole)
+        public Role FindById(int idRole)
         {
             Role result = AppDbContext.Instance.Roles.Include(x=>x.Permissions).ThenInclude(y =>y.PerIdactionNavigation).Where(x=>x.IdRole == idRole).AsNoTracking().FirstOrDefault();
             foreach (var permission in result.Permissions.ToList())
@@ -28,6 +28,31 @@ namespace PBL3REAL.DAL
                 if (permission.PerActiveflag == false) result.Permissions.Remove(permission);
             }
             return result;
+        }
+
+        public int Add(Role t)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Update(Role t)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Restore(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int GetNextId()
+        {
+            throw new NotImplementedException();
         }
     }
 }

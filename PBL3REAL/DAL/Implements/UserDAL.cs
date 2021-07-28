@@ -63,23 +63,29 @@ namespace PBL3REAL.DAL
             return result;
         }
 
-        public void AddUser(User user)
+        public int Add(User user)
         {
+            int trackedId = 0;
             user.UserActiveflag = true;
             AppDbContext.Instance.Add(user);
             AppDbContext.Instance.SaveChanges();
+            trackedId = user.IdUser;
             AppDbContext.Instance.Entry(user).State = EntityState.Detached;
+            return trackedId;
         }
 
         
-        public void UpdateUser(User user)
+        public int Update(User user)
         {
+            int trackedId = 0;
             user.UserActiveflag = true;
             AppDbContext.Instance.Update(user);
             AppDbContext.Instance.SaveChanges();
+            trackedId = user.IdUser;
             AppDbContext.Instance.Entry(user).State = EntityState.Detached;
+            return trackedId;
         }
-        public void DelUser(int idUser)
+        public void Delete(int idUser)
         {
             User user = AppDbContext.Instance.Users.Where(x =>x.IdUser ==idUser).SingleOrDefault();
             user.UserActiveflag = false;
@@ -88,7 +94,7 @@ namespace PBL3REAL.DAL
             AppDbContext.Instance.Entry(user).State = EntityState.Detached;
         }
 
-        public void RestoreUser(int idUser)
+        public void Restore(int idUser)
         {
             User user = AppDbContext.Instance.Users.Where(x => x.IdUser == idUser).SingleOrDefault();
             user.UserActiveflag = true;
@@ -113,7 +119,7 @@ namespace PBL3REAL.DAL
             return result;
         }
 
-        public int Getnextid()
+        public int GetNextId()
         {
             int id;
             using (var command = AppDbContext.Instance.Database.GetDbConnection().CreateCommand())
@@ -127,6 +133,11 @@ namespace PBL3REAL.DAL
                 }
             }
             return id;
+        }
+
+        public List<User> GetAll()
+        {
+            throw new NotImplementedException();
         }
     }
 }

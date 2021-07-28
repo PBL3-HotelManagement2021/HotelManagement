@@ -16,7 +16,7 @@ namespace PBL3REAL.DAL.Implements
             return result;
         }
 
-        public void DelBookingDetail(List<int> listdel_detail)
+        public void Delete(List<int> listdel_detail)
         {
             List<BookingDetail> list = new List<BookingDetail>();
             foreach (int id in listdel_detail)
@@ -31,7 +31,7 @@ namespace PBL3REAL.DAL.Implements
                 AppDbContext.Instance.Entry(bookingDetail1).State = EntityState.Detached;
             }
         }
-        public void AddBookingDetail(List<BookingDetail> list)
+        public void Add(List<BookingDetail> list)
         {
             try
             {

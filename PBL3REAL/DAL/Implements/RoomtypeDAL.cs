@@ -39,15 +39,18 @@ namespace HotelManagement.DAL.Implement
             return result;
         }
 
-        public void AddRoomtype(RoomType roomType)
+        public int Add(RoomType roomType)
         {
+            int trackedId = 0;
             roomType.RoTyActiveflag = true;
             AppDbContext.Instance.RoomTypes.Add(roomType);
             AppDbContext.Instance.SaveChanges();
+            trackedId = roomType.IdRoomtype;
             AppDbContext.Instance.Entry(roomType).State = EntityState.Detached;
+            return trackedId;
         }
 
-        public void DeleteRoomtype(int idRoomtype)
+        public void Delete(int idRoomtype)
         {
             RoomType roomType = AppDbContext.Instance.RoomTypes.Where(x =>x.IdRoomtype == idRoomtype).SingleOrDefault();
             if (roomType != null)
@@ -60,7 +63,7 @@ namespace HotelManagement.DAL.Implement
             else throw new ArgumentException("Error while deleting roomtype");
         }
 
-        public void restoreRoomtype(int idRoomtype)
+        public void Restore(int idRoomtype)
         {
             RoomType roomType = AppDbContext.Instance.RoomTypes.Where(x => x.IdRoomtype == idRoomtype).SingleOrDefault();
             if (roomType != null)
@@ -73,15 +76,18 @@ namespace HotelManagement.DAL.Implement
             else throw new ArgumentException("Error while restoring roomtype");
         }
 
-        public void UpdateRoomtype(RoomType roomType)
+        public int Update(RoomType roomType)
         {
+            int trackedId = 0;
             AppDbContext.Instance.RoomTypes.Update(roomType);
             AppDbContext.Instance.SaveChanges();
+            trackedId = roomType.IdRoomtype;
             AppDbContext.Instance.Entry(roomType).State = EntityState.Detached;
+            return trackedId;
         }
 
 
-        public int Getnextid()
+        public int GetNextId()
         {
             int id;
             using (var command = AppDbContext.Instance.Database.GetDbConnection().CreateCommand())
@@ -97,10 +103,15 @@ namespace HotelManagement.DAL.Implement
             return id;
         }
 
-        public RoomType Findbyid(int id)
+        public RoomType FindById(int id)
         {
             RoomType roomType = AppDbContext.Instance.RoomTypes.Include(x => x.ImgStorages).Where(x => x.IdRoomtype == id).AsNoTracking().SingleOrDefault();
             return roomType;
+        }
+
+        public List<RoomType> GetAll()
+        {
+            throw new NotImplementedException();
         }
     }
 }

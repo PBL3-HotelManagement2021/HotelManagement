@@ -19,7 +19,7 @@ namespace PBL3REAL.DAL
         {
         }
 
-        public List<Booking> FindByProperty(int start, int length,CalendarVM searchByDate ,string search ,string orderby,string status)
+        public List<Booking> FindByProperties(int start, int length,CalendarVM searchByDate ,string search ,string orderby,string status)
         {
             var predicate = PredicateBuilder.True<Booking>();
             if (search != "") 
@@ -102,25 +102,30 @@ namespace PBL3REAL.DAL
         }
        
 
-        public void UpdateBooking(Booking booking)
+        public int Update(Booking booking)
         {
+            int trackedID = 0;
             AppDbContext.Instance.Update(booking);
             AppDbContext.Instance.SaveChanges();
+            trackedID = booking.IdBook;
             AppDbContext.Instance.Entry(booking).State = EntityState.Detached;
+            return trackedID;
         }
 
    
 
-        public void AddBooking(Booking booking)
+        public int Add(Booking booking)
         {
-
+            int trackedID = 0;
             AppDbContext.Instance.Add(booking);
             AppDbContext.Instance.SaveChanges();
+            trackedID = booking.IdBook;
             AppDbContext.Instance.Entry(booking).State = EntityState.Detached;
+            return trackedID;
 
         }
 
-        public void DelBooking(int idbook)
+        public void Delete(int idbook)
         {
             Booking result = AppDbContext.Instance.Bookings
                            .Include(x => x.BookingDetails)
@@ -173,7 +178,7 @@ namespace PBL3REAL.DAL
         }
 
 
-        public int Getnextid()
+        public int GetNextId()
         {
             int id;
             using (var command = AppDbContext.Instance.Database.GetDbConnection().CreateCommand())
@@ -187,6 +192,16 @@ namespace PBL3REAL.DAL
                 }
             }
             return id;
+        }
+
+        public List<Booking> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Restore(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

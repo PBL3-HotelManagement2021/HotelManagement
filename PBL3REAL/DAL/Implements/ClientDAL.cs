@@ -122,5 +122,15 @@ namespace PBL3REAL.DAL
         {
             return AppDbContext.Instance.Clients.Where(x => x.IdClient == id).AsNoTracking().SingleOrDefault();
         }
+
+        public List<Client> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public int GetNextId()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

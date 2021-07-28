@@ -7,8 +7,8 @@ namespace PBL3REAL.DAL.Interfaces
 {
     interface IBookingDetailDAL
     {
-        public void AddBookingDetail(List<BookingDetail> list);
-        public void DelBookingDetail(List<int> listdel_detail);
+        public void Add(List<BookingDetail> list);
+        public void Delete(List<int> listdel_detail);
         public List<BookingDetail> GetBookingDetail(int idbook);
 
     }

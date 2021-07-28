@@ -25,7 +25,7 @@ namespace PBL3REAL.DAL.Facade
 
         public List<Booking> FindBooking(int start, int length, CalendarVM searchByDate, string search, string orderby, string status)
         {
-            return _bookingDALProvider.FindByProperty(start, length, searchByDate, search, orderby, status);
+            return _bookingDALProvider.FindByProperties(start, length, searchByDate, search, orderby, status);
         }
         public Booking FindBookingById(int idbook)
         {
@@ -38,15 +38,15 @@ namespace PBL3REAL.DAL.Facade
         }
         public void UpdateBooking(Booking booking)
         {
-            _bookingDALProvider.UpdateBooking(booking);
+            _bookingDALProvider.Update(booking);
         }
         public void AddBooking(Booking booking)
         {
-            _bookingDALProvider.AddBooking(booking);
+            _bookingDALProvider.Add(booking);
         }
         public void DelBooking(int idbook)
         {
-            _bookingDALProvider.DelBooking(idbook);
+            _bookingDALProvider.Delete(idbook);
         }
         public void CheckinBooking(int idbook)
         {
@@ -58,7 +58,7 @@ namespace PBL3REAL.DAL.Facade
         }
         public int GetBookingnextid()
         {
-            return _bookingDALProvider.Getnextid();
+            return _bookingDALProvider.GetNextId();
         }
 
         public List<Room> FindRoomByIdBook(int idbook)
@@ -77,11 +77,11 @@ namespace PBL3REAL.DAL.Facade
 
         public void AddBookingDetail(List<BookingDetail> list)
         {
-             _bookingDetailDALProvider.AddBookingDetail(list);
+             _bookingDetailDALProvider.Add(list);
         }
         public void DelBookingDetail(List<int> listdel_detail)
         {
-             _bookingDetailDALProvider.DelBookingDetail(listdel_detail);
+             _bookingDetailDALProvider.Delete(listdel_detail);
         }
         public List<BookingDetail> GetBookingDetail(int idbook)
         {
