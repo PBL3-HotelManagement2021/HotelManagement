@@ -13,9 +13,9 @@ using PBL3REAL.BLL;
 using PBL3REAL.DAL;
 using PBL3REAL.ViewModel;
 using PBL3REAL.Algorithm;
+using PBL3REAL.BLL.Interfaces;
 using Microsoft.Office.Interop.Excel;
 using OfficeOpenXml;
-using PBL3REAL.BLL.Interfaces;
 
 namespace PBL3REAL.View
 {
@@ -159,11 +159,30 @@ namespace PBL3REAL.View
         }
 
         //--- Export ---//
+        //-> Create Storaging Folder
+        private void CreateStoragingStatisticFolder()
+        {
+            string palettesPath = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + "\\Statistic";
+            try
+            {
+                // If the directory doesn't exist, create it.
+                if (!System.IO.Directory.Exists(palettesPath))
+                {
+                    System.IO.Directory.CreateDirectory(palettesPath);
+                }
+            }
+            catch (Exception)
+            {
+                // Fail silently
+                MessageBox.Show("Error!");
+            }
+        }
         //-> Export to Image
         private void StatisticExporttoImage()
         {
+            CreateStoragingStatisticFolder();
             string path = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + "\\Statistic";
-            this.chart1.SaveImage(path + "\\Image" + "\\" + DateTime.Now.Year.ToString()
+            this.chart1.SaveImage(path + "\\" + DateTime.Now.Year.ToString()
                 + "-" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Day.ToString() + "-" + DateTime.Now.Hour.ToString()
                 + "-" + DateTime.Now.Minute.ToString() + "-" + DateTime.Now.Second.ToString() + " --- chart.png", ChartImageFormat.Png);
             //Resize DataGridView to full height.
@@ -178,7 +197,7 @@ namespace PBL3REAL.View
             dgv_Statistic.Height = height;
 
             //Save the Bitmap to folder.
-            bitmap.Save(path + "\\Image" + "\\" + DateTime.Now.Year.ToString()
+            bitmap.Save(path + "\\" + DateTime.Now.Year.ToString()
                 + "-" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Day.ToString() + "-" + DateTime.Now.Hour.ToString()
                 + "-" + DateTime.Now.Minute.ToString() + "-" + DateTime.Now.Second.ToString() + " --- DataList.png");
         }
@@ -253,23 +272,20 @@ namespace PBL3REAL.View
             switch (DataType)
             {
                 case 0:
-                    //Dictionary<DateTime, int> kvp = new Dictionary<DateTime, int>();
                     double[] xVals = new double[listVM1.Count];
                     double[] yVals = new double[listVM1.Count];
-                    int i = 0;
+                    int j = 0;
                     foreach (Statistic1 statistic1 in listVM1)
                     {
-                        xVals[i] = statistic1.TotalInvoiceByDate;
-                        yVals[i] = statistic1.TotalPriceByDate;
-                        i++;
+                        xVals[j] = statistic1.TotalInvoiceByDate;
+                        yVals[j] = statistic1.TotalPriceByDate;
+                        j++;
                     }
                     LinearRegression linearRegression = new LinearRegression(xVals, yVals);
                     linearRegression.PredictData();
-                    i = 1;
-                    foreach (Statistic1 statistic11 in listVM1)
+                    for (int i = 1; i <= 7; i++)
                     {
                         kvp.Add(DateTime.Now.Date.AddDays(i), Convert.ToInt32(linearRegression.yIntercept + linearRegression.slope * i));
-                        i++;
                     }
                     break;
                 case 1:
@@ -298,11 +314,30 @@ namespace PBL3REAL.View
         }
 
         //--- Export ---//
+        //-> Create Storaging Folder
+        private void CreateStoragingAnalyzeFolder()
+        {
+            string palettesPath = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + "\\Analyze";
+            try
+            {
+                // If the directory doesn't exist, create it.
+                if (!System.IO.Directory.Exists(palettesPath))
+                {
+                    System.IO.Directory.CreateDirectory(palettesPath);
+                }
+            }
+            catch (Exception)
+            {
+                // Fail silently
+                MessageBox.Show("Error!");
+            }
+        }
         //-> Export to Image
         private void AnalyzeExportToImage()
         {
+            CreateStoragingAnalyzeFolder();
             string path = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + "\\Analyze";
-            this.chart2.SaveImage(path + "\\Image" + "\\" + DateTime.Now.Year.ToString()
+            this.chart2.SaveImage(path + "\\" + DateTime.Now.Year.ToString()
                 + "-" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Day.ToString() + "-" + DateTime.Now.Hour.ToString()
                 + "-" + DateTime.Now.Minute.ToString() + "-" + DateTime.Now.Second.ToString() + " --- chart.png", ChartImageFormat.Png);
         }
