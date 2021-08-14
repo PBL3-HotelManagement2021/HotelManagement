@@ -18,19 +18,23 @@ namespace PBL3REAL.DAL
 
         public int Add(Client client)
         {
+            int trackedID = 0;
             client.CliActiveflag = true;
             AppDbContext.Instance.Clients.Add(client);
             AppDbContext.Instance.SaveChanges();
+            trackedID = client.IdClient;
             AppDbContext.Instance.Entry(client).State = EntityState.Detached;
-            return client.IdClient;
+            return trackedID;
         }
         public int Update(Client client)
         {
+            int trackedID = 0;
             client.CliActiveflag = true;
             AppDbContext.Instance.Clients.Update(client);
             AppDbContext.Instance.SaveChanges();
+            trackedID = client.IdClient;
             AppDbContext.Instance.Entry(client).State = EntityState.Detached;
-            return client.IdClient;
+            return trackedID;
         }
 
         public void Delete(int id)

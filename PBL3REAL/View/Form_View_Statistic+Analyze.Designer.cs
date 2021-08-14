@@ -80,7 +80,7 @@ namespace PBL3REAL.View
             this.tabPage_Statistic.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage_Statistic.Size = new System.Drawing.Size(1342, 785);
             this.tabPage_Statistic.TabIndex = 0;
-            this.tabPage_Statistic.Text = "Thống kê";
+            this.tabPage_Statistic.Text = "Statistic";
             this.tabPage_Statistic.UseVisualStyleBackColor = true;
             // 
             // grbx_Statistic
@@ -96,7 +96,7 @@ namespace PBL3REAL.View
             this.grbx_Statistic.Size = new System.Drawing.Size(1336, 779);
             this.grbx_Statistic.TabIndex = 0;
             this.grbx_Statistic.TabStop = false;
-            this.grbx_Statistic.Text = "Thống kê";
+            this.grbx_Statistic.Text = "Statistic ";
             // 
             // tbllaypn_Statistic
             // 
@@ -213,7 +213,7 @@ namespace PBL3REAL.View
             this.tabPage_Analyze.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage_Analyze.Size = new System.Drawing.Size(1342, 785);
             this.tabPage_Analyze.TabIndex = 1;
-            this.tabPage_Analyze.Text = "Phân tích";
+            this.tabPage_Analyze.Text = "Analyze";
             this.tabPage_Analyze.UseVisualStyleBackColor = true;
             // 
             // grbx_Analyze
@@ -227,7 +227,7 @@ namespace PBL3REAL.View
             this.grbx_Analyze.Size = new System.Drawing.Size(1336, 779);
             this.grbx_Analyze.TabIndex = 0;
             this.grbx_Analyze.TabStop = false;
-            this.grbx_Analyze.Text = "Phân tích";
+            this.grbx_Analyze.Text = "Analyze";
             // 
             // tbllaypn_Analyze
             // 

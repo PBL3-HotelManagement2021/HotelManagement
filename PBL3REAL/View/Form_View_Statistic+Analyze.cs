@@ -26,7 +26,7 @@ namespace PBL3REAL.View
         IInvoiceBLL invoiceBLL;
         List<Statistic1> listVM1;
         List<Statistic2> listVM2;
-
+        int days;
         //---------- FORM CONSTRUCTOR ----------//
         public Form_View_Statistic_Analyze(int DataType, DateTime from, DateTime to, bool Statistic, bool Analyze, bool Predict)
         {
@@ -43,6 +43,7 @@ namespace PBL3REAL.View
                         {
                             LoadStatisticsData(0, from, to);
                             DrawStatisticChart(0);
+                            days = (to - from).Days;
                         }
                         catch (Exception e1) { }
                     }
@@ -272,8 +273,8 @@ namespace PBL3REAL.View
             switch (DataType)
             {
                 case 0:
-                    double[] xVals = new double[listVM1.Count];
-                    double[] yVals = new double[listVM1.Count];
+                    double[] xVals = new double[listVM1.Count + days];
+                    double[] yVals = new double[listVM1.Count + days];
                     int j = 0;
                     foreach (Statistic1 statistic1 in listVM1)
                     {
@@ -281,6 +282,11 @@ namespace PBL3REAL.View
                         yVals[j] = statistic1.TotalPriceByDate;
                         j++;
                     }
+                    for (int k = j; k < (days + j); k++)
+                    {
+                        xVals[k] = 0;
+                        yVals[k] = 0;
+                    }    
                     LinearRegression linearRegression = new LinearRegression(xVals, yVals);
                     linearRegression.PredictData();
                     for (int i = 1; i <= 7; i++)

@@ -307,7 +307,7 @@ namespace HotelManagement.View
             this.grbx_RoomInfo.Size = new System.Drawing.Size(427, 291);
             this.grbx_RoomInfo.TabIndex = 0;
             this.grbx_RoomInfo.TabStop = false;
-            this.grbx_RoomInfo.Text = "Thông tin phòng";
+            this.grbx_RoomInfo.Text = "Room Detail";
             // 
             // grbx_FromToStatus
             // 
@@ -320,7 +320,7 @@ namespace HotelManagement.View
             this.grbx_FromToStatus.Size = new System.Drawing.Size(470, 291);
             this.grbx_FromToStatus.TabIndex = 0;
             this.grbx_FromToStatus.TabStop = false;
-            this.grbx_FromToStatus.Text = "Thiết lập trạng thái phòng ";
+            this.grbx_FromToStatus.Text = "Set Room Status";
             // 
             // tbllaypn_ControlButtons
             // 
